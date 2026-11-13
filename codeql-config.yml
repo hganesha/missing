@@ -1,0 +1,26 @@
+# CodeQL configuration for the SAST gate (.github/workflows/security.yml).
+#
+# The gate fails on every result; there is no severity threshold and inline suppressions
+# still count (scripts/security/check-sarif.mjs). A rule leaves the gate only by being
+# listed here, with the reason, after review. Keep this list short.
+name: IntegralFlow SAST
+query-filters:
+  # Reading a value from a mounted file and sending it over HTTP is the platform's
+  # credential model: workload identity tokens (WORKLOAD_TOKEN_FILE), `file:` credential
+  # references and private runtime files are mounted by the hosting platform and presented
+  # to the issuer or service they are for. Every flagged site is that pattern. Outbound
+  # destinations are separately restricted by origin allowlists.
+  # Reviewed 2026-11-09 by repository maintainers.
+  - exclude:
+      id: js/file-access-to-http
+  # The one result is SHA-256 over canonical JSON for content addressing (plan, package and
+  # artifact digests), not password storage. Digests must be fast and deterministic.
+  # Reviewed 2026-11-09 by repository maintainers.
+  - exclude:
+      id: js/insufficient-password-hash
+  # CodeQL recognizes only specific rate-limiting libraries. Every Fastify app it flags
+  # registers @ehf/rate-limit (rateLimitRequests) on all routes before any route is added;
+  # scripts/security/check-sarif.test.mjs fails if one stops doing so.
+  # Reviewed 2026-11-09 by repository maintainers.
+  - exclude:
+      id: js/missing-rate-limiting

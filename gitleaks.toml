@@ -1,0 +1,188 @@
+title = "EHF reviewed false-positive classifications"
+[extend]
+useDefault = true
+
+# These are exact public identifiers or synthetic test values, not credentials.
+# Path AND value must match; new content in these paths is still scanned.
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: synthetic envelope test material"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)apps/control-api/src/envelope-broker\.test\.ts$''', '''(^|/)apps/control-api/src/skill-delegation\.test\.ts$''', '''(^|/)apps/capability-gateway/src/skill-delegation\.test\.ts$''']
+regexes = ['''^broker-envelope-secret-for-tests-01$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: deliberate invalid provider credential input"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)apps/control-api/src/admin-config\.test\.ts$''', '''(^|/)packages/persistence/src/admin\.test\.ts$''']
+regexes = ['''^sk-or-v1-abcdef(0123456789)?$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: synthetic case authorization test material"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)apps/case-api/src/app\.test\.ts$''']
+regexes = ['''^an-attackers-envelope-secret-0001$''', '''^integration-service-token-for-tests-0001$''', '''^integration-envelope-secret-tests-0001$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: historical documentation checksum, not an API key"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)docs/implementation/checksums\.json$''']
+regexes = ['''^6dc62773a1d64f611bf0bd3874f406f99c052901940ee73cf3180f25d54c46df$''']
+
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: synthetic execution envelope test material"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)apps/control-api/src/runtime-state-routes\.test\.ts$''']
+regexes = ['''^execution-envelope-secret-000001$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: synthetic mock and journey identifiers (idempotency key, receipt id)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)e2e/ui/journeys-work\.spec\.ts$''', '''(^|/)packages/ui-mock/src/seeds\.ts$''']
+regexes = ['''^journey-c-cf12$''', '''^rcpt-kyb-1042-reg$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: KPI key name in UI contract fixtures, not an API key"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)(apps/fincrime-host/docs|docs/new-ui|docs/new-ui/ui)/(ui/)?contracts/fixtures/scenario\.kyb-1042\.json$''', '''(^|/)(apps/fincrime-host/docs|docs/new-ui|docs/new-ui/ui)/(ui/)?contracts/gen/fixtures_v2\.py$''']
+regexes = ['''^decision_latency_p50$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: policy route name in documentation, not an API key"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)docs/implementation/intelligence-control-plane\.md$''']
+regexes = ['''^policy/evaluation$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: local-only demo token, flag and test reference in vendor wiring docs"
+targetRules = ["generic-api-key", "curl-auth-header"]
+condition = "AND"
+paths = ['''(^|/)apps/kyc-wiring/README\.md$''', '''(^|/)apps/kyc-wiring/docs/Vendor_Testing_Guide\.md$''', '''(^|/)tools/kyc-provider-atlas/DATA-ADAPTERS-README\.md$''']
+regexes = ['''^demo-token-local-only$''', '''^VENDOR_TEST_ENABLED=1$''', '''^idenfy-test-unique-001$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: Plaid API operation names, not Plaid client IDs or secrets"
+targetRules = ["plaid-client-id", "plaid-secret-key"]
+condition = "AND"
+paths = ['''(^|/)apps/kyc-wiring/config/vendor-native-input\.examples\.json$''', '''(^|/)docs/CANONICAL_EXTERNAL_CAPABILITY_MODEL\.md$''']
+regexes = ['''^(watchlistScreeningEntityCreate|watchlistScreeningEntityUpdate|linkOauthCorrelationIdExchange|transactionsRecurringGet|userFinancialDataRefresh|sandboxPublicTokenCreate|sandboxIncomeFireWebhook)$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: example values from the vendors' published OpenAPI specifications"
+targetRules = ["generic-api-key", "jwt"]
+condition = "AND"
+paths = ['''(^|/)apps/kyc-wiring/vendor_connections/(schemas|definitions)/(plaid|flinks|discovered-flinks-9f4cae8dd7|fingerprint|mx)\.json$''']
+regexes = [
+  '''^79g03eoofwl8240v776r2h667442119$''',
+  '''^e004115db797f7cc3083bff3167cba30644ef630fb46f5b086cde6cc3b86a36f$''',
+  '''^pda-RDdg0TUCB0FB25_UPIlnhA==$''',
+  '''^pdr--viXurkDg88d5zf8m6Wl0g==$''',
+  '''^btok_5oEetfLzPklE1fwJZ7SG$''',
+  '''^(6087f84c-15ba-4113-82aa-a9d22ea6caac|e17778dc-a592-409e-a752-ee276b106f4c|55e387aa-4f2b-4b78-b568-222db22b96e6|d65f1adb-8ebc-48dc-be8b-20c773ba1565)$''',
+  '''^S9rgMMUb4z3X5t5pr_tSgoSZlmyF0O8X7kCV2m981-iY1LmRTjraa1rTk3L-hQExnDWCi0''',
+  '''^eyJhbGciOiJIUzI1NiJ9\.eyJpYXQiOjE2NDk3NjQ4MTMsImV4cCI6MTY0OTc2ODQxMywidXNlcl9ndWlkIjoiVVNSLWZhNzUzN2YzLTQ4YWEtYTY4My1hMDJhLWIxODk0MDQ4MmY1NCIsIm9yaWdfaWF0IjoxNjQ5NzY0ODEzfQ\.wnhdUerhFIGgwb9OJaKRfW2uTxJ9z7TJ0l2HLqvAMWs$''',
+]
+
+# Removed Azure deployment files that remain in history (scanned with --log-opts=--all).
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: public Microsoft Key Vault Secrets User built-in role identifier (historical Azure files)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)(deploy/azure/)?infra/modules/rbac\.bicep$''']
+regexes = ['''^4633458b-17de-408a-b874-0445c86b69e6$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: public Entra application client ID field, never a client secret (historical Azure files)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)(deploy/azure/)?environments/harness-foundation/environment\.json$''', '''(^|/)artifacts/deployment-preflight/2026-09-22/launch-intent\.json$''']
+regexTarget = "match"
+regexes = ['''^apiApplicationClientId":\s*"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: query parameter of the EU consolidated sanctions list's published public download URL (base64 of token-2017), not a credential"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)fixtures/context-corpus/(SOURCES\.json|sources/lists\.json)$''', '''(^|/)tools/context-corpus/sources/pinned/lists\.json$''', '''(^|/)tools/context-corpus/src/context_corpus/sources/lists\.py$''']
+regexes = ['''^dG9rZW4tMjAxNw$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: synthetic setup-console claim token used only by the launcher tests"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)apps/launcher/src/app\.test\.ts$''']
+regexes = ['''^first-administrator-claim-token-at-least-32-characters$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: synthetic service tokens and envelope secret for the live end-to-end tests' disposable stack"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)e2e/live/document-extraction\.test\.ts$''', '''(^|/)e2e/live/document-workspace\.test\.ts$''']
+regexes = ['''^document-test-edge-token-00000001$''', '''^document-test-runtime-token-0001$''', '''^document-test-envelope-secret-0001$''', '''^facet-integration-edge-token-00000001$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: SHA-256 digest of a migration file in a validation record, not an API key"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)artifacts/document-extraction\.validation\.json$''']
+regexes = ['''^dcb45d5b542f16fb38ff8ed86e5e06cbe8ecffa425e361c22684bd77a6727c50$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: application intake test idempotency keys, never authorization credentials"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)apps/experience-bff/src/application-intake\.test\.ts$''']
+regexes = ['''^application-key-[123]$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: synthetic APIM request UUID in the original Foundry model test commit"
+targetRules = ["generic-api-key"]
+condition = "AND"
+commits = ["38ea596f557d044dbd96443ded86ef3cf84d6cd9"]
+paths = ['''(^|/)packages/adapters/src/foundry-model\.test\.ts$''']
+regexes = ['''^3d144e34-3f96-428f-b38c-ad4dd9ae5846$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: public Azure Storage Blob Data Contributor and Reader built-in role identifiers"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)scripts/provision-azure-resources\.mjs$''']
+regexes = ['''^ba92f5b4-2d11-453d-a403-e96b0029c9fe$''', '''^acdd72a7-3385-48ef-bd42-f606fba81ae7$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: public Azure Key Vault Secrets User and Secrets Officer built-in role identifiers"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)deploy/azure/foundation\.bicep$''']
+regexes = ['''^4633458b-17de-408a-b874-0445c86b69e6$''', '''^b86a8fe4-44ce-4948-aee5-eccb2c155cd7$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: recorded SHA-256 of UI design token source files, not an API token"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)docs/audits/2026-11-09-ui/token-inventory\.json$''']
+regexes = ['''^f67bf1b5bb268c6c3ff153cc6e75f23c71498e1bc94e4620f719b09d9c883e12$''']
+
+[[allowlists]]
+description = "owner=repository-maintainers expires=2026-12-21: exact recorded source-file SHA-256 checksums in the UI build audit manifest"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)docs/audits/2026-11-09-ui/implementation/build-manifest\.json$''']
+regexes = [
+  '''^d8a3304ec9d79842e1cc7ed7aaa2d75977473a76ef0aefb29e2e56ce5ff86f9b$''',
+  '''^1c3ee0b2129dae5353456037c89634bff2f14a7e947fb12f6a44a3c528b8619a$''',
+  '''^a4b00b1617cc359e3d6ae2f8035c381e3cb9449d255f1a7fda5c3eee28b95e92$''',
+  '''^f0f5f4ee988701b58cd8b8946d0cf46e57f9bde3333a923d3edfda45ab758978$''',
+  '''^27f29d0d75065d63d93bdc2b1fde7b316fa5aff8417a16cd8fb1f7deaabab960$''',
+  '''^ac9e4706b852f8ab2d5b6c344f9d67d68ec0f09a679ca08f774c1e66c9c2c7ae$''',
+  '''^b3665145b2b7784086592cf350c8880bd51ac28d635c5b9a70bdc06b0cd23aaf$''',
+  '''^7bd2b4b4f8dd6596ef8e2a2cadb8a866ae940ae5437fc5a7593c3f12bcca1bf0$''',
+]

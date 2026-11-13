@@ -1,0 +1,23 @@
+node_modules/
+dist/
+.next/
+.env
+.env.local
+.DS_Store
+coverage/
+*.tsbuildinfo
+*.log
+.pnpm-debug.log*
+security-results/
+
+# Agent worktrees
+.claude/worktrees/
+.venv-py/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+# Local bootstrap state, claim tokens, launch receipts and exported deployment bundles.
+.integralflow/
+.factory-datasets/
+.claude/
