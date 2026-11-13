@@ -1,0 +1,418 @@
+{
+  "agentProfiles": [],
+  "apiVersion": "harness.factory/plan-v2",
+  "budgets": {
+    "maxCapabilityCalls": 6,
+    "maxCostUsd": 0.05,
+    "maxDurationMs": 60000,
+    "maxModelCalls": 0
+  },
+  "buildProvenanceDigest": "f06fa30abc6310d443b8b616099104f2aa6437845ccf30a40c0d41a331391bf3",
+  "capabilities": [
+    {
+      "adapterBindingId": "skills:sample.registry.verify",
+      "effect": "read",
+      "id": "skill.sample.registry.verify.v1",
+      "idempotent": true,
+      "inputSchema": {
+        "type": "object"
+      },
+      "kind": "tool",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "type": "object"
+      },
+      "timeoutMs": 20000
+    },
+    {
+      "adapterBindingId": "simulator:vendor.lookup",
+      "effect": "read",
+      "id": "business.registry.lookup.v1",
+      "idempotent": true,
+      "inputSchema": {
+        "type": "object"
+      },
+      "kind": "tool",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "type": "object"
+      },
+      "timeoutMs": 5000
+    },
+    {
+      "adapterBindingId": "simulator:screening.sanctions.search",
+      "effect": "read",
+      "id": "screening.sanctions.v1",
+      "idempotent": true,
+      "inputSchema": {
+        "type": "object"
+      },
+      "kind": "tool",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "type": "object"
+      },
+      "timeoutMs": 5000
+    }
+  ],
+  "compiler": {
+    "compatibilityVersion": "4",
+    "digest": "92eafe9b5c2489a4b75c107d949aa3a1ecf17345ee2b8aad720f9991ab551a1d",
+    "lgirCoreRevision": "fec01bf0fa5ff259c071439d63ad71c9979668f9",
+    "name": "harnessc",
+    "version": "1.0.0"
+  },
+  "contextClassificationPolicies": [
+    {
+      "action": "allow",
+      "classification": "PII"
+    }
+  ],
+  "contextSelectors": [
+    {
+      "classification": "PII",
+      "id": "subject",
+      "path": "subjects.0.display_name",
+      "purpose": "KYC_ONBOARDING",
+      "required": true,
+      "source": "case"
+    }
+  ],
+  "createdAt": "1970-01-01T00:00:00Z",
+  "dependencyManifest": [
+    {
+      "digest": "cf7f47cf07d0a5ec40bffb1309f3a4b31f4a82dcb1643233340f0ffa198ceb24",
+      "id": "package.yaml",
+      "kind": "source"
+    },
+    {
+      "digest": "e3e9884e9254a514cfd7a5fda295f27c52e47b4f154ce741b77edba0485e9578",
+      "id": "workflow.yaml",
+      "kind": "source"
+    }
+  ],
+  "dependencyManifestDigest": "1bb2d9f42747ae3c1923c68d368fafea5984e5166e56188b86d6a948b09605d8",
+  "execution": {
+    "coordinationMode": "caseStore",
+    "durability": "durable",
+    "engine": {
+      "adapterVersion": "harness-runtime-v2",
+      "kind": "harness-runtime",
+      "profile": "production-v2"
+    },
+    "maxConcurrency": 1,
+    "maxTransitions": 10000
+  },
+  "graph": {
+    "apiVersion": "ladder.dev/v1alpha1",
+    "edges": [
+      {
+        "condition": "",
+        "from": "intake",
+        "id": "e1",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "registry-verify"
+      },
+      {
+        "condition": "",
+        "from": "registry-verify",
+        "id": "e2",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "sanctions-screen"
+      },
+      {
+        "condition": "",
+        "from": "sanctions-screen",
+        "id": "e3",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "result"
+      }
+    ],
+    "name": "skill-hosted-registry",
+    "nodeOrder": [
+      "intake",
+      "registry-verify",
+      "sanctions-screen",
+      "result"
+    ],
+    "nodes": [
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [],
+        "id": "intake",
+        "inputSchema": null,
+        "kind": "input",
+        "name": "Intake",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "capabilityId": "skill.sample.registry.verify.v1",
+          "carry": {},
+          "caseWrites": [
+            {
+              "commandType": "LinkEvidence",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "ProposeClaim",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "RecordScreeningFinding",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "RaiseContradiction",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "ProposeWorkItem",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "RecordCanonicalRecords",
+              "skillGrant": "proposal"
+            }
+          ],
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "skillId": "sample.registry.verify",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [
+          "subject"
+        ],
+        "id": "registry-verify",
+        "inputSchema": null,
+        "kind": "tool",
+        "name": "Registry verification",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "capabilityId": "screening.sanctions.v1",
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [
+          "subject"
+        ],
+        "id": "sanctions-screen",
+        "inputSchema": null,
+        "kind": "tool",
+        "name": "Sanctions screen",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [],
+        "id": "result",
+        "inputSchema": null,
+        "kind": "output",
+        "name": "Result",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      }
+    ]
+  },
+  "kind": "HarnessPlan",
+  "metadata": {
+    "domain": "conformance",
+    "name": "skill-hosted-registry",
+    "objective": "Run a business skill on a skill host with a delegated envelope.",
+    "version": "0.1.0"
+  },
+  "modelProfiles": [],
+  "packageDigest": "1bb2d9f42747ae3c1923c68d368fafea5984e5166e56188b86d6a948b09605d8",
+  "permissionEnvelopes": [
+    {
+      "capabilities": [
+        "skill.sample.registry.verify.v1",
+        "business.registry.lookup.v1"
+      ],
+      "digest": "f9e6265110abb038577289cb809c649e62931f75d10080057d743e25c0b03bf3",
+      "effects": [
+        "read"
+      ],
+      "nodeId": "registry-verify"
+    },
+    {
+      "capabilities": [
+        "screening.sanctions.v1"
+      ],
+      "digest": "889347eb0f7badf13c7f25c72b543d2d4aea87d2b4218399c086a6f43bce3f7e",
+      "effects": [
+        "read"
+      ],
+      "nodeId": "sanctions-screen"
+    }
+  ],
+  "planDigest": "97a8229441afe0bec803782fb2e7087d7eae7cf6bf38ea656fb209a6dfb5d6b3",
+  "planId": "skill-hosted-registry@0.1.0:97a8229441af",
+  "policyBundles": [],
+  "releaseConstraints": {
+    "dataClasses": [
+      "PII"
+    ],
+    "evaluationRequirementIds": [
+      "skill-host-conformance"
+    ],
+    "regions": [
+      "US"
+    ]
+  },
+  "schemas": {
+    "input": {
+      "properties": {
+        "caseId": {
+          "type": "string"
+        },
+        "tenantId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenantId",
+        "caseId"
+      ],
+      "type": "object"
+    },
+    "output": {
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "schemaSetDigest": "26291ed3d17989b95d415ef747b607de3e62e3ea3acafd7a96595ad9ff9e8baf"
+  },
+  "skillBindings": [
+    {
+      "bundleDigest": "sha256:c0e0ba20bd921f24f6a1b095f5fd049bfcb5cb79a66208f0acea870ef29e852f",
+      "candidates": [
+        {
+          "capabilityId": "skill.sample.registry.verify.v1",
+          "connectorId": "skills:sample.registry.verify",
+          "equivalentCoverageGroup": null
+        }
+      ],
+      "dependencyCapabilities": [
+        "business.registry.lookup.v1"
+      ],
+      "effects": {
+        "approval": "none",
+        "caseCommands": [],
+        "mode": "proposal"
+      },
+      "manifestDigest": "cb3624e365a1cdd6a25a7ca0f0db0aae0b517c3b62c6ccc604b738ef60c162e3",
+      "policy": {
+        "allow_fallback": false,
+        "log_selected_implementation": true,
+        "require_entitlement": false,
+        "require_jurisdiction_coverage": false,
+        "require_list_freshness": false
+      },
+      "semver": "0.1.0",
+      "skillId": "sample.registry.verify"
+    }
+  ]
+}

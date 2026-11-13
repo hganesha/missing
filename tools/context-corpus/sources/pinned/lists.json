@@ -1,0 +1,313 @@
+{
+  "entries": [
+    {
+      "dob": [
+        "25 Dec 1969"
+      ],
+      "identifiers": [
+        "MECC691225HMNNNP01"
+      ],
+      "list": "ofac-sdn",
+      "name": "MENDOZA CONTRERAS, Cipriano",
+      "programs": [
+        "SDNTK"
+      ],
+      "raw_sha256": "250019d09905dc1c6cd644abb01ea91e58aae4641482faab3a6fb7887ca9fb38",
+      "remarks": "DOB 25 Dec 1969; POB Tepalcatepec, Michoacan; nationality Mexico; citizen Mexico; C.U.R.P. MECC691225HMNNNP01 (Mexico).",
+      "type": "individual",
+      "uid": "11938"
+    },
+    {
+      "dob": [],
+      "identifiers": [
+        "7703695246"
+      ],
+      "list": "ofac-sdn",
+      "name": "JOINT STOCK COMPANY CONCERN RADIO ELECTRONIC TECHNOLOGIES",
+      "programs": [
+        "UKRAINE-EO13661",
+        "RUSSIA-EO14024"
+      ],
+      "raw_sha256": "e9b4040089e6a29daf61999492cfa317f97caf818164b7d70e0dfad6172584a1",
+      "remarks": "Secondary sanctions risk: Ukraine-/Russia-Related Sanctions Regulations, 31 CFR 589.201 and/or 589.209; alt. Secondary sanctions risk: See Section 11 of Executive Order 14024.; Registration ID 1097746084666 (Russia); Tax ID No. 7703695246 (Russia); a.k.a. 'KRET'.",
+      "type": "entity",
+      "uid": "16868"
+    },
+    {
+      "dob": [
+        "27 Oct 1971"
+      ],
+      "identifiers": [
+        "35171469484",
+        "4220149109527",
+        "ZG4109521"
+      ],
+      "list": "ofac-sdn",
+      "name": "QAMAR, Naveed",
+      "programs": [
+        "SDGT"
+      ],
+      "raw_sha256": "4128c9d22c6a337653245270b302497011a8833887e224e4ef379df64891e031",
+      "remarks": "DOB 27 Oct 1971; POB Bahawalnagar, Pakistan; alt. POB Lahore, Punjab Province, Pakistan; nationality Pakistan; Secondary sanctions risk: section 1(b) of Executive Order 13224, as amended by Executive Order 13886; Passport ZG4109521 (Pakistan) issued 07 Jun 2008 expires 06 Jun 2013; National ID No. 4220149109527 (Pakistan); alt. National ID No. 35171469484 (Pakistan); Linked To: LASHKAR E-TAYYIBA.",
+      "type": "individual",
+      "uid": "19689"
+    },
+    {
+      "dob": [
+        "03 Jul 1970"
+      ],
+      "identifiers": [
+        "10352300"
+      ],
+      "list": "ofac-sdn",
+      "name": "CALDERON CHIRINOS, Carlos Alberto",
+      "programs": [
+        "VENEZUELA-EO13884"
+      ],
+      "raw_sha256": "91a2099d7681a494cea463cbb92374f163537cfd73c0c1f4122d76e96fe5edae",
+      "remarks": "DOB 03 Jul 1970; Gender Male; Cedula No. 10352300 (Venezuela).",
+      "type": "individual",
+      "uid": "27724"
+    },
+    {
+      "dob": [
+        "04 Dec 1969"
+      ],
+      "identifiers": [
+        "02601165380"
+      ],
+      "list": "ofac-sdn",
+      "name": "CALDERON RIJO, Jose",
+      "programs": [
+        "ILLICIT-DRUGS-EO14059"
+      ],
+      "raw_sha256": "67406d15934023fafdff001c26b24b6c3b1b007a505760418c5ed9012d5cc540",
+      "remarks": "DOB 04 Dec 1969; POB La Romana, Dominican Republic; nationality Dominican Republic; citizen Dominican Republic; Gender Male; Cedula No. 02601165380 (Dominican Republic); a.k.a. 'La Arana'.",
+      "type": "individual",
+      "uid": "38296"
+    },
+    {
+      "dob": [
+        "09 Aug 1970"
+      ],
+      "identifiers": [
+        "631500379803"
+      ],
+      "list": "ofac-sdn",
+      "name": "AZAROV, Dmitriy Igorevich",
+      "programs": [
+        "RUSSIA-EO14024"
+      ],
+      "raw_sha256": "c8d153d0fe468cf8c56f7d86befcb3f3bead3cb6039c5c49e61e1c88e59c2a97",
+      "remarks": "DOB 09 Aug 1970; POB Samara, Russia; nationality Russia; citizen Russia; Gender Male; Secondary sanctions risk: See Section 11 of Executive Order 14024.; Tax ID No. 631500379803 (Russia).",
+      "type": "individual",
+      "uid": "40276"
+    },
+    {
+      "dob": [
+        "01 Aug 1992"
+      ],
+      "identifiers": [
+        "06587862"
+      ],
+      "list": "ofac-sdn",
+      "name": "GABER, Khaled Hussein Saleh",
+      "programs": [
+        "SDGT"
+      ],
+      "raw_sha256": "90f7120b6f238d6f5ad29641e190c6fcb0314383cb96db82344408ebf922b2a6",
+      "remarks": "DOB 01 Aug 1992; nationality Yemen; Gender Male; Secondary sanctions risk: section 1(b) of Executive Order 13224, as amended by Executive Order 13886; Passport 06587862 (Yemen) expires 05 Jun 2028; Linked To: ANSARALLAH.",
+      "type": "individual",
+      "uid": "52917"
+    },
+    {
+      "dob": [
+        "1962-02-01"
+      ],
+      "identifiers": [],
+      "list": "un-consolidated",
+      "name": "DJAMEL LOUNICI",
+      "programs": [
+        "Al-Qaida"
+      ],
+      "raw_sha256": "20c89ec24e48d808155333cd4df4bd239b915732c440a099dd9e7f0b2a78eeed",
+      "remarks": "Father's name is Abdelkader. Mother's name is Djohra Birouch. Returned from France to Algeria where he resides since Sep. 2008 INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
+      "type": "individual",
+      "uid": "112494"
+    },
+    {
+      "dob": [
+        "1961-10-01"
+      ],
+      "identifiers": [
+        "002955916",
+        "101856740",
+        "261122400761"
+      ],
+      "list": "un-consolidated",
+      "name": "MUBARAK MUSHAKHAS SANAD MUBARAK AL-BATHALI",
+      "programs": [
+        "Al-Qaida"
+      ],
+      "raw_sha256": "bc221db2956f0f914523dd63586af00e2a1d5814698bc78f28b591192eea4ff6",
+      "remarks": "Sentenced to prison by Kuwait on 24 August 2018 INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
+      "type": "individual",
+      "uid": "2797841"
+    },
+    {
+      "dob": [
+        "1965-08-07"
+      ],
+      "identifiers": [
+        "563410081"
+      ],
+      "list": "un-consolidated",
+      "name": "RYU JIN",
+      "programs": [
+        "DPRK"
+      ],
+      "raw_sha256": "372c1b171f4b026d32cfea1d20016e442cbb561201337720d0928fbffc2dd2ef",
+      "remarks": "",
+      "type": "individual",
+      "uid": "6908514"
+    },
+    {
+      "dob": [
+        "1969-11-13"
+      ],
+      "identifiers": [
+        "PD472310104"
+      ],
+      "list": "un-consolidated",
+      "name": "KIM SE GON",
+      "programs": [
+        "DPRK"
+      ],
+      "raw_sha256": "2c6bbdff3e3a85b306ce206ed9261ca585d08849d12a73f18902f6f0c148e1a8",
+      "remarks": "Kim Se Gon works on behalf of the Ministry of Atomic Energy Industry.",
+      "type": "individual",
+      "uid": "6908573"
+    },
+    {
+      "dob": [],
+      "identifiers": [
+        "3010177E015PB7"
+      ],
+      "list": "uk-sanctions",
+      "name": "Filip Vladimirovich  STURCHANKA",
+      "programs": [
+        "The Republic of Belarus (Sanctions) (EU Exit) Regulations 2019"
+      ],
+      "raw_sha256": "f31ae8e336f7cdc535b85bd8fa7a6ae714dc98639bc4818d7c19b60a69334597",
+      "remarks": "The Director Disqualification Sanction was imposed on 09/04/2025.",
+      "type": "individual",
+      "uid": "BEL0162"
+    },
+    {
+      "dob": [],
+      "identifiers": [
+        "29135894Z66",
+        "EN183928",
+        "FN920256",
+        "VUK491921"
+      ],
+      "list": "uk-sanctions",
+      "name": "Kudakwashe Regimond Tagwirei",
+      "programs": [
+        "The Global Anti-Corruption Sanctions Regulations 2021"
+      ],
+      "raw_sha256": "d9e6750ab368147effc941f70d1ed288d4bf9537f0e25317503b34a621e2f8c9",
+      "remarks": "The Director Disqualification Sanction was imposed on 09/04/2025.",
+      "type": "individual",
+      "uid": "GAC0023"
+    },
+    {
+      "dob": [],
+      "identifiers": [
+        "SA000417"
+      ],
+      "list": "uk-sanctions",
+      "name": "Daba Naualna",
+      "programs": [
+        "The Republic of Guinea-Bissau (Sanctions) (EU Exit) Regulations 2019"
+      ],
+      "raw_sha256": "522c325610b472f78bc5efcb15504ecb72b6fb4b11f60d54f0e515ebb0b3eb02",
+      "remarks": "Naualna was listed on 18 May 2012 pursuant to paragraph 4 of resolution 2048 (2012) as “Spokesperson of the “Military Command” which has assumed responsibility for the coup d’état of 12 April 2012.” Father’s name is Samba Naualna; Mother’s name is In-Uasne Nanfafe. INTERPOL-UN Security Council Speci",
+      "type": "individual",
+      "uid": "GUB0016"
+    },
+    {
+      "dob": [],
+      "identifiers": [
+        "200275550",
+        "732975994"
+      ],
+      "list": "uk-sanctions",
+      "name": "Airat Zakievich FARRAKHOV",
+      "programs": [
+        "The Russia (Sanctions) (EU Exit) Regulations 2019"
+      ],
+      "raw_sha256": "f245d96a73c1e59f2fe66c90b1c04adae757212fcde9e5bf285b6926b01be778",
+      "remarks": "The Director Disqualification Sanction was imposed on 09/04/2025.",
+      "type": "individual",
+      "uid": "RUS0596"
+    },
+    {
+      "dob": [],
+      "identifiers": [
+        "10352300"
+      ],
+      "list": "uk-sanctions",
+      "name": "Carlos Alberto Calderon Chirinos",
+      "programs": [
+        "The Venezuela (Sanctions) (EU Exit) Regulations 2019"
+      ],
+      "raw_sha256": "5540eee208deacb328e0396adae9bb565f55386e2bff1a2f0caf2d103f7dd86f",
+      "remarks": "The Director Disqualification Sanction was imposed on 09/04/2025.",
+      "type": "individual",
+      "uid": "VEN0021"
+    }
+  ],
+  "sources": [
+    {
+      "bytes": 5833851,
+      "entries_in_list": 17651,
+      "entries_pinned": 7,
+      "id": "ofac-sdn",
+      "licence": "US government work; public domain",
+      "retrieved_at": "2026-11-09T08:15:34Z",
+      "sha256": "7f43332dae0d1b78ce44c31692d87a3c66e4075bcd97e36d3f18585572ff55b8",
+      "status": "collected",
+      "url": "https://www.treasury.gov/ofac/downloads/sdn.csv"
+    },
+    {
+      "bytes": 2177566,
+      "entries_in_list": 1007,
+      "entries_pinned": 4,
+      "id": "un-consolidated",
+      "licence": "UN Security Council public data; free to use with attribution",
+      "retrieved_at": "2026-11-09T08:15:36Z",
+      "sha256": "a61ed5984d9139e968a5a747b2c8c3479a0d537ed344bd670c41db458163bc1b",
+      "status": "collected",
+      "url": "https://scsanctions.un.org/resources/xml/en/consolidated.xml"
+    },
+    {
+      "bytes": 22084218,
+      "entries_in_list": 6418,
+      "entries_pinned": 5,
+      "id": "uk-sanctions",
+      "licence": "Open Government Licence v3.0 (FCDO)",
+      "retrieved_at": "2026-11-09T08:15:37Z",
+      "sha256": "b9edf715b3eae03c5e6ea0f6e060ebb19a6b3ebba06d6b98d038f5d12376d4ab",
+      "status": "collected",
+      "url": "https://sanctionslist.fcdo.gov.uk/docs/UK-Sanctions-List.xml"
+    },
+    {
+      "id": "eu-consolidated",
+      "licence": "EU open data (Commission reuse policy)",
+      "reason": "curl exit 22: curl: (22) The requested URL returned error: 500\n",
+      "status": "unavailable",
+      "url": "https://webgate.ec.europa.eu/fsd/fsf/public/files/xmlFullSanctionsList_1_1/content?token=dG9rZW4tMjAxNw"
+    }
+  ]
+}

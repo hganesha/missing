@@ -1,0 +1,13 @@
+{
+  "company_name": "EXAMPLE WORKSHOP LTD",
+  "company_number": "00000001",
+  "company_status": "active",
+  "jurisdiction": "england-wales",
+  "date_of_creation": "2020-01-01",
+  "registered_office_address": {
+    "address_line_1": "1 Example Street",
+    "locality": "London",
+    "country": "England",
+    "postal_code": "EX1 1AA"
+  }
+}

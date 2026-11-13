@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kyc-provider-atlas.local/schemas/v2/registry-envelope.schema.json",
+  "title": "Capability model registry file",
+  "description": "Envelope for generated registry files. Records are validated by their record schema; sources pin the inputs the file was built from.",
+  "type": "object",
+  "properties": {
+    "registry": {
+      "type": "string",
+      "enum": [
+        "capability_definitions",
+        "jurisdictions",
+        "capability_bindings",
+        "legacy_crosswalk",
+        "operation_mappings"
+      ]
+    },
+    "model_version": {
+      "const": "2.0.0"
+    },
+    "record_schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "const": "proposed_not_enabled"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "record_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "records": {
+      "type": "array"
+    },
+    "vocabulary": {
+      "type": "array"
+    },
+    "fixture_adapters": {
+      "type": "array"
+    },
+    "provider_aliases": {
+      "type": "array"
+    },
+    "version_conflicts": {
+      "type": "array"
+    },
+    "binding_index": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minItems": 1
+      }
+    }
+  },
+  "required": [
+    "registry",
+    "model_version",
+    "record_schema",
+    "generated_by",
+    "status",
+    "sources",
+    "record_count",
+    "records"
+  ],
+  "additionalProperties": false
+}

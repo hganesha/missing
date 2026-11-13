@@ -1,0 +1,73 @@
+{
+  "adapter_id": "gleif",
+  "provider_id": "gleif",
+  "adapter_version": "0.1.0",
+  "host_schema_version": "1.0.0",
+  "capability": "reference.identifier.lookup",
+  "maturity": "fixture_tested",
+  "enabled": false,
+  "native": {
+    "method": "GET",
+    "path": "/api/v1/lei-records/{lei}",
+    "api_version": "v1",
+    "authentication": "Public endpoint; fair-use terms apply",
+    "documentation_urls": [
+      "https://www.gleif.org/en/lei-data/gleif-api",
+      "https://api.gleif.org/docs"
+    ],
+    "fixture_only": true
+  },
+  "mapping_rules": [
+    {
+      "source_pointer": "/data/attributes/lei",
+      "target_pointer": "/entities/0/identifiers",
+      "transform": "scheme LEI; example not checksum-valid",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S11",
+        "S12"
+      ]
+    },
+    {
+      "source_pointer": "/data/attributes/entity/legalName/name",
+      "target_pointer": "/entities/0/names",
+      "transform": "copy",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S11",
+        "S12"
+      ]
+    },
+    {
+      "source_pointer": "/data/attributes/entity/status",
+      "target_pointer": "/entities/0/status_original",
+      "transform": "entity status distinct from LEI registration.status; no UBO inference",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S11",
+        "S12"
+      ]
+    }
+  ],
+  "supported_countries": [],
+  "entitlement_ref": null,
+  "secret_ref": null,
+  "transport_requirements": [
+    "TLS",
+    "approved regional base URL allowlist",
+    "secret vault injection",
+    "rate limiting and circuit breaker",
+    "bounded retry with jitter and idempotency",
+    "verify raw webhook signatures before decoding",
+    "durable inbox and tenant-bound correlation",
+    "replay and stale-event protection",
+    "original-byte hash and encrypted evidence storage"
+  ],
+  "limitations": [
+    "Synthetic representative payload subset only; not vendor-certified",
+    "No live HTTP, authentication, webhook signature, or sandbox integration implemented",
+    "No proof of contractual dataset coverage, country entitlements, retention rights or bank adoption",
+    "Empty country allowlist blocks live routing",
+    "Unmapped native properties available only in restricted raw artifact"
+  ]
+}

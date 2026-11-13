@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "request_id": "demo-middesk",
+  "tenant_id": "demo-tenant",
+  "idempotency_key": "demo-middesk-v1",
+  "capability": "business.verify",
+  "subject_entity_id": "subject-001",
+  "entities": [
+    {
+      "entity_id": "subject-001",
+      "entity_type": "organization",
+      "names": [
+        {
+          "full": "Example Workshop Ltd",
+          "kind": "legal"
+        }
+      ],
+      "identifiers": []
+    }
+  ],
+  "purpose": "customer_due_diligence",
+  "legal_basis": "example_only_not_a_legal_determination",
+  "consent_ref": "example://consent/001",
+  "policy": {
+    "policy_id": "example-cdd",
+    "policy_version": "1",
+    "jurisdictions": [
+      "GB"
+    ],
+    "data_residency_allowlist": [
+      "GB"
+    ]
+  },
+  "routing": {
+    "provider_allowlist": [
+      "middesk"
+    ],
+    "required_datasets": [],
+    "allow_fallback": false
+  },
+  "input": {
+    "provider_record_id": "synthetic-record"
+  },
+  "extensions": {
+    "synthetic": true
+  }
+}

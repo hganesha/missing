@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "context-corpus"
+version = "0.1.0"
+description = "Deterministic, contract-valid test context corpus for skills and workflows"
+requires-python = ">=3.11"
+dependencies = [
+  "PyYAML>=6.0,<7",
+  "jsonschema>=4.21,<5",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+context-corpus = "context_corpus.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-m 'not slow'"
+markers = ["slow: runs the skill library on the corpus (pytest -m slow)"]

@@ -1,0 +1,70 @@
+# H02: individual with a published near-miss on OFAC. The local scorer sees conflicting identifiers
+# (score 0), but the provider still returned the entry as a candidate, so a human must clear it.
+id: H02
+seed: 1002
+as_of: 2026-09-30
+customer: mateo
+entities:
+  - ref: mateo
+    kind: individual
+    name: Mateo Ríos Calderón
+    dob: 1983-06-21
+    nationality: ES
+    verification: government_id_document
+    address: { lines: ["Calle de Alcalá 112, 4B"], locality: Madrid, postal_code: "28009", country: ES }
+    identifiers:
+      - { type: national_id, issuer: ES-SPECIMEN, value: SPECIMEN-H02-DNI-0001, verified: true }
+      - { type: curp, issuer: MX-SPECIMEN, value: SPECIMEN-H02-CURP-0001, verified: true }
+    aliases:
+      - { name: Mateo Rios Calderon, language: es, script: Latn }
+      - { name: "Rios Calderon, Mateo", language: es, script: Latn }
+officers: []
+relationship:
+  institution: bank.synthetic
+  booking_jurisdiction: ES
+  policy_jurisdiction: US
+  started: 2026-08-17
+  risk_tier: MEDIUM
+  ownership_complete: null
+  parties:
+    - { entity: mateo, role: customer }
+  products:
+    - type: deposit
+      currencies: [EUR]
+      countries: [ES, MX]
+      channels: [online]
+      expected_activity: { monthly_inflow: "2600", monthly_outflow: "2400", currency: EUR, transaction_count: 30, cash_exposure: false, counterparty_countries: [ES, MX], counterparty_types: [individual], rails: [sepa, swift] }
+    - type: payments
+      currencies: [EUR]
+      countries: [ES, MX]
+      channels: [online]
+  geography:
+    - { country: ES, basis: residence, value: "0.7" }
+    - { country: MX, basis: nationality, value: "0.3" }
+source_of_funds:
+  - { claim: "Salaried employment as a logistics analyst in Madrid", verified: true }
+risk_factors:
+  - { name: geography, score: "0.20" }
+  - { name: product, score: "0.10" }
+  - { name: screening_candidate, score: "0.35" }
+screening:
+  provider: synthetic-lists
+  capability: screening.sanctions.v1
+  types: [sanctions, pep, adverse_media]
+  lists: [ofac-sdn, un-consolidated, uk-sanctions, synthetic-designations, synthetic-peps]
+  hits:
+    - { subject: mateo, entry: "ofac-sdn:38296" }
+  dataset_versions: [synthetic-lists-2026-09-29]
+  scope: [ofac-sdn, un-consolidated, uk-sanctions, synthetic-designations]
+  list_published: 2026-09-29
+expected:
+  workflow:
+    kyc_v2: REVIEW_THEN_CLEAR
+  alerts: 0
+  intended_near_misses: ["ofac-sdn:38296"]
+  screening:
+    candidate: "ofac-sdn:38296"
+    disposition: FALSE_MATCH_CANDIDATE
+  notes: >
+    Published entry CALDERON RIJO, Jose (DOB 4 Dec 1969, Dominican cedula) against a customer born 1983
+    with Spanish and Mexican identifiers: the identifiers conflict. A reviewer, not the skill, clears it.

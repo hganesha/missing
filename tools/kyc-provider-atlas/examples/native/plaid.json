@@ -1,0 +1,20 @@
+{
+  "request_id": "synthetic-plaid-request",
+  "accounts": [
+    {
+      "account_id": "synthetic-account",
+      "legal_name": {
+        "score": 94
+      },
+      "phone_number": {
+        "score": null
+      },
+      "email_address": {
+        "score": 73
+      },
+      "address": {
+        "score": 88
+      }
+    }
+  ]
+}

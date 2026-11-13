@@ -1,0 +1,157 @@
+{
+  "description": "Reviewed source-specific corrections: section 5.2. These are not reversible aliases; legacy calls return migration_required until clients are updated.",
+  "corrections": [
+    {
+      "provider_id": "fincen-boi",
+      "legacy_capability": "business.registry.lookup",
+      "capability_paths": [
+        "business.ownership"
+      ],
+      "reason": "BOI is ownership/control information; restricted source, not a general company registry.",
+      "note": "BOI is ownership/control information; restricted source, not a general company registry.",
+      "migration": "semantic_correction"
+    },
+    {
+      "provider_id": "mexico-renapo",
+      "legacy_capability": "business.registry.lookup",
+      "capability_paths": [
+        "identity.person"
+      ],
+      "reason": "Catalog notes identify CURP/person identity, not a business registry.",
+      "note": "Catalog notes identify CURP/person identity, not a business registry.",
+      "migration": "semantic_correction"
+    },
+    {
+      "provider_id": "saudi-elm",
+      "legacy_capability": "business.registry.lookup",
+      "capability_paths": [
+        "identity.person"
+      ],
+      "reason": "Catalog notes identify Yakeen identity service, not a business registry.",
+      "note": "Catalog notes identify Yakeen identity service, not a business registry.",
+      "migration": "semantic_correction"
+    },
+    {
+      "provider_id": "bahrain-benefit-ekyc",
+      "legacy_capability": "business.registry.lookup",
+      "capability_paths": [
+        "identity.person"
+      ],
+      "reason": "Catalog notes identify national eKYC, not a business registry.",
+      "note": "Catalog notes identify national eKYC, not a business registry.",
+      "migration": "semantic_correction"
+    },
+    {
+      "provider_id": "mexico-sat",
+      "legacy_capability": "business.registry.lookup",
+      "capability_paths": [
+        "identity.tax_id"
+      ],
+      "reason": "Catalog notes identify RFC/tax data; identifier type and authorized product must be pinned.",
+      "note": "Catalog notes identify RFC/tax data; identifier type and authorized product must be pinned.",
+      "migration": "semantic_correction"
+    },
+    {
+      "provider_id": "argentina-arca",
+      "legacy_capability": "business.registry.lookup",
+      "capability_paths": [
+        "identity.tax_id"
+      ],
+      "reason": "Catalog notes identify tax data; treat as a tax-source hypothesis pending product contract.",
+      "note": "Catalog notes identify tax data; treat as a tax-source hypothesis pending product contract.",
+      "migration": "semantic_correction"
+    },
+    {
+      "provider_id": "gstn",
+      "legacy_capability": "business.registry.lookup",
+      "capability_paths": [
+        "identity.tax_id"
+      ],
+      "reason": "GST is a tax-registration source; not a substitute for a corporate incorporation registry.",
+      "note": "GST is a tax-registration source; not a substitute for a corporate incorporation registry.",
+      "migration": "semantic_correction"
+    },
+    {
+      "provider_id": "protean-egov",
+      "legacy_capability": "identity.person.verify",
+      "capability_paths": [
+        "identity.tax_id"
+      ],
+      "reason": "Catalog notes specifically name PAN/identity services; route PAN validation to tax-ID and require a separate contract for wider identity checks.",
+      "note": "Catalog notes specifically name PAN/identity services; route PAN validation to tax-ID and require a separate contract for wider identity checks.",
+      "migration": "semantic_correction"
+    },
+    {
+      "provider_id": "brazil-receita-federal",
+      "legacy_capability": "business.registry.lookup",
+      "capability_paths": [
+        "business.registry",
+        "identity.tax_id"
+      ],
+      "reason": "Conditional split: CNPJ business facts versus CPF/CNPJ tax-identifier checks; select by identifier/product, never emit both by default.",
+      "note": "Conditional split: CNPJ business facts versus CPF/CNPJ tax-identifier checks; select by identifier/product, never emit both by default.",
+      "migration": "conditional_split",
+      "branches": [
+        {
+          "capability_path": "business.registry",
+          "selector": {
+            "identifier_schemes": [
+              "cnpj"
+            ]
+          },
+          "condition": "CNPJ business facts"
+        },
+        {
+          "capability_path": "identity.tax_id",
+          "selector": {
+            "identifier_schemes": [
+              "cpf",
+              "cnpj"
+            ]
+          },
+          "condition": "CPF/CNPJ tax-identifier check"
+        }
+      ]
+    },
+    {
+      "provider_id": "cersai-ckycr",
+      "legacy_capability": "identity.person.verify",
+      "capability_paths": [
+        "identity.profile"
+      ],
+      "reason": "Retrieving a central KYC record does not perform a new identity verification.",
+      "note": "Retrieving a central KYC record does not perform a new identity verification.",
+      "migration": "semantic_correction"
+    },
+    {
+      "provider_id": "digilocker",
+      "legacy_capability": "identity.digital_id.verify",
+      "capability_paths": [
+        "document.evidence"
+      ],
+      "reason": "Catalog establishes a consent-based document ecosystem; document retrieval does not establish a verified digital-identity assertion.",
+      "note": "Catalog establishes a consent-based document ecosystem; document retrieval does not establish a verified digital-identity assertion.",
+      "migration": "semantic_correction"
+    },
+    {
+      "provider_id": "wolfsberg-group",
+      "legacy_capability": "questionnaire.collect",
+      "capability_paths": [
+        "questionnaire.template"
+      ],
+      "reason": "Catalog describes CBDDQ/FCCQ standards; template availability does not collect completed responses.",
+      "note": "Catalog describes CBDDQ/FCCQ standards; template availability does not collect completed responses.",
+      "migration": "semantic_correction"
+    },
+    {
+      "provider_id": "gleif-vlei-ecosystem",
+      "legacy_capability": "reference.identifier.lookup",
+      "capability_paths": [
+        "credential.verification"
+      ],
+      "reason": "Credential trust ecosystem is not an ordinary identifier lookup; candidate contract only, no issuer/verifier API is established.",
+      "note": "Credential trust ecosystem is not an ordinary identifier lookup; candidate contract only, no issuer/verifier API is established.",
+      "migration": "semantic_correction"
+    }
+  ]
+}

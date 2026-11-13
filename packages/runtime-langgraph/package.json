@@ -1,0 +1,26 @@
+{
+  "name": "@ehf/runtime-langgraph",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./prepare-context": "./src/prepare-context.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@cfworker/json-schema": "4.1.1",
+    "@ehf/context-plane": "workspace:*",
+    "@ehf/contracts": "workspace:*",
+    "@ehf/policy-engine": "workspace:*",
+    "@ehf/runtime-core": "workspace:*",
+    "@ehf/runtime-state": "workspace:*",
+    "@langchain/langgraph": "1.4.15",
+    "@langchain/langgraph-checkpoint-postgres": "1.0.5",
+    "zod": "4.6.6"
+  }
+}

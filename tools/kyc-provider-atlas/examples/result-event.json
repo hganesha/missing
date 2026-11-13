@@ -1,0 +1,18 @@
+{
+  "specversion": "1.0",
+  "id": "synthetic-event-1",
+  "source": "https://host.example.invalid/kyc",
+  "type": "kyc.check.result.updated.v1",
+  "time": "2026-10-15T12:00:00Z",
+  "subject": "checks/synthetic-check",
+  "tenant_id": "demo-tenant",
+  "resource_version": 2,
+  "data": {
+    "check_id": "synthetic-check",
+    "result_id": "synthetic-result",
+    "result_schema_version": "1.0.0",
+    "changed_paths": [
+      "/assessment/outcome"
+    ]
+  }
+}

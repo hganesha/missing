@@ -1,0 +1,193 @@
+openapi: 3.1.0
+info:
+  title: Proposed KYC Host API
+  version: 1.0.0
+  description: Design contract only; not an implemented network service. Server URL
+    is deliberately non-routable. Tenant comes from validated credentials and must
+    equal request tenant_id.
+servers:
+- url: https://host.example.invalid
+security:
+- bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Check:
+      type: object
+      required:
+      - check_id
+      - request_id
+      - status
+      - resource_version
+      properties:
+        check_id:
+          type: string
+        request_id:
+          type: string
+        status:
+          enum:
+          - accepted
+          - running
+          - completed
+          - partial
+          - failed
+          - cancelled
+        resource_version:
+          type: integer
+          minimum: 1
+    HostRequest:
+      $ref: ./request.schema.json
+    HostResult:
+      $ref: ./host.schema.json
+paths:
+  /v1/checks:
+    post:
+      operationId: createCheck
+      summary: Submit a canonical check; requires entitlement and residency validation
+      parameters:
+      - name: Idempotency-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 1
+        description: Must match request idempotency_key; reuse with different digest
+          returns 409
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HostRequest'
+      responses:
+        '202':
+          description: Accepted, not verified or approved
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Check'
+        '400': &id001
+          description: Application error; no clean KYC result implied
+          content:
+            application/problem+json:
+              schema:
+                type: object
+                required:
+                - type
+                - title
+                - status
+                properties:
+                  type:
+                    type: string
+                    format: uri
+                  title:
+                    type: string
+                  status:
+                    type: integer
+                  detail:
+                    type: string
+                  correlation_id:
+                    type: string
+        '401': *id001
+        '403': *id001
+        '409': *id001
+        '422': *id001
+        '429': *id001
+        '503': *id001
+  /v1/checks/{check_id}:
+    get:
+      operationId: getCheck
+      parameters:
+      - &id002
+        name: check_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Current check lifecycle; not a bank approval
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Check'
+        '401': *id001
+        '403': *id001
+        '404': *id001
+  /v1/checks/{check_id}/results:
+    get:
+      operationId: listCheckResults
+      parameters:
+      - *id002
+      - name: cursor
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 50
+      responses:
+        '200':
+          description: Immutable results, possibly partial; paginate until next_cursor
+            is null
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - items
+                - next_cursor
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/HostResult'
+                  next_cursor:
+                    type:
+                    - string
+                    - 'null'
+        '401': *id001
+        '403': *id001
+        '404': *id001
+  /v1/event-subscriptions:
+    post:
+      operationId: createEventSubscription
+      description: 'Only pre-approved callback destinations; signed deliveries and
+        tenant-bound subscriptions required. Event schema: event.schema.json. This
+        endpoint subscribes to HOST result changes, not vendor monitoring.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - destination_ref
+              - event_types
+              properties:
+                destination_ref:
+                  type: string
+                event_types:
+                  type: array
+                  items:
+                    type: string
+              additionalProperties: false
+      responses:
+        '201':
+          description: Subscription created; callback signing configuration managed
+            separately
+        '401': *id001
+        '403': *id001
+        '422': *id001

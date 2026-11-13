@@ -1,0 +1,567 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kyc-provider-atlas.local/schemas/v2/native-operation-mapping.schema.json",
+  "title": "NativeOperationMapping",
+  "description": "What one vendor call actually does (section 3.3). The role describes the operation; upload, submit, control and simulate never produce a completed check outcome.",
+  "type": "object",
+  "properties": {
+    "operation_mapping_id": {
+      "type": "string",
+      "pattern": "^operation-map:[a-z0-9-]+:[A-Za-z0-9_.-]+:v[0-9]+$"
+    },
+    "vendor_definition_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider_record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider_identity_relationship": {
+      "type": "string",
+      "enum": [
+        "same_id",
+        "proposed_alias"
+      ]
+    },
+    "native_operation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "native_method": {
+      "type": "string",
+      "enum": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE",
+        "HEAD"
+      ]
+    },
+    "native_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "native_api_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "native_semantics_original": {
+      "type": "string",
+      "minLength": 1
+    },
+    "primary_capability_path": {
+      "type": "string",
+      "enum": [
+        "account.control",
+        "account.ownership",
+        "account.profile",
+        "business.officers",
+        "business.ownership",
+        "business.registry",
+        "business.verification",
+        "case.management",
+        "credential.issuance",
+        "credential.verification",
+        "crypto.transaction",
+        "crypto.wallet",
+        "document.evidence",
+        "document.signature",
+        "edd.report",
+        "entity.resolution",
+        "financial.analytics",
+        "financial.balance",
+        "financial.evidence",
+        "financial.income",
+        "financial.institution",
+        "financial.personal_management",
+        "financial.transactions",
+        "identity.address",
+        "identity.biometric",
+        "identity.digital_id",
+        "identity.document",
+        "identity.document.extraction",
+        "identity.identifier.derivation",
+        "identity.person",
+        "identity.profile",
+        "identity.tax_id",
+        "identity.vehicle",
+        "monitoring.subscription",
+        "platform.integration",
+        "platform.testing",
+        "questionnaire.collection",
+        "questionnaire.template",
+        "reference.identifier",
+        "reference.list",
+        "regulatory.reporting",
+        "risk.customer",
+        "risk.device",
+        "risk.email",
+        "risk.jurisdiction",
+        "risk.network",
+        "risk.phone",
+        "screening.adverse_media",
+        "screening.enforcement",
+        "screening.payment",
+        "screening.pep",
+        "screening.sanctions",
+        "screening.watchlist",
+        "transaction.monitoring",
+        "travel_rule.exchange",
+        "workflow.orchestration"
+      ]
+    },
+    "capability_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)*\\.intelligence\\.(?:[a-z]{2}(?:_[a-z0-9]+)?|global|unresolved)$"
+    },
+    "jurisdiction": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "ae",
+            "ar",
+            "au",
+            "be",
+            "bh",
+            "br",
+            "ca",
+            "ch",
+            "cl",
+            "cn",
+            "co",
+            "de",
+            "dk",
+            "es",
+            "eu",
+            "fi",
+            "fr",
+            "gb",
+            "gh",
+            "global",
+            "hk",
+            "id",
+            "ie",
+            "in",
+            "it",
+            "jp",
+            "ke",
+            "kr",
+            "lu",
+            "mx",
+            "my",
+            "ng",
+            "nl",
+            "no",
+            "nz",
+            "ph",
+            "sa",
+            "se",
+            "sg",
+            "tw",
+            "un",
+            "unresolved",
+            "us",
+            "za"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "binding_required",
+            "native_source_hint",
+            "publisher_authority"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "operation_role": {
+      "type": "string",
+      "enum": [
+        "lookup",
+        "retrieve",
+        "verify",
+        "validate",
+        "derive",
+        "extract",
+        "assess",
+        "screen",
+        "enrich",
+        "ingest",
+        "upload",
+        "submit",
+        "control",
+        "simulate"
+      ]
+    },
+    "operation_kind": {
+      "enum": [
+        "subject_comparison",
+        "authentication",
+        "authorization",
+        "consent",
+        "subject_resource",
+        "session",
+        "webhook",
+        "health",
+        "catalog_metadata",
+        "audit",
+        "queue",
+        "communication",
+        "manual_review",
+        "retention_delete",
+        "scheduling",
+        "resource_configuration",
+        "reconciliation_metadata",
+        null
+      ]
+    },
+    "mapping_relation": {
+      "type": "string",
+      "enum": [
+        "proposed_semantic_mapping",
+        "validated_mapping"
+      ]
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mapping_evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "request_schema_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "response_schema_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "request_mapping_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "response_mapping_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "preconditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "enables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "produces": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conditional_dispatch": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "when": {
+            "type": "object"
+          },
+          "capability_path": {
+            "type": "string",
+            "enum": [
+              "account.control",
+              "account.ownership",
+              "account.profile",
+              "business.officers",
+              "business.ownership",
+              "business.registry",
+              "business.verification",
+              "case.management",
+              "credential.issuance",
+              "credential.verification",
+              "crypto.transaction",
+              "crypto.wallet",
+              "document.evidence",
+              "document.signature",
+              "edd.report",
+              "entity.resolution",
+              "financial.analytics",
+              "financial.balance",
+              "financial.evidence",
+              "financial.income",
+              "financial.institution",
+              "financial.personal_management",
+              "financial.transactions",
+              "identity.address",
+              "identity.biometric",
+              "identity.digital_id",
+              "identity.document",
+              "identity.document.extraction",
+              "identity.identifier.derivation",
+              "identity.person",
+              "identity.profile",
+              "identity.tax_id",
+              "identity.vehicle",
+              "monitoring.subscription",
+              "platform.integration",
+              "platform.testing",
+              "questionnaire.collection",
+              "questionnaire.template",
+              "reference.identifier",
+              "reference.list",
+              "regulatory.reporting",
+              "risk.customer",
+              "risk.device",
+              "risk.email",
+              "risk.jurisdiction",
+              "risk.network",
+              "risk.phone",
+              "screening.adverse_media",
+              "screening.enforcement",
+              "screening.payment",
+              "screening.pep",
+              "screening.sanctions",
+              "screening.watchlist",
+              "transaction.monitoring",
+              "travel_rule.exchange",
+              "workflow.orchestration"
+            ]
+          },
+          "subject_types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "request_schema_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "response_schema_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "when",
+          "capability_path",
+          "subject_types",
+          "request_schema_ref",
+          "response_schema_ref"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "dispatch_status": {
+      "type": "string",
+      "enum": [
+        "not_required",
+        "required_unconfigured",
+        "configured"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "blocked",
+        "approved"
+      ]
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "candidate_binding_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "live_tested": {
+      "type": "boolean"
+    },
+    "lineage": {
+      "type": "object",
+      "properties": {
+        "review_source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "definition_file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "definition_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "review_source",
+        "definition_file",
+        "definition_sha256"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "operation_mapping_id",
+    "vendor_definition_id",
+    "provider_record_id",
+    "provider_identity_relationship",
+    "native_operation_id",
+    "native_method",
+    "native_path",
+    "native_api_version",
+    "native_semantics_original",
+    "primary_capability_path",
+    "capability_id",
+    "jurisdiction",
+    "operation_role",
+    "operation_kind",
+    "mapping_relation",
+    "rationale",
+    "mapping_evidence_refs",
+    "request_schema_ref",
+    "response_schema_ref",
+    "request_mapping_ref",
+    "response_mapping_ref",
+    "preconditions",
+    "enables",
+    "produces",
+    "conditional_dispatch",
+    "dispatch_status",
+    "status",
+    "blockers",
+    "candidate_binding_refs",
+    "live_tested",
+    "lineage"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation_role": {
+            "type": "string",
+            "enum": [
+              "upload",
+              "submit",
+              "control",
+              "simulate"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "produces": {
+            "type": "array",
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "primary_capability_path": {
+            "const": "platform.testing"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "operation_role": {
+            "const": "simulate"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "dispatch_status": {
+            "const": "required_unconfigured"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "blocked"
+          },
+          "produces": {
+            "type": "array",
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "mapping_relation": {
+            "const": "validated_mapping"
+          },
+          "blockers": {
+            "type": "array",
+            "maxItems": 0
+          },
+          "jurisdiction": {
+            "properties": {
+              "code": {
+                "not": {
+                  "const": "unresolved"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

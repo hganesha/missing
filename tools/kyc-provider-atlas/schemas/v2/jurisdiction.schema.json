@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kyc-provider-atlas.local/schemas/v2/jurisdiction.schema.json",
+  "title": "Jurisdiction registry record",
+  "description": "A registered canonical jurisdiction token. Unregistered tokens are invalid even when they match the shape.",
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string",
+      "pattern": "^(?:[a-z]{2}(?:_[a-z0-9]+)?|global|unresolved)$"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "iso_3166_1",
+        "iso_3166_2_subdivision",
+        "supranational_authority",
+        "intergovernmental_authority",
+        "cross_border_contract",
+        "unresolved_placeholder"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "iso_3166_1_alpha2": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[A-Z]{2}$"
+    },
+    "source_native_codes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "live_routable_when_approved": {
+      "type": "boolean"
+    },
+    "used_by_binding_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "catalog_market_hints_observed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "token",
+    "kind",
+    "name",
+    "iso_3166_1_alpha2",
+    "source_native_codes",
+    "live_routable_when_approved",
+    "used_by_binding_count",
+    "catalog_market_hints_observed",
+    "notes"
+  ],
+  "additionalProperties": false
+}

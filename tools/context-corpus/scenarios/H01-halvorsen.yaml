@@ -1,0 +1,95 @@
+# H01: clean control individual. Everything here is fictional; documents are SPECIMEN only.
+id: H01
+seed: 1001
+as_of: 2026-09-30
+customer: halvorsen
+entities:
+  - ref: halvorsen
+    kind: individual
+    name: Ingrid Halvorsen
+    dob: 1988-04-17
+    nationality: US
+    verification: government_id_document
+    address:
+      lines: ["418 Alder Row, Apt 3C"]
+      locality: Brooklyn, NY
+      postal_code: "11201"
+      country: US
+    identifiers:
+      - { type: drivers_licence, issuer: US-NY-SPECIMEN, value: SPECIMEN-H01-DL-0001, verified: true }
+      - { type: passport, issuer: US-SPECIMEN, value: SPECIMEN-H01-PP-0001, verified: true }
+relationship:
+  institution: bank.synthetic
+  booking_jurisdiction: US
+  policy_jurisdiction: US
+  started: 2024-10-02
+  risk_tier: LOW
+  ownership_complete: null
+  parties:
+    - { entity: halvorsen, role: customer }
+  products:
+    - type: deposit
+      currencies: [USD]
+      countries: [US]
+      channels: [branch, online]
+      expected_activity:
+        monthly_inflow: "6200"
+        monthly_outflow: "5900"
+        currency: USD
+        transaction_count: 45
+        cash_exposure: false
+        counterparty_countries: [US]
+        counterparty_types: [employer, landlord, merchant]
+        rails: [ach, card]
+    - type: card
+      currencies: [USD]
+      countries: [US]
+      channels: [online, pos]
+  geography:
+    - { country: US, basis: residence, value: "1" }
+source_of_funds:
+  - { claim: "Salaried employment as a staff software engineer; bi-weekly payroll by ACH", verified: true }
+risk_factors:
+  - { name: geography, score: "0.05" }
+  - { name: product, score: "0.10" }
+  - { name: customer_type, score: "0.05" }
+screening:
+  provider: synthetic-lists
+  capability: screening.sanctions.v1
+  types: [sanctions, pep, watchlist, adverse_media]
+  dataset_versions: [synthetic-lists-2026-09-29]
+  scope: [ofac-sdn, un-consolidated, uk-sanctions, eu-consolidated]
+  list_published: 2026-09-29
+signals: []
+expected:
+  workflow:
+    kyc_v2: APPROVE
+  alerts: 0
+  non_findings:
+    - screening.sanctions.execute
+    - screening.pep.execute
+    - aml.structuring.detect
+  hard_negative: true
+  notes: Clean control. Activity matches declared payroll, rent and card spend (Phase 2 adds the ledger).
+ledger:
+  start: 2024-09-30
+  end: 2026-09-30
+  opening_balance: { deposit: "4000.00" }
+  counterparties:
+    - { ref: employer, name: Brightwater Analytics LLC, kind: company, country: US }
+    - { ref: landlord, name: Stannard Property Holdings LLC, kind: company, country: US }
+    - { ref: power, name: Ironbridge Power and Light LLC, kind: company, country: US }
+    - { ref: mobile, name: Larkfield Mobile Services LLC, kind: company, country: US }
+    - { ref: savings, name: Marlowe Savings Credit Union, kind: company, country: US }
+  pools:
+    - { ref: merchants, kind: company, country: US, size: 12, style: merchant }
+  flows:
+    - { id: payroll, direction: in, counterparty: employer, rail: ach, type: payroll, schedule: { freq: biweekly, anchor: 2024-10-04 }, amount: { value: "2380.00" } }
+    - { id: rent, direction: out, counterparty: landlord, rail: ach, type: rent, schedule: { freq: monthly, day: 1 }, amount: { value: "2100.00" } }
+    - { id: power, direction: out, counterparty: power, rail: ach, type: utility, schedule: { freq: monthly, day: 12 }, amount: { value: "96.00", jitter: 0.25 } }
+    - { id: mobile, direction: out, counterparty: mobile, rail: ach, type: utility, schedule: { freq: monthly, day: 20 }, amount: { value: "70.00" } }
+    - { id: savings, direction: out, counterparty: savings, rail: ach, type: transfer, schedule: { freq: monthly, day: 28 }, amount: { value: "600.00" } }
+    - { id: card, direction: out, counterparty: merchants, rail: card, type: card_purchase, per_month: 24, cooldown_days: 0, max_per_day: 3, amount: { median: "38", sigma: 0.7, floor: "3", cap: "420" } }
+digital:
+  sessions_per_month: 2
+  payments: { baseline_maximum: "1500.00", types: [transfer] }

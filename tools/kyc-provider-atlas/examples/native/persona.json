@@ -1,0 +1,19 @@
+{
+  "data": {
+    "type": "inquiry",
+    "id": "inq_synthetic",
+    "attributes": {
+      "status": "completed",
+      "fields": {
+        "name-first": {
+          "type": "string",
+          "value": "Alex"
+        },
+        "name-last": {
+          "type": "string",
+          "value": "Example"
+        }
+      }
+    }
+  }
+}

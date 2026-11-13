@@ -1,0 +1,12 @@
+{
+  "provider_id": "opencorporates",
+  "executable": false,
+  "headers": {},
+  "body": null,
+  "limitations": [
+    "Resolve secret references and validate entitlements outside this offline plan"
+  ],
+  "method": "GET",
+  "path": "/v0.4/companies/gb/00000001",
+  "authentication": "API token via secure transport; redact URLs"
+}

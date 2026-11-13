@@ -1,0 +1,185 @@
+# H06: layered corporate group BVI -> Cyprus -> Luxembourg -> US operating company.
+# Two designated (fictional) persons hold 30% and 20% of the Cyprus holding: neither is a 50% owner,
+# together they are, so OFAC's 50% rule blocks the Cyprus company, then Luxembourg (60% from Cyprus),
+# then the US company. Path-product ownership says 30%, which is why the two rules must not be mixed up.
+id: H06
+seed: 1006
+as_of: 2026-09-30
+customer: bellmont_us
+entities:
+  - ref: bellmont_us
+    kind: company
+    name: Bellmont Atlantic Holdings Inc.
+    legal_form: corporation
+    industry: holding_company
+    business_purpose: Operating holding company for Atlantic shipping agencies
+    employees: 41
+    verification: registry_extract
+    address: { lines: ["900 Harbor Point Boulevard", "Suite 1500"], locality: Wilmington, postal_code: "19801", country: US }
+    registration: { jurisdiction: US-DE, authority: synthetic-registry, registration_id: SYN-DE-7345221, incorporated: 2019-06-01, status: active }
+  - ref: bellmont_lux
+    kind: company
+    name: Bellmont Luxembourg S.à r.l.
+    legal_form: corporation
+    verification: registry_extract
+    address: { lines: ["12 Rue des Capucins"], locality: Luxembourg, postal_code: L-1313, country: LU }
+    registration: { jurisdiction: LU, authority: synthetic-registry, registration_id: SYN-LU-B284917, incorporated: 2018-02-01, status: active }
+  - ref: atlantic_meridian
+    kind: company
+    name: Atlantic Meridian Holdings Ltd
+    legal_form: corporation
+    verification: registry_extract
+    address: { lines: ["Themistokli Dervi 48"], locality: Nicosia, postal_code: "1066", country: CY }
+    registration: { jurisdiction: CY, authority: synthetic-registry, registration_id: SYN-CY-HE412210, incorporated: 2017-09-12, status: active }
+  - ref: seabright
+    kind: company
+    name: Seabright Capital Ltd
+    legal_form: corporation
+    verification: registry_extract
+    address: { lines: ["Road Town"], locality: Tortola, country: VG }
+    registration: { jurisdiction: VG, authority: synthetic-registry, registration_id: SYN-VG-2284719, incorporated: 2016-11-04, status: active }
+  - ref: tortuga
+    kind: company
+    name: Tortuga Nominees Ltd
+    legal_form: corporation
+    verification: registry_extract
+    address: { lines: ["Road Town"], locality: Tortola, country: VG }
+    registration: { jurisdiction: VG, authority: synthetic-registry, registration_id: SYN-VG-2291034, incorporated: 2016-11-04, status: active }
+  - ref: b1
+    kind: individual
+    name: Radomir Veselin Kostadinov
+    dob: 1961-03-09
+    nationality: BG
+    verification: government_id_document
+    identifiers: [{ type: passport, issuer: BG-SPECIMEN, value: SPECIMEN-SD-0001, verified: true }]
+    address: { lines: ["Villa Aurora"], locality: Limassol, country: CY }
+  - ref: b2
+    kind: individual
+    name: Anselm Drakon Voss
+    dob: 1958-11-22
+    nationality: DE
+    verification: government_id_document
+    identifiers: [{ type: passport, issuer: DE-SPECIMEN, value: SPECIMEN-SD-0002, verified: true }]
+    address: { lines: ["Seestrasse 41"], locality: Zug, country: CH }
+  - ref: c
+    kind: individual
+    name: Leontine Maribel Aldous-Frye
+    dob: 1972-05-30
+    nationality: GB
+    verification: government_id_document
+    identifiers: [{ type: passport, issuer: GB-SPECIMEN, value: SPECIMEN-H06-PP-0001, verified: true }]
+    address: { lines: ["4 Wexcombe Gardens"], locality: London, postal_code: SW3 4ZZ, country: GB }
+  - ref: nd1
+    kind: individual
+    name: Perrin Whitlock
+    dob: 1966-01-17
+    nationality: CY
+    verification: government_id_document
+    identifiers: [{ type: passport, issuer: CY-SPECIMEN, value: SPECIMEN-H06-PP-0002, verified: true }]
+    address: { lines: ["Themistokli Dervi 48"], locality: Nicosia, country: CY }
+  - ref: nd2
+    kind: individual
+    name: Marit Stannard-Cole
+    dob: 1970-09-03
+    nationality: LU
+    verification: government_id_document
+    identifiers: [{ type: passport, issuer: LU-SPECIMEN, value: SPECIMEN-H06-PP-0003, verified: true }]
+    address: { lines: ["12 Rue des Capucins"], locality: Luxembourg, country: LU }
+  - ref: soren
+    kind: individual
+    name: Soren Yardley
+    dob: 1979-04-25
+    nationality: US
+    verification: government_id_document
+    identifiers: [{ type: drivers_licence, issuer: US-DE-SPECIMEN, value: SPECIMEN-H06-DL-0001, verified: true }]
+    address: { lines: ["22 Oakden Lane"], locality: Wilmington, postal_code: "19803", country: US }
+officers:
+  - { person: soren, org: bellmont_us, role: director, appointed: 2019-06-01 }
+  - { person: nd2, org: bellmont_lux, role: director, appointed: 2018-02-01 }
+  - { person: nd1, org: atlantic_meridian, role: director, appointed: 2017-09-12 }
+ownership:
+  - { owner: bellmont_lux, owned: bellmont_us, interest: "1", voting_interest: "1", since: 2019-06-01 }
+  - { owner: atlantic_meridian, owned: bellmont_lux, interest: "0.60", share_class: ordinary, since: 2018-02-01 }
+  - { owner: tortuga, owned: bellmont_lux, range: ["0.25", "0.40"], since: 2018-02-01 }
+  - { owner: b1, owned: atlantic_meridian, interest: "0.30", since: 2017-09-12 }
+  - { owner: b2, owned: atlantic_meridian, interest: "0.20", since: 2017-09-12 }
+  - { owner: seabright, owned: atlantic_meridian, interest: "0.45", voting_interest: "0.60", share_class: A, since: 2017-09-12 }
+  - { owner: bellmont_lux, owned: atlantic_meridian, interest: "0.05", since: 2021-03-01 }
+  - { owner: c, owned: seabright, interest: "1", since: 2016-11-04 }
+control:
+  - { controller: seabright, controlled: atlantic_meridian, basis: voting_majority, verified: true }
+relationships:
+  - { source: nd1, target: atlantic_meridian, relation: nominee, verified: true }
+  - { source: nd2, target: bellmont_lux, relation: nominee, verified: true }
+  - { source: tortuga, target: bellmont_lux, relation: nominee, verified: false }
+relationship:
+  institution: bank.synthetic
+  booking_jurisdiction: US
+  policy_jurisdiction: US
+  customer_type: corporate
+  started: 2025-01-13
+  risk_tier: HIGH
+  ownership_complete: false
+  parties:
+    - { entity: bellmont_us, role: customer }
+    - { entity: c, role: beneficial_owner }
+    - { entity: soren, role: director }
+    - { entity: soren, role: signatory }
+    - { entity: b1, role: control_person }
+    - { entity: b2, role: control_person }
+  products:
+    - type: payments
+      currencies: [USD]
+      countries: [US, CY, LU]
+      channels: [online]
+      expected_activity:
+        monthly_inflow: "1800000"
+        monthly_outflow: "1750000"
+        currency: USD
+        transaction_count: 40
+        cash_exposure: false
+        counterparty_countries: [US, CY, LU]
+        counterparty_types: [business]
+        rails: [swift, ach]
+    - type: correspondent
+      currencies: [USD]
+      countries: [US]
+      channels: [swift]
+    - type: custody
+      currencies: [USD]
+      countries: [US]
+      channels: [online]
+  geography:
+    - { country: US, basis: operations, value: "0.5" }
+    - { country: CY, basis: ownership, value: "0.3" }
+    - { country: LU, basis: ownership, value: "0.2" }
+source_of_funds:
+  - { claim: "Agency fees from Atlantic shipping operators", verified: false }
+risk_factors:
+  - { name: geography, score: "0.50" }
+  - { name: product, score: "0.45" }
+  - { name: ownership_structure, score: "0.90" }
+  - { name: sanctions_exposure, score: "0.95" }
+screening:
+  provider: synthetic-lists
+  capability: screening.sanctions.v1
+  subjects: [bellmont_us, bellmont_lux, atlantic_meridian, seabright, tortuga, b1, b2, c, nd1, nd2, soren]
+  types: [sanctions, pep, adverse_media]
+  lists: [ofac-sdn, un-consolidated, uk-sanctions, synthetic-designations, synthetic-peps]
+  dataset_versions: [synthetic-lists-2026-09-29]
+  scope: [ofac-sdn, un-consolidated, uk-sanctions, synthetic-designations]
+  list_published: 2026-09-29
+expected:
+  workflow:
+    kyb: BLOCK_SANCTIONS_OWNERSHIP
+  alerts: 0
+  ownership:
+    blocked_owners: [b1, b2]
+    blocked_chain: [atlantic_meridian, bellmont_lux, bellmont_us]
+    path_product_blocked_total: "0.3"
+    ubo: [c]
+    unresolved: [CYCLE, UNACCOUNTED_INTEREST, OWNERSHIP_RANGE_REQUIRES_RESOLUTION]
+  notes: >
+    Neither designated person reaches 50% alone; together they hold exactly 50% of the Cyprus company.
+    The Luxembourg company has 40% unaccounted for (a 25-40% nominee range), a 5% holding in Cyprus
+    makes the group circular, and only Leontine Aldous-Frye (27% through Seabright) is a UBO candidate.

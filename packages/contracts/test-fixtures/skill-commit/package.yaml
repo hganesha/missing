@@ -1,0 +1,103 @@
+# Fixture package for the skill output commit path (skill.execution.v1 §6.2–6.3,
+# docs/implementation/canonical-records.md "Skill-originated records"). Three hosted skills:
+#   ubo-propose  (proposal)                    proposes BeneficialOwner records and findings;
+#   ubo-review   (read_only)                   reads records.BeneficialOwner — what ubo-propose committed;
+#   case-close   (internal_write, approval)    requests TransitionCaseStatus, held until the durable
+#                                              approval `case-close-approval`, then released by
+#                                              `case-close-effects`.
+# The manifests are not in the business-skill registry (the digests below are stand-ins): the
+# fixture exists for runtime tests with a fake gateway and case API, and for the compiler's grant
+# rules. Recompile with:
+#   harnessc compile packages/contracts/test-fixtures/skill-commit --out packages/contracts/test-fixtures/skill-commit.plan.json
+apiVersion: harness.factory/domain-package-v2
+kind: DomainPackage
+metadata:
+  name: skill-commit-path
+  version: 0.1.0
+  domain: conformance
+  objective: Commit hosted skill outputs as case state that later skills read, with approval-held effects.
+  owners: [financial-crime-platform]
+  riskClass: high
+workflow: workflow.yaml
+coordinationMode: caseStore
+budgets:
+  maxDurationMs: 60000
+  maxCostUsd: 0.05
+  maxModelCalls: 0
+  maxCapabilityCalls: 6
+modelProfiles: []
+agentProfiles: []
+capabilities:
+  - id: skill.sample.ubo.propose.v0
+    kind: tool
+    effect: read
+    adapterBindingId: skills:sample.ubo.propose
+    inputSchema: { type: object }
+    outputSchema: { type: object }
+    timeoutMs: 20000
+    maxAttempts: 1
+    idempotent: true
+  - id: skill.sample.ubo.review.v0
+    kind: tool
+    effect: read
+    adapterBindingId: skills:sample.ubo.review
+    inputSchema: { type: object }
+    outputSchema: { type: object }
+    timeoutMs: 20000
+    maxAttempts: 1
+    idempotent: true
+  - id: skill.sample.case.close.v0
+    kind: tool
+    effect: reversible
+    adapterBindingId: skills:sample.case.close
+    inputSchema: { type: object }
+    outputSchema: { type: object }
+    timeoutMs: 20000
+    maxAttempts: 1
+    idempotent: true
+bindings: {}
+skillBindings:
+  - skillId: sample.ubo.propose
+    semver: 0.1.0
+    manifestDigest: sha256:1111111111111111111111111111111111111111111111111111111111111111
+    bundleDigest: sha256:2222222222222222222222222222222222222222222222222222222222222222
+    effects: { mode: proposal, approval: none, caseCommands: [] }
+    candidates: [skill.sample.ubo.propose.v0]
+    policy: { require_entitlement: false, require_list_freshness: false, require_jurisdiction_coverage: false, allow_fallback: false, log_selected_implementation: true }
+  - skillId: sample.ubo.review
+    semver: 0.1.0
+    manifestDigest: sha256:3333333333333333333333333333333333333333333333333333333333333333
+    bundleDigest: sha256:2222222222222222222222222222222222222222222222222222222222222222
+    effects: { mode: read_only, approval: none, caseCommands: [] }
+    candidates: [skill.sample.ubo.review.v0]
+    policy: { require_entitlement: false, require_list_freshness: false, require_jurisdiction_coverage: false, allow_fallback: false, log_selected_implementation: true }
+  - skillId: sample.case.close
+    semver: 0.1.0
+    manifestDigest: sha256:4444444444444444444444444444444444444444444444444444444444444444
+    bundleDigest: sha256:2222222222222222222222222222222222222222222222222222222222222222
+    effects: { mode: internal_write, approval: required, caseCommands: [TransitionCaseStatus] }
+    candidates: [skill.sample.case.close.v0]
+    policy: { require_entitlement: false, require_list_freshness: false, require_jurisdiction_coverage: false, allow_fallback: false, log_selected_implementation: true }
+policies: []
+contextSelectors:
+  - id: subjects
+    source: case
+    path: subjects
+    purpose: KYB_ONBOARDING
+    classification: PII
+    required: true
+  - id: recBeneficialOwner
+    source: case
+    path: records.BeneficialOwner
+    purpose: KYB_ONBOARDING
+    classification: CONFIDENTIAL
+    required: true
+    record: { objectType: BeneficialOwner, fields: [entity_id, interest], minCount: 1, maxAgeSeconds: null }
+contextClassificationPolicies:
+  - classification: PII
+    action: allow
+  - classification: CONFIDENTIAL
+    action: allow
+allowedRegions: [US]
+dataClasses: [PII, CONFIDENTIAL]
+evaluationRequirements: [skill-host-conformance]

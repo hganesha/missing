@@ -1,0 +1,405 @@
+{
+  "description": "Registered jurisdiction tokens (section 2.2). Lowercase ISO 3166-1 alpha-2 elements (gb, not uk); authority tokens are explicit. Add a token here, with review, before any binding may use it.",
+  "jurisdictions": [
+    {
+      "token": "gb",
+      "kind": "iso_3166_1",
+      "name": "United Kingdom",
+      "iso_3166_1_alpha2": "GB",
+      "source_native_codes": {
+        "catalog_market_hint": [
+          "UK"
+        ]
+      },
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "us",
+      "kind": "iso_3166_1",
+      "name": "United States",
+      "iso_3166_1_alpha2": "US",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "ca",
+      "kind": "iso_3166_1",
+      "name": "Canada",
+      "iso_3166_1_alpha2": "CA",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "fr",
+      "kind": "iso_3166_1",
+      "name": "France",
+      "iso_3166_1_alpha2": "FR",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "de",
+      "kind": "iso_3166_1",
+      "name": "Germany",
+      "iso_3166_1_alpha2": "DE",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "nl",
+      "kind": "iso_3166_1",
+      "name": "Netherlands",
+      "iso_3166_1_alpha2": "NL",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "be",
+      "kind": "iso_3166_1",
+      "name": "Belgium",
+      "iso_3166_1_alpha2": "BE",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "se",
+      "kind": "iso_3166_1",
+      "name": "Sweden",
+      "iso_3166_1_alpha2": "SE",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "no",
+      "kind": "iso_3166_1",
+      "name": "Norway",
+      "iso_3166_1_alpha2": "NO",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "fi",
+      "kind": "iso_3166_1",
+      "name": "Finland",
+      "iso_3166_1_alpha2": "FI",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "dk",
+      "kind": "iso_3166_1",
+      "name": "Denmark",
+      "iso_3166_1_alpha2": "DK",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "it",
+      "kind": "iso_3166_1",
+      "name": "Italy",
+      "iso_3166_1_alpha2": "IT",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "es",
+      "kind": "iso_3166_1",
+      "name": "Spain",
+      "iso_3166_1_alpha2": "ES",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "ie",
+      "kind": "iso_3166_1",
+      "name": "Ireland",
+      "iso_3166_1_alpha2": "IE",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "lu",
+      "kind": "iso_3166_1",
+      "name": "Luxembourg",
+      "iso_3166_1_alpha2": "LU",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "ch",
+      "kind": "iso_3166_1",
+      "name": "Switzerland",
+      "iso_3166_1_alpha2": "CH",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "au",
+      "kind": "iso_3166_1",
+      "name": "Australia",
+      "iso_3166_1_alpha2": "AU",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "nz",
+      "kind": "iso_3166_1",
+      "name": "New Zealand",
+      "iso_3166_1_alpha2": "NZ",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "sg",
+      "kind": "iso_3166_1",
+      "name": "Singapore",
+      "iso_3166_1_alpha2": "SG",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "hk",
+      "kind": "iso_3166_1",
+      "name": "Hong Kong",
+      "iso_3166_1_alpha2": "HK",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "in",
+      "kind": "iso_3166_1",
+      "name": "India",
+      "iso_3166_1_alpha2": "IN",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "my",
+      "kind": "iso_3166_1",
+      "name": "Malaysia",
+      "iso_3166_1_alpha2": "MY",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "id",
+      "kind": "iso_3166_1",
+      "name": "Indonesia",
+      "iso_3166_1_alpha2": "ID",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "ph",
+      "kind": "iso_3166_1",
+      "name": "Philippines",
+      "iso_3166_1_alpha2": "PH",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "cn",
+      "kind": "iso_3166_1",
+      "name": "China",
+      "iso_3166_1_alpha2": "CN",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "jp",
+      "kind": "iso_3166_1",
+      "name": "Japan",
+      "iso_3166_1_alpha2": "JP",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "tw",
+      "kind": "iso_3166_1",
+      "name": "Taiwan",
+      "iso_3166_1_alpha2": "TW",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "kr",
+      "kind": "iso_3166_1",
+      "name": "Republic of Korea",
+      "iso_3166_1_alpha2": "KR",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "br",
+      "kind": "iso_3166_1",
+      "name": "Brazil",
+      "iso_3166_1_alpha2": "BR",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "mx",
+      "kind": "iso_3166_1",
+      "name": "Mexico",
+      "iso_3166_1_alpha2": "MX",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "co",
+      "kind": "iso_3166_1",
+      "name": "Colombia",
+      "iso_3166_1_alpha2": "CO",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "ar",
+      "kind": "iso_3166_1",
+      "name": "Argentina",
+      "iso_3166_1_alpha2": "AR",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "cl",
+      "kind": "iso_3166_1",
+      "name": "Chile",
+      "iso_3166_1_alpha2": "CL",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "za",
+      "kind": "iso_3166_1",
+      "name": "South Africa",
+      "iso_3166_1_alpha2": "ZA",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "ng",
+      "kind": "iso_3166_1",
+      "name": "Nigeria",
+      "iso_3166_1_alpha2": "NG",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "ke",
+      "kind": "iso_3166_1",
+      "name": "Kenya",
+      "iso_3166_1_alpha2": "KE",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "gh",
+      "kind": "iso_3166_1",
+      "name": "Ghana",
+      "iso_3166_1_alpha2": "GH",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "sa",
+      "kind": "iso_3166_1",
+      "name": "Saudi Arabia",
+      "iso_3166_1_alpha2": "SA",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "ae",
+      "kind": "iso_3166_1",
+      "name": "United Arab Emirates",
+      "iso_3166_1_alpha2": "AE",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "bh",
+      "kind": "iso_3166_1",
+      "name": "Bahrain",
+      "iso_3166_1_alpha2": "BH",
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": null
+    },
+    {
+      "token": "eu",
+      "kind": "supranational_authority",
+      "name": "European Union",
+      "iso_3166_1_alpha2": null,
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": "Registered authority token; not asserted to be a country."
+    },
+    {
+      "token": "un",
+      "kind": "intergovernmental_authority",
+      "name": "United Nations",
+      "iso_3166_1_alpha2": null,
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": "Registered authority token; not asserted to be a country."
+    },
+    {
+      "token": "global",
+      "kind": "cross_border_contract",
+      "name": "Explicitly defined cross-border contract",
+      "iso_3166_1_alpha2": null,
+      "source_native_codes": {},
+      "live_routable_when_approved": true,
+      "notes": "Requires an explicitly defined global definition with named datasets and entitlement scope. Marketing orientation and empty country lists never justify it. No binding uses it."
+    },
+    {
+      "token": "unresolved",
+      "kind": "unresolved_placeholder",
+      "name": "Semantic jurisdiction not established",
+      "iso_3166_1_alpha2": null,
+      "source_native_codes": {},
+      "live_routable_when_approved": false,
+      "notes": "Inventory and proposals only. Not an alias for global; blocked from execution."
+    }
+  ]
+}

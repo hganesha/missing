@@ -1,0 +1,77 @@
+{
+  "adapter_id": "middesk",
+  "provider_id": "middesk",
+  "adapter_version": "0.1.0",
+  "host_schema_version": "1.0.0",
+  "capability": "business.verify",
+  "maturity": "fixture_tested",
+  "enabled": false,
+  "native": {
+    "method": null,
+    "path": null,
+    "api_version": null,
+    "authentication": "Basic API key or OAuth depending on integration; webhook verification required",
+    "documentation_urls": [
+      "https://docs.middesk.com/quickstart.md",
+      "https://docs.middesk.com/lifecycle-of-business.md",
+      "https://docs.middesk.com/llms.txt"
+    ],
+    "fixture_only": true
+  },
+  "mapping_rules": [
+    {
+      "source_pointer": "/data/object/status",
+      "target_pointer": "/assessment/outcome",
+      "transform": "in_review=>review; approved/rejected are client workflow, not independent KYC",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S06",
+        "S07",
+        "S08"
+      ]
+    },
+    {
+      "source_pointer": "/data/object/review/tasks/*/status",
+      "target_pointer": "/result/checks/*/outcome",
+      "transform": "success=>passed task only; no blanket approval",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S06",
+        "S07",
+        "S08"
+      ]
+    },
+    {
+      "source_pointer": "/data/object/name",
+      "target_pointer": "/entities/0/names",
+      "transform": "organization name; do not infer legal registration number",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S06",
+        "S07",
+        "S08"
+      ]
+    }
+  ],
+  "supported_countries": [],
+  "entitlement_ref": null,
+  "secret_ref": null,
+  "transport_requirements": [
+    "TLS",
+    "approved regional base URL allowlist",
+    "secret vault injection",
+    "rate limiting and circuit breaker",
+    "bounded retry with jitter and idempotency",
+    "verify raw webhook signatures before decoding",
+    "durable inbox and tenant-bound correlation",
+    "replay and stale-event protection",
+    "original-byte hash and encrypted evidence storage"
+  ],
+  "limitations": [
+    "Synthetic representative payload subset only; not vendor-certified",
+    "No live HTTP, authentication, webhook signature, or sandbox integration implemented",
+    "No proof of contractual dataset coverage, country entitlements, retention rights or bank adoption",
+    "Empty country allowlist blocks live routing",
+    "Unmapped native properties available only in restricted raw artifact"
+  ]
+}

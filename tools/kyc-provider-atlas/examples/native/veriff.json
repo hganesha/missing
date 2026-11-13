@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "verification": {
+    "id": "synthetic-session-1",
+    "status": "approved",
+    "code": 9001,
+    "person": {
+      "firstName": "Alex",
+      "lastName": "Example"
+    },
+    "decisionTime": "2026-10-15T11:59:00Z"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0.0",
+  "result_id": "illustrative-screening.pep",
+  "request_id": "demo-request",
+  "tenant_id": "demo-tenant",
+  "subject_entity_id": "subject-001",
+  "capability": "screening.pep",
+  "provider": {
+    "provider_id": "illustrative-host-not-a-vendor",
+    "adapter_version": "example-1",
+    "status_original": null,
+    "decision_origin": "unknown"
+  },
+  "execution": {
+    "status": "pending",
+    "received_at": "2026-10-15T12:00:00Z"
+  },
+  "assessment": {
+    "outcome": "not_checked",
+    "reason_codes": [],
+    "bank_decision": "not_evaluated"
+  },
+  "coverage": {
+    "status": "unknown",
+    "requested_scope": [
+      "screening.pep"
+    ],
+    "checked_scope": [],
+    "not_checked_scope": [
+      "screening.pep"
+    ],
+    "reason": "Fixture mapping only; entitled datasets and country coverage not established"
+  },
+  "entities": [
+    {
+      "entity_id": "subject-001",
+      "entity_type": "person",
+      "names": [],
+      "identifiers": []
+    }
+  ],
+  "relationships": [],
+  "assertions": [],
+  "evidence": [],
+  "result": {
+    "kind": "screening",
+    "matches": [],
+    "dataset_versions": [],
+    "scope": [],
+    "truncated": false,
+    "total_candidates": 0
+  },
+  "errors": [],
+  "warnings": [
+    "ILLUSTRATIVE_HOST_CONTRACT_ONLY_NOT_PROVIDER_OUTPUT"
+  ],
+  "raw_payload": {
+    "vault_ref": "example://canonical-json/006e3d11e5719c45ea9698a8dcff40ced747f58cbe95e3c55e3b62156944dacd",
+    "sha256": "006e3d11e5719c45ea9698a8dcff40ced747f58cbe95e3c55e3b62156944dacd",
+    "classification": "restricted"
+  },
+  "extensions": {
+    "digest_representation": "canonical JSON UTF-8; not signed HTTP bytes"
+  }
+}

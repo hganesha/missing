@@ -1,0 +1,45 @@
+apiVersion: ladder.dev/v1alpha1
+kind: Workflow
+metadata:
+  name: skill-hosted-registry
+  title: Skill-hosted registry verification
+  description: skill.execution.v1 conformance fixture.
+  version: 0.1.0
+spec:
+  objective: Verify a company through a business skill executed by a skill host.
+  inputs:
+    type: object
+    required: [tenantId, caseId]
+    properties:
+      tenantId: { type: string }
+      caseId: { type: string }
+  outputs:
+    type: object
+    properties:
+      status: { type: string }
+  policies: { maxConcurrency: 1, onFailure: stop }
+  nodes:
+    - { id: intake, kind: input, name: Intake }
+    - id: registry-verify
+      kind: tool
+      name: Registry verification
+      contextSelectorIds: [subject]
+      config:
+        skillId: sample.registry.verify
+        # Grants to commit the skill's proposed records (skill.execution.v1 §6.2).
+        caseWrites:
+          - { commandType: LinkEvidence, skillGrant: proposal }
+          - { commandType: ProposeClaim, skillGrant: proposal }
+          - { commandType: RecordScreeningFinding, skillGrant: proposal }
+          - { commandType: RaiseContradiction, skillGrant: proposal }
+          - { commandType: ProposeWorkItem, skillGrant: proposal }
+          - { commandType: RecordCanonicalRecords, skillGrant: proposal }
+    - id: sanctions-screen
+      kind: tool
+      name: Sanctions screen
+      contextSelectorIds: [subject]
+    - { id: result, kind: output, name: Result }
+  edges:
+    - { id: e1, from: intake, to: registry-verify, kind: data }
+    - { id: e2, from: registry-verify, to: sanctions-screen, kind: data }
+    - { id: e3, from: sanctions-screen, to: result, kind: data }

@@ -1,0 +1,19 @@
+{
+  "provider_id": "plaid",
+  "executable": false,
+  "headers": {},
+  "body": {
+    "access_token": {
+      "secret_ref": "example://secrets/plaid/item001"
+    },
+    "user": {
+      "legal_name": "Alex Example"
+    }
+  },
+  "limitations": [
+    "Resolve secret references and validate entitlements outside this offline plan"
+  ],
+  "method": "POST",
+  "path": "/identity/match",
+  "authentication": "client credentials and access token injected securely"
+}

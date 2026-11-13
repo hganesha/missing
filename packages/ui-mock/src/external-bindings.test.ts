@@ -1,0 +1,26 @@
+import { afterAll, afterEach, beforeAll, beforeEach, expect, it } from "vitest";
+import { setup } from "./test-support.js";
+const env = setup();
+beforeAll(() => env.server.listen({ onUnhandledRequest: "error" }));
+afterAll(() => env.server.close());
+beforeEach(() => { env.at("ownership_review"); env.as("platform_admin"); });
+afterEach(() => expect(env.state.violations).toEqual([]));
+const bindingId = "binding:aamva-dldv:identity.person.intelligence.unresolved:v1";
+it("edits a binding, reads the saved scope in catalog and provider views and rejects stale revisions", async () => {
+  const editor = (await env.call("getExternalCapabilityBindingsBindingId", { path: { bindingId } })).body;
+  const body = { definition: { ...editor.definition, jurisdiction: { code: "us", evidenceRefs: ["evidence:test"] } }, expectedRevision: 0, sourceDigest: editor.sourceDigest, reason: "Review source scope" };
+  expect((await env.call("postExternalCapabilityBindingsBindingId", { path: { bindingId }, body, csrf: false })).status).toBe(403);
+  const saved = await env.call("postExternalCapabilityBindingsBindingId", { path: { bindingId }, body });
+  expect(saved.status).toBe(200);
+  expect(saved.body.revision).toBe(1);
+  expect((await env.call("postExternalCapabilityBindingsBindingId", { path: { bindingId }, body })).status).toBe(409);
+  const detail = (await env.call("getCatalogsKindEntryId", { path: { kind: "external-capabilities", entryId: bindingId } })).body;
+  expect(detail.contract.capability_id).toBe("identity.person.intelligence.us");
+  expect(detail.contract.governance.enabled).toBe(false);
+  const providers = (await env.call("getExternalProviders")).body;
+  expect(providers.items.find((item: { id: string }) => item.id === "aamva-dldv").capabilities[0].jurisdiction).toBe("us");
+  expect((await env.call("getExternalCapabilityBindingsBindingId", { path: { bindingId } })).body.history).toHaveLength(1);
+  env.as("harness_approver");
+  expect((await env.call("getExternalCapabilityBindingsBindingId", { path: { bindingId } })).status).toBe(403);
+  expect((await env.call("postExternalCapabilityBindingsBindingId", { path: { bindingId }, body })).status).toBe(403);
+});

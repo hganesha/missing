@@ -1,0 +1,339 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kyc-provider-atlas.local/schemas/v2/operation-receipt.schema.json",
+  "title": "Operation receipt",
+  "description": "Typed record of a native operation that does not produce an intelligence result: controls, uploads, simulations, blocked mappings and families the v1 host envelope cannot represent. A successful receipt is never a completed check, approval or screening clearance.",
+  "type": "object",
+  "properties": {
+    "receipt_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject_entity_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operation_mapping_id": {
+      "type": "string",
+      "pattern": "^operation-map:[a-z0-9-]+:[A-Za-z0-9_.-]+:v[0-9]+$"
+    },
+    "vendor_definition_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider_record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "native_operation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "native_api_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "capability_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)*\\.intelligence\\.(?:[a-z]{2}(?:_[a-z0-9]+)?|global|unresolved)$"
+    },
+    "primary_capability_path": {
+      "type": "string",
+      "enum": [
+        "account.control",
+        "account.ownership",
+        "account.profile",
+        "business.officers",
+        "business.ownership",
+        "business.registry",
+        "business.verification",
+        "case.management",
+        "credential.issuance",
+        "credential.verification",
+        "crypto.transaction",
+        "crypto.wallet",
+        "document.evidence",
+        "document.signature",
+        "edd.report",
+        "entity.resolution",
+        "financial.analytics",
+        "financial.balance",
+        "financial.evidence",
+        "financial.income",
+        "financial.institution",
+        "financial.personal_management",
+        "financial.transactions",
+        "identity.address",
+        "identity.biometric",
+        "identity.digital_id",
+        "identity.document",
+        "identity.document.extraction",
+        "identity.identifier.derivation",
+        "identity.person",
+        "identity.profile",
+        "identity.tax_id",
+        "identity.vehicle",
+        "monitoring.subscription",
+        "platform.integration",
+        "platform.testing",
+        "questionnaire.collection",
+        "questionnaire.template",
+        "reference.identifier",
+        "reference.list",
+        "regulatory.reporting",
+        "risk.customer",
+        "risk.device",
+        "risk.email",
+        "risk.jurisdiction",
+        "risk.network",
+        "risk.phone",
+        "screening.adverse_media",
+        "screening.enforcement",
+        "screening.payment",
+        "screening.pep",
+        "screening.sanctions",
+        "screening.watchlist",
+        "transaction.monitoring",
+        "travel_rule.exchange",
+        "workflow.orchestration"
+      ]
+    },
+    "operation_role": {
+      "type": "string",
+      "enum": [
+        "lookup",
+        "retrieve",
+        "verify",
+        "validate",
+        "derive",
+        "extract",
+        "assess",
+        "screen",
+        "enrich",
+        "ingest",
+        "upload",
+        "submit",
+        "control",
+        "simulate"
+      ]
+    },
+    "operation_kind": {
+      "enum": [
+        "subject_comparison",
+        "authentication",
+        "authorization",
+        "consent",
+        "subject_resource",
+        "session",
+        "webhook",
+        "health",
+        "catalog_metadata",
+        "audit",
+        "queue",
+        "communication",
+        "manual_review",
+        "retention_delete",
+        "scheduling",
+        "resource_configuration",
+        "reconciliation_metadata",
+        null
+      ]
+    },
+    "receipt_reason": {
+      "type": "string",
+      "enum": [
+        "control_operation",
+        "upload_operation",
+        "synthetic_test_operation",
+        "mapping_blocked",
+        "no_v1_capability_contract"
+      ]
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "completed",
+            "pending",
+            "failed"
+          ]
+        },
+        "http_status": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "status",
+        "http_status",
+        "received_at"
+      ],
+      "additionalProperties": false
+    },
+    "native_status_original": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provider_resource_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "produces_intelligence": {
+      "const": false
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "assertions": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "checked_scope": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "enables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mapping": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "proposed",
+            "blocked",
+            "approved"
+          ]
+        },
+        "mapping_relation": {
+          "type": "string",
+          "enum": [
+            "proposed_semantic_mapping",
+            "validated_mapping"
+          ]
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "model_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "status",
+        "mapping_relation",
+        "blockers",
+        "model_version"
+      ],
+      "additionalProperties": false
+    },
+    "raw_payload": {
+      "type": "object",
+      "properties": {
+        "vault_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "classification": {
+          "const": "restricted"
+        }
+      },
+      "required": [
+        "vault_ref",
+        "sha256",
+        "classification"
+      ],
+      "additionalProperties": false
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "receipt_id",
+    "request_id",
+    "tenant_id",
+    "subject_entity_id",
+    "operation_mapping_id",
+    "vendor_definition_id",
+    "provider_record_id",
+    "native_operation_id",
+    "native_api_version",
+    "capability_id",
+    "primary_capability_path",
+    "operation_role",
+    "operation_kind",
+    "receipt_reason",
+    "execution",
+    "native_status_original",
+    "provider_resource_ref",
+    "produces_intelligence",
+    "synthetic",
+    "assertions",
+    "checked_scope",
+    "enables",
+    "mapping",
+    "raw_payload",
+    "warnings",
+    "errors"
+  ],
+  "additionalProperties": false
+}

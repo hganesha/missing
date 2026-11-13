@@ -1,0 +1,77 @@
+{
+  "adapter_id": "persona",
+  "provider_id": "persona",
+  "adapter_version": "0.1.0",
+  "host_schema_version": "1.0.0",
+  "capability": "identity.person.verify",
+  "maturity": "fixture_tested",
+  "enabled": false,
+  "native": {
+    "method": "GET",
+    "path": "/api/v1/inquiries/{inquiry-id}",
+    "api_version": "2026-09-29",
+    "authentication": "Bearer; Persona-Version and Key-Inflection headers",
+    "documentation_urls": [
+      "https://docs.withpersona.com/api-reference/inquiries/retrieve-an-inquiry",
+      "https://docs.withpersona.com/model-lifecycle",
+      "https://docs.withpersona.com/integration-guide-understanding-a-persona-api-payload"
+    ],
+    "fixture_only": true
+  },
+  "mapping_rules": [
+    {
+      "source_pointer": "/data/attributes/status",
+      "target_pointer": "/assessment/outcome",
+      "transform": "completed=>inconclusive; approved=>passed; never final bank decision",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S03",
+        "S04",
+        "S05"
+      ]
+    },
+    {
+      "source_pointer": "/data/id",
+      "target_pointer": "/provider/provider_record_id",
+      "transform": "copy",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S03",
+        "S04",
+        "S05"
+      ]
+    },
+    {
+      "source_pointer": "/data/attributes/payload/data",
+      "target_pointer": "/",
+      "transform": "unwrap event if data.type is event",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S03",
+        "S04",
+        "S05"
+      ]
+    }
+  ],
+  "supported_countries": [],
+  "entitlement_ref": null,
+  "secret_ref": null,
+  "transport_requirements": [
+    "TLS",
+    "approved regional base URL allowlist",
+    "secret vault injection",
+    "rate limiting and circuit breaker",
+    "bounded retry with jitter and idempotency",
+    "verify raw webhook signatures before decoding",
+    "durable inbox and tenant-bound correlation",
+    "replay and stale-event protection",
+    "original-byte hash and encrypted evidence storage"
+  ],
+  "limitations": [
+    "Synthetic representative payload subset only; not vendor-certified",
+    "No live HTTP, authentication, webhook signature, or sandbox integration implemented",
+    "No proof of contractual dataset coverage, country entitlements, retention rights or bank adoption",
+    "Empty country allowlist blocks live routing",
+    "Unmapped native properties available only in restricted raw artifact"
+  ]
+}

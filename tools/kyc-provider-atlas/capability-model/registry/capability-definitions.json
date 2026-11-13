@@ -1,0 +1,2823 @@
+{
+  "registry": "capability_definitions",
+  "model_version": "2.0.0",
+  "record_schema": "schemas/v2/capability-definition.schema.json",
+  "generated_by": "kyc-provider-atlas/build_capability_model.py",
+  "status": "proposed_not_enabled",
+  "sources": [
+    {
+      "path": "capability-model/source/families.json",
+      "sha256": "30acb48c47242abecd65871a8345bb298cadae3307b062327b94338ba2a7d5f8"
+    },
+    {
+      "path": "catalog/capabilities.json",
+      "sha256": "773c10f28d02bdc91243d17f36a9e32c9f79fd54e074f19932a749f123cc832b"
+    }
+  ],
+  "record_count": 56,
+  "records": [
+    {
+      "capability_path": "identity.person",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "person"
+      ],
+      "default_action": "verify",
+      "allowed_actions": [
+        "verify"
+      ],
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Corroborate a person against named identity sources; return individual checks, matched fields and gaps.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "check_executed",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "identity.person.verify"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "identity.document",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "document"
+      ],
+      "default_action": "verify",
+      "allowed_actions": [
+        "verify"
+      ],
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Assess document authenticity and validity; state document type, issuer, expiry and the checks actually performed.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "check_executed",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "identity.document.verify"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "identity.biometric",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "person"
+      ],
+      "default_action": "verify",
+      "allowed_actions": [
+        "verify"
+      ],
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Return face/fingerprint comparison, liveness or presentation-attack findings with method, reference and thresholds; distinguish 1:1 from 1:N.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "check_executed",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "identity.biometric.verify"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "identity.address",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "verify",
+      "allowed_actions": [
+        "verify"
+      ],
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Corroborate an address using a named source and method; address parsing alone is insufficient.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "check_executed",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "identity.address.verify"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "identity.digital_id",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "verify",
+      "allowed_actions": [
+        "verify"
+      ],
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Validate a digital-identity assertion, issuer, audience, trust scheme and assurance; session login alone is insufficient.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "check_executed",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "identity.digital_id.verify"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "identity.tax_id",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "verify",
+      "allowed_actions": [
+        "verify"
+      ],
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Validate a tax identifier in its issuer namespace and return any evidenced name/status match; syntax calculation is not validation.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "check_executed",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "identity.tax_id.verify"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "business.verification",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "registry_authority",
+      "required_scope_fields": [
+        "registry_namespace",
+        "registration_jurisdiction",
+        "local_identifier_scheme"
+      ],
+      "subject_types": [
+        "organization"
+      ],
+      "default_action": "verify",
+      "allowed_actions": [
+        "verify"
+      ],
+      "result_family": "business",
+      "result_family_status": "existing_host_union",
+      "definition": "Verify specified business facts against evidenced sources; registry retrieval alone is not a verified business outcome.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "check_executed",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "composite_results_preserve_child_capability_ids_and_coverage"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "business.verify"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "business.registry",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "registry_authority",
+      "required_scope_fields": [
+        "registry_namespace",
+        "registration_jurisdiction",
+        "local_identifier_scheme"
+      ],
+      "subject_types": [
+        "organization"
+      ],
+      "default_action": "lookup",
+      "allowed_actions": [
+        "lookup"
+      ],
+      "result_family": "business",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve a registered organization, status and filing references in an explicit registry namespace.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "business.verification"
+      ],
+      "legacy_aliases": [
+        "business.registry.lookup"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "business.ownership",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "registry_authority",
+      "required_scope_fields": [
+        "registry_namespace",
+        "registration_jurisdiction",
+        "local_identifier_scheme"
+      ],
+      "subject_types": [
+        "organization"
+      ],
+      "default_action": "discover",
+      "allowed_actions": [
+        "discover"
+      ],
+      "result_family": "ownership",
+      "result_family_status": "existing_host_union",
+      "definition": "Return dated ownership/control edges, interest types, source and completeness; distinguish legal ownership, control and accounting parents.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "edges_returned_with_completeness_statement",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "missing_edges_do_not_establish_absence_of_beneficial_owner"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "business.ownership.discover"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "business.officers",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "registry_authority",
+      "required_scope_fields": [
+        "registry_namespace",
+        "registration_jurisdiction",
+        "local_identifier_scheme"
+      ],
+      "subject_types": [
+        "organization",
+        "person"
+      ],
+      "default_action": "lookup",
+      "allowed_actions": [
+        "lookup"
+      ],
+      "result_family": "ownership",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve officer roles, appointments, resignations and disqualification facts with dates and source.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "missing_edges_do_not_establish_absence_of_beneficial_owner"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "business.officers.lookup"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "screening.sanctions",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "dataset_authority",
+      "required_scope_fields": [
+        "publisher_authority",
+        "dataset_refs",
+        "applicable_regimes"
+      ],
+      "subject_types": [
+        "person",
+        "organization",
+        "vessel",
+        "account"
+      ],
+      "default_action": "screen",
+      "allowed_actions": [
+        "screen"
+      ],
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Match against explicitly named sanctions datasets and versions; return candidates and coverage, without a legal clearance decision.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "screening_executed_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "empty_candidate_list_is_not_legal_clearance",
+        "dataset_publisher_does_not_restrict_subject_nationality"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "screening.sanctions"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "screening.pep",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "person"
+      ],
+      "default_action": "screen",
+      "allowed_actions": [
+        "screen"
+      ],
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Return political-exposure candidates, roles, relationships and time intervals under an explicit PEP definition.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "screening_executed_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "empty_candidate_list_is_not_legal_clearance"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "screening.pep"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "screening.adverse_media",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "screen",
+      "allowed_actions": [
+        "screen"
+      ],
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Return attributed media findings with publication date, language and allegation/proceeding status; do not imply sanctions coverage.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "screening_executed_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "empty_candidate_list_is_not_legal_clearance",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "screening.sanctions"
+      ],
+      "legacy_aliases": [
+        "screening.adverse_media"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "screening.enforcement",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "dataset_authority",
+      "required_scope_fields": [
+        "publisher_authority",
+        "dataset_refs",
+        "applicable_regimes"
+      ],
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "screen",
+      "allowed_actions": [
+        "screen"
+      ],
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Return regulator, court, debarment or enforcement candidates with action type and source; distinguish these from financial sanctions.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "screening_executed_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "empty_candidate_list_is_not_legal_clearance",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "screening.sanctions"
+      ],
+      "legacy_aliases": [
+        "screening.enforcement"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "screening.payment",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "payment"
+      ],
+      "default_action": "screen",
+      "allowed_actions": [
+        "screen"
+      ],
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Screen payment parties and structured/unstructured payment fields under named lists and policy; not payment execution.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "screening_executed_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "empty_candidate_list_is_not_legal_clearance"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "screening.payment"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "risk.device",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "device",
+        "session"
+      ],
+      "default_action": "assess",
+      "allowed_actions": [
+        "assess"
+      ],
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Return device identifiers, behavioral/integrity signals, observation times and provider scores; collection is a separate action.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "assessment_returned_with_methodology",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "native_score_scales_not_comparable_without_governed_transformation"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "risk.device"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "risk.email",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "email"
+      ],
+      "default_action": "assess",
+      "allowed_actions": [
+        "assess"
+      ],
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Return email validity, reputation and linked-risk signals with observation times and score provenance.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "assessment_returned_with_methodology",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "native_score_scales_not_comparable_without_governed_transformation"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "risk.email"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "risk.phone",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "phone"
+      ],
+      "default_action": "assess",
+      "allowed_actions": [
+        "assess"
+      ],
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Return telephone line, carrier, validity and risk signals; possession/OTP assurance must be explicitly evidenced.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "assessment_returned_with_methodology",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "native_score_scales_not_comparable_without_governed_transformation"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "risk.phone"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "risk.network",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "ip",
+        "network"
+      ],
+      "default_action": "assess",
+      "allowed_actions": [
+        "assess"
+      ],
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Return network/IP location, proxy and reputation signals; geolocation is probabilistic and not residence verification.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "assessment_returned_with_methodology",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "native_score_scales_not_comparable_without_governed_transformation",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "identity.address"
+      ],
+      "legacy_aliases": [
+        "risk.network"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "risk.jurisdiction",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "jurisdiction"
+      ],
+      "default_action": "assess",
+      "allowed_actions": [
+        "assess"
+      ],
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve or assess country/jurisdiction risk under a named methodology, publisher and as-of date; separate publication authority from target country.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "assessment_returned_with_methodology",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "native_score_scales_not_comparable_without_governed_transformation"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "risk.jurisdiction"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "risk.customer",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "person",
+        "organization",
+        "session"
+      ],
+      "default_action": "assess",
+      "allowed_actions": [
+        "assess"
+      ],
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Return provider risk factors and scores with methodology, scale and input scope; preserve the institution decision separately.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "assessment_returned_with_methodology",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "native_score_scales_not_comparable_without_governed_transformation"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "risk.customer.assess"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "account.ownership",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "required_scope_fields": [
+        "account_servicing_country",
+        "account_identifier_namespace",
+        "source_institution_country"
+      ],
+      "subject_types": [
+        "account",
+        "person",
+        "organization"
+      ],
+      "default_action": "verify",
+      "allowed_actions": [
+        "verify"
+      ],
+      "result_family": "account",
+      "result_family_status": "existing_host_union",
+      "definition": "Compare a named subject against account-holder evidence; return per-field comparisons, account namespace and match method.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "check_executed",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "account.ownership.verify"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "financial.evidence",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "required_scope_fields": [
+        "account_servicing_country",
+        "account_identifier_namespace",
+        "source_institution_country"
+      ],
+      "subject_types": [
+        "account",
+        "person",
+        "organization"
+      ],
+      "default_action": "retrieve",
+      "allowed_actions": [
+        "retrieve"
+      ],
+      "result_family": "financial",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve financial documents or extracted financial facts with institution, period, currency and provenance; not account ownership or transaction surveillance.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "account.ownership",
+        "transaction.monitoring"
+      ],
+      "legacy_aliases": [
+        "financial.evidence.retrieve"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "transaction.monitoring",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "transaction",
+        "account"
+      ],
+      "default_action": "monitor",
+      "allowed_actions": [
+        "monitor"
+      ],
+      "result_family": "monitoring",
+      "result_family_status": "existing_host_union",
+      "definition": "Evaluate fiat transaction activity under explicit scenarios/time windows and return alerts, observation coverage and rule versions.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "evaluation_executed_for_declared_window",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "transaction.monitor"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "case.management",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "case"
+      ],
+      "default_action": "manage",
+      "allowed_actions": [
+        "manage"
+      ],
+      "result_family": "case",
+      "result_family_status": "existing_host_union",
+      "definition": "Manage investigation cases, assignments, dispositions and audit history; this is an operational service contract.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "operation_receipt_only",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "control_success_produces_no_intelligence_assertion"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "case.manage"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "regulatory.reporting",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "report",
+        "case"
+      ],
+      "default_action": "report",
+      "allowed_actions": [
+        "report"
+      ],
+      "result_family": "report",
+      "result_family_status": "existing_host_union",
+      "definition": "Create, validate or submit regulator-specific reports; distinguish draft, submitted, acknowledged, accepted and rejected.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "operation_receipt_only",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "control_success_produces_no_intelligence_assertion"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "regulatory.report"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "crypto.wallet",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "wallet"
+      ],
+      "default_action": "screen",
+      "allowed_actions": [
+        "screen"
+      ],
+      "result_family": "crypto",
+      "result_family_status": "existing_host_union",
+      "definition": "Return wallet attribution/exposure by chain, asset, counterparty and hop policy; a wallet address requires a chain namespace.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "screening_executed_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "crypto.wallet.screen"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "crypto.transaction",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "crypto_transaction",
+        "wallet"
+      ],
+      "default_action": "monitor",
+      "allowed_actions": [
+        "monitor"
+      ],
+      "result_family": "crypto",
+      "result_family_status": "existing_host_union",
+      "definition": "Return blockchain transaction alerts and exposure with chain, transaction hash, block/time and asset units.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "evaluation_executed_for_declared_window",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "crypto.transaction.monitor"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "travel_rule.exchange",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "transfer",
+        "counterparty"
+      ],
+      "default_action": "exchange",
+      "allowed_actions": [
+        "exchange"
+      ],
+      "result_family": "travel_rule",
+      "result_family_status": "existing_host_union",
+      "definition": "Exchange originator/beneficiary information with protocol and counterparty state; delivery does not prove counterparty acceptance.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "operation_receipt_only",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "control_success_produces_no_intelligence_assertion"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "travel_rule.exchange"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "edd.report",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "person",
+        "organization",
+        "vessel"
+      ],
+      "default_action": "retrieve",
+      "allowed_actions": [
+        "retrieve"
+      ],
+      "result_family": "edd",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve an attributed investigation/due-diligence report with scope, author, dates, evidence and unresolved findings.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "edd.report.retrieve"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "entity.resolution",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "entity_set"
+      ],
+      "default_action": "resolve",
+      "allowed_actions": [
+        "resolve"
+      ],
+      "result_family": "resolution",
+      "result_family_status": "existing_host_union",
+      "definition": "Return identity-resolution candidates and supporting identifiers; preserve candidate versus confirmed links and avoid automatic merges.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "candidates_returned_without_automatic_merge",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "entity.resolve"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "monitoring.subscription",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "subject",
+        "capability_binding"
+      ],
+      "default_action": "subscribe",
+      "allowed_actions": [
+        "subscribe"
+      ],
+      "result_family": "subscription",
+      "result_family_status": "existing_host_union",
+      "definition": "Create or manage a change subscription to a specified parent capability, datasets and scope; an active subscription is not a fresh check.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "operation_receipt_only",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "control_success_produces_no_intelligence_assertion"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "monitoring.subscribe"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "reference.identifier",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "reference",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "identifier"
+      ],
+      "default_action": "lookup",
+      "allowed_actions": [
+        "lookup"
+      ],
+      "result_family": "reference",
+      "result_family_status": "existing_host_union",
+      "definition": "Resolve a namespaced identifier to reference records; LEI/BIC/reference identity is not beneficial ownership proof.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "reference_data_is_not_a_subject_check_outcome",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "business.registry",
+        "business.ownership"
+      ],
+      "legacy_aliases": [
+        "reference.identifier.lookup"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "reference.list",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "reference",
+      "jurisdiction_basis": "dataset_authority",
+      "required_scope_fields": [
+        "publisher_authority",
+        "dataset_refs",
+        "applicable_regimes"
+      ],
+      "subject_types": [
+        "dataset"
+      ],
+      "default_action": "ingest",
+      "allowed_actions": [
+        "ingest"
+      ],
+      "result_family": "reference",
+      "result_family_status": "existing_host_union",
+      "definition": "Acquire a versioned list/snapshot/delta with publisher, category, digest and effective time; ingesting a list does not screen a subject.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "versioned_snapshot_acquired",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "reference_data_is_not_a_subject_check_outcome",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "screening.sanctions",
+        "screening.pep",
+        "screening.enforcement",
+        "screening.adverse_media",
+        "screening.watchlist"
+      ],
+      "legacy_aliases": [
+        "reference.list.ingest"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "workflow.orchestration",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "workflow"
+      ],
+      "default_action": "orchestrate",
+      "allowed_actions": [
+        "orchestrate"
+      ],
+      "result_family": "workflow",
+      "result_family_status": "existing_host_union",
+      "definition": "Run a governed workflow and preserve child capability results; an orchestrator is not assumed to own upstream datasets.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "operation_receipt_only",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "control_success_produces_no_intelligence_assertion",
+        "composite_results_preserve_child_capability_ids_and_coverage"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "workflow.orchestrate"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "credential.verification",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "credential"
+      ],
+      "default_action": "verify",
+      "allowed_actions": [
+        "verify"
+      ],
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Validate a credential issuer, signature, trust chain, expiry and revocation state; issuance/retrieval is distinct.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "check_executed",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "credential.verify"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "questionnaire.collection",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "legacy_compatible",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "questionnaire",
+        "organization"
+      ],
+      "default_action": "collect",
+      "allowed_actions": [
+        "collect"
+      ],
+      "result_family": "questionnaire",
+      "result_family_status": "existing_host_union",
+      "definition": "Collect or retrieve versioned questionnaire responses with respondent and attestation provenance; a template is not an answered questionnaire.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "contract_specific",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [
+        "questionnaire.collect"
+      ],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "identity.profile",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "retrieve",
+      "allowed_actions": [
+        "retrieve"
+      ],
+      "result_family": "profile",
+      "result_family_status": "proposed_schema",
+      "definition": "Retrieve source identity fields or a stored KYC record without asserting corroboration or identity verification.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "identity.person"
+      ],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "identity.document.extraction",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "document"
+      ],
+      "default_action": "extract",
+      "allowed_actions": [
+        "extract"
+      ],
+      "result_family": "extraction",
+      "result_family_status": "proposed_schema",
+      "definition": "Extract text, barcode/NFC or document fields with field confidence and source pointers; extraction is not authenticity verification.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "fields_extracted_with_source_pointers",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "identity.document"
+      ],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "identity.identifier.derivation",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "identifier"
+      ],
+      "default_action": "derive",
+      "allowed_actions": [
+        "derive"
+      ],
+      "result_family": "reference",
+      "result_family_status": "existing_host_union",
+      "definition": "Calculate an identifier or perform syntax derivation; output must not be reported as authoritative identifier validation.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "derivation_computed_not_validated",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "identity.tax_id"
+      ],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "identity.vehicle",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "vehicle"
+      ],
+      "default_action": "validate",
+      "allowed_actions": [
+        "validate"
+      ],
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Validate vehicle identifiers/vehicle facts; this adjacent capability is not person identity verification.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "check_executed",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "credential.issuance",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "operational",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "credential"
+      ],
+      "default_action": "issue",
+      "allowed_actions": [
+        "issue"
+      ],
+      "result_family": "credential",
+      "result_family_status": "proposed_schema",
+      "definition": "Issue or manage a credential and expose its lifecycle; issuing does not independently verify underlying facts.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "operation_receipt_only",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "control_success_produces_no_intelligence_assertion",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "credential.verification"
+      ],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "document.evidence",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "required_scope_fields": [
+        "issuing_authority",
+        "document_identifier_or_credential_type",
+        "eligible_subject_countries"
+      ],
+      "subject_types": [
+        "document",
+        "media"
+      ],
+      "default_action": "retrieve",
+      "allowed_actions": [
+        "retrieve"
+      ],
+      "result_family": "artifact",
+      "result_family_status": "proposed_schema",
+      "definition": "Upload, obtain or export documents/media and their provenance; possession of an artifact is not a check outcome.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "credential.verification",
+        "identity.document",
+        "identity.digital_id"
+      ],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "document.signature",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "document"
+      ],
+      "default_action": "sign",
+      "allowed_actions": [
+        "sign"
+      ],
+      "result_family": "signature",
+      "result_family_status": "proposed_schema",
+      "definition": "Create/retrieve electronic signatures, receipts or attestations with scheme and signer provenance; not identity verification.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "operation_receipt_only",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "control_success_produces_no_intelligence_assertion",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "identity.person",
+        "identity.digital_id"
+      ],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "screening.watchlist",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "screen",
+      "allowed_actions": [
+        "screen"
+      ],
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Represent a composite/custom watchlist operation whose categories are parameterized; emit atomic sanctions/PEP/media results only for evidenced categories.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "screening_executed_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "empty_candidate_list_is_not_legal_clearance",
+        "composite_results_preserve_child_capability_ids_and_coverage",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "screening.sanctions",
+        "screening.pep",
+        "screening.adverse_media",
+        "screening.enforcement"
+      ],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "account.control",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "required_scope_fields": [
+        "account_servicing_country",
+        "account_identifier_namespace",
+        "source_institution_country"
+      ],
+      "subject_types": [
+        "account"
+      ],
+      "default_action": "validate",
+      "allowed_actions": [
+        "validate"
+      ],
+      "result_family": "account_control",
+      "result_family_status": "proposed_schema",
+      "definition": "Validate access/control of an account using microdeposits or account credentials; does not establish that the named subject is its legal holder.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "check_executed",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "account.ownership"
+      ],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "account.profile",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "required_scope_fields": [
+        "account_servicing_country",
+        "account_identifier_namespace",
+        "source_institution_country"
+      ],
+      "subject_types": [
+        "account"
+      ],
+      "default_action": "retrieve",
+      "allowed_actions": [
+        "retrieve"
+      ],
+      "result_family": "account_profile",
+      "result_family_status": "proposed_schema",
+      "definition": "Retrieve account metadata or holder details without a subject comparison; not account ownership verification.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "account.ownership"
+      ],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "financial.transactions",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "required_scope_fields": [
+        "account_servicing_country",
+        "account_identifier_namespace",
+        "source_institution_country"
+      ],
+      "subject_types": [
+        "account",
+        "transaction"
+      ],
+      "default_action": "retrieve",
+      "allowed_actions": [
+        "retrieve"
+      ],
+      "result_family": "transactions",
+      "result_family_status": "proposed_schema",
+      "definition": "Retrieve, enrich or categorize financial transactions; no AML monitoring conclusion is implied.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "transaction.monitoring"
+      ],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "financial.balance",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "required_scope_fields": [
+        "account_servicing_country",
+        "account_identifier_namespace",
+        "source_institution_country"
+      ],
+      "subject_types": [
+        "account"
+      ],
+      "default_action": "retrieve",
+      "allowed_actions": [
+        "retrieve"
+      ],
+      "result_family": "balance",
+      "result_family_status": "proposed_schema",
+      "definition": "Retrieve balance snapshots with amount, currency, balance type and timestamp.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "financial.income",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "financial_source_authority",
+      "required_scope_fields": [
+        "income_source_authority",
+        "source_institution",
+        "subject_countries"
+      ],
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "retrieve",
+      "allowed_actions": [
+        "retrieve"
+      ],
+      "result_family": "financial",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve or assess income/employment evidence with period, source and verification method.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "financial.analytics",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "required_scope_fields": [
+        "account_servicing_country",
+        "account_identifier_namespace",
+        "source_institution_country"
+      ],
+      "subject_types": [
+        "account",
+        "person",
+        "organization"
+      ],
+      "default_action": "assess",
+      "allowed_actions": [
+        "assess"
+      ],
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve financial features, insights or credit/lending metrics; preserve provider methodology and distinguish computed features from verified evidence.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "assessment_returned_with_methodology",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "native_score_scales_not_comparable_without_governed_transformation"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "financial.institution",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "intelligence",
+      "jurisdiction_basis": "registry_authority",
+      "required_scope_fields": [
+        "registry_namespace",
+        "registration_jurisdiction",
+        "local_identifier_scheme"
+      ],
+      "subject_types": [
+        "financial_institution"
+      ],
+      "default_action": "lookup",
+      "allowed_actions": [
+        "lookup"
+      ],
+      "result_family": "reference",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve supported financial institution, routing and merchant reference metadata; support catalogs are not customer checks.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "financial.personal_management",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "operational",
+      "jurisdiction_basis": "account_servicing",
+      "required_scope_fields": [
+        "account_servicing_country",
+        "account_identifier_namespace",
+        "source_institution_country"
+      ],
+      "subject_types": [
+        "user",
+        "account"
+      ],
+      "default_action": "manage",
+      "allowed_actions": [
+        "manage"
+      ],
+      "result_family": "resource",
+      "result_family_status": "proposed_schema",
+      "definition": "Manage budgets, goals, tags, categories, rewards or other personal-finance resources; adjacent product functionality, not financial-crime evidence.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "operation_receipt_only",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "control_success_produces_no_intelligence_assertion"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "questionnaire.template",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "reference",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "required_scope_fields": [
+        "policy_jurisdiction",
+        "source_locations",
+        "subject_countries",
+        "legal_report_regime"
+      ],
+      "subject_types": [
+        "questionnaire"
+      ],
+      "default_action": "retrieve",
+      "allowed_actions": [
+        "retrieve"
+      ],
+      "result_family": "template",
+      "result_family_status": "proposed_schema",
+      "definition": "Retrieve questionnaire definitions/standards; a blank template is not a response or attestation.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "records_retrieved_within_declared_scope",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "reference_data_is_not_a_subject_check_outcome",
+        "cannot_satisfy_listed_non_substitutable_contracts"
+      ],
+      "not_substitutable_for": [
+        "questionnaire.collection"
+      ],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "platform.integration",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "operational",
+      "jurisdiction_basis": "integration_scope",
+      "required_scope_fields": [
+        "parent_scope_binding_or_global_integration"
+      ],
+      "subject_types": [
+        "integration",
+        "session",
+        "subject_resource"
+      ],
+      "default_action": "manage",
+      "allowed_actions": [
+        "manage"
+      ],
+      "result_family": "operation",
+      "result_family_status": "proposed_schema",
+      "definition": "Manage authentication, sessions, consent, subject records, webhooks, audit logs, queues, diagnostics and native controls. Require an operation_kind and, where known, enables[]; produce no intelligence assertion merely from control success.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "operation_receipt_only",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "control_success_produces_no_intelligence_assertion"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    },
+    {
+      "capability_path": "platform.testing",
+      "model_version": "2.0.0",
+      "definition_version": "1.0.0",
+      "status": "proposed",
+      "group": "native_inventory_addition",
+      "kind": "testing",
+      "jurisdiction_basis": "integration_scope",
+      "required_scope_fields": [
+        "parent_scope_binding_or_global_integration"
+      ],
+      "subject_types": [
+        "test_resource"
+      ],
+      "default_action": "simulate",
+      "allowed_actions": [
+        "simulate"
+      ],
+      "result_family": "operation",
+      "result_family_status": "proposed_schema",
+      "definition": "Perform sandbox/test setup or webhook simulation; results remain explicitly synthetic and cannot satisfy a live intelligence requirement.",
+      "input_schema_ref": null,
+      "output_schema_ref": null,
+      "schema_status": "not_defined",
+      "success_semantics": "operation_receipt_only",
+      "invariants": [
+        "technical_success_is_not_verification_success",
+        "institution_decision_not_evaluated_in_adapter_layer",
+        "unresolved_jurisdiction_is_not_live_routable",
+        "empty_scope_lists_mean_none_established",
+        "findings_reference_source_evidence_and_mapping_version",
+        "control_success_produces_no_intelligence_assertion",
+        "results_are_synthetic_and_never_satisfy_live_requirements"
+      ],
+      "not_substitutable_for": [],
+      "legacy_aliases": [],
+      "owner": null,
+      "governance": {
+        "approval_ref": null,
+        "blockers": [
+          "owner_unassigned",
+          "input_output_schemas_not_defined",
+          "definition_not_approved"
+        ]
+      }
+    }
+  ]
+}

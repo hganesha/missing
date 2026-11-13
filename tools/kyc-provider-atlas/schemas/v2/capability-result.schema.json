@@ -1,0 +1,287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kyc-provider-atlas.local/schemas/v2/capability-result.schema.json",
+  "title": "CanonicalCapabilityResult v2 (draft)",
+  "description": "Result envelope. Execution, assessment, coverage, evidence status and institution decision are independent. The result payload is validated by the definition output schema once defined.",
+  "type": "object",
+  "properties": {
+    "result_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capability_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)*\\.intelligence\\.(?:[a-z]{2}(?:_[a-z0-9]+)?|global)$"
+    },
+    "capability_definition_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "binding_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operation_mapping_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "completed",
+            "failed",
+            "reconciliation_required"
+          ]
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "assessment": {
+      "type": "object",
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "not_checked",
+            "inconclusive",
+            "matched",
+            "not_matched",
+            "not_applicable"
+          ]
+        },
+        "provider_outcome_original": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bank_decision": {
+          "const": "not_evaluated"
+        }
+      },
+      "required": [
+        "outcome",
+        "provider_outcome_original",
+        "bank_decision"
+      ],
+      "additionalProperties": false
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "partial",
+            "complete",
+            "not_supported"
+          ]
+        },
+        "requested_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "checked_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "not_checked_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dataset_versions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "requested_scope",
+        "checked_scope",
+        "not_checked_scope",
+        "dataset_versions",
+        "reason_codes"
+      ],
+      "additionalProperties": false
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "account",
+            "account_control",
+            "account_profile",
+            "artifact",
+            "balance",
+            "business",
+            "case",
+            "credential",
+            "crypto",
+            "edd",
+            "extraction",
+            "financial",
+            "monitoring",
+            "operation",
+            "ownership",
+            "profile",
+            "questionnaire",
+            "reference",
+            "report",
+            "resolution",
+            "resource",
+            "risk",
+            "screening",
+            "signature",
+            "subscription",
+            "template",
+            "transactions",
+            "travel_rule",
+            "verification",
+            "workflow"
+          ]
+        }
+      }
+    },
+    "assertions": {
+      "type": "array"
+    },
+    "relationships": {
+      "type": "array"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "raw_payload_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "result_id",
+    "request_id",
+    "tenant_id",
+    "capability_id",
+    "capability_definition_version",
+    "binding_id",
+    "operation_mapping_id",
+    "execution",
+    "assessment",
+    "coverage",
+    "result",
+    "assertions",
+    "relationships",
+    "evidence_refs",
+    "raw_payload_ref",
+    "warnings"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "execution": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "pending",
+                  "failed",
+                  "reconciliation_required"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "assertions": {
+            "type": "array",
+            "maxItems": 0
+          },
+          "assessment": {
+            "properties": {
+              "outcome": {
+                "enum": [
+                  "unknown",
+                  "not_checked"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "coverage": {
+            "properties": {
+              "status": {
+                "const": "complete"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "coverage": {
+            "properties": {
+              "not_checked_scope": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

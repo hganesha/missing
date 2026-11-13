@@ -1,0 +1,23 @@
+{
+  "provider_id": "opensanctions",
+  "executable": false,
+  "headers": {},
+  "body": {
+    "queries": {
+      "q": {
+        "schema": "Person",
+        "properties": {
+          "name": [
+            "Alex Example"
+          ]
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Resolve secret references and validate entitlements outside this offline plan"
+  ],
+  "method": "POST",
+  "path": "/match/default",
+  "authentication": "ApiKey secret reference"
+}

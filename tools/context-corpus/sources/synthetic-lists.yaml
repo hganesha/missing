@@ -1,0 +1,15 @@
+# FICTIONAL list entries for test use. They are not real designations or real office holders. Real
+# designations only ever appear as published list data in sources/pinned/lists.json.
+synthetic-designations:
+  list_type: sanctions
+  version: corpus-synthetic-designations-2026-09-29
+  notice: Fictional designations, for testing ownership-aggregation and screening skills only.
+  entries:
+    - { uid: SYN-D-0001, name: Radomir Veselin Kostadinov, type: individual, dob: "1961-03-09", identifiers: [SPECIMEN-SD-0001], programs: [SYNTHETIC-PROGRAM-A] }
+    - { uid: SYN-D-0002, name: Anselm Drakon Voss, type: individual, dob: "1958-11-22", identifiers: [SPECIMEN-SD-0002], programs: [SYNTHETIC-PROGRAM-A] }
+synthetic-peps:
+  list_type: pep
+  version: corpus-synthetic-peps-2026-09-29
+  notice: Fictional politically exposed persons of a fictional state; never real office holders.
+  entries:
+    - { uid: SYN-P-0001, name: Chidi Okonkwo-Ibe, type: individual, dob: "1957-08-14", identifiers: [SPECIMEN-PEP-0001], programs: ["Minister of Finance, Republic of Ostrava (fictional)"] }

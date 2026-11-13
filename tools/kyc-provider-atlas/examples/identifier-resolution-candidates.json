@@ -1,0 +1,12 @@
+[
+  {
+    "left_entity_id": "subject-001",
+    "right_entity_id": "other-source-company",
+    "outcome": "possible",
+    "method": "exact_namespaced_identifier",
+    "evidence_ids": [],
+    "matched_features": [
+      "identifier:company_registration:GB:00000001"
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "name": "@ehf/fincrime-views",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pure FinCrime read-model projections (canonical records -> Experience API views), shared by the BFF and the mock (BUILD-SPEC v2 G1).",
+  "exports": { ".": "./src/index.ts", "./fixtures/*": "./src/fixtures/*" },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@ehf/ui-contracts": "workspace:*"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "provider_id": "companies-house",
+  "executable": false,
+  "headers": {},
+  "body": null,
+  "limitations": [
+    "Resolve secret references and validate entitlements outside this offline plan"
+  ],
+  "method": "GET",
+  "path": "/company/00000001",
+  "authentication": "Basic API key: empty password"
+}

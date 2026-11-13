@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kyc-provider-atlas.local/schemas/v2/legacy-binding-crosswalk.schema.json",
+  "title": "Legacy binding crosswalk record",
+  "description": "How one v1 provider:capability binding maps to v2 bindings. Corrected entries are not reversible aliases.",
+  "type": "object",
+  "properties": {
+    "legacy_binding_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+:[a-z0-9_.]+$"
+    },
+    "provider_record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legacy_capability": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legacy_result_family": {
+      "type": "string",
+      "minLength": 1
+    },
+    "migration": {
+      "type": "string",
+      "enum": [
+        "vocabulary_mapping",
+        "semantic_correction",
+        "conditional_split"
+      ]
+    },
+    "binding_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "capability_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)*\\.intelligence\\.(?:[a-z]{2}(?:_[a-z0-9]+)?|global|unresolved)$"
+      },
+      "minItems": 1
+    },
+    "legacy_runtime_disposition": {
+      "type": "string",
+      "enum": [
+        "alias_pending_approval",
+        "migration_required",
+        "quarantined"
+      ]
+    },
+    "note": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "legacy_binding_id",
+    "provider_record_id",
+    "legacy_capability",
+    "legacy_result_family",
+    "migration",
+    "binding_ids",
+    "capability_ids",
+    "legacy_runtime_disposition",
+    "note"
+  ],
+  "additionalProperties": false
+}

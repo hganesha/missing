@@ -1,0 +1,48 @@
+# The general v2 conformance package: one simulator tool reading one case field and
+# writing two case commands, no model, no policy, no external provider. Runtime, admission,
+# gateway and authoring tests run its plan. The node config keys are deliberately
+# mixed-case and underscore-bearing: they are the keys whose ordering differs between a
+# locale-sensitive sort and UTF-8 byte order, so the plan only re-verifies when every
+# canonicalization agrees. Recompile with `make fixtures`.
+apiVersion: harness.factory/domain-package-v2
+kind: DomainPackage
+metadata:
+  name: v2-conformance
+  version: 0.1.0
+  domain: conformance
+  objective: Exercise the v2 plan contract end to end with one case-reading tool.
+  owners: [harness-platform]
+  riskClass: low
+workflow: workflow.yaml
+coordinationMode: caseStore
+budgets:
+  maxDurationMs: 60000
+  maxCostUsd: 0.05
+  maxModelCalls: 0
+  maxCapabilityCalls: 1
+modelProfiles: []
+agentProfiles: []
+capabilities:
+  - id: vendor.lookup
+    kind: tool
+    effect: read
+    adapterBindingId: simulator:vendor.lookup
+    inputSchema: { type: object }
+    outputSchema: { type: object }
+    timeoutMs: 5000
+    maxAttempts: 1
+    idempotent: true
+bindings:
+  lookup: vendor.lookup
+allowedRegions: [US]
+dataClasses: [PUBLIC]
+contextSelectors:
+  - id: case-id
+    source: case
+    path: caseId
+    purpose: CONFORMANCE
+    classification: PUBLIC
+    required: true
+contextClassificationPolicies:
+  - classification: PUBLIC
+    action: allow

@@ -1,0 +1,187 @@
+[
+  {
+    "capability": "identity.person.verify",
+    "result_family": "verification",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "identity.document.verify",
+    "result_family": "verification",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "identity.biometric.verify",
+    "result_family": "verification",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "identity.address.verify",
+    "result_family": "verification",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "identity.digital_id.verify",
+    "result_family": "verification",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "identity.tax_id.verify",
+    "result_family": "verification",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "business.verify",
+    "result_family": "business",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "business.registry.lookup",
+    "result_family": "business",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "business.ownership.discover",
+    "result_family": "ownership",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "business.officers.lookup",
+    "result_family": "ownership",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "screening.sanctions",
+    "result_family": "screening",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "screening.pep",
+    "result_family": "screening",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "screening.adverse_media",
+    "result_family": "screening",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "screening.enforcement",
+    "result_family": "screening",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "screening.payment",
+    "result_family": "screening",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "risk.device",
+    "result_family": "risk",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "risk.email",
+    "result_family": "risk",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "risk.phone",
+    "result_family": "risk",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "risk.network",
+    "result_family": "risk",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "risk.jurisdiction",
+    "result_family": "risk",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "risk.customer.assess",
+    "result_family": "risk",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "account.ownership.verify",
+    "result_family": "account",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "financial.evidence.retrieve",
+    "result_family": "financial",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "transaction.monitor",
+    "result_family": "monitoring",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "case.manage",
+    "result_family": "case",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "regulatory.report",
+    "result_family": "report",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "crypto.wallet.screen",
+    "result_family": "crypto",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "crypto.transaction.monitor",
+    "result_family": "crypto",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "travel_rule.exchange",
+    "result_family": "travel_rule",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "edd.report.retrieve",
+    "result_family": "edd",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "entity.resolve",
+    "result_family": "resolution",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "monitoring.subscribe",
+    "result_family": "subscription",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "reference.identifier.lookup",
+    "result_family": "reference",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "reference.list.ingest",
+    "result_family": "reference",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "workflow.orchestrate",
+    "result_family": "workflow",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "credential.verify",
+    "result_family": "verification",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  },
+  {
+    "capability": "questionnaire.collect",
+    "result_family": "questionnaire",
+    "definition": "Host-controlled capability; provider support must be proven separately"
+  }
+]

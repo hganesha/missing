@@ -1,0 +1,14 @@
+# Background crowd: regenerated from this seed, never committed. Only its digest and statistics are
+# recorded in the manifest. Base rate of planted laundering is about 0.2% of transactions.
+seed: 424242
+start: 2024-09-30
+end: 2026-09-30
+individuals: 1200
+smes: 300
+employers: 60
+landlords: 300
+merchants: 200
+suppliers: 120
+planted:
+  structuring_clusters: 60
+  funnel_clusters: 20

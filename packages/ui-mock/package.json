@@ -1,0 +1,24 @@
+{
+  "name": "@ehf/ui-mock",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Contract-generated mock of the Experience API (BUILD-SPEC v2 \u00a76). Imported only by apps/web/src/mock-bootstrap.ts and by tests.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./browser": "./src/browser.ts",
+    "./node": "./src/node.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@ehf/contracts": "workspace:*",
+    "@ehf/fincrime-views": "workspace:*",
+    "@ehf/policy-engine": "workspace:*",
+    "@ehf/ui-contracts": "workspace:*",
+    "msw": "2.15.0",
+    "yaml": "2.9.1"
+  }
+}

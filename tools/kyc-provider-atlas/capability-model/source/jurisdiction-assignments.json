@@ -1,0 +1,460 @@
+{
+  "description": "Reviewed proposed jurisdiction per provider record (section 2.2, Appendix A). Providers not listed receive unresolved. A proposed suffix is source scope only and never approval.",
+  "default": {
+    "jurisdiction": "unresolved",
+    "assignment_basis": "no_evidence",
+    "reason": "no capability-specific jurisdiction evidence"
+  },
+  "assignments": {
+    "acra": {
+      "jurisdiction": "sg",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Singapore",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "argentina-arca": {
+      "jurisdiction": "ar",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Argentina",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "asic": {
+      "jurisdiction": "au",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Australia",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "australia-dfat-consolidated-list": {
+      "jurisdiction": "au",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "Australia / Global subjects",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "australian-business-register": {
+      "jurisdiction": "au",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Australia",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "bahrain-benefit-ekyc": {
+      "jurisdiction": "bh",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Bahrain",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "bankid-sweden": {
+      "jurisdiction": "se",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Sweden",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "bolagsverket": {
+      "jurisdiction": "se",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Sweden",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "br-nn-ysund-register-centre": {
+      "jurisdiction": "no",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Norway",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "brazil-receita-federal": {
+      "jurisdiction": "br",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Brazil",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "canada-consolidated-autonomous-sanctions": {
+      "jurisdiction": "ca",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "Canada / Global subjects",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "cbe-kbo": {
+      "jurisdiction": "be",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Belgium",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "cersai-ckycr": {
+      "jurisdiction": "in",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "India",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "chile-registro-de-empresas-y-sociedades": {
+      "jurisdiction": "cl",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Chile",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "china-gsxt": {
+      "jurisdiction": "cn",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "China",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "colombia-rues": {
+      "jurisdiction": "co",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Colombia",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "companies-house": {
+      "jurisdiction": "gb",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "UK",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "connectid": {
+      "jurisdiction": "au",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Australia",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "corporations-canada": {
+      "jurisdiction": "ca",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Canada",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "cro": {
+      "jurisdiction": "ie",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Ireland",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "danish-business-authority-cvr": {
+      "jurisdiction": "dk",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Denmark",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "digilocker": {
+      "jurisdiction": "in",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "India",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "eu-bris": {
+      "jurisdiction": "unresolved",
+      "assignment_basis": "federation_unresolved",
+      "catalog_market_hint": "EU / EEA",
+      "reason": "EU/EEA federation; select actual member registry jurisdiction"
+    },
+    "eu-financial-sanctions-files": {
+      "jurisdiction": "eu",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "EU / Global subjects",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "fincen-boi": {
+      "jurisdiction": "us",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "US",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "fincen-section-314-a": {
+      "jurisdiction": "us",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "US",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "german-handelsregister": {
+      "jurisdiction": "de",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Germany",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "ghana-orc": {
+      "jurisdiction": "gh",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Ghana",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "gstn": {
+      "jurisdiction": "in",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "India",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "hong-kong-companies-registry": {
+      "jurisdiction": "hk",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Hong Kong",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "indonesia-ahu": {
+      "jurisdiction": "id",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Indonesia",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "inpi-rne": {
+      "jurisdiction": "fr",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "France",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "insee-sirene": {
+      "jurisdiction": "fr",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "France",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "irs-tin-matching": {
+      "jurisdiction": "us",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "US",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "japan-corporate-number-publication-site": {
+      "jurisdiction": "jp",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Japan",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "japan-mof-sanctions": {
+      "jurisdiction": "jp",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "Japan / Global subjects",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "kenya-brs": {
+      "jurisdiction": "ke",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Kenya",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "korea-dart": {
+      "jurisdiction": "kr",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "South Korea",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "kvk": {
+      "jurisdiction": "nl",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Netherlands",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "luxembourg-business-registers": {
+      "jurisdiction": "lu",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Luxembourg",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "mca": {
+      "jurisdiction": "in",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "India",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "mexico-renapo": {
+      "jurisdiction": "mx",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Mexico",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "mexico-sat": {
+      "jurisdiction": "mx",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Mexico",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "new-zealand-companies-office": {
+      "jurisdiction": "nz",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "New Zealand",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "nigeria-cac": {
+      "jurisdiction": "ng",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Nigeria",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "nigeria-nibss": {
+      "jurisdiction": "ng",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Nigeria",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "nigeria-nimc": {
+      "jurisdiction": "ng",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Nigeria",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "norwegian-bankid": {
+      "jurisdiction": "no",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Norway",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "ofac-sanctions-list-service": {
+      "jurisdiction": "us",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "US / Global subjects",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "philippines-sec": {
+      "jurisdiction": "ph",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Philippines",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "prh": {
+      "jurisdiction": "fi",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Finland",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "protean-egov": {
+      "jurisdiction": "in",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "India",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "registradores": {
+      "jurisdiction": "es",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Spain",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "registro-imprese-infocamere": {
+      "jurisdiction": "it",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Italy",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "saudi-elm": {
+      "jurisdiction": "sa",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Saudi Arabia",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "saudi-wathq-thiqah": {
+      "jurisdiction": "sa",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Saudi Arabia",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "sec-edgar": {
+      "jurisdiction": "us",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "US",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "sedar": {
+      "jurisdiction": "ca",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Canada",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "singapore-mas-targeted-financial-sanctions": {
+      "jurisdiction": "sg",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "Singapore / Global subjects",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "singapore-myinfo-singpass": {
+      "jurisdiction": "sg",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Singapore",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "south-africa-cipc": {
+      "jurisdiction": "za",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "South Africa",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "ssa-ecbsv": {
+      "jurisdiction": "us",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "US",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "ssm": {
+      "jurisdiction": "my",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Malaysia",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "swissid": {
+      "jurisdiction": "ch",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Switzerland",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "switzerland-seco-sanctions": {
+      "jurisdiction": "ch",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "Switzerland / Global subjects",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "taiwan-moea": {
+      "jurisdiction": "tw",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Taiwan",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "uae-pass": {
+      "jurisdiction": "ae",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "UAE",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "uidai": {
+      "jurisdiction": "in",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "India",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "uk-sanctions-list": {
+      "jurisdiction": "gb",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "UK / Global subjects",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "un-security-council-consolidated-list": {
+      "jurisdiction": "un",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "Global",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "unternehmensregister": {
+      "jurisdiction": "de",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Germany",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "us-bis-consolidated-screening-list": {
+      "jurisdiction": "us",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "US / Global subjects",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "us-sam-exclusions": {
+      "jurisdiction": "us",
+      "assignment_basis": "publisher_authority",
+      "catalog_market_hint": "US",
+      "reason": "publisher authority from local source identity; proposed"
+    },
+    "us-state-secretaries-of-state": {
+      "jurisdiction": "us",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "US",
+      "reason": "national-source hint from catalog; unverified"
+    },
+    "zefix": {
+      "jurisdiction": "ch",
+      "assignment_basis": "national_source_hint",
+      "catalog_market_hint": "Switzerland",
+      "reason": "national-source hint from catalog; unverified"
+    }
+  }
+}

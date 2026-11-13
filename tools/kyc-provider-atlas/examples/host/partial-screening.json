@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "result_id": "9ebca305e1da32eba2f35d9708000892c92fe7593af39f0532847da735f40257",
+  "request_id": "demo-request",
+  "tenant_id": "demo-tenant",
+  "subject_entity_id": "subject-001",
+  "capability": "screening.sanctions",
+  "provider": {
+    "provider_id": "opensanctions",
+    "adapter_version": "0.1.0",
+    "status_original": "query_status_200",
+    "decision_origin": "data_only",
+    "provider_request_id": "q"
+  },
+  "execution": {
+    "status": "partial",
+    "received_at": "2026-10-15T12:00:00Z"
+  },
+  "assessment": {
+    "outcome": "review",
+    "reason_codes": [],
+    "bank_decision": "not_evaluated"
+  },
+  "coverage": {
+    "status": "unknown",
+    "requested_scope": [
+      "screening.sanctions"
+    ],
+    "checked_scope": [],
+    "not_checked_scope": [
+      "screening.sanctions"
+    ],
+    "reason": "Fixture mapping only; entitled datasets and country coverage not established"
+  },
+  "entities": [
+    {
+      "entity_id": "subject-001",
+      "entity_type": "person",
+      "names": [],
+      "identifiers": []
+    },
+    {
+      "entity_id": "opensanctions:synthetic-candidate",
+      "entity_type": "person",
+      "names": [
+        {
+          "full": "Alex Example",
+          "kind": "legal"
+        }
+      ],
+      "identifiers": [],
+      "source_record_ids": [
+        "synthetic-candidate"
+      ],
+      "evidence_ids": [
+        "ev-83c5db54209e1cd4"
+      ]
+    }
+  ],
+  "relationships": [],
+  "assertions": [],
+  "evidence": [
+    {
+      "evidence_id": "ev-83c5db54209e1cd4",
+      "provider_id": "opensanctions",
+      "retrieved_at": "2026-10-15T12:00:00Z",
+      "content_sha256": "83c5db54209e1cd4c92de628c9ee07eb72cc2dc43f74b8217478926381d82d5a",
+      "source_pointer": "/",
+      "authority": "unknown",
+      "access_classification": "restricted"
+    }
+  ],
+  "result": {
+    "kind": "screening",
+    "matches": [
+      {
+        "match_id": "match-1",
+        "subject_entity_id": "subject-001",
+        "candidate_entity_id": "opensanctions:synthetic-candidate",
+        "categories": [
+          "sanction"
+        ],
+        "list_ids": [
+          "synthetic_list_NOT_REAL"
+        ],
+        "scores": [
+          {
+            "name": "provider_match_score",
+            "value": 0.94,
+            "direction": "higher_is_better_match",
+            "semantics": "Provider-specific matching score; not identity certainty or comparable to other vendors"
+          }
+        ],
+        "disposition": "unresolved",
+        "evidence_ids": [
+          "ev-83c5db54209e1cd4"
+        ]
+      }
+    ],
+    "dataset_versions": [],
+    "scope": [
+      "configured_scope_unverified"
+    ],
+    "truncated": true,
+    "total_candidates": 200
+  },
+  "errors": [],
+  "warnings": [
+    "SYNTHETIC_FIXTURE_NOT_VENDOR_TESTED",
+    "Coverage and bank decision are not inferred from this payload",
+    "EMPTY_CANDIDATE_SET_DOES_NOT_ESTABLISH_CLEARANCE"
+  ],
+  "raw_payload": {
+    "vault_ref": "example://canonical-json/83c5db54209e1cd4c92de628c9ee07eb72cc2dc43f74b8217478926381d82d5a",
+    "sha256": "83c5db54209e1cd4c92de628c9ee07eb72cc2dc43f74b8217478926381d82d5a",
+    "classification": "restricted"
+  },
+  "extensions": {
+    "digest_representation": "canonical JSON UTF-8; not signed HTTP bytes"
+  }
+}

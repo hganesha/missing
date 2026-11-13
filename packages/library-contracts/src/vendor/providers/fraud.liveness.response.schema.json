@@ -1,0 +1,48 @@
+{
+  "$defs": {
+    "DetectorAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "assessment": {
+          "$ref": "#/$defs/Id"
+        },
+        "limitations": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "model_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "score": {
+          "$ref": "#/$defs/Fraction"
+        }
+      },
+      "required": [
+        "score",
+        "model_version",
+        "limitations",
+        "assessment"
+      ],
+      "type": "object"
+    },
+    "Fraction": {
+      "pattern": "^(?:0(?:\\.[0-9]+)?|1(?:\\.0+)?)$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:provider:fraud.liveness:response:2.0.0",
+  "$ref": "#/$defs/DetectorAssessment",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,36 @@
+/* Base layer for apps using @ehf/ui-kit. Import after @ehf/ui-tokens/tokens.css.
+   Token variables only: no colour literals (STYLE-GUIDE §2). */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: var(--text-md);
+  line-height: var(--lh-md);
+  color: var(--ink-1);
+  background: var(--surface-app);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, p { margin: 0; }
+button { font: inherit; color: inherit; }
+code, kbd, samp { font-family: var(--font-mono); }
+time { font-variant-numeric: tabular-nums; }
+a { color: var(--ink-link); text-underline-offset: 2px; }
+:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: var(--radius-sm); }
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; margin: -1px; padding: 0; border: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* Engraved label voice (STYLE-GUIDE §3): dimension names, breadcrumbs, section kickers. */
+.t-engraved {
+  font-size: var(--text-2xs);
+  line-height: var(--lh-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-engraved);
+  color: var(--ink-2);
+  font-weight: var(--weight-medium);
+}

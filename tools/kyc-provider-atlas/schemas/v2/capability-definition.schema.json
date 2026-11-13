@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kyc-provider-atlas.local/schemas/v2/capability-definition.schema.json",
+  "title": "CapabilityDefinition",
+  "description": "What an interchangeable capability promises (section 3.1). The jurisdiction basis is fixed per definition and cannot vary between bindings.",
+  "type": "object",
+  "properties": {
+    "capability_path": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)*$"
+    },
+    "model_version": {
+      "const": "2.0.0"
+    },
+    "definition_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "approved",
+        "deprecated"
+      ]
+    },
+    "group": {
+      "type": "string",
+      "enum": [
+        "legacy_compatible",
+        "native_inventory_addition"
+      ]
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "intelligence",
+        "operational",
+        "reference",
+        "testing"
+      ]
+    },
+    "jurisdiction_basis": {
+      "type": "string",
+      "enum": [
+        "registry_authority",
+        "issuer_authority",
+        "dataset_authority",
+        "policy_jurisdiction",
+        "financial_source_authority",
+        "account_servicing",
+        "integration_scope"
+      ]
+    },
+    "required_scope_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "subject_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "default_action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "allowed_actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "result_family": {
+      "type": "string",
+      "minLength": 1
+    },
+    "result_family_status": {
+      "type": "string",
+      "enum": [
+        "existing_host_union",
+        "proposed_schema"
+      ]
+    },
+    "definition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_schema_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "output_schema_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "schema_status": {
+      "type": "string",
+      "enum": [
+        "not_defined",
+        "draft",
+        "approved"
+      ]
+    },
+    "success_semantics": {
+      "type": "string",
+      "minLength": 1
+    },
+    "invariants": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "not_substitutable_for": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "account.control",
+          "account.ownership",
+          "account.profile",
+          "business.officers",
+          "business.ownership",
+          "business.registry",
+          "business.verification",
+          "case.management",
+          "credential.issuance",
+          "credential.verification",
+          "crypto.transaction",
+          "crypto.wallet",
+          "document.evidence",
+          "document.signature",
+          "edd.report",
+          "entity.resolution",
+          "financial.analytics",
+          "financial.balance",
+          "financial.evidence",
+          "financial.income",
+          "financial.institution",
+          "financial.personal_management",
+          "financial.transactions",
+          "identity.address",
+          "identity.biometric",
+          "identity.digital_id",
+          "identity.document",
+          "identity.document.extraction",
+          "identity.identifier.derivation",
+          "identity.person",
+          "identity.profile",
+          "identity.tax_id",
+          "identity.vehicle",
+          "monitoring.subscription",
+          "platform.integration",
+          "platform.testing",
+          "questionnaire.collection",
+          "questionnaire.template",
+          "reference.identifier",
+          "reference.list",
+          "regulatory.reporting",
+          "risk.customer",
+          "risk.device",
+          "risk.email",
+          "risk.jurisdiction",
+          "risk.network",
+          "risk.phone",
+          "screening.adverse_media",
+          "screening.enforcement",
+          "screening.payment",
+          "screening.pep",
+          "screening.sanctions",
+          "screening.watchlist",
+          "transaction.monitoring",
+          "travel_rule.exchange",
+          "workflow.orchestration"
+        ]
+      }
+    },
+    "legacy_aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "governance": {
+      "type": "object",
+      "properties": {
+        "approval_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "approval_ref",
+        "blockers"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "capability_path",
+    "model_version",
+    "definition_version",
+    "status",
+    "group",
+    "kind",
+    "jurisdiction_basis",
+    "required_scope_fields",
+    "subject_types",
+    "default_action",
+    "allowed_actions",
+    "result_family",
+    "result_family_status",
+    "definition",
+    "input_schema_ref",
+    "output_schema_ref",
+    "schema_status",
+    "success_semantics",
+    "invariants",
+    "not_substitutable_for",
+    "legacy_aliases",
+    "owner",
+    "governance"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@ehf/ui-client",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "ExperienceClient: the only way UI code reaches the Experience API (BUILD-SPEC v2 \u00a74.3, N1).",
+  "exports": {
+    ".": "./src/index.ts",
+    "./onboarding": "./src/onboarding.ts",
+    "./react": "./src/react.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@ehf/ui-contracts": "workspace:*",
+    "openapi-fetch": "0.17.0"
+  },
+  "peerDependencies": {
+    "react": "19.2.6",
+    "@tanstack/react-query": "5.106.1"
+  },
+  "devDependencies": {
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "@tanstack/react-query": "5.106.1",
+    "@types/react": "19.2.14",
+    "@testing-library/react": "16.3.3",
+    "jsdom": "27.4.0"
+  }
+}

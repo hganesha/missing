@@ -1,0 +1,10 @@
+{
+  "$comment": "Drift that ui:sync tolerates. Each entry must cite a CONTRACT-GAPS id in apps/web/CONTRACT-GAPS.md. Remove an entry once the pack is re-pinned (ALIGNMENT §8).",
+  "groups": {
+    "ehf.contracts": { "gap": "GAP-015", "reason": "upstream/ehf-contracts.schema.json re-exported and the group re-pinned at 5b7aeda (cloud-neutral contracts, GAP-116); kept acknowledged so later contract edits on this branch warn instead of blocking until the next re-export" },
+    "ehf.identity": { "gap": "GAP-015", "reason": "pack pinned to 249ab42; main merged it (70de72d) and has moved on since" },
+    "ehf.routes": { "gap": "GAP-015", "reason": "pack pinned to 249ab42; main merged it (70de72d) and has moved on since" },
+    "ehf.design": { "gap": "GAP-015", "reason": "ui-specs.md and docs/new-arch changed on main after the pin" },
+    "kyc.release": { "gap": "GAP-017", "reason": "kyc docs/ehf-integration.md is not vendored into ehfconcept" }
+  }
+}

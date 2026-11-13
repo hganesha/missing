@@ -1,0 +1,54 @@
+.button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  height: var(--control-h); padding: 0 14px; border-radius: var(--radius-pill);
+  border: 1px solid var(--line-2); background: var(--surface-panel); color: var(--ink-1);
+  font-size: var(--text-sm); font-weight: var(--weight-medium); cursor: pointer; white-space: nowrap;
+  transition: background var(--dur-fast) var(--ease-standard), border-color var(--dur-fast);
+}
+.button:hover:not(:disabled) { background: var(--surface-raised); border-color: var(--control-border-hover); }
+.button:disabled { opacity: .5; cursor: not-allowed; }
+.button[aria-busy="true"] { cursor: progress; }
+.secondary { }
+.primary { background: var(--action-primary-bg); color: var(--action-primary-fg); border-color: var(--action-primary-bg); }
+.primary:hover:not(:disabled) { background: var(--action-primary-hover); border-color: var(--action-primary-hover); }
+.quiet { border-color: transparent; background: transparent; color: var(--ink-2); }
+.quiet:hover:not(:disabled) { background: var(--surface-well); color: var(--ink-1); }
+.small { height: 28px; padding: 0 10px; font-size: var(--text-xs); }
+.iconOnly { width: var(--control-h); padding: 0; }
+.small.iconOnly { width: 28px; }
+
+.segmented { display: inline-flex; padding: 3px; gap: 2px; background: var(--surface-well); border-radius: var(--radius-pill); }
+.segment {
+  border: 0; background: transparent; height: 30px; padding: 0 14px; border-radius: var(--radius-pill);
+  color: var(--ink-2); font-size: var(--text-sm); font-weight: var(--weight-medium); cursor: pointer;
+  white-space: nowrap; display: inline-flex; align-items: center; gap: 6px;
+}
+.segment[aria-checked="true"] { background: var(--surface-panel); color: var(--ink-1); box-shadow: var(--shadow-1); }
+.segment:disabled { opacity: .5; cursor: not-allowed; }
+.segmentedSmall .segment { height: 24px; padding: 0 9px; font-size: var(--text-xs); }
+
+.switch {
+  position: relative; width: 38px; height: 22px; border-radius: var(--radius-pill); border: 0;
+  background: var(--control-track); cursor: pointer; flex: none; transition: background var(--dur-fast);
+}
+.switch::after {
+  content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--surface-panel); box-shadow: var(--shadow-1); transition: transform var(--dur-fast) var(--ease-standard);
+}
+.switch[aria-checked="true"] { background: var(--action-primary-hover); }
+.switch[aria-checked="true"]::after { transform: translateX(16px); }
+.switch:disabled { opacity: .5; cursor: not-allowed; }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 12px;
+  border-radius: var(--radius-pill); background: var(--surface-well); font-size: var(--text-sm);
+  color: var(--ink-1); border: 1px solid transparent; white-space: nowrap;
+}
+.chipOutline { background: transparent; border-color: var(--line-2); }
+.chipRemove { border: 0; background: none; padding: 0; cursor: pointer; color: var(--ink-3); display: inline-flex; min-width: 24px; min-height: 24px; align-items: center; justify-content: center; }
+
+.copy {
+  display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px;
+  border: 0; border-radius: var(--radius-xs); background: transparent; color: var(--ink-3); cursor: pointer;
+}
+.copy:hover { background: var(--surface-well); color: var(--ink-1); }

@@ -1,0 +1,12 @@
+{
+  "provider_id": "gleif",
+  "executable": false,
+  "headers": {},
+  "body": null,
+  "limitations": [
+    "Resolve secret references and validate entitlements outside this offline plan"
+  ],
+  "method": "GET",
+  "path": "/api/v1/lei-records/00000000000000000001",
+  "authentication": "public endpoint; verify current terms"
+}

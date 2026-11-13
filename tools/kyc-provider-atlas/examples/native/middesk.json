@@ -1,0 +1,22 @@
+{
+  "data": {
+    "object": {
+      "id": "synthetic-business",
+      "name": "Example Workshop LLC",
+      "status": "in_review",
+      "review": {
+        "tasks": [
+          {
+            "key": "name",
+            "status": "success"
+          },
+          {
+            "key": "watchlist",
+            "status": "success",
+            "sub_label": "No Hits"
+          }
+        ]
+      }
+    }
+  }
+}

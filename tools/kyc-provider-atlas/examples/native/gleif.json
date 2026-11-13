@@ -1,0 +1,19 @@
+{
+  "data": {
+    "type": "lei-records",
+    "id": "00000000000000000001",
+    "attributes": {
+      "lei": "00000000000000000001",
+      "entity": {
+        "legalName": {
+          "name": "Example Holding Ltd"
+        },
+        "status": "ACTIVE",
+        "jurisdiction": "GB"
+      },
+      "registration": {
+        "status": "ISSUED"
+      }
+    }
+  }
+}

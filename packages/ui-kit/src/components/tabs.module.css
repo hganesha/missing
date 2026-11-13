@@ -1,0 +1,11 @@
+/* Tabs wrap in narrow containers (inspectors) instead of scrolling sideways. */
+.tablist { display: flex; flex-wrap: wrap; column-gap: var(--space-4); row-gap: 0; border-bottom: 1px solid var(--line-1); }
+.tab {
+  border: 0; background: none; padding: 10px 2px; margin-bottom: -1px; border-bottom: 2px solid transparent;
+  color: var(--ink-2); font-weight: var(--weight-medium); cursor: pointer; white-space: nowrap;
+  display: inline-flex; gap: 6px; align-items: center; min-height: 24px;
+}
+.tab[aria-selected="true"] { color: var(--ink-1); border-bottom-color: var(--action-primary-bg); }
+.count { font-size: var(--text-xs); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.panel { padding-top: var(--space-4); }
+.panel:focus-visible { border-radius: var(--radius-sm); }

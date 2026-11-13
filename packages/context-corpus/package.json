@@ -1,0 +1,23 @@
+{
+  "name": "@ehf/context-corpus",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "bin": {
+    "corpus-seed": "./src/cli.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "seed": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "@ehf/contracts": "workspace:*",
+    "@ehf/library-contracts": "workspace:*",
+    "tsx": "4.23.1"
+  }
+}

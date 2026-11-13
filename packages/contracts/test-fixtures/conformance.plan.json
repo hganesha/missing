@@ -1,0 +1,309 @@
+{
+  "agentProfiles": [],
+  "apiVersion": "harness.factory/plan-v2",
+  "budgets": {
+    "maxCapabilityCalls": 1,
+    "maxCostUsd": 0.05,
+    "maxDurationMs": 60000,
+    "maxModelCalls": 0
+  },
+  "buildProvenanceDigest": "76c771e717f31c883cca42c6038b3593612c5ad0dfffb33f1aeb5357927c9fe7",
+  "capabilities": [
+    {
+      "adapterBindingId": "simulator:vendor.lookup",
+      "effect": "read",
+      "id": "vendor.lookup",
+      "idempotent": true,
+      "inputSchema": {
+        "type": "object"
+      },
+      "kind": "tool",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "type": "object"
+      },
+      "timeoutMs": 5000
+    }
+  ],
+  "compiler": {
+    "compatibilityVersion": "4",
+    "digest": "92eafe9b5c2489a4b75c107d949aa3a1ecf17345ee2b8aad720f9991ab551a1d",
+    "lgirCoreRevision": "fec01bf0fa5ff259c071439d63ad71c9979668f9",
+    "name": "harnessc",
+    "version": "1.0.0"
+  },
+  "contextClassificationPolicies": [
+    {
+      "action": "allow",
+      "classification": "PUBLIC"
+    }
+  ],
+  "contextSelectors": [
+    {
+      "classification": "PUBLIC",
+      "id": "case-id",
+      "path": "caseId",
+      "purpose": "CONFORMANCE",
+      "required": true,
+      "source": "case"
+    }
+  ],
+  "createdAt": "1970-01-01T00:00:00Z",
+  "dependencyManifest": [
+    {
+      "digest": "579329358883d61ea7204af858dc7fb9e8f5ac3d5b07e198784541082fb01b67",
+      "id": "package.yaml",
+      "kind": "source"
+    },
+    {
+      "digest": "a61ce8e84779328306e6be506d50165857287b8a159ba1bb46493b81590eebf2",
+      "id": "workflow.yaml",
+      "kind": "source"
+    }
+  ],
+  "dependencyManifestDigest": "7b0f349b77cdfd8980ff9b4e557457d11e61e7fba6b14bfb01d36568b0593c06",
+  "execution": {
+    "coordinationMode": "caseStore",
+    "durability": "durable",
+    "engine": {
+      "adapterVersion": "harness-runtime-v2",
+      "kind": "harness-runtime",
+      "profile": "production-v2"
+    },
+    "maxConcurrency": 1,
+    "maxTransitions": 10000
+  },
+  "graph": {
+    "apiVersion": "ladder.dev/v1alpha1",
+    "edges": [
+      {
+        "condition": "",
+        "from": "intake",
+        "id": "e1",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "lookup"
+      },
+      {
+        "condition": "",
+        "from": "lookup",
+        "id": "e2",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "result"
+      }
+    ],
+    "name": "v2-conformance",
+    "nodeOrder": [
+      "intake",
+      "lookup",
+      "result"
+    ],
+    "nodes": [
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [],
+        "id": "intake",
+        "inputSchema": null,
+        "kind": "input",
+        "name": "Intake",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "capabilityId": "vendor.lookup",
+          "carry": {},
+          "caseWrites": [
+            {
+              "commandType": "LinkEvidence",
+              "payload": {
+                "evidenceRef": "{{ evidence.evidenceId }}"
+              },
+              "payloadSchema": {
+                "type": "object"
+              }
+            },
+            {
+              "commandType": "ProposeClaim",
+              "payload": {
+                "claim": "{{ output.vendor }}"
+              },
+              "payloadSchema": {
+                "type": "object"
+              }
+            }
+          ],
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "runtimeTarget": "local_http",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [
+          "case-id"
+        ],
+        "id": "lookup",
+        "inputSchema": null,
+        "kind": "tool",
+        "name": "Vendor lookup",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [],
+        "id": "result",
+        "inputSchema": null,
+        "kind": "output",
+        "name": "Result",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      }
+    ]
+  },
+  "kind": "HarnessPlan",
+  "metadata": {
+    "domain": "conformance",
+    "name": "v2-conformance",
+    "objective": "Exercise the v2 plan contract end to end with one case-reading tool.",
+    "version": "0.1.0"
+  },
+  "modelProfiles": [],
+  "packageDigest": "7b0f349b77cdfd8980ff9b4e557457d11e61e7fba6b14bfb01d36568b0593c06",
+  "permissionEnvelopes": [
+    {
+      "capabilities": [
+        "vendor.lookup"
+      ],
+      "digest": "f9aa306ef8e40533e6d720d659411c5e53969fd736e31752e012a5fe4733c098",
+      "effects": [
+        "read"
+      ],
+      "nodeId": "lookup"
+    }
+  ],
+  "planDigest": "631992f86269d0ccc40334688b210cbee32e9e6fc35945b1b9ca967ddab43daa",
+  "planId": "v2-conformance@0.1.0:631992f86269",
+  "policyBundles": [],
+  "releaseConstraints": {
+    "dataClasses": [
+      "PUBLIC"
+    ],
+    "evaluationRequirementIds": [],
+    "regions": [
+      "US"
+    ]
+  },
+  "schemas": {
+    "input": {
+      "properties": {
+        "VendorId": {
+          "type": "string"
+        },
+        "Zebra": {
+          "type": "string"
+        },
+        "apple": {
+          "type": "string"
+        },
+        "taxId": {
+          "type": "string"
+        },
+        "tax_id": {
+          "type": "string"
+        },
+        "vendorName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "vendorName"
+      ],
+      "type": "object"
+    },
+    "output": {
+      "properties": {
+        "Disposition": {
+          "type": "string"
+        },
+        "dispositionCode": {
+          "type": "string"
+        },
+        "disposition_code": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "schemaSetDigest": "b631977d6a3ffe2f1f30ebf95bffeb2508c2e8b490e57b2922ab878421d88312"
+  }
+}

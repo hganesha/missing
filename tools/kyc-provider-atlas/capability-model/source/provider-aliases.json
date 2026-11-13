@@ -1,0 +1,37 @@
+{
+  "description": "Reviewed identity relationships across layers (section 5.3). Never derive these by punctuation replacement or name matching.",
+  "aliases": [
+    {
+      "source_layer": "vendor_definition",
+      "source_id": "entrust-onfido",
+      "provider_record_id": "entrust-identity-verification",
+      "relationship": "proposed_alias",
+      "status": "proposed",
+      "treatment": "Preserve native definition ID, product, source provenance and contracting entity separately."
+    },
+    {
+      "source_layer": "fixture_adapter",
+      "source_id": "companies_house",
+      "provider_record_id": "companies-house",
+      "relationship": "adapter_of_provider",
+      "status": "confirmed_local",
+      "treatment": "Keep adapter and provider IDs separate; no universal underscore/hyphen replacement."
+    }
+  ],
+  "version_conflicts": [
+    {
+      "provider_record_id": "persona",
+      "contracts": [
+        {
+          "layer": "fixture_manifest_and_planner",
+          "native_api_version": "2026-09-29"
+        },
+        {
+          "layer": "vendor_definition",
+          "native_api_version": "2023-01-05"
+        }
+      ],
+      "treatment": "Separate versioned binding and mapping records until payload and request-header differences are reconciled and tested."
+    }
+  ]
+}

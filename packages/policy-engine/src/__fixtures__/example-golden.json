@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "harness.factory/policy-tests-v1",
+  "policyId": "policy.example.acceptance.v1",
+  "cases": [
+    {
+      "id": "readiness-authorized",
+      "gate": "readiness",
+      "input": { "evidence": [{ "evidenceId": "evd_1", "purpose": "EXAMPLE_AUTHORITY" }] },
+      "expected": { "outcome": "ALLOW", "reasonCode": null, "commandType": "RecordGateResult", "decision": "AUTHORIZED" }
+    },
+    {
+      "id": "readiness-missing-authority",
+      "gate": "readiness",
+      "input": { "evidence": [] },
+      "expected": { "outcome": "BLOCK", "reasonCode": "AUTHORITY_MISSING", "ruleId": "EXAMPLE-GATE-001" }
+    },
+    {
+      "id": "disposition-human-review-requested",
+      "gate": "disposition",
+      "input": { "recommendation": { "outcome": "APPROVE", "requiresHumanReview": true, "evidenceRefs": ["evd_1"] }, "findings": [] },
+      "expected": { "outcome": "REVIEW", "reasonCode": "HUMAN_REVIEW_REQUIRED", "ruleId": "EXAMPLE-DISP-001", "commandType": "RequestHumanReview" }
+    },
+    {
+      "id": "disposition-decline-is-human-only",
+      "gate": "disposition",
+      "input": { "recommendation": { "outcome": "DECLINE", "requiresHumanReview": false, "evidenceRefs": ["evd_1"] }, "findings": [] },
+      "expected": { "outcome": "REVIEW", "reasonCode": "DECLINE_REQUIRES_HUMAN_AUTHORITY", "ruleId": "EXAMPLE-DISP-002", "commandType": "RequestHumanReview" }
+    },
+    {
+      "id": "disposition-approval-authorized",
+      "gate": "disposition",
+      "input": { "recommendation": { "outcome": "APPROVE", "requiresHumanReview": false, "evidenceRefs": ["evd_1"] }, "findings": [] },
+      "expected": { "outcome": "ALLOW", "reasonCode": "REQUIREMENTS_SATISFIED", "ruleId": "EXAMPLE-DISP-010", "commandType": "RecordGateResult", "decision": "AUTHORIZED" }
+    },
+    {
+      "id": "disposition-approval-without-citations",
+      "gate": "disposition",
+      "input": { "recommendation": { "outcome": "APPROVE", "requiresHumanReview": false, "evidenceRefs": [] }, "findings": [] },
+      "expected": { "outcome": "REVIEW", "reasonCode": "APPROVAL_REQUIREMENTS_NOT_MET", "ruleId": "EXAMPLE-DISP-010", "commandType": "RequestHumanReview" }
+    },
+    {
+      "id": "disposition-sanctions-finding-blocks-approval",
+      "gate": "disposition",
+      "input": { "recommendation": { "outcome": "APPROVE", "requiresHumanReview": false, "evidenceRefs": ["evd_1"] }, "findings": [{ "findingType": "POSSIBLE_SANCTIONS_MATCH" }] },
+      "expected": { "outcome": "REVIEW", "reasonCode": "APPROVAL_REQUIREMENTS_NOT_MET", "ruleId": "EXAMPLE-DISP-010", "commandType": "RequestHumanReview" }
+    },
+    {
+      "id": "disposition-no-matching-rule",
+      "gate": "disposition",
+      "input": { "recommendation": { "outcome": "UNKNOWN", "requiresHumanReview": false, "evidenceRefs": ["evd_1"] }, "findings": [] },
+      "expected": { "outcome": "REVIEW", "reasonCode": "NO_AUTOMATIC_DISPOSITION_RULE", "commandType": "RequestHumanReview" }
+    }
+  ]
+}

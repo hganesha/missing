@@ -1,0 +1,39 @@
+apiVersion: ladder.dev/v1alpha1
+kind: Workflow
+metadata:
+  name: skill-bound-screening
+  title: Skill-bound screening
+  description: Business skill pinning conformance fixture.
+  version: 0.1.0
+spec:
+  objective: Screen a subject through business skills whose implementations are pinned at compile time.
+  inputs:
+    type: object
+    required: [tenantId, caseId]
+    properties:
+      tenantId: { type: string }
+      caseId: { type: string }
+  outputs:
+    type: object
+    properties:
+      status: { type: string }
+  policies: { maxConcurrency: 2, onFailure: stop }
+  nodes:
+    - { id: intake, kind: input, name: Intake }
+    - id: sanctions-screen
+      kind: tool
+      name: Sanctions screen
+      contextSelectorIds: [name]
+      config:
+        skillId: screening.sanctions.execute
+    - id: pep-screen
+      kind: tool
+      name: PEP screen
+      contextSelectorIds: [name]
+      config:
+        skillId: screening.pep.execute
+    - { id: result, kind: output, name: Result }
+  edges:
+    - { id: e1, from: intake, to: sanctions-screen, kind: data }
+    - { id: e2, from: sanctions-screen, to: pep-screen, kind: data }
+    - { id: e3, from: pep-screen, to: result, kind: data }

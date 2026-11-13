@@ -1,0 +1,111 @@
+{
+  "$defs": {
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "JsonObject": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "SourcePageText": {
+      "additionalProperties": false,
+      "properties": {
+        "document_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "page_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "text": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "page_id",
+        "document_version",
+        "text"
+      ],
+      "type": "object"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:provider:document.fields:request:2.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contract_hash": {
+      "$ref": "#/$defs/Hash"
+    },
+    "document_type": {
+      "$ref": "#/$defs/Id"
+    },
+    "extraction_schema": {
+      "$ref": "#/$defs/JsonObject"
+    },
+    "instructions": {
+      "$ref": "#/$defs/Text"
+    },
+    "pages": {
+      "items": {
+        "$ref": "#/$defs/SourcePageText"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    },
+    "source_digest": {
+      "$ref": "#/$defs/Hash"
+    }
+  },
+  "required": [
+    "document_type",
+    "contract_hash",
+    "instructions",
+    "extraction_schema",
+    "pages",
+    "source_digest"
+  ],
+  "type": "object"
+}

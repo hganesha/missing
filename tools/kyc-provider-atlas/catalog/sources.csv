@@ -1,0 +1,30 @@
+source_id,provider,url,evidence_type,observations,review_date
+S01,Sumsub,https://docs.sumsub.com/docs/receive-and-interpret-results-via-api,reviewed_documentation,reviewResult.reviewAnswer GREEN/RED; RED FINAL versus RETRY; comments restricted,2026-10-15
+S02,Veriff,https://devdocs.veriff.com/docs/verification-session-status-codes-table,reviewed_documentation,Approved 9001; review 9121; expired and abandoned share 9104; map by status not code alone,2026-10-15
+S03,Persona,https://docs.withpersona.com/api-reference/inquiries/retrieve-an-inquiry,reviewed_documentation,JSON API inquiry response; bearer authentication; default version 2026-09-29,2026-10-15
+S04,Persona,https://docs.withpersona.com/model-lifecycle,reviewed_search_excerpt,"Completed is user-flow completion, not post-inquiry approved",2026-10-15
+S05,Persona,https://docs.withpersona.com/integration-guide-understanding-a-persona-api-payload,reviewed_search_excerpt,data.attributes.fields typed values; webhook wraps inquiry under data.attributes.payload,2026-10-15
+S06,Middesk,https://docs.middesk.com/quickstart.md,reviewed_documentation,POST /v1/businesses; basic auth sandbox example; asynchronous; HTTP 201 is not verification; tasks,2026-10-15
+S07,Middesk,https://docs.middesk.com/lifecycle-of-business.md,reviewed_documentation,open/pending/in_audit/in_review; approved and rejected are client decisions,2026-10-15
+S08,Middesk,https://docs.middesk.com/llms.txt,reviewed_documentation,Index now includes international businesses; older US-only comparisons are insufficient,2026-10-15
+S09,Companies House,https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/resources/companyprofile?v=latest,reviewed_documentation,company_name company_number company_status jurisdiction registered_office_address; PSC separate,2026-10-15
+S10,OpenCorporates,https://api.opencorporates.com/documentation/API-Reference,reviewed_documentation,0.4 company lookup results.company; inactive not true does not establish active; jurisdiction namespace,2026-10-15
+S11,GLEIF,https://www.gleif.org/en/lei-data/gleif-api,reviewed_documentation,"LEI legal entity and parent relationships, not universal natural-person UBO",2026-10-15
+S12,GLEIF,https://api.gleif.org/docs,reviewed_documentation,JSON API v1 records and linked Level 2 relationships; data examples may be stale,2026-10-15
+S13,OpenSanctions,https://www.opensanctions.org/docs/api/request/,reviewed_documentation,POST /match/{dataset}; queries keyed by caller; ApiKey authorization,2026-10-15
+S14,OpenSanctions,https://www.opensanctions.org/docs/api/response/,reviewed_documentation,responses.<query>.results; candidate schema properties; provenance and matching must be retained,2026-10-15
+S15,OpenSanctions,https://www.opensanctions.org/docs/api/,reviewed_documentation,"Match for screening, search not for screening; commercial license required",2026-10-15
+S16,ComplyAdvantage,https://docs.complyadvantage.com/api-docs,reviewed_documentation,Classic API regional endpoints and Token auth; POST /searches; Mesh wire contract not assumed identical,2026-10-15
+S17,Plaid,https://plaid.com/docs/api/products/identity/,reviewed_search_excerpt,/identity/match returns per-field scores; account identity complements KYC,2026-10-15
+S18,Plaid,https://plaid.com/docs/identity/add-to-app/,reviewed_search_excerpt,accounts[].legal_name.score and address/phone/email scores; consent and access token required,2026-10-15
+S19,OFAC Sanctions List Service,https://ofac.treasury.gov/sanctions-list-service,reviewed_documentation,SLS publishes SDN and non-SDN downloadable data and delta archives; not universal clearance,2026-10-15
+S20,LSEG World-Check,https://developers.lseg.com/content/dam/devportal/en_us/product-docs/wc1-api/,reviewed_search_excerpt,"World-Check One and Zero Footprint versions; API exists, detailed mapping not implemented",2026-10-15
+S21,LexisNexis Risk Solutions,https://risk.lexisnexis.com/-/media/files/product%20pages/brochure/bridger_infographic_tile-nxr12777-01-0520-en-us.pdf,reviewed_search_excerpt,Bridger Search API and batch; WorldCompliance screening data,2026-10-15
+S22,Moody's Compliance,https://www.moodys.com/web/en/us/kyc/products/compliance-catalyst.html,reviewed_search_excerpt,Orbis corporate data and Grid risk database feed Compliance Catalyst,2026-10-15
+S23,Prembly,https://prembly.com/,reviewed_product_page,KYC KYB AML fraud and transaction monitoring marketed; API wire contract not inspected,2026-10-15
+S24,Smile ID,https://www.usesmileid.com/,reviewed_product_page,African identity verification and AML marketed; coverage not uniform,2026-10-15
+S25,MetaMap,https://www.metamap.com/identity-verification-platform/,reviewed_search_excerpt,Latin America and Africa focus; varies by region,2026-10-15
+S26,Signzy,https://www.signzy.com/use-cases/know-your-business,reviewed_search_excerpt,Business verification and UBO API marketed; numeric coverage claims not adopted,2026-10-15
+S27,Market discovery,https://www.gbg.com/en-us/blog/best-kyc-providers/,vendor_comparison_discovery,"Discovery only, not independent verification of competitors",2026-10-15
+S28,Market discovery,https://companydata.com/b2b-data-provider-comparisons/best-kyc-api-providers/,vendor_comparison_discovery,Discovery only; no ranking or pricing claim adopted,2026-10-15
+S29,Market discovery,https://bitquery.io/blog/best-blockchain-analysis-tools-and-software,vendor_comparison_discovery,Blockchain vendor discovery only; no chain count adopted,2026-10-15

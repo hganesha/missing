@@ -1,0 +1,136 @@
+# H07: cash-intensive courier LLC. Structuring across branches, a funnel fed by 8 mule accounts
+# with same-day wires out, and two legitimate high-cash days (CTR, not structuring).
+id: H07
+seed: 1007
+as_of: 2026-09-30
+customer: quickparcel
+entities:
+  - ref: quickparcel
+    kind: company
+    name: QuickParcel Couriers LLC
+    legal_form: llc
+    industry: courier_services
+    business_purpose: Same-day parcel courier for local retailers
+    employees: 14
+    verification: registry_extract
+    address: { lines: ["2200 Harlan Avenue, Suite 4"], locality: "Newark, NJ", postal_code: "07102", country: US }
+    registration:
+      jurisdiction: US-NJ
+      authority: synthetic-registry
+      registration_id: SYN-NJ-0600519
+      incorporated: 2019-03-14
+      status: active
+  - ref: owner
+    kind: individual
+    name: Dorian Quayle
+    dob: 1984-09-02
+    nationality: US
+    verification: government_id_document
+    identifiers:
+      - { type: drivers_licence, issuer: US-NJ-SPECIMEN, value: SPECIMEN-H07-DL-0001, verified: true }
+    address: { lines: ["77 Beacon Street"], locality: "Newark, NJ", postal_code: "07104", country: US }
+officers:
+  - { person: owner, org: quickparcel, role: managing_member, appointed: 2019-03-14 }
+ownership:
+  - { owner: owner, owned: quickparcel, interest: "1", since: 2019-03-14 }
+relationship:
+  institution: bank.synthetic
+  booking_jurisdiction: US
+  policy_jurisdiction: US
+  customer_type: llc
+  started: 2024-09-30
+  risk_tier: MEDIUM
+  ownership_complete: true
+  parties:
+    - { entity: quickparcel, role: customer }
+    - { entity: owner, role: beneficial_owner }
+    - { entity: owner, role: signatory }
+  products:
+    - type: deposit
+      currencies: [USD]
+      countries: [US]
+      channels: [branch, online]
+      expected_activity:
+        monthly_inflow: "45000"
+        monthly_outflow: "40000"
+        currency: USD
+        transaction_count: 70
+        cash_exposure: true
+        counterparty_countries: [US]
+        counterparty_types: [business]
+        rails: [ach, cash, wire]
+    - type: payments
+      currencies: [USD]
+      countries: [US]
+      channels: [online]
+  geography:
+    - { country: US, basis: operations, value: "1" }
+source_of_funds:
+  - { claim: "Courier service revenue: retailer contracts paid by ACH, plus cash on delivery collected by drivers", verified: true }
+risk_factors:
+  - { name: geography, score: "0.05" }
+  - { name: product, score: "0.20" }
+  - { name: industry_cash_intensity, score: "0.40" }
+  - { name: ownership_structure, score: "0.05" }
+screening:
+  provider: synthetic-lists
+  capability: screening.sanctions.v1
+  subjects: [quickparcel, owner]
+  types: [sanctions, pep, watchlist, adverse_media]
+  dataset_versions: [synthetic-lists-2026-09-29]
+  scope: [ofac-sdn, un-consolidated, uk-sanctions, eu-consolidated]
+  list_published: 2026-09-29
+ledger:
+  start: 2024-09-30
+  end: 2026-09-30
+  opening_balance: { deposit: "30000.00" }
+  counterparties:
+    - { ref: cash-in, name: Cash deposits (teller), kind: company, country: US }
+    - { ref: payroll-bureau, name: Brightwater Payroll Services LLC, kind: company, country: US }
+    - { ref: landlord, name: Harlan Commercial Properties LLC, kind: company, country: US }
+    - { ref: lessor, name: Calderbank Vehicle Leasing LLC, kind: company, country: US }
+    - { ref: insurer, name: Northfield Mutual Insurance LLC, kind: company, country: US }
+  pools:
+    - { ref: retailers, kind: company, country: US, size: 25, style: customer }
+    - { ref: fuel, kind: company, country: US, size: 3, style: merchant }
+    - { ref: workshops, kind: company, country: US, size: 6, style: supplier }
+  flows:
+    - { id: retailer-invoices, direction: in, counterparty: retailers, rail: ach, type: customer_payment, per_month: 25, max_per_day: 3, cooldown_days: 5, amount: { median: "1100", sigma: 0.6, floor: "150", cap: "7000" } }
+    - { id: cod-cash, direction: in, counterparty: cash-in, rail: cash, type: cash_deposit, per_month: 10, cooldown_days: 0, max_per_day: 1, branches: [branch-1, branch-2, branch-3, branch-4, branch-5], amount: { median: "900", sigma: 0.4, floor: "200", cap: "1800" } }
+    - { id: payroll, direction: out, counterparty: payroll-bureau, rail: ach, type: payroll, schedule: { freq: monthly, day: 28 }, amount: { value: "16000.00", jitter: 0.03 } }
+    - { id: rent, direction: out, counterparty: landlord, rail: ach, type: rent, schedule: { freq: monthly, day: 1 }, amount: { value: "3000.00" } }
+    - { id: lease, direction: out, counterparty: lessor, rail: ach, type: lease, schedule: { freq: monthly, day: 5 }, amount: { value: "4200.00" } }
+    - { id: insurance, direction: out, counterparty: insurer, rail: ach, type: insurance, schedule: { freq: monthly, day: 10 }, amount: { value: "1600.00" } }
+    - { id: fuel, direction: out, counterparty: fuel, rail: card, type: fuel, per_month: 8, cooldown_days: 0, max_per_day: 2, amount: { median: "1100", sigma: 0.3, floor: "300", cap: "2500" } }
+    - { id: maintenance, direction: out, counterparty: workshops, rail: ach, type: supplier_payment, per_month: 6, cooldown_days: 3, amount: { median: "500", sigma: 0.5, floor: "80", cap: "2200" } }
+signals:
+  - id: SIG-H07-STRUCT
+    type: structuring
+    window: [2026-03-02, 2026-04-24]
+    params: { threshold: "10000", band: ["8200", "9900"], branches: 5, splits: 5, days_per_week: 1 }
+    expect: { detected_by: [aml.structuring.detect, regulatory.ctr.evaluate], outcome: INDICATOR }
+  - id: SIG-H07-FUNNEL
+    type: funnel
+    params:
+      feeders: 8
+      days: [2026-06-09, 2026-06-16, 2026-06-23, 2026-06-30]
+      amount: ["900", "1800"]
+      out: { country: MX, wires: 6, beneficiaries: 3, ratio: "0.97" }
+      out_signal: SIG-H07-PASSTHROUGH
+    expect: { detected_by: [aml.funnel.detect], outcome: INDICATOR }
+  - id: SIG-H07-PASSTHROUGH
+    type: derived          # the wires out of the funnel days; transactions are written by SIG-H07-FUNNEL
+    expect: { detected_by: [aml.pass_through.detect, aml.mule.detect], outcome: INDICATOR }
+  - id: SIG-H07-CTR
+    type: cash_day
+    params: { days: [2025-12-19, 2026-01-16], deposits: 1, total: "10900" }
+    expect: { detected_by: [regulatory.ctr.evaluate], outcome: CTR_REQUIRED }
+expected:
+  workflow:
+    kyb: APPROVE_AT_ONBOARDING
+    monitoring: SAR_CANDIDATE
+  alerts: [STRUCT-01, FUNNEL-01, PASSTHRU-01, CTR-01]
+  non_findings: [screening.sanctions.execute, screening.pep.execute, aml.layering.detect, aml.roundtrip.detect]
+  notes: >
+    Structuring is deliberately sub-threshold per day, so it raises no CTR; the separate legitimate
+    high-cash days (SIG-H07-CTR) do. Funnel feeders are mule-profile individuals.

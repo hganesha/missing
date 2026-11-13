@@ -1,0 +1,75 @@
+# H03: individual who is a close relative of a FICTIONAL politically exposed person. Source-of-wealth
+# claims: one verified, one unverified (the inconsistent document arrives in Phase 4).
+id: H03
+seed: 1003
+as_of: 2026-09-30
+customer: adaeze
+entities:
+  - ref: adaeze
+    kind: individual
+    name: Adaeze Okonkwo-Bell
+    dob: 1984-02-11
+    nationality: GB
+    verification: government_id_document
+    address: { lines: ["17 Pemberton Square"], locality: London, postal_code: W1K 2ZZ, country: GB }
+    identifiers: [{ type: passport, issuer: GB-SPECIMEN, value: SPECIMEN-H03-PP-0001, verified: true }]
+  - ref: chidi
+    kind: individual
+    name: Chidi Okonkwo-Ibe
+    dob: 1957-08-14
+    nationality: OS
+    verification: public_source
+    address: { lines: ["Government Quarter"], locality: Ostrava City, country: OS }
+    identifiers: [{ type: official_id, issuer: OS-SPECIMEN, value: SPECIMEN-PEP-0001, verified: false }]
+officers: []
+pep_relationships:
+  - { source: adaeze, target: chidi, relation: sibling, verified: true }
+relationship:
+  institution: bank.synthetic
+  booking_jurisdiction: GB
+  policy_jurisdiction: US
+  started: 2025-04-07
+  risk_tier: HIGH
+  ownership_complete: null
+  parties:
+    - { entity: adaeze, role: customer }
+  products:
+    - type: private_banking
+      currencies: [GBP]
+      countries: [GB, OS]
+      channels: [relationship_manager]
+    - type: custody
+      currencies: [GBP]
+      countries: [GB]
+      channels: [relationship_manager]
+  geography:
+    - { country: GB, basis: residence, value: "0.8" }
+    - { country: OS, basis: family, value: "0.2" }
+source_of_funds:
+  - { claim: "Inheritance from the late father's estate, about GBP 2.4 million", verified: true }
+source_of_wealth:
+  - { claim: "Inheritance from the late father's estate, about GBP 2.4 million", verified: true }
+  - { claim: "Sale of a residential property in Ostrava City for about GBP 1.1 million", verified: false }
+risk_factors:
+  - { name: geography, score: "0.40" }
+  - { name: product, score: "0.50" }
+  - { name: pep_proximity, score: "0.80" }
+screening:
+  provider: synthetic-lists
+  capability: screening.pep.v1
+  subjects: [adaeze, chidi]
+  types: [sanctions, pep, adverse_media]
+  lists: [ofac-sdn, un-consolidated, uk-sanctions, synthetic-designations, synthetic-peps]
+  dataset_versions: [synthetic-lists-2026-09-29]
+  scope: [ofac-sdn, un-consolidated, uk-sanctions, synthetic-designations, synthetic-peps]
+  list_published: 2026-09-29
+expected:
+  workflow:
+    kyc_v2: EDD_REQUIRED
+  alerts: 0
+  screening:
+    pep_relative_listed: chidi
+    customer_listed: false
+  notes: >
+    The customer is not on any list; her brother is on the fictional PEP list. EDD is required by the
+    relationship, not by a hit on the customer.

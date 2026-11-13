@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kyc-provider-atlas.local/schemas/v2/capability-request.schema.json",
+  "title": "CanonicalCapabilityRequest v2 (draft)",
+  "description": "Provider-independent request envelope. unresolved is not a requestable jurisdiction. The input object is validated by the capability definition input schema once defined.",
+  "type": "object",
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capability_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)*\\.intelligence\\.(?:[a-z]{2}(?:_[a-z0-9]+)?|global)$"
+    },
+    "capability_definition_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject_entity_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input": {
+      "type": "object"
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "requested_jurisdictions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(?:[a-z]{2}(?:_[a-z0-9]+)?|global)$"
+          },
+          "minItems": 1
+        },
+        "requested_dataset_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "subject_countries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "as_of": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "freshness_policy_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "requested_jurisdictions",
+        "requested_dataset_refs",
+        "subject_countries",
+        "as_of",
+        "freshness_policy_ref"
+      ],
+      "additionalProperties": false
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policy_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "consent_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "routing": {
+      "type": "object",
+      "properties": {
+        "provider_allowlist": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "binding_allowlist": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "permitted_processing_regions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "permitted_storage_regions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fallback_policy_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "provider_allowlist",
+        "binding_allowlist",
+        "permitted_processing_regions",
+        "permitted_storage_regions",
+        "fallback_policy_ref"
+      ],
+      "additionalProperties": false
+    },
+    "idempotency_key": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "request_id",
+    "tenant_id",
+    "capability_id",
+    "capability_definition_version",
+    "action",
+    "subject_entity_id",
+    "input",
+    "scope",
+    "purpose",
+    "policy_ref",
+    "consent_ref",
+    "routing",
+    "idempotency_key"
+  ],
+  "additionalProperties": false
+}

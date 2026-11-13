@@ -1,0 +1,146 @@
+# H05: UAE free-zone trader. Trade-based laundering (over-pricing, quantity mismatch, transshipment)
+# and a layering round trip through three CY shells.
+id: H05
+seed: 1005
+as_of: 2026-09-30
+customer: corvane
+entities:
+  - ref: corvane
+    kind: company
+    name: Corvane Trading FZE
+    legal_form: llc
+    industry: general_trading
+    business_purpose: Import and re-export of electronic components, textiles and copper wire
+    employees: 6
+    verification: registry_extract
+    address: { lines: ["Office 1204, Harbour Tower", "Free Zone Road"], locality: Jebel Ali, postal_code: "00000", country: AE }
+    registration:
+      jurisdiction: AE
+      authority: synthetic-free-zone-registry
+      registration_id: SYN-AE-FZ-208841
+      incorporated: 2022-01-17
+      status: active
+  - ref: orson
+    kind: individual
+    name: Orson Pemberton
+    dob: 1976-05-11
+    nationality: GB
+    verification: government_id_document
+    identifiers:
+      - { type: passport, issuer: GB-SPECIMEN, value: SPECIMEN-H05-PP-0001, verified: true }
+    address: { lines: ["Villa 14, Palm Row"], locality: Dubai, country: AE }
+  - ref: yara
+    kind: individual
+    name: Yara Zeller
+    dob: 1985-12-03
+    nationality: DE
+    verification: government_id_document
+    identifiers:
+      - { type: passport, issuer: DE-SPECIMEN, value: SPECIMEN-H05-PP-0002, verified: true }
+    address: { lines: ["Apartment 8B, Marina Heights"], locality: Dubai, country: AE }
+officers:
+  - { person: orson, org: corvane, role: manager, appointed: 2022-01-17 }
+ownership:
+  - { owner: orson, owned: corvane, interest: "0.7", since: 2022-01-17 }
+  - { owner: yara, owned: corvane, interest: "0.3", since: 2022-01-17 }
+relationship:
+  institution: bank.synthetic
+  booking_jurisdiction: AE
+  policy_jurisdiction: US
+  customer_type: free_zone_company
+  started: 2024-09-30
+  risk_tier: HIGH
+  ownership_complete: true
+  parties:
+    - { entity: corvane, role: customer }
+    - { entity: orson, role: beneficial_owner }
+    - { entity: yara, role: beneficial_owner }
+    - { entity: orson, role: control_person }
+  products:
+    - type: trade_finance
+      currencies: [USD]
+      countries: [AE, TR, SG, HK, CN]
+      channels: [online]
+      expected_activity:
+        monthly_inflow: "250000"
+        monthly_outflow: "230000"
+        currency: USD
+        transaction_count: 8
+        cash_exposure: false
+        counterparty_countries: [TR, SG, HK]
+        counterparty_types: [business]
+        rails: [swift]
+    - type: payments
+      currencies: [USD, AED]
+      countries: [AE]
+      channels: [online]
+  geography:
+    - { country: AE, basis: operations, value: "0.2" }
+    - { country: TR, basis: customers, value: "0.4" }
+    - { country: SG, basis: customers, value: "0.2" }
+    - { country: HK, basis: suppliers, value: "0.2" }
+source_of_funds:
+  - { claim: "Margin on re-export trade between Asian suppliers and Turkish and Singaporean buyers", verified: false }
+risk_factors:
+  - { name: geography, score: "0.45" }
+  - { name: product, score: "0.50" }
+  - { name: industry_trade_based, score: "0.55" }
+  - { name: ownership_structure, score: "0.10" }
+screening:
+  provider: synthetic-lists
+  capability: screening.sanctions.v1
+  subjects: [corvane, orson, yara]
+  types: [sanctions, pep, watchlist, adverse_media]
+  dataset_versions: [synthetic-lists-2026-09-29]
+  scope: [ofac-sdn, un-consolidated, uk-sanctions, eu-consolidated]
+  list_published: 2026-09-29
+ledger:
+  start: 2024-09-30
+  end: 2026-09-30
+  opening_balance: { trade_finance: "400000.00" }
+  counterparties:
+    - { ref: landlord, name: Harbourside Free Zone Authority (synthetic), kind: company, country: AE }
+    - { ref: payroll-bureau, name: Greyfriars Payroll Services FZE, kind: company, country: AE }
+  pools:
+    - { ref: buyers-tr, kind: company, country: TR, size: 4, style: trader, risk_indicators: [high_risk_geography] }
+    - { ref: buyers-sg, kind: company, country: SG, size: 4, style: trader }
+    - { ref: suppliers-hk, kind: company, country: HK, size: 4, style: trader }
+    - { ref: suppliers-cn, kind: company, country: CN, size: 3, style: supplier }
+    - { ref: freight, kind: company, country: AE, size: 5, style: courier }
+  flows:
+    - { id: rent, account: trade_finance, direction: out, counterparty: landlord, rail: swift, type: rent, schedule: { freq: monthly, day: 1 }, amount: { value: "3800.00" } }
+    - { id: payroll, account: trade_finance, direction: out, counterparty: payroll-bureau, rail: swift, type: payroll, schedule: { freq: monthly, day: 25 }, amount: { value: "12000.00", jitter: 0.02 } }
+    - { id: freight, account: trade_finance, direction: out, counterparty: freight, rail: swift, type: freight, per_month: 8, cooldown_days: 2, max_per_day: 1, amount: { median: "2200", sigma: 0.4, floor: "400", cap: "9000" } }
+signals:
+  - id: SIG-H05-TBML
+    type: trade_based
+    window: [2024-11-04, 2026-08-28]
+    params:
+      account: trade_finance
+      trades: 80
+      mismatch: 10
+      overpriced: 6
+      buyers: [buyers-tr, buyers-sg]
+      suppliers: [suppliers-hk, suppliers-cn]
+      origin: HK
+      transship: [PA, CY]
+      quantity: [2000, 9000]
+      goods:
+        - { name: electronic components, benchmark_unit_price: "42.00" }
+        - { name: copper wire (kg), benchmark_unit_price: "8.50" }
+        - { name: cotton fabric (m), benchmark_unit_price: "6.80" }
+    expect: { detected_by: [aml.trade_based.detect], outcome: INDICATOR }
+  - id: SIG-H05-LAYER
+    type: layering
+    params: { account: trade_finance, hops: 3, country: CY, amount: "180000", starts: [2026-02-10, 2026-05-12, 2026-08-11], hop_hours: 20 }
+    expect: { detected_by: [aml.layering.detect, aml.roundtrip.detect], outcome: INDICATOR }
+expected:
+  workflow:
+    kyb: ALERT_THEN_INVESTIGATE
+    monitoring: SAR_CANDIDATE
+  alerts: [LAYER-01, ROUNDTRIP-01]
+  non_findings: [screening.sanctions.execute, aml.structuring.detect, aml.funnel.detect]
+  notes: >
+    Of 80 trades, 10 have shipment quantity below invoiced quantity and 6 are over-invoiced by 45%
+    against benchmark; every flagged trade routes through a transshipment country. Unflagged trades
+    are ordinary and must stay clean.

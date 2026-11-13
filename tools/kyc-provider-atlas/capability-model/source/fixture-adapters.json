@@ -1,0 +1,95 @@
+{
+  "description": "Reviewed fixture-adapter disposition (Appendix B). Fixture evidence covers only the exercised v1 normalizer and native payload subset.",
+  "adapters": [
+    {
+      "adapter_id": "companies_house",
+      "provider_id": "companies-house",
+      "legacy_capability": "business.registry.lookup",
+      "proposed_capability_id": "business.registry.intelligence.gb",
+      "manifest_native_subset": "GET /company/{company_number}",
+      "offline_planner": true,
+      "host_native_connector": true,
+      "limit": "Single declared capability and representative inbound payload subset."
+    },
+    {
+      "adapter_id": "gleif",
+      "provider_id": "gleif",
+      "legacy_capability": "reference.identifier.lookup",
+      "proposed_capability_id": "reference.identifier.intelligence.unresolved",
+      "manifest_native_subset": "GET /api/v1/lei-records/{lei}",
+      "offline_planner": true,
+      "host_native_connector": true,
+      "limit": "Single declared capability and representative inbound payload subset. LEI identity reference, not natural-person ownership."
+    },
+    {
+      "adapter_id": "middesk",
+      "provider_id": "middesk",
+      "legacy_capability": "business.verify",
+      "proposed_capability_id": "business.verification.intelligence.unresolved",
+      "manifest_native_subset": null,
+      "offline_planner": false,
+      "host_native_connector": false,
+      "limit": "Single declared capability and representative inbound payload subset."
+    },
+    {
+      "adapter_id": "opencorporates",
+      "provider_id": "opencorporates",
+      "legacy_capability": "business.registry.lookup",
+      "proposed_capability_id": "business.registry.intelligence.unresolved",
+      "manifest_native_subset": "GET /v0.4/companies/{jurisdiction_code}/{company_number}",
+      "offline_planner": true,
+      "host_native_connector": true,
+      "limit": "Single declared capability and representative inbound payload subset."
+    },
+    {
+      "adapter_id": "opensanctions",
+      "provider_id": "opensanctions",
+      "legacy_capability": "screening.sanctions",
+      "proposed_capability_id": "screening.sanctions.intelligence.unresolved",
+      "manifest_native_subset": "POST /match/{dataset}",
+      "offline_planner": true,
+      "host_native_connector": true,
+      "limit": "Single declared capability and representative inbound payload subset. Current sanctions-labeled fixture must stay dataset-scoped; generic vendor operations use screening.watchlist until categories are proven."
+    },
+    {
+      "adapter_id": "persona",
+      "provider_id": "persona",
+      "legacy_capability": "identity.person.verify",
+      "proposed_capability_id": "identity.person.intelligence.unresolved",
+      "manifest_native_subset": "GET /api/v1/inquiries/{inquiry-id}",
+      "offline_planner": true,
+      "host_native_connector": true,
+      "limit": "Single declared capability and representative inbound payload subset. Reconcile its 2026-09-29 contract with vendor definition 2023-01-05."
+    },
+    {
+      "adapter_id": "plaid",
+      "provider_id": "plaid",
+      "legacy_capability": "account.ownership.verify",
+      "proposed_capability_id": "account.ownership.intelligence.unresolved",
+      "manifest_native_subset": "POST /identity/match",
+      "offline_planner": true,
+      "host_native_connector": true,
+      "limit": "Single declared capability and representative inbound payload subset."
+    },
+    {
+      "adapter_id": "sumsub",
+      "provider_id": "sumsub",
+      "legacy_capability": "identity.person.verify",
+      "proposed_capability_id": "identity.person.intelligence.unresolved",
+      "manifest_native_subset": null,
+      "offline_planner": false,
+      "host_native_connector": false,
+      "limit": "Single declared capability and representative inbound payload subset."
+    },
+    {
+      "adapter_id": "veriff",
+      "provider_id": "veriff",
+      "legacy_capability": "identity.person.verify",
+      "proposed_capability_id": "identity.person.intelligence.unresolved",
+      "manifest_native_subset": null,
+      "offline_planner": false,
+      "host_native_connector": false,
+      "limit": "Single declared capability and representative inbound payload subset."
+    }
+  ]
+}

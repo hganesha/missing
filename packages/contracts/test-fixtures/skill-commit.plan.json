@@ -1,0 +1,737 @@
+{
+  "agentProfiles": [],
+  "apiVersion": "harness.factory/plan-v2",
+  "budgets": {
+    "maxCapabilityCalls": 6,
+    "maxCostUsd": 0.05,
+    "maxDurationMs": 60000,
+    "maxModelCalls": 0
+  },
+  "buildProvenanceDigest": "e4dee39d0f4662fb242932ac191ae54db04fd096f6edd303603a76b38d923dd0",
+  "capabilities": [
+    {
+      "adapterBindingId": "skills:sample.ubo.propose",
+      "effect": "read",
+      "id": "skill.sample.ubo.propose.v0",
+      "idempotent": true,
+      "inputSchema": {
+        "type": "object"
+      },
+      "kind": "tool",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "type": "object"
+      },
+      "timeoutMs": 20000
+    },
+    {
+      "adapterBindingId": "skills:sample.ubo.review",
+      "effect": "read",
+      "id": "skill.sample.ubo.review.v0",
+      "idempotent": true,
+      "inputSchema": {
+        "type": "object"
+      },
+      "kind": "tool",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "type": "object"
+      },
+      "timeoutMs": 20000
+    },
+    {
+      "adapterBindingId": "skills:sample.case.close",
+      "effect": "reversible",
+      "id": "skill.sample.case.close.v0",
+      "idempotent": true,
+      "inputSchema": {
+        "type": "object"
+      },
+      "kind": "tool",
+      "maxAttempts": 1,
+      "outputSchema": {
+        "type": "object"
+      },
+      "timeoutMs": 20000
+    }
+  ],
+  "compiler": {
+    "compatibilityVersion": "4",
+    "digest": "92eafe9b5c2489a4b75c107d949aa3a1ecf17345ee2b8aad720f9991ab551a1d",
+    "lgirCoreRevision": "fec01bf0fa5ff259c071439d63ad71c9979668f9",
+    "name": "harnessc",
+    "version": "1.0.0"
+  },
+  "contextClassificationPolicies": [
+    {
+      "action": "allow",
+      "classification": "PII"
+    },
+    {
+      "action": "allow",
+      "classification": "CONFIDENTIAL"
+    }
+  ],
+  "contextSelectors": [
+    {
+      "classification": "PII",
+      "id": "subjects",
+      "path": "subjects",
+      "purpose": "KYB_ONBOARDING",
+      "required": true,
+      "source": "case"
+    },
+    {
+      "classification": "CONFIDENTIAL",
+      "id": "recBeneficialOwner",
+      "path": "records.BeneficialOwner",
+      "purpose": "KYB_ONBOARDING",
+      "record": {
+        "fields": [
+          "entity_id",
+          "interest"
+        ],
+        "maxAgeSeconds": null,
+        "minCount": 1,
+        "objectType": "BeneficialOwner"
+      },
+      "required": true,
+      "source": "case"
+    }
+  ],
+  "createdAt": "1970-01-01T00:00:00Z",
+  "dependencyManifest": [
+    {
+      "digest": "7c4ade27b1ef729851d8a11097c8b9be7840999c50d7386156aba563b8860cd2",
+      "id": "package.yaml",
+      "kind": "source"
+    },
+    {
+      "digest": "b3263e19c1e5d2a0384ab21d07b07844bafed4f1598a0cb3a524eb0bf36e1884",
+      "id": "workflow.yaml",
+      "kind": "source"
+    }
+  ],
+  "dependencyManifestDigest": "129e6c459b0c9260a248f851a906e1015f5e5ec3d8e4aedec4e320da439c231f",
+  "execution": {
+    "coordinationMode": "caseStore",
+    "durability": "durable",
+    "engine": {
+      "adapterVersion": "harness-runtime-v2",
+      "kind": "harness-runtime",
+      "profile": "production-v2"
+    },
+    "maxConcurrency": 1,
+    "maxTransitions": 10000
+  },
+  "graph": {
+    "apiVersion": "ladder.dev/v1alpha1",
+    "edges": [
+      {
+        "condition": "",
+        "from": "intake",
+        "id": "e1",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "ubo-propose"
+      },
+      {
+        "condition": "",
+        "from": "ubo-propose",
+        "id": "e2",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "ubo-review"
+      },
+      {
+        "condition": "",
+        "from": "ubo-review",
+        "id": "e3",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "case-close"
+      },
+      {
+        "condition": "",
+        "from": "case-close",
+        "id": "e4",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "case-close-approval"
+      },
+      {
+        "condition": "",
+        "from": "case-close-approval",
+        "id": "e5",
+        "kind": "data",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "case-close-effects"
+      },
+      {
+        "condition": "case-close-effects.decision == \"APPROVE\"",
+        "from": "case-close-effects",
+        "id": "e6",
+        "kind": "control",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "result"
+      },
+      {
+        "condition": "case-close-effects.decision != \"APPROVE\"",
+        "from": "case-close-effects",
+        "id": "e7",
+        "kind": "control",
+        "sourcePath": "",
+        "targetPath": "",
+        "to": "stopped"
+      }
+    ],
+    "name": "skill-commit-path",
+    "nodeOrder": [
+      "intake",
+      "ubo-propose",
+      "ubo-review",
+      "case-close",
+      "case-close-approval",
+      "case-close-effects",
+      "result",
+      "stopped"
+    ],
+    "nodes": [
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [],
+        "id": "intake",
+        "inputSchema": null,
+        "kind": "input",
+        "name": "Intake",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "capabilityId": "skill.sample.ubo.propose.v0",
+          "carry": {},
+          "caseWrites": [
+            {
+              "commandType": "LinkEvidence",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "ProposeClaim",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "RecordScreeningFinding",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "RaiseContradiction",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "ProposeWorkItem",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "RecordCanonicalRecords",
+              "skillGrant": "proposal"
+            }
+          ],
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "skillId": "sample.ubo.propose",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [
+          "subjects"
+        ],
+        "id": "ubo-propose",
+        "inputSchema": null,
+        "kind": "tool",
+        "name": "Propose beneficial owners",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "capabilityId": "skill.sample.ubo.review.v0",
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "skillId": "sample.ubo.review",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [
+          "subjects",
+          "recBeneficialOwner"
+        ],
+        "id": "ubo-review",
+        "inputSchema": null,
+        "kind": "tool",
+        "name": "Review beneficial owners",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "capabilityId": "skill.sample.case.close.v0",
+          "carry": {},
+          "caseWrites": [
+            {
+              "commandType": "LinkEvidence",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "ProposeClaim",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "RecordScreeningFinding",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "RaiseContradiction",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "ProposeWorkItem",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "RecordCanonicalRecords",
+              "skillGrant": "proposal"
+            },
+            {
+              "commandType": "TransitionCaseStatus",
+              "skillGrant": "held"
+            }
+          ],
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "skillId": "sample.case.close",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [
+          "subjects"
+        ],
+        "id": "case-close",
+        "inputSchema": null,
+        "kind": "tool",
+        "name": "Close the case (approval-gated)",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "allowedDecisions": [
+            "APPROVE",
+            "REJECT"
+          ],
+          "body": [],
+          "branches": [],
+          "carry": {},
+          "defaultBranch": "",
+          "dualControlRequired": false,
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [
+          "subjects"
+        ],
+        "id": "case-close-approval",
+        "inputSchema": null,
+        "kind": "approval",
+        "name": "Independent approval of the close",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "carry": {},
+          "caseWrites": [
+            {
+              "commandType": "TransitionCaseStatus",
+              "skillGrant": "release"
+            }
+          ],
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "select",
+          "path": "/",
+          "router": "",
+          "skillEffectRelease": {
+            "approvalNodeId": "case-close-approval",
+            "skillNodeId": "case-close"
+          },
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [],
+        "id": "case-close-effects",
+        "inputSchema": null,
+        "kind": "transform",
+        "name": "Release approved effects",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "usePredecessorInput": true,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [],
+        "id": "result",
+        "inputSchema": null,
+        "kind": "output",
+        "name": "Result",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      },
+      {
+        "config": {
+          "aggregation": "",
+          "body": [],
+          "branches": [],
+          "carry": {},
+          "defaultBranch": "",
+          "entry": "",
+          "execution": "",
+          "exit": "",
+          "exitCondition": "",
+          "exitNode": "",
+          "expression": "",
+          "feedbackMode": "",
+          "join": "",
+          "maxIterations": 0,
+          "members": [],
+          "onExhausted": "",
+          "operation": "",
+          "router": "",
+          "subgraph": null,
+          "teacherModel": "",
+          "threshold": null,
+          "usePredecessorInput": true,
+          "workingDirectory": ""
+        },
+        "contextSelectorIds": [],
+        "id": "stopped",
+        "inputSchema": null,
+        "kind": "output",
+        "name": "Stopped",
+        "outputSchema": null,
+        "prompt": "",
+        "summary": ""
+      }
+    ]
+  },
+  "kind": "HarnessPlan",
+  "metadata": {
+    "domain": "conformance",
+    "name": "skill-commit-path",
+    "objective": "Commit hosted skill outputs as case state that later skills read, with approval-held effects.",
+    "version": "0.1.0"
+  },
+  "modelProfiles": [],
+  "packageDigest": "129e6c459b0c9260a248f851a906e1015f5e5ec3d8e4aedec4e320da439c231f",
+  "permissionEnvelopes": [
+    {
+      "capabilities": [
+        "skill.sample.ubo.propose.v0"
+      ],
+      "digest": "c1c200971cce401e6bc66be5a6a3cfdaa7ccb85a3c7fcc2867107ab771bf32f0",
+      "effects": [
+        "read"
+      ],
+      "nodeId": "ubo-propose"
+    },
+    {
+      "capabilities": [
+        "skill.sample.ubo.review.v0"
+      ],
+      "digest": "b55556102cbb1405f4b712cfe68cb2ec040df5a6f8dfee85de9c72ec8ac2fefa",
+      "effects": [
+        "read"
+      ],
+      "nodeId": "ubo-review"
+    },
+    {
+      "capabilities": [
+        "skill.sample.case.close.v0"
+      ],
+      "digest": "e7c19797c582a8353664cbf0a3b63cf06d23a64eb36f1088b48bb87f8278c991",
+      "effects": [
+        "reversible"
+      ],
+      "nodeId": "case-close"
+    },
+    {
+      "capabilities": [],
+      "digest": "028cf29e397afd2a602572191337da9b5158cc04b187c09f11e57e729a95dc74",
+      "effects": [],
+      "nodeId": "case-close-approval"
+    },
+    {
+      "capabilities": [],
+      "digest": "07cad29612db81b9709cca6a3db93635b7d9f1bc1c01f9afdaca5ef8979bbb29",
+      "effects": [],
+      "nodeId": "case-close-effects"
+    }
+  ],
+  "planDigest": "e7916dee158bd233087f179ba304503a59cb1229ea0c6d230fca5c4e98896763",
+  "planId": "skill-commit-path@0.1.0:e7916dee158b",
+  "policyBundles": [],
+  "releaseConstraints": {
+    "dataClasses": [
+      "PII",
+      "CONFIDENTIAL"
+    ],
+    "evaluationRequirementIds": [
+      "skill-host-conformance"
+    ],
+    "regions": [
+      "US"
+    ]
+  },
+  "schemas": {
+    "input": {
+      "properties": {
+        "caseId": {
+          "type": "string"
+        },
+        "tenantId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenantId",
+        "caseId"
+      ],
+      "type": "object"
+    },
+    "output": {
+      "type": "object"
+    },
+    "schemaSetDigest": "80b56e54c6d2dfc1e5570b51cebdfa39e1eb6dd93f4d9e4c131b1e8647be2d47"
+  },
+  "skillBindings": [
+    {
+      "bundleDigest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "candidates": [
+        {
+          "capabilityId": "skill.sample.case.close.v0",
+          "connectorId": "skills:sample.case.close",
+          "equivalentCoverageGroup": null
+        }
+      ],
+      "effects": {
+        "approval": "required",
+        "caseCommands": [
+          "TransitionCaseStatus"
+        ],
+        "mode": "internal_write"
+      },
+      "manifestDigest": "4444444444444444444444444444444444444444444444444444444444444444",
+      "policy": {
+        "allow_fallback": false,
+        "log_selected_implementation": true,
+        "require_entitlement": false,
+        "require_jurisdiction_coverage": false,
+        "require_list_freshness": false
+      },
+      "semver": "0.1.0",
+      "skillId": "sample.case.close"
+    },
+    {
+      "bundleDigest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "candidates": [
+        {
+          "capabilityId": "skill.sample.ubo.propose.v0",
+          "connectorId": "skills:sample.ubo.propose",
+          "equivalentCoverageGroup": null
+        }
+      ],
+      "effects": {
+        "approval": "none",
+        "caseCommands": [],
+        "mode": "proposal"
+      },
+      "manifestDigest": "1111111111111111111111111111111111111111111111111111111111111111",
+      "policy": {
+        "allow_fallback": false,
+        "log_selected_implementation": true,
+        "require_entitlement": false,
+        "require_jurisdiction_coverage": false,
+        "require_list_freshness": false
+      },
+      "semver": "0.1.0",
+      "skillId": "sample.ubo.propose"
+    },
+    {
+      "bundleDigest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "candidates": [
+        {
+          "capabilityId": "skill.sample.ubo.review.v0",
+          "connectorId": "skills:sample.ubo.review",
+          "equivalentCoverageGroup": null
+        }
+      ],
+      "effects": {
+        "approval": "none",
+        "caseCommands": [],
+        "mode": "read_only"
+      },
+      "manifestDigest": "3333333333333333333333333333333333333333333333333333333333333333",
+      "policy": {
+        "allow_fallback": false,
+        "log_selected_implementation": true,
+        "require_entitlement": false,
+        "require_jurisdiction_coverage": false,
+        "require_list_freshness": false
+      },
+      "semver": "0.1.0",
+      "skillId": "sample.ubo.review"
+    }
+  ]
+}

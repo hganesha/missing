@@ -1,0 +1,592 @@
+{
+  "bundle_version": "1.0.0",
+  "research_date": "2026-10-15",
+  "status": "offline_design_and_fixture_starter",
+  "files": [
+    {
+      "path": "Architecture_and_Integration_Guide.docx",
+      "bytes": 53597,
+      "sha256": "5e26356dd250d78edd41338da990dba9c4cdd2a1efb631a087163039e2804285"
+    },
+    {
+      "path": "Catalog_Explorer.html",
+      "bytes": 509750,
+      "sha256": "ab9731a698ade8a93384861441c6e5053d59bbc888d2c22968a9b862c5d8e5bb"
+    },
+    {
+      "path": "Provider_Catalog.xlsx",
+      "bytes": 201751,
+      "sha256": "cf818f2976949db424254de54ed76f36ea068a2ecf0265b11ed0e46df6d33fa7"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5158,
+      "sha256": "fd3baff99bbc4b444e40bc4dadebbd2dbc4a4340a51df1858e82107dbaadf964"
+    },
+    {
+      "path": "adapters/manifests/companies_house.json",
+      "bytes": 2577,
+      "sha256": "b367ba75c9c2aa449fc767f476678b65c64917bfea7d2fdcaf54121a7a504f7e"
+    },
+    {
+      "path": "adapters/manifests/gleif.json",
+      "bytes": 2525,
+      "sha256": "964f2fdd651eda1c9f33f0728dae0ed805eeff1e386a0c0ae7f3b96c0f2d1ede"
+    },
+    {
+      "path": "adapters/manifests/middesk.json",
+      "bytes": 2684,
+      "sha256": "d21741b1db0b4f3ae0aca004969f154c10290e6c203a3c7b413a7a4fe4e2deba"
+    },
+    {
+      "path": "adapters/manifests/opencorporates.json",
+      "bytes": 2483,
+      "sha256": "b32729a9532b1b7542a6a54f060269f4ee3f5f55de4f11573dc243265469eccb"
+    },
+    {
+      "path": "adapters/manifests/opensanctions.json",
+      "bytes": 2747,
+      "sha256": "72750d7148d5d25275da9abcfe194e4dae5f0a4317653a6429e9c966c8f975bb"
+    },
+    {
+      "path": "adapters/manifests/persona.json",
+      "bytes": 2682,
+      "sha256": "26f2bac7bd69fb553b12bc10fdbbfa67838755cc40550fd18d69218686319be6"
+    },
+    {
+      "path": "adapters/manifests/plaid.json",
+      "bytes": 2629,
+      "sha256": "44c95a7933361de34e24a65abaa85b869db40892b5af01a01a947d97954d4a2c"
+    },
+    {
+      "path": "adapters/manifests/sumsub.json",
+      "bytes": 2455,
+      "sha256": "407ad34dcdec791290abef86fb459df5c5eb81c37c0705fd0f888851485ffe52"
+    },
+    {
+      "path": "adapters/manifests/veriff.json",
+      "bytes": 2432,
+      "sha256": "258ed2b12089d3eeb30c15970a1fa7993ada64df2ba9f4e9177e79833500272c"
+    },
+    {
+      "path": "adapters/runtime.py",
+      "bytes": 19493,
+      "sha256": "e93d41d9cac0d2c52b2e16063aac67396c957387c306eba235d1349a4386bb7e"
+    },
+    {
+      "path": "build_bundle.py",
+      "bytes": 34853,
+      "sha256": "d22e9c257c81e420d62b89dc9bfa805785dd363334741662e0fa66c826d77e41"
+    },
+    {
+      "path": "catalog/capabilities.json",
+      "bytes": 6480,
+      "sha256": "773c10f28d02bdc91243d17f36a9e32c9f79fd54e074f19932a749f123cc832b"
+    },
+    {
+      "path": "catalog/provider-capabilities.csv",
+      "bytes": 186254,
+      "sha256": "a9e209f44db81f1f4c8092f1626410c305eb37d17da6f69d25d41e0d5d4fbefd"
+    },
+    {
+      "path": "catalog/provider-capabilities.json",
+      "bytes": 521870,
+      "sha256": "975677a4c6f5e03aeeca9aaeb36ef2280b62c151d5e30bca3a5edb866deca089"
+    },
+    {
+      "path": "catalog/provider-seed.txt",
+      "bytes": 34760,
+      "sha256": "7c0ffa05b699be2828f988a292f42eb164167efaa4650275efb3e97d56d5061a"
+    },
+    {
+      "path": "catalog/providers.csv",
+      "bytes": 275002,
+      "sha256": "b0225ee7c3f17d5610f8eb92ad62943c94fb1035d8782a1cb70f916a3637313e"
+    },
+    {
+      "path": "catalog/providers.json",
+      "bytes": 527021,
+      "sha256": "41dbe111cf70b80b7945d5d78be6a4c3e5d8d06ab55bdcc8d753051f0d10a8b8"
+    },
+    {
+      "path": "catalog/sources.csv",
+      "bytes": 5532,
+      "sha256": "347ae63859e61f6a7119e23bd2fa05aab70d1c44123d0f7985440df0493c3ec5"
+    },
+    {
+      "path": "catalog/stats.json",
+      "bytes": 540,
+      "sha256": "5ad4ce8d6299ababed26caa187ff0a91a314266236a3519149f5442da09228ad"
+    },
+    {
+      "path": "create_api.py",
+      "bytes": 5429,
+      "sha256": "b64fe7a24e0d595d205d7c7150e00bfc632097a1a98822da2d3aba95cd4e1864"
+    },
+    {
+      "path": "create_examples.py",
+      "bytes": 13791,
+      "sha256": "fc7983f9fcd508bf7d3e4cb998f8530a03631082694c33647746cb628e089f97"
+    },
+    {
+      "path": "create_presentations.py",
+      "bytes": 19091,
+      "sha256": "ed9835d36ca34968d6be4e7ed96f2fa811b48d86fb3fa19ac1da4bd8e3c89c7a"
+    },
+    {
+      "path": "docs/Architecture_and_Integration_Guide.md",
+      "bytes": 31756,
+      "sha256": "f4f1bbee4c9f1bd57bd5dce3966f239c4b500f86f34391d06bf97e0bd6a45946"
+    },
+    {
+      "path": "docs/storage.sql",
+      "bytes": 4676,
+      "sha256": "8effefef0a35f9775de8a2e8c3e0f9926eecfc57249dce3e2db22f4f17362613"
+    },
+    {
+      "path": "examples/capabilities/account.ownership.verify.json",
+      "bytes": 1610,
+      "sha256": "18d0b5f988bf8eeffa14ad3f13cc47abd08c3f48083d9d63257f1a26332a979b"
+    },
+    {
+      "path": "examples/capabilities/business.officers.lookup.json",
+      "bytes": 1768,
+      "sha256": "7176c85abe694e971dbb7a9f2b8d651591ff5e2da54e21ee0e5132a876ca746a"
+    },
+    {
+      "path": "examples/capabilities/business.ownership.discover.json",
+      "bytes": 1780,
+      "sha256": "daee4c0e8e94fc44246d164a04cbe2955e66059312d6e5ca3fd2410290aed760"
+    },
+    {
+      "path": "examples/capabilities/business.registry.lookup.json",
+      "bytes": 1685,
+      "sha256": "d2646127d022423fecd6ea9639a48d4f2adb926efe30f2c5b43fc5a64625ef0a"
+    },
+    {
+      "path": "examples/capabilities/business.verify.json",
+      "bytes": 1649,
+      "sha256": "1dc3cd38c3a5fcf1b5d2b337934e4fec5c0dc856f6461fa7f1428cbb911cf520"
+    },
+    {
+      "path": "examples/capabilities/case.manage.json",
+      "bytes": 1535,
+      "sha256": "82f42a164ab88052979d2caebdb011ff45a73090eb7728e4064ec9b16e7a8cbc"
+    },
+    {
+      "path": "examples/capabilities/credential.verify.json",
+      "bytes": 1610,
+      "sha256": "169f1a4797858ec476429b81fdb9defaeb895640e552aac5058e945cafab78e6"
+    },
+    {
+      "path": "examples/capabilities/crypto.transaction.monitor.json",
+      "bytes": 1597,
+      "sha256": "9e54c7a53f9d09d6d65ece12d71b0693388f08a18e63d3288dd447540d2e98ae"
+    },
+    {
+      "path": "examples/capabilities/crypto.wallet.screen.json",
+      "bytes": 1573,
+      "sha256": "bc20e1d2ec2016c6c874aec05a43ff178d5dd91bc10cbbd6349834720a66aca2"
+    },
+    {
+      "path": "examples/capabilities/edd.report.retrieve.json",
+      "bytes": 1566,
+      "sha256": "ddcf7dee25333f5ce013be6b265e9c90b93042c15db010eecc82d47c84109d5d"
+    },
+    {
+      "path": "examples/capabilities/entity.resolve.json",
+      "bytes": 1553,
+      "sha256": "70ebf769e3941cc02e96eb00d87bda6073a86b1fb9994ffce5ed32fbd27bbe8b"
+    },
+    {
+      "path": "examples/capabilities/financial.evidence.retrieve.json",
+      "bytes": 1604,
+      "sha256": "5b40473abe76b032e7bf0f4df2f086de55196a70ac5aae61ba620abd2a639923"
+    },
+    {
+      "path": "examples/capabilities/identity.address.verify.json",
+      "bytes": 1634,
+      "sha256": "de5751c85ada0ff0b16f3e4e07d8b05999d91e0e82f14a2a36f58f4daa362cf3"
+    },
+    {
+      "path": "examples/capabilities/identity.biometric.verify.json",
+      "bytes": 1642,
+      "sha256": "5aa799123bd1c85d519411ace579bef63e048f41d84b37de3469fef133f4eb63"
+    },
+    {
+      "path": "examples/capabilities/identity.digital_id.verify.json",
+      "bytes": 1646,
+      "sha256": "be0fd1c1c742a0d472641adb6587cea69663e5a53ad4afaa0907b54e670734d6"
+    },
+    {
+      "path": "examples/capabilities/identity.document.verify.json",
+      "bytes": 1638,
+      "sha256": "0c0906ec6fbd0a8d675c475118a8700bebb3cc62833d6a02532976de4ed1a809"
+    },
+    {
+      "path": "examples/capabilities/identity.person.verify.json",
+      "bytes": 1630,
+      "sha256": "89e9caaafa4bdcde8bb63197ae023aff6e7747ccf80230fff227fba067bed359"
+    },
+    {
+      "path": "examples/capabilities/identity.tax_id.verify.json",
+      "bytes": 1630,
+      "sha256": "91bb92baf2454e65374dce59b0f4dfb886032080bb654e8af2a0f14633eb9907"
+    },
+    {
+      "path": "examples/capabilities/monitoring.subscribe.json",
+      "bytes": 1579,
+      "sha256": "211e1aec9ddac56fc483f8d6bc1480b1235138681ca30fc7a6391b75027376f8"
+    },
+    {
+      "path": "examples/capabilities/questionnaire.collect.json",
+      "bytes": 1584,
+      "sha256": "28034c84ba482b06fc15dad014e04c1766ae86f58ce6237eb91243840b938871"
+    },
+    {
+      "path": "examples/capabilities/reference.identifier.lookup.json",
+      "bytes": 1604,
+      "sha256": "6cda5c637ee54c543bfc2db78d2511b8f77b9e781c60fb471f437c5ef7332a09"
+    },
+    {
+      "path": "examples/capabilities/reference.list.ingest.json",
+      "bytes": 1580,
+      "sha256": "30eb6184c8f659b4d3624f060925b3659a7e2af4e30bfb312ec650fd74befcdd"
+    },
+    {
+      "path": "examples/capabilities/regulatory.report.json",
+      "bytes": 1561,
+      "sha256": "591c6b6695925f1431fa7b90e1099a985fa285e2f142b6f51d9eb1f2ed979df9"
+    },
+    {
+      "path": "examples/capabilities/risk.customer.assess.json",
+      "bytes": 1608,
+      "sha256": "5f9beb1801a48a5d490cefbedc4b12257379f8a1d734459db22cea798e2f1dff"
+    },
+    {
+      "path": "examples/capabilities/risk.device.json",
+      "bytes": 1572,
+      "sha256": "11476f5cc6ed01f0c7d3ee719f9fab6485799ddf47e65309582c0233f5c9f9d3"
+    },
+    {
+      "path": "examples/capabilities/risk.email.json",
+      "bytes": 1568,
+      "sha256": "c85d80e7d5394eb033fe1c8b723ed3ad48c39db44c12f3e5ba1c86635eab71b0"
+    },
+    {
+      "path": "examples/capabilities/risk.jurisdiction.json",
+      "bytes": 1596,
+      "sha256": "7262005f02d124fe2774ef65829d94725e0032de3f5812233271c5850b886c16"
+    },
+    {
+      "path": "examples/capabilities/risk.network.json",
+      "bytes": 1576,
+      "sha256": "ca80ddca5c892a78106a98ce92c4617fc62b7375142cad3a62cbf7c27626696b"
+    },
+    {
+      "path": "examples/capabilities/risk.phone.json",
+      "bytes": 1568,
+      "sha256": "183be971c6d91d60fa38d9ed61a44596f1e58459cb0f8e9870d345af5c743335"
+    },
+    {
+      "path": "examples/capabilities/screening.adverse_media.json",
+      "bytes": 1703,
+      "sha256": "64516226306968a8d9f44a18f6881f8f2f866d156e4695ef9ae9125246900254"
+    },
+    {
+      "path": "examples/capabilities/screening.enforcement.json",
+      "bytes": 1695,
+      "sha256": "66f3bb9d4f26b81b4766c7a928ed2e3351bb1be2f9902f93c9d9ad825179c2fd"
+    },
+    {
+      "path": "examples/capabilities/screening.payment.json",
+      "bytes": 1679,
+      "sha256": "707d60ad81eef02f7bf131a1c7a2633739cce801f0560e623d1ef78af9fdddd2"
+    },
+    {
+      "path": "examples/capabilities/screening.pep.json",
+      "bytes": 1663,
+      "sha256": "cdee601311b25b8ed2923546321fa2e215b469ea34a96163b5e3abd4ba86c9ab"
+    },
+    {
+      "path": "examples/capabilities/screening.sanctions.json",
+      "bytes": 1687,
+      "sha256": "e37c1c6ff3b1c39d050e6a0c7869a147a0c3c0456c4a31a7331b9b6b62b7d2c9"
+    },
+    {
+      "path": "examples/capabilities/transaction.monitor.json",
+      "bytes": 1573,
+      "sha256": "4b40bee8c4a8b5d9570dfe1b008c4ce9f09d0c5453adb81cd8844ddc99eb46c0"
+    },
+    {
+      "path": "examples/capabilities/travel_rule.exchange.json",
+      "bytes": 1578,
+      "sha256": "74f4ede097c114babf1a87cc52840d3dff3af270a89da58398b198638d7e84bf"
+    },
+    {
+      "path": "examples/capabilities/workflow.orchestrate.json",
+      "bytes": 1575,
+      "sha256": "0541eaba1538912e47c2e3e84e39210092ccec2263a3020f563f4ef43b9a4ba5"
+    },
+    {
+      "path": "examples/consume_result.py",
+      "bytes": 1675,
+      "sha256": "77a22d1123d63b1edcacb30f188e0740d94aab119e3b153e7306f309e6081a6d"
+    },
+    {
+      "path": "examples/host/companies_house.json",
+      "bytes": 3340,
+      "sha256": "3da5af64c0ecbbf974c9eb052ec48d05c96c7621bb86762169475b1cfda72cbc"
+    },
+    {
+      "path": "examples/host/gleif.json",
+      "bytes": 3119,
+      "sha256": "ce64f97f3d9a09b75363f7f8c020a0bb27cc74f77f8158410b7960ac511825b9"
+    },
+    {
+      "path": "examples/host/middesk.json",
+      "bytes": 3228,
+      "sha256": "b7541c8c9ee18d7932d9a565312fc7b3bfcf6f028a80e77849d6c6e2bf36988b"
+    },
+    {
+      "path": "examples/host/opencorporates.json",
+      "bytes": 3399,
+      "sha256": "878a5ecb6706113a79cf25a3c506f3073067fd8b33f590ffa07d6fa20bdfdeb5"
+    },
+    {
+      "path": "examples/host/opensanctions.json",
+      "bytes": 3233,
+      "sha256": "dc00f8204d2dade587b267014245049eac869a1efbe65c470b05a58bb6864c3c"
+    },
+    {
+      "path": "examples/host/ownership-graph.json",
+      "bytes": 4451,
+      "sha256": "5bcb541d234a433eb2c7100959a7c205701ed4524b3f4cbded9558c67fd4fc3b"
+    },
+    {
+      "path": "examples/host/partial-screening.json",
+      "bytes": 3277,
+      "sha256": "e0c9fe48c536e3159b1ead202f14467fef9ac87f5c21f1ef7b75e90e6edf4e1f"
+    },
+    {
+      "path": "examples/host/persona.json",
+      "bytes": 2311,
+      "sha256": "127d8575d62ba8f9eb53da62c5002dbc37bbab29036f606ff61f69b593df465e"
+    },
+    {
+      "path": "examples/host/plaid.json",
+      "bytes": 3324,
+      "sha256": "aabbb101e545396717d25993c612152b297aed8f01ed18d80c6b31358ba6fda8"
+    },
+    {
+      "path": "examples/host/schema-drift-error.json",
+      "bytes": 2171,
+      "sha256": "b01aaa2d8e6d7965d2158853db2fc57589e580263529584f6d98bebd457a4aea"
+    },
+    {
+      "path": "examples/host/sumsub.json",
+      "bytes": 2250,
+      "sha256": "90130fbb03df591629303405b0112b49dab98546fd407ac02539915754afa0a7"
+    },
+    {
+      "path": "examples/host/veriff.json",
+      "bytes": 2635,
+      "sha256": "7c00b33c92a3b40f580ac5a4068ed4848197d7b810fe4b34cdd7dfb893dbb3db"
+    },
+    {
+      "path": "examples/identifier-resolution-candidates.json",
+      "bytes": 276,
+      "sha256": "26a17a9f6134f5f92e7e42e0d5a43eb8468c2b7231c5bf725ecf2d18964f9c23"
+    },
+    {
+      "path": "examples/native/companies_house.json",
+      "bytes": 339,
+      "sha256": "b8724a21c2d37c6c9345e3f7fd46e64b80cccc49ec14bd9bae04d5e09cb3d643"
+    },
+    {
+      "path": "examples/native/gleif.json",
+      "bytes": 361,
+      "sha256": "d7c43450009b2ca2c91b4ea2a755a17c68a9cc883e679e61b4ae1aa4de5237e3"
+    },
+    {
+      "path": "examples/native/middesk.json",
+      "bytes": 406,
+      "sha256": "77d262ec39bf4ae1a9dd4d70bbfe7e480add514626eec8e78e09de97b0c480ab"
+    },
+    {
+      "path": "examples/native/opencorporates.json",
+      "bytes": 277,
+      "sha256": "a37ad70c448a1f475d0cf4f2a5a2ce59b8f75dd0ada149e2a1ba9d35e657d2ca"
+    },
+    {
+      "path": "examples/native/opensanctions.json",
+      "bytes": 554,
+      "sha256": "bb02268456b85ac8823c20eeca48d61651f0eeb80e32ecdbcb2310cc5a791932"
+    },
+    {
+      "path": "examples/native/persona.json",
+      "bytes": 330,
+      "sha256": "19d90598fecbcc3168401ce3d89c4c06bb9735c5359b94fa08ea06253e1b3175"
+    },
+    {
+      "path": "examples/native/plaid.json",
+      "bytes": 327,
+      "sha256": "2604210347a48799c1aaf5694b1273317028cfac2cf4d4bf63513ba0c9b6f626"
+    },
+    {
+      "path": "examples/native/sumsub.json",
+      "bytes": 405,
+      "sha256": "3241e326cdf8c137814f6f98e2462c8b0a6881613c16906950161c285214b3d7"
+    },
+    {
+      "path": "examples/native/veriff.json",
+      "bytes": 249,
+      "sha256": "dd500245183757e3a98ee132bb935f2ff5be78d80ee1ca8dd38eff3d98ac058c"
+    },
+    {
+      "path": "examples/request-plans/companies_house.json",
+      "bytes": 306,
+      "sha256": "19ec3a34e825d97dbaa2b70a993cecd8cd36c38b40b1eedab8f444af68479c2f"
+    },
+    {
+      "path": "examples/request-plans/gleif.json",
+      "bytes": 327,
+      "sha256": "7ee4ecd9b076a6273254417edc9fc0428ec365fcb5f923278004c018a0e60a0c"
+    },
+    {
+      "path": "examples/request-plans/opencorporates.json",
+      "bytes": 329,
+      "sha256": "b77acc7ba7256b974aaa7e16204af32a20ff7bc7b566b128dfb2ac8fbfe03bed"
+    },
+    {
+      "path": "examples/request-plans/opensanctions.json",
+      "bytes": 462,
+      "sha256": "78ff61edf9ce721459c72ebe31b7df6945ecbaa757280570648ef2fcce8f921f"
+    },
+    {
+      "path": "examples/request-plans/persona.json",
+      "bytes": 376,
+      "sha256": "5c13b23fe7010ec5820562c271ab1c301423c400aa354dbcc57923eb0a2396af"
+    },
+    {
+      "path": "examples/request-plans/plaid.json",
+      "bytes": 458,
+      "sha256": "5b7b77c8ce9d48be1134ea8004d2b3c73915b10cba034abd77917633f6fcb5bd"
+    },
+    {
+      "path": "examples/requests/companies_house.json",
+      "bytes": 1020,
+      "sha256": "86decfe7f135997747f7fff14c264fcf6e851db65c63fd58e5386c66af7b225c"
+    },
+    {
+      "path": "examples/requests/gleif.json",
+      "bytes": 1005,
+      "sha256": "0b5f0aefda5f14bb78b8e5fd8f04e15c32a0abb1093ca8d853e8ff671f1394ea"
+    },
+    {
+      "path": "examples/requests/middesk.json",
+      "bytes": 995,
+      "sha256": "0355f3c7cfa693c7b54802c4ee85ae1d0850acbd9bda66ca9aff827c932bb2ce"
+    },
+    {
+      "path": "examples/requests/opencorporates.json",
+      "bytes": 1165,
+      "sha256": "4e8d32a6495659c77ae9aafceac744099bad11e1da1011ec499bda667f8a0b5e"
+    },
+    {
+      "path": "examples/requests/opensanctions.json",
+      "bytes": 1003,
+      "sha256": "cfc898843e364d35a594ef88b175cf713778dc30f1f7f7ea80e40919836c5579"
+    },
+    {
+      "path": "examples/requests/persona.json",
+      "bytes": 985,
+      "sha256": "aa656bfb1925608a0145095be30f71ff69ee24d1e1b510a8e5ca145529d3aa87"
+    },
+    {
+      "path": "examples/requests/plaid.json",
+      "bytes": 1044,
+      "sha256": "eb47f56f5704133182f606cdb893b92f6c7a15e3f3a0b17af5175889bbb427dc"
+    },
+    {
+      "path": "examples/requests/sumsub.json",
+      "bytes": 985,
+      "sha256": "368949b103e24616145979d9e9e40a737ce39594e8f8ddcb785e5e6f4adf3664"
+    },
+    {
+      "path": "examples/requests/veriff.json",
+      "bytes": 985,
+      "sha256": "9a58b9da9532876e141c77d96123f578335f50c3a74372b550fa28b35c6fe9eb"
+    },
+    {
+      "path": "examples/result-event.json",
+      "bytes": 457,
+      "sha256": "f3183b8d91ef510c1b132e4af7f26efab49c7120f97672a54e6d10d13c1a6cd7"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 112,
+      "sha256": "d0c94b77877b205b3e827c09e6ad26bbf23a47d5bd52a1e0b57b6c4243874721"
+    },
+    {
+      "path": "research/check_references.py",
+      "bytes": 1832,
+      "sha256": "003cac9c9e5ed45d886317dd7c581caad1f4058556a71e1a3c04f648becc8ccb"
+    },
+    {
+      "path": "research/reference-retrieval.json",
+      "bytes": 166473,
+      "sha256": "649777e8fcf7221ac0f9ce4e0c248864fc341fd925fa05792b3f516135416ef8"
+    },
+    {
+      "path": "research/reference-summary.txt",
+      "bytes": 63276,
+      "sha256": "ee900e5ccc0b316d8c53993da5a758763b654136d55eca2b415b26281b6e2c89"
+    },
+    {
+      "path": "research/sources.json",
+      "bytes": 9203,
+      "sha256": "5fb62bc8a6ef1fdd0aa7bf2182572f0f6b600c9bb9c5cd125acee27aa4f8be0d"
+    },
+    {
+      "path": "schemas/adapter.schema.json",
+      "bytes": 4434,
+      "sha256": "cf4e8488aaf0e26e3aa277b08d283d9afc6f569aa1480b0e01a1899a5559f374"
+    },
+    {
+      "path": "schemas/data-dictionary.json",
+      "bytes": 42405,
+      "sha256": "c74d8a027cc30cceaa471461d29d26a1e083098d351f1a8e02518eb002ade240"
+    },
+    {
+      "path": "schemas/event.schema.json",
+      "bytes": 1558,
+      "sha256": "031d531c87c68996c927dd6ac798df8c5af83c5d5021570aafa78ff64ac39bec"
+    },
+    {
+      "path": "schemas/host.schema.json",
+      "bytes": 59796,
+      "sha256": "e6929a7aa3997aacb82c66a0666134b8cab38a16fdb64a2a9637dfa89cf808f3"
+    },
+    {
+      "path": "schemas/openapi.yaml",
+      "bytes": 5157,
+      "sha256": "1fd82d785bf5e5ba6685cdc9ceaae490a6897093fccdac5b1bb999670d5afcb3"
+    },
+    {
+      "path": "schemas/request.schema.json",
+      "bytes": 45748,
+      "sha256": "741c6e6f71bc05a19ad815b3049be2fdde5791fd63504368ff876fbc72bab0c7"
+    },
+    {
+      "path": "tests/test-results.txt",
+      "bytes": 2925,
+      "sha256": "7888b8be4004fa310ef8b6ac6a3b06e59f0c5976efbc1768202ae59d0e20a4be"
+    },
+    {
+      "path": "tests/test_contracts.py",
+      "bytes": 7210,
+      "sha256": "8695f7351886e5a756ced714db257da39ad2dfbd79920384367dd805c22359f1"
+    }
+  ]
+}

@@ -1,0 +1,2166 @@
+[
+  {
+    "path": "HostResult.schema_version",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "1.0.0"
+  },
+  {
+    "path": "HostResult.result_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.request_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.tenant_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.subject_entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.capability",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "identity.person.verify",
+      "identity.document.verify",
+      "identity.biometric.verify",
+      "identity.address.verify",
+      "identity.digital_id.verify",
+      "identity.tax_id.verify",
+      "business.verify",
+      "business.registry.lookup",
+      "business.ownership.discover",
+      "business.officers.lookup",
+      "screening.sanctions",
+      "screening.pep",
+      "screening.adverse_media",
+      "screening.enforcement",
+      "screening.payment",
+      "risk.device",
+      "risk.email",
+      "risk.phone",
+      "risk.network",
+      "risk.jurisdiction",
+      "risk.customer.assess",
+      "account.ownership.verify",
+      "financial.evidence.retrieve",
+      "transaction.monitor",
+      "case.manage",
+      "regulatory.report",
+      "crypto.wallet.screen",
+      "crypto.transaction.monitor",
+      "travel_rule.exchange",
+      "edd.report.retrieve",
+      "entity.resolve",
+      "monitoring.subscribe",
+      "reference.identifier.lookup",
+      "reference.list.ingest",
+      "workflow.orchestrate",
+      "credential.verify",
+      "questionnaire.collect"
+    ]
+  },
+  {
+    "path": "HostResult.provider",
+    "type": "object",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.provider.provider_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.provider.product",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.provider.api_version",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.provider.adapter_version",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.provider.provider_request_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.provider.provider_record_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.provider.status_original",
+    "type": [
+      "string",
+      "null"
+    ],
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.provider.decision_origin",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "provider_check",
+      "provider_workflow",
+      "client_workflow",
+      "data_only",
+      "unknown"
+    ]
+  },
+  {
+    "path": "HostResult.execution",
+    "type": "object",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.execution.status",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "pending",
+      "completed",
+      "partial",
+      "failed",
+      "cancelled",
+      "unknown"
+    ]
+  },
+  {
+    "path": "HostResult.execution.received_at",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.execution.provider_observed_at",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.execution.duration_ms",
+    "type": "integer",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.assessment",
+    "type": "object",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.assessment.outcome",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "passed",
+      "failed",
+      "review",
+      "resubmit",
+      "inconclusive",
+      "not_checked",
+      "not_applicable",
+      "unknown"
+    ]
+  },
+  {
+    "path": "HostResult.assessment.reason_codes",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.assessment.bank_decision",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "not_evaluated",
+      "approve",
+      "reject",
+      "hold",
+      "escalate"
+    ]
+  },
+  {
+    "path": "HostResult.assessment.policy_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.assessment.policy_version",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.assessment.actor",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.coverage",
+    "type": "#/$defs/coverage",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.entities",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.relationships",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.assertions",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.evidence",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.result",
+    "type": "#/$defs/result",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.errors",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.warnings",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.raw_payload",
+    "type": "object",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.raw_payload.vault_ref",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.raw_payload.sha256",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.raw_payload.retention_policy_ref",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "HostResult.raw_payload.classification",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "confidential",
+      "restricted"
+    ]
+  },
+  {
+    "path": "HostResult.extensions",
+    "type": "object",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "partialDate.value",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "partialDate.precision",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "year",
+      "month",
+      "day"
+    ]
+  },
+  {
+    "path": "partialDate.calendar",
+    "type": "string",
+    "required": false,
+    "enum_or_const": [
+      "gregorian",
+      "other"
+    ]
+  },
+  {
+    "path": "partialDate.original",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "identifier.scheme",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "identifier.value",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "identifier.issuer",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "identifier.jurisdiction",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "identifier.verified",
+    "type": "boolean",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "identifier.evidence_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "name.full",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "name.given",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "name.middle",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "name.family",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "name.kind",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "legal",
+      "alias",
+      "former",
+      "transliteration",
+      "trading",
+      "unknown"
+    ]
+  },
+  {
+    "path": "name.language",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "name.script",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "name.original",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "address.lines",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "address.city",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "address.region",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "address.postal_code",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "address.country",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "address.country_original",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "address.full",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "address.kind",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "registered",
+      "residential",
+      "business",
+      "service",
+      "unknown"
+    ]
+  },
+  {
+    "path": "entity.entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.entity_type",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "person",
+      "organization",
+      "trust",
+      "legal_arrangement",
+      "account",
+      "wallet",
+      "vessel",
+      "aircraft",
+      "address",
+      "device",
+      "unknown"
+    ]
+  },
+  {
+    "path": "entity.names",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.identifiers",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.addresses",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.birth_date",
+    "type": "#/$defs/partialDate",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.incorporation_date",
+    "type": "#/$defs/partialDate",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.nationalities",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.jurisdiction",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.legal_form",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.status_original",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.status",
+    "type": "string",
+    "required": false,
+    "enum_or_const": [
+      "active",
+      "inactive",
+      "dissolved",
+      "unknown"
+    ]
+  },
+  {
+    "path": "entity.source_record_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.evidence_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "entity.attributes",
+    "type": "object",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "score.name",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "score.value",
+    "type": [
+      "number",
+      "string",
+      "null"
+    ],
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "score.scale_min",
+    "type": "number",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "score.scale_max",
+    "type": "number",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "score.direction",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "higher_is_riskier",
+      "higher_is_better_match",
+      "higher_is_better",
+      "unknown"
+    ]
+  },
+  {
+    "path": "score.semantics",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "score.model_version",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "score.calibration_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.evidence_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.provider_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.source_record_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.source_url",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.source_title",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.published_at",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.retrieved_at",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.effective_from",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.effective_to",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.source_pointer",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.content_sha256",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.authority",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "official",
+      "commercial",
+      "customer_supplied",
+      "inferred",
+      "unknown"
+    ]
+  },
+  {
+    "path": "evidence.license_ref",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.retention_policy_ref",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "evidence.access_classification",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "public",
+      "internal",
+      "confidential",
+      "restricted"
+    ]
+  },
+  {
+    "path": "relationship.relationship_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.from_entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.to_entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.type",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "owns",
+      "controls",
+      "director_of",
+      "officer_of",
+      "beneficial_owner_of",
+      "parent_of",
+      "account_holder_of",
+      "wallet_attributed_to",
+      "same_as",
+      "possible_same_as",
+      "shares_address",
+      "shares_device",
+      "associated_with",
+      "family_of",
+      "close_associate_of",
+      "transacts_with",
+      "other"
+    ]
+  },
+  {
+    "path": "relationship.direction",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "directed",
+      "undirected"
+    ]
+  },
+  {
+    "path": "relationship.assertion_status",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "asserted",
+      "inferred",
+      "candidate",
+      "confirmed",
+      "rejected",
+      "unknown"
+    ]
+  },
+  {
+    "path": "relationship.ownership",
+    "type": "object",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.ownership.kind",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "equity",
+      "voting",
+      "economic",
+      "control",
+      "unknown"
+    ]
+  },
+  {
+    "path": "relationship.ownership.lower_percent",
+    "type": "number",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.ownership.upper_percent",
+    "type": "number",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.ownership.exact_percent",
+    "type": "number",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.ownership.directness",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "direct",
+      "indirect",
+      "unknown"
+    ]
+  },
+  {
+    "path": "relationship.ownership.calculation_policy_ref",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.ownership.calculation_path_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.valid_from",
+    "type": "#/$defs/partialDate",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.valid_to",
+    "type": "#/$defs/partialDate",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.confidence",
+    "type": "number",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.confidence_basis",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.evidence_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "relationship.jurisdiction",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "assertion.assertion_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "assertion.entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "assertion.field_path",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "assertion.value",
+    "type": "union",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "assertion.verification",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "verified",
+      "not_verified",
+      "mismatch",
+      "unknown",
+      "not_checked"
+    ]
+  },
+  {
+    "path": "assertion.evidence_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "match.match_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "match.subject_entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "match.candidate_entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "match.categories",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "match.list_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "match.programs",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "match.matched_fields",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "match.scores",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "match.disposition",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "unresolved",
+      "true_match",
+      "false_positive",
+      "inconclusive"
+    ]
+  },
+  {
+    "path": "match.disposition_actor",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "match.disposition_policy_ref",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "match.evidence_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "check.check_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "check.name",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "check.outcome",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "passed",
+      "failed",
+      "inconclusive",
+      "not_checked",
+      "not_applicable",
+      "unknown"
+    ]
+  },
+  {
+    "path": "check.reason_codes",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "check.scores",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "check.evidence_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "alert.alert_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "alert.subject_entity_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "alert.transaction_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "alert.scenario_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "alert.scenario_version",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "alert.severity",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "low",
+      "medium",
+      "high",
+      "critical",
+      "unknown"
+    ]
+  },
+  {
+    "path": "alert.status",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "open",
+      "in_review",
+      "closed",
+      "unknown"
+    ]
+  },
+  {
+    "path": "alert.reason_codes",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "alert.evidence_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "alert.window_start",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "alert.window_end",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "money.amount",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "money.currency",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "transaction.transaction_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "transaction.occurred_at",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "transaction.amount",
+    "type": "#/$defs/money",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "transaction.originator_entity_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "transaction.beneficiary_entity_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "transaction.account_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "transaction.rail",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "transaction.direction",
+    "type": "string",
+    "required": false,
+    "enum_or_const": [
+      "inbound",
+      "outbound",
+      "internal",
+      "unknown"
+    ]
+  },
+  {
+    "path": "transaction.chain",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "transaction.tx_hash",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "error.code",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "error.category",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "authentication",
+      "authorization",
+      "rate_limit",
+      "validation",
+      "not_found",
+      "timeout",
+      "provider_unavailable",
+      "schema_drift",
+      "unsupported",
+      "unknown"
+    ]
+  },
+  {
+    "path": "error.message",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "error.retryable",
+    "type": "boolean",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "error.retry_after_seconds",
+    "type": "integer",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "error.provider_code",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "coverage.status",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "complete_for_requested_scope",
+      "partial",
+      "unknown",
+      "not_supported"
+    ]
+  },
+  {
+    "path": "coverage.requested_scope",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "coverage.checked_scope",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "coverage.not_checked_scope",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "coverage.missing_fields",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "coverage.reason",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "verificationResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "verification"
+  },
+  {
+    "path": "verificationResult.checks",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "verificationResult.assertion_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "businessResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "business"
+  },
+  {
+    "path": "businessResult.organization_entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "businessResult.checks",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "businessResult.assertion_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "ownershipResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "ownership"
+  },
+  {
+    "path": "ownershipResult.root_entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "ownershipResult.relationship_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "ownershipResult.completeness",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "complete",
+      "partial",
+      "unknown"
+    ]
+  },
+  {
+    "path": "ownershipResult.legal_test_policy_ref",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "ownershipResult.unresolved_reasons",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "screeningResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "screening"
+  },
+  {
+    "path": "screeningResult.matches",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "screeningResult.dataset_versions",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "screeningResult.scope",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "screeningResult.truncated",
+    "type": "boolean",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "screeningResult.total_candidates",
+    "type": "integer",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "riskResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "risk"
+  },
+  {
+    "path": "riskResult.scores",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "riskResult.signals",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "riskResult.signals[].name",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "riskResult.signals[].value",
+    "type": "union",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "riskResult.signals[].reason_codes",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "riskResult.signals[].evidence_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "accountResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "account"
+  },
+  {
+    "path": "accountResult.accounts",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "accountResult.accounts[].account_entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "accountResult.accounts[].field_scores",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "accountResult.accounts[].ownership_outcome",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "matched",
+      "not_matched",
+      "inconclusive",
+      "not_checked"
+    ]
+  },
+  {
+    "path": "accountResult.accounts[].checks",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "financialResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "financial"
+  },
+  {
+    "path": "financialResult.documents",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "financialResult.documents[].document_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "financialResult.documents[].type",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "financialResult.documents[].evidence_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "financialResult.documents[].period_start",
+    "type": "#/$defs/partialDate",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "financialResult.documents[].period_end",
+    "type": "#/$defs/partialDate",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "financialResult.documents[].extracted_facts",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "monitoringResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "monitoring"
+  },
+  {
+    "path": "monitoringResult.alerts",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "monitoringResult.transactions",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "monitoringResult.window_start",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "monitoringResult.window_end",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "caseResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "case"
+  },
+  {
+    "path": "caseResult.case_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "caseResult.status",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "caseResult.assigned_actor",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "caseResult.alert_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "caseResult.decision_history",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "caseResult.decision_history[].at",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "caseResult.decision_history[].actor",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "caseResult.decision_history[].action",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "caseResult.decision_history[].policy_ref",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "reportResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "report"
+  },
+  {
+    "path": "reportResult.report_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "reportResult.jurisdiction",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "reportResult.report_type",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "reportResult.status",
+    "type": "string",
+    "required": false,
+    "enum_or_const": [
+      "draft",
+      "approved",
+      "submitted",
+      "accepted",
+      "rejected",
+      "unknown"
+    ]
+  },
+  {
+    "path": "reportResult.acknowledgement_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "reportResult.filing_authority",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "reportResult.restricted_evidence_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "crypto"
+  },
+  {
+    "path": "cryptoResult.wallet_entity_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.chain",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.asset",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.scores",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.exposures",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.exposures[].category",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.exposures[].counterparty_entity_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.exposures[].direction",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "incoming",
+      "outgoing",
+      "both",
+      "unknown"
+    ]
+  },
+  {
+    "path": "cryptoResult.exposures[].hops",
+    "type": "integer",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.exposures[].share_percent",
+    "type": "number",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.exposures[].amount",
+    "type": "#/$defs/money",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.exposures[].evidence_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "cryptoResult.alerts",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "travel_ruleResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "travel_rule"
+  },
+  {
+    "path": "travel_ruleResult.message_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "travel_ruleResult.protocol",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "travel_ruleResult.protocol_version",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "travel_ruleResult.originator_vasp_entity_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "travel_ruleResult.beneficiary_vasp_entity_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "travel_ruleResult.transfer_transaction_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "travel_ruleResult.status",
+    "type": "string",
+    "required": false,
+    "enum_or_const": [
+      "pending",
+      "delivered",
+      "accepted",
+      "rejected",
+      "failed",
+      "unknown"
+    ]
+  },
+  {
+    "path": "travel_ruleResult.pii_vault_ref",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "travel_ruleResult.counterparty_due_diligence_status",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "eddResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "edd"
+  },
+  {
+    "path": "eddResult.report_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "eddResult.summary_internal",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "eddResult.findings",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "eddResult.findings[].finding_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "eddResult.findings[].category",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "eddResult.findings[].allegation_status",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "alleged",
+      "charged",
+      "convicted",
+      "acquitted",
+      "dismissed",
+      "unknown"
+    ]
+  },
+  {
+    "path": "eddResult.findings[].summary",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "eddResult.findings[].evidence_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "resolutionResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "resolution"
+  },
+  {
+    "path": "resolutionResult.candidates",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "resolutionResult.candidates[].left_entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "resolutionResult.candidates[].right_entity_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "resolutionResult.candidates[].outcome",
+    "type": "string",
+    "required": true,
+    "enum_or_const": [
+      "same",
+      "different",
+      "possible",
+      "insufficient"
+    ]
+  },
+  {
+    "path": "resolutionResult.candidates[].method",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "resolutionResult.candidates[].model_version",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "resolutionResult.candidates[].matched_features",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "resolutionResult.candidates[].contradictions",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "resolutionResult.candidates[].scores",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "resolutionResult.candidates[].evidence_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "resolutionResult.merge_policy_ref",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "subscriptionResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "subscription"
+  },
+  {
+    "path": "subscriptionResult.subscription_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "subscriptionResult.subject_entity_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "subscriptionResult.status",
+    "type": "string",
+    "required": false,
+    "enum_or_const": [
+      "active",
+      "paused",
+      "cancelled",
+      "unknown"
+    ]
+  },
+  {
+    "path": "subscriptionResult.capabilities",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "subscriptionResult.next_review_at",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "referenceResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "reference"
+  },
+  {
+    "path": "referenceResult.record_entity_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "referenceResult.dataset_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "referenceResult.dataset_version",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "referenceResult.record_count",
+    "type": "integer",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "referenceResult.relationship_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "workflowResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "workflow"
+  },
+  {
+    "path": "workflowResult.workflow_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "workflowResult.workflow_version",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "workflowResult.step_run_ids",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "workflowResult.status",
+    "type": "string",
+    "required": false,
+    "enum_or_const": [
+      "pending",
+      "running",
+      "completed",
+      "failed",
+      "unknown"
+    ]
+  },
+  {
+    "path": "questionnaireResult.kind",
+    "type": "const",
+    "required": true,
+    "enum_or_const": "questionnaire"
+  },
+  {
+    "path": "questionnaireResult.questionnaire_id",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "questionnaireResult.template_version",
+    "type": "string",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "questionnaireResult.answers",
+    "type": "array",
+    "required": false,
+    "enum_or_const": ""
+  },
+  {
+    "path": "questionnaireResult.answers[].question_id",
+    "type": "string",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "questionnaireResult.answers[].value",
+    "type": "union",
+    "required": true,
+    "enum_or_const": ""
+  },
+  {
+    "path": "questionnaireResult.answers[].evidence_ids",
+    "type": "array",
+    "required": true,
+    "enum_or_const": ""
+  }
+]

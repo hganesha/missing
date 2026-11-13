@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "intelligence.binding.v1",
+  "id": "decision.screening_route",
+  "name": "Screening route judgment",
+  "owner": "Platform engineering",
+  "description": "Synthetic configuration fixture",
+  "dataClass": "internal",
+  "serviceClass": "decision",
+  "connection": {
+    "cloud": "saas",
+    "adapterId": "jev",
+    "endpoint": "https://models.example.com",
+    "account": "test-account",
+    "resourceId": "test-model-resource",
+    "region": "us-approved",
+    "networkZone": "private-models",
+    "auth": {
+      "mode": "workload_identity",
+      "principal": "capability-gateway",
+      "audience": "https://models.example.com",
+      "issuer": "",
+      "subject": "",
+      "credentialRef": null,
+      "clientIdRef": null,
+      "certificateRef": null
+    }
+  },
+  "configuration": {
+    "capabilityId": "decision.screening.route.v1",
+    "primitive": "choice",
+    "model": "jev",
+    "modelVersion": "pinned-test-version",
+    "stateSchemaRef": "schema:screening-state.v1",
+    "questionSetRef": "questions:screening-route.v2",
+    "outputSchemaRef": "schema:screening-choice.v1",
+    "options": [
+      "match",
+      "no_match"
+    ],
+    "confidenceMode": "provider",
+    "minConfidence": 0.9,
+    "calibrationRef": "validation:screening-confidence.v2",
+    "policyRef": "policy:screening-review.v1",
+    "evaluationRef": "evaluation:screening.v3",
+    "maxQuestions": 10,
+    "timeoutMs": 5000,
+    "unavailableBehavior": "abstain"
+  }
+}

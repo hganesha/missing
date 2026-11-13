@@ -1,0 +1,140 @@
+# H12: discretionary trust (Jersey) with a UK settlor. A beneficiary was added in March 2025, which
+# is an ownership change that triggers reassessment at the periodic review.
+id: H12
+seed: 1012
+as_of: 2026-09-30
+customer: trust
+entities:
+  - ref: trust
+    kind: trust
+    name: Marchetti Family Trust
+    verification: trust_deed
+    address: { lines: ["Seaview House", "La Route de la Baie"], locality: St Helier, postal_code: JE2 3ZZ, country: JE }
+  - ref: settlor
+    kind: individual
+    name: Aurelio Marchetti
+    dob: 1952-10-06
+    nationality: GB
+    verification: government_id_document
+    address: { lines: ["Hartwell Manor"], locality: Surrey, postal_code: GU5 9ZZ, country: GB }
+    identifiers: [{ type: passport, issuer: GB-SPECIMEN, value: SPECIMEN-H12-PP-0001, verified: true }]
+  - ref: trustee_co
+    kind: company
+    name: Seaview Trustees (Jersey) Ltd
+    verification: registry_extract
+    address: { lines: ["Seaview House", "La Route de la Baie"], locality: St Helier, postal_code: JE2 3ZZ, country: JE }
+    registration: { jurisdiction: JE, authority: synthetic-registry, registration_id: SYN-JE-118820, incorporated: 2009-04-20, status: active }
+  - ref: trustee_ind
+    kind: individual
+    name: Marit Lindqvist
+    dob: 1968-12-12
+    nationality: SE
+    verification: government_id_document
+    address: { lines: ["Rue du Port 5"], locality: St Helier, country: JE }
+    identifiers: [{ type: passport, issuer: SE-SPECIMEN, value: SPECIMEN-H12-PP-0002, verified: true }]
+  - ref: protector
+    kind: individual
+    name: Quentin Marlowe
+    dob: 1960-06-30
+    nationality: GB
+    verification: government_id_document
+    address: { lines: ["Chancery Row"], locality: London, postal_code: EC4A 1ZZ, country: GB }
+    identifiers: [{ type: passport, issuer: GB-SPECIMEN, value: SPECIMEN-H12-PP-0003, verified: true }]
+  - ref: ben1
+    kind: individual
+    name: Livia Marchetti
+    dob: 1983-02-14
+    nationality: GB
+    verification: government_id_document
+    address: { lines: ["8 Calder Mews"], locality: London, country: GB }
+    identifiers: [{ type: passport, issuer: GB-SPECIMEN, value: SPECIMEN-H12-PP-0004, verified: true }]
+  - ref: ben2
+    kind: individual
+    name: Giacomo Marchetti
+    dob: 1986-09-01
+    nationality: GB
+    verification: government_id_document
+    address: { lines: ["8 Calder Mews"], locality: London, country: GB }
+    identifiers: [{ type: passport, issuer: GB-SPECIMEN, value: SPECIMEN-H12-PP-0005, verified: true }]
+  - ref: ben3
+    kind: individual
+    name: Elodie Marchetti
+    dob: 2009-04-19
+    nationality: GB
+    verification: government_id_document
+    address: { lines: ["8 Calder Mews"], locality: London, country: GB }
+    identifiers: [{ type: passport, issuer: GB-SPECIMEN, value: SPECIMEN-H12-PP-0006, verified: true }]
+officers:
+  - { person: settlor, org: trust, role: settlor, appointed: 2016-05-02 }
+  - { person: trustee_co, org: trust, role: trustee, appointed: 2016-05-02 }
+  - { person: trustee_ind, org: trust, role: trustee, appointed: 2016-05-02 }
+  - { person: protector, org: trust, role: protector, appointed: 2016-05-02 }
+  - { person: ben1, org: trust, role: beneficiary, appointed: 2016-05-02 }
+  - { person: ben2, org: trust, role: beneficiary, appointed: 2016-05-02 }
+  - { person: ben3, org: trust, role: beneficiary, appointed: 2025-03-14 }
+control:
+  - { controller: protector, controlled: trust, basis: protector_veto, verified: true }
+beneficial_owners:
+  - { entity: settlor }
+  - { entity: trustee_ind }
+  - { entity: protector }
+  - { entity: ben1 }
+  - { entity: ben2 }
+  - { entity: ben3 }
+timeline:
+  - { at: 2025-03-14, event: beneficiary_added, subject: ben3, change: { role: beneficiary, basis: "deed of appointment" } }
+review_triggers:
+  - { at: 2025-03-20, requirements: [beneficial-ownership, trust-deed], reason: "Beneficiary added to a discretionary trust (ownership change): reassess at next review" }
+relationship:
+  institution: bank.synthetic
+  booking_jurisdiction: JE
+  policy_jurisdiction: US
+  customer_type: trust
+  event: ownership_change
+  started: 2020-07-01
+  risk_tier: MEDIUM
+  ownership_complete: true
+  parties:
+    - { entity: trust, role: customer }
+    - { entity: settlor, role: settlor }
+    - { entity: trustee_co, role: trustee }
+    - { entity: trustee_ind, role: trustee }
+    - { entity: protector, role: protector }
+    - { entity: ben1, role: beneficiary }
+    - { entity: ben2, role: beneficiary }
+    - { entity: ben3, role: beneficiary }
+  products:
+    - type: private_banking
+      currencies: [GBP]
+      countries: [JE, GB]
+      channels: [relationship_manager]
+    - type: custody
+      currencies: [GBP]
+      countries: [JE]
+      channels: [relationship_manager]
+  geography:
+    - { country: JE, basis: settlement, value: "0.6" }
+    - { country: GB, basis: beneficiaries, value: "0.4" }
+source_of_wealth:
+  - { claim: "Sale of a family manufacturing business in 2015", verified: true }
+risk_factors:
+  - { name: geography, score: "0.20" }
+  - { name: product, score: "0.40" }
+  - { name: trust_structure, score: "0.40" }
+screening:
+  provider: synthetic-lists
+  capability: screening.sanctions.v1
+  subjects: [trust, settlor, trustee_co, trustee_ind, protector, ben1, ben2, ben3]
+  types: [sanctions, pep, adverse_media]
+  lists: [ofac-sdn, un-consolidated, uk-sanctions, synthetic-designations, synthetic-peps]
+  dataset_versions: [synthetic-lists-2026-09-29]
+  scope: [ofac-sdn, un-consolidated, uk-sanctions, synthetic-designations]
+  list_published: 2026-09-29
+expected:
+  workflow:
+    kyb: REASSESS_AT_PERIODIC_REVIEW
+  alerts: 0
+  beneficial_owners_basis: every party with a defined trust role, no percentage threshold
+  notes: >
+    Elodie Marchetti was added on 2025-03-14. As of a date before that she must not appear as a
+    beneficiary; as of today she must.

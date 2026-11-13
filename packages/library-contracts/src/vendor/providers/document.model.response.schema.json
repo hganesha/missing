@@ -1,0 +1,154 @@
+{
+  "$defs": {
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ModelFieldCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "content": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "page": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PositiveCount"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "path": {
+          "$ref": "#/$defs/Text"
+        },
+        "provider_field": {
+          "$ref": "#/$defs/Text"
+        },
+        "transform": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "path",
+        "value",
+        "content",
+        "confidence",
+        "page",
+        "transform",
+        "provider_field"
+      ],
+      "type": "object"
+    },
+    "ModelFields": {
+      "additionalProperties": false,
+      "properties": {
+        "contract": {
+          "const": "document.model_fields.v1"
+        },
+        "document_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "fields": {
+          "items": {
+            "$ref": "#/$defs/ModelFieldCandidate"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "model": {
+          "$ref": "#/$defs/Id"
+        },
+        "model_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "provider": {
+          "$ref": "#/$defs/Id"
+        },
+        "provider_document_confidence": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Probability"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "provider_document_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_sha256": {
+          "$ref": "#/$defs/Hash"
+        }
+      },
+      "required": [
+        "contract",
+        "provider",
+        "model",
+        "document_type",
+        "source_sha256",
+        "provider_document_type",
+        "provider_document_confidence",
+        "fields"
+      ],
+      "type": "object"
+    },
+    "PositiveCount": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:provider:document.model:response:2.0.0",
+  "$ref": "#/$defs/ModelFields",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

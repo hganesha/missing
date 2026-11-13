@@ -1,0 +1,73 @@
+{
+  "adapter_id": "plaid",
+  "provider_id": "plaid",
+  "adapter_version": "0.1.0",
+  "host_schema_version": "1.0.0",
+  "capability": "account.ownership.verify",
+  "maturity": "fixture_tested",
+  "enabled": false,
+  "native": {
+    "method": "POST",
+    "path": "/identity/match",
+    "api_version": null,
+    "authentication": "Client credentials and consented access token; never store secrets in manifests",
+    "documentation_urls": [
+      "https://plaid.com/docs/api/products/identity/",
+      "https://plaid.com/docs/identity/add-to-app/"
+    ],
+    "fixture_only": true
+  },
+  "mapping_rules": [
+    {
+      "source_pointer": "/accounts/*/legal_name/score",
+      "target_pointer": "/result/accounts/*/field_scores",
+      "transform": "0..100 match score; no bank decision or account holder assertion",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S17",
+        "S18"
+      ]
+    },
+    {
+      "source_pointer": "/accounts/*/account_id",
+      "target_pointer": "/result/accounts/*/account_entity_id",
+      "transform": "provider-namespaced account entity",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S17",
+        "S18"
+      ]
+    },
+    {
+      "source_pointer": "/accounts/*/phone_number/score",
+      "target_pointer": "/result/accounts/*/field_scores",
+      "transform": "null means unavailable; never convert to zero",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S17",
+        "S18"
+      ]
+    }
+  ],
+  "supported_countries": [],
+  "entitlement_ref": null,
+  "secret_ref": null,
+  "transport_requirements": [
+    "TLS",
+    "approved regional base URL allowlist",
+    "secret vault injection",
+    "rate limiting and circuit breaker",
+    "bounded retry with jitter and idempotency",
+    "verify raw webhook signatures before decoding",
+    "durable inbox and tenant-bound correlation",
+    "replay and stale-event protection",
+    "original-byte hash and encrypted evidence storage"
+  ],
+  "limitations": [
+    "Synthetic representative payload subset only; not vendor-certified",
+    "No live HTTP, authentication, webhook signature, or sandbox integration implemented",
+    "No proof of contractual dataset coverage, country entitlements, retention rights or bank adoption",
+    "Empty country allowlist blocks live routing",
+    "Unmapped native properties available only in restricted raw artifact"
+  ]
+}

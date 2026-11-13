@@ -1,0 +1,93 @@
+# Fixture package for business skill pinning (docs/implementation/business-skills.md).
+# `screening` is bound to the business skill screening.sanctions.execute, not to a
+# capability: harnessc pins the skill's candidates into the plan and the runtime selects one.
+# Recompile with:
+#   harnessc compile packages/contracts/test-fixtures/skill-bound --out packages/contracts/test-fixtures/skill-bound.plan.json
+# Candidates 0 and 2 are the same OpenSanctions collection reached two ways (equivalent
+# coverage); candidate 1 is a different provider's list coverage and is never a fallback.
+apiVersion: harness.factory/domain-package-v2
+kind: DomainPackage
+metadata:
+  name: skill-bound-screening
+  version: 0.1.0
+  domain: conformance
+  objective: Pin a business skill's implementation candidates at compile time.
+  owners: [financial-crime-platform]
+  riskClass: high
+workflow: workflow.yaml
+coordinationMode: caseStore
+budgets:
+  maxDurationMs: 60000
+  maxCostUsd: 0.05
+  maxModelCalls: 0
+  maxCapabilityCalls: 4
+modelProfiles: []
+agentProfiles: []
+capabilities:
+  - id: screening.sanctions.v1
+    kind: tool
+    effect: read
+    adapterBindingId: opensanctions:sanctions
+    inputSchema: { type: object }
+    outputSchema: { type: object }
+    timeoutMs: 5000
+    maxAttempts: 1
+    idempotent: true
+  - id: screening.pep.v1
+    kind: tool
+    effect: read
+    adapterBindingId: opensanctions:pep
+    inputSchema: { type: object }
+    outputSchema: { type: object }
+    timeoutMs: 5000
+    maxAttempts: 1
+    idempotent: true
+bindings: {}
+skillBindings:
+  - skillId: screening.sanctions.execute
+    semver: 0.1.0
+    manifestDigest: sha256:1111111111111111111111111111111111111111111111111111111111111111
+    candidates:
+      - capabilityId: screening.sanctions.v1
+        equivalentCoverageGroup: opensanctions.sanctions
+      - capabilityId: screening.sanctions.v1
+        connectorId: wiring:dow-jones-risk-compliance:screening.sanctions
+        equivalentCoverageGroup: dow-jones.sanctions
+      - capabilityId: screening.sanctions.v1
+        connectorId: wiring:opensanctions:screening.sanctions
+        equivalentCoverageGroup: opensanctions.sanctions
+    policy:
+      require_entitlement: true
+      require_list_freshness: true
+      require_jurisdiction_coverage: true
+      allow_fallback: true
+      log_selected_implementation: true
+  - skillId: screening.pep.execute
+    semver: 0.1.0
+    manifestDigest: sha256:2222222222222222222222222222222222222222222222222222222222222222
+    candidates:
+      - capabilityId: screening.pep.v1
+        equivalentCoverageGroup: opensanctions.peps
+      - capabilityId: screening.pep.v1
+        connectorId: wiring:opensanctions:screening.pep
+        equivalentCoverageGroup: opensanctions.peps
+    policy:
+      require_entitlement: true
+      require_list_freshness: true
+      require_jurisdiction_coverage: true
+      allow_fallback: false
+      log_selected_implementation: true
+policies: []
+contextSelectors:
+  - id: name
+    source: case
+    path: subjects.0.display_name
+    purpose: KYC_SCREENING
+    classification: PII
+    required: true
+contextClassificationPolicies:
+  - classification: PII
+    action: allow
+allowedRegions: [US]
+dataClasses: [PII]
+evaluationRequirements: [sanctions-provider-contract]

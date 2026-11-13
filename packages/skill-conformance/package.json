@@ -1,0 +1,22 @@
+{
+  "name": "@ehf/skill-conformance",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "bin": {
+    "skill-conformance": "./src/cli.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "conformance": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "@ehf/contracts": "workspace:*",
+    "@ehf/library-contracts": "workspace:*",
+    "tsx": "4.23.1"
+  }
+}

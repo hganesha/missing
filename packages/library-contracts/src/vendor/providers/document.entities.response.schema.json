@@ -1,0 +1,57 @@
+{
+  "$defs": {
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Mention": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "$ref": "#/$defs/PositiveCount"
+        },
+        "page_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "start": {
+          "$ref": "#/$defs/Count"
+        },
+        "text": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "page_id",
+        "text",
+        "start",
+        "end"
+      ],
+      "type": "object"
+    },
+    "PositiveCount": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "$id": "urn:financial-crime:provider:document.entities:response:2.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entities": {
+      "items": {
+        "$ref": "#/$defs/Mention"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "entities"
+  ],
+  "type": "object"
+}

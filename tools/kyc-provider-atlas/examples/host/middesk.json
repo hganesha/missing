@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "result_id": "0a43bbce5ab09b2c8ee448484edeaf5794607be4f5e29a9d76990f678c2122ed",
+  "request_id": "demo-request",
+  "tenant_id": "demo-tenant",
+  "subject_entity_id": "subject-001",
+  "capability": "business.verify",
+  "provider": {
+    "provider_id": "middesk",
+    "adapter_version": "0.1.0",
+    "status_original": "in_review",
+    "decision_origin": "provider_workflow",
+    "provider_record_id": "synthetic-business"
+  },
+  "execution": {
+    "status": "completed",
+    "received_at": "2026-10-15T12:00:00Z"
+  },
+  "assessment": {
+    "outcome": "review",
+    "reason_codes": [],
+    "bank_decision": "not_evaluated"
+  },
+  "coverage": {
+    "status": "unknown",
+    "requested_scope": [
+      "business.verify"
+    ],
+    "checked_scope": [],
+    "not_checked_scope": [
+      "business.verify"
+    ],
+    "reason": "Fixture mapping only; entitled datasets and country coverage not established"
+  },
+  "entities": [
+    {
+      "entity_id": "subject-001",
+      "entity_type": "organization",
+      "names": [
+        {
+          "full": "Example Workshop LLC",
+          "kind": "legal"
+        }
+      ],
+      "identifiers": [],
+      "status_original": "in_review",
+      "status": "unknown",
+      "evidence_ids": [
+        "ev-64ca22e378a9972e"
+      ]
+    }
+  ],
+  "relationships": [],
+  "assertions": [
+    {
+      "assertion_id": "assert-1",
+      "entity_id": "subject-001",
+      "field_path": "names",
+      "value": [
+        {
+          "full": "Example Workshop LLC",
+          "kind": "legal"
+        }
+      ],
+      "verification": "unknown",
+      "evidence_ids": [
+        "ev-64ca22e378a9972e"
+      ]
+    },
+    {
+      "assertion_id": "assert-2",
+      "entity_id": "subject-001",
+      "field_path": "status_original",
+      "value": "in_review",
+      "verification": "unknown",
+      "evidence_ids": [
+        "ev-64ca22e378a9972e"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-64ca22e378a9972e",
+      "provider_id": "middesk",
+      "retrieved_at": "2026-10-15T12:00:00Z",
+      "content_sha256": "64ca22e378a9972e2ca39562691d367da920a34dd51ead82570720a06fc9aa99",
+      "source_pointer": "/",
+      "authority": "unknown",
+      "access_classification": "restricted"
+    }
+  ],
+  "result": {
+    "kind": "business",
+    "organization_entity_id": "subject-001",
+    "checks": [
+      {
+        "check_id": "check-1",
+        "name": "name",
+        "outcome": "passed",
+        "evidence_ids": [
+          "ev-64ca22e378a9972e"
+        ]
+      },
+      {
+        "check_id": "check-2",
+        "name": "watchlist",
+        "outcome": "passed",
+        "evidence_ids": [
+          "ev-64ca22e378a9972e"
+        ]
+      }
+    ],
+    "assertion_ids": [
+      "assert-1",
+      "assert-2"
+    ]
+  },
+  "errors": [],
+  "warnings": [
+    "SYNTHETIC_FIXTURE_NOT_VENDOR_TESTED",
+    "Coverage and bank decision are not inferred from this payload"
+  ],
+  "raw_payload": {
+    "vault_ref": "example://examples/native/middesk.json",
+    "sha256": "64ca22e378a9972e2ca39562691d367da920a34dd51ead82570720a06fc9aa99",
+    "classification": "restricted"
+  },
+  "extensions": {
+    "digest_representation": "canonical JSON UTF-8; not signed HTTP bytes"
+  }
+}

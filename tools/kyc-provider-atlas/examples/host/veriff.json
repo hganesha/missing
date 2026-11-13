@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "result_id": "f495eea7db4b099ae515106e2ee373aa496affe2869b1cfde296e9f503e0ceba",
+  "request_id": "demo-request",
+  "tenant_id": "demo-tenant",
+  "subject_entity_id": "subject-001",
+  "capability": "identity.person.verify",
+  "provider": {
+    "provider_id": "veriff",
+    "adapter_version": "0.1.0",
+    "status_original": "approved",
+    "decision_origin": "provider_check",
+    "provider_record_id": "synthetic-session-1"
+  },
+  "execution": {
+    "status": "completed",
+    "received_at": "2026-10-15T12:00:00Z"
+  },
+  "assessment": {
+    "outcome": "passed",
+    "reason_codes": [],
+    "bank_decision": "not_evaluated"
+  },
+  "coverage": {
+    "status": "unknown",
+    "requested_scope": [
+      "identity.person.verify"
+    ],
+    "checked_scope": [],
+    "not_checked_scope": [
+      "identity.person.verify"
+    ],
+    "reason": "Fixture mapping only; entitled datasets and country coverage not established"
+  },
+  "entities": [
+    {
+      "entity_id": "subject-001",
+      "entity_type": "person",
+      "names": [
+        {
+          "full": "Alex Example",
+          "kind": "legal"
+        }
+      ],
+      "identifiers": []
+    }
+  ],
+  "relationships": [],
+  "assertions": [
+    {
+      "assertion_id": "assert-1",
+      "entity_id": "subject-001",
+      "field_path": "names",
+      "value": [
+        {
+          "full": "Alex Example",
+          "kind": "legal"
+        }
+      ],
+      "verification": "verified",
+      "evidence_ids": [
+        "ev-16c1cf78a7056b7a"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-16c1cf78a7056b7a",
+      "provider_id": "veriff",
+      "retrieved_at": "2026-10-15T12:00:00Z",
+      "content_sha256": "16c1cf78a7056b7a2ed2386dc14e7f9779aa9bfa93436f5516799317b30e0fed",
+      "source_pointer": "/",
+      "authority": "unknown",
+      "access_classification": "restricted"
+    }
+  ],
+  "result": {
+    "kind": "verification",
+    "checks": [
+      {
+        "check_id": "check-1",
+        "name": "identity_verification",
+        "outcome": "passed",
+        "evidence_ids": [
+          "ev-16c1cf78a7056b7a"
+        ]
+      }
+    ],
+    "assertion_ids": [
+      "assert-1"
+    ]
+  },
+  "errors": [],
+  "warnings": [
+    "SYNTHETIC_FIXTURE_NOT_VENDOR_TESTED",
+    "Coverage and bank decision are not inferred from this payload"
+  ],
+  "raw_payload": {
+    "vault_ref": "example://examples/native/veriff.json",
+    "sha256": "16c1cf78a7056b7a2ed2386dc14e7f9779aa9bfa93436f5516799317b30e0fed",
+    "classification": "restricted"
+  },
+  "extensions": {
+    "digest_representation": "canonical JSON UTF-8; not signed HTTP bytes"
+  }
+}

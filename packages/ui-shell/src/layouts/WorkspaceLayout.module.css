@@ -1,0 +1,32 @@
+/* WorkspaceLayout: four stable regions (STYLE-GUIDE §4): orientation | main | inspector,
+   with the activity rail along the bottom. Below 1080 px the side regions stack. */
+.layout { display: grid; grid-template-columns: var(--orientation-w) minmax(0, 1fr) var(--inspector-w); grid-template-rows: minmax(0, 1fr) auto; grid-template-areas: "orient main inspector" "rail rail rail"; min-height: calc(100vh - var(--chrome-h)); }
+.layout[data-inspector="false"] { grid-template-columns: var(--orientation-w) minmax(0, 1fr); grid-template-areas: "orient main" "rail rail"; }
+.layout[data-orient="false"] { grid-template-columns: minmax(0, 1fr) var(--inspector-w); grid-template-areas: "main inspector" "rail rail"; }
+.layout[data-orient="false"][data-inspector="false"] { grid-template-columns: minmax(0, 1fr); grid-template-areas: "main" "rail"; }
+.orient { grid-area: orient; border-right: 1px solid var(--line-1); background: var(--surface-panel); padding: var(--region-pad); overflow-y: auto; }
+.main { grid-area: main; min-width: 0; padding: var(--space-6) var(--space-8) var(--space-10); container-type:inline-size; }
+.inspector { grid-area: inspector; border-left: 1px solid var(--line-1); background: var(--surface-panel); padding: var(--region-pad); overflow-y: auto; }
+.rail { position: static; max-height: 40vh; overflow-y: auto; }
+/* From 1080 px the frame fills the viewport below the chrome and each region scrolls on its
+   own, so orientation, inspector and rail never move or get covered (stable geography). */
+@media (min-width: 1080px) {
+  .layout { height: calc(100vh - var(--chrome-h)); min-height: 0; }
+  .orient, .main, .inspector { min-height: 0; overflow-y: auto; }
+  }
+.rail { grid-area: rail; border-top: 1px solid var(--line-1); background: var(--surface-raised); min-height: var(--rail-h-collapsed); padding: var(--space-2) var(--space-5); position: sticky; bottom: 0; z-index: var(--z-rail); }
+
+@media (max-width: 1279px) {
+  .layout { grid-template-columns: 220px minmax(0, 1fr) 320px; }
+}
+
+@media (max-width: 1079px) {
+  .layout, .layout[data-inspector="false"], .layout[data-orient="false"], .layout[data-orient="false"][data-inspector="false"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "main" "orient" "inspector" "rail";
+  }
+  .orient, .inspector { border: 0; border-top: 1px solid var(--line-1); }
+  .main { padding: var(--space-4); }
+}
+.narrow { min-height:calc(100vh - var(--chrome-h)); }
+.mobileTools { display:flex; gap:var(--space-2); padding:var(--space-3) var(--space-4) 0; }

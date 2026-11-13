@@ -1,0 +1,377 @@
+# category|name|website|market orientation|product/alias note
+identity|Entrust Identity Verification|https://www.entrust.com/|Global|Onfido legacy brand; consolidate under Entrust IDV
+identity|Jumio|https://www.jumio.com/|Global|Identity verification
+identity|Veriff|https://www.veriff.com/|Global|Identity verification
+identity|Trulioo|https://www.trulioo.com/|Global|Person and business verification
+identity|Persona|https://withpersona.com/|Global|Configurable identity workflows
+identity|Sumsub|https://sumsub.com/|Global|KYC KYB and AML platform
+identity|Socure|https://www.socure.com/|US / Global|Identity data and fraud
+identity|GBG|https://www.gbg.com/|Global|IDology ID3global and identity products; not separate vendors
+identity|AU10TIX|https://www.au10tix.com/|Global|Document and identity verification
+identity|Incode|https://incode.com/|Global|Identity platform
+identity|Mitek|https://www.miteksystems.com/|Global|MiVIP HooYu ID R&D product families
+identity|IDnow|https://www.idnow.io/|Europe / Global|Video and automated identity; IDcheck.io Ariadnext legacy
+identity|WebID|https://webid-solutions.com/|Europe|Video and digital identification
+identity|Nect|https://nect.com/|Europe|Digital identity
+identity|Fourthline|https://www.fourthline.com/|Europe|KYC platform
+identity|Signicat|https://www.signicat.com/|Europe|Digital identity; Electronic IDentification legacy
+identity|ID-Pal|https://www.id-pal.com/|Europe / US|Identity verification
+identity|ComplyCube|https://www.complycube.com/|Global|Identity and compliance
+identity|iDenfy|https://www.idenfy.com/|Global|KYC and KYB
+identity|Shufti|https://shuftipro.com/|Global|Shufti Pro legacy naming
+identity|Ondato|https://ondato.com/|Europe / Global|Identity and compliance
+identity|GetID|https://getid.com/|Europe / Global|Identity verification; ownership to confirm
+identity|Identomat|https://www.identomat.com/|Global|Identity verification
+identity|Authenteq|https://authenteq.com/|Europe|Candidate; current availability requires confirmation
+identity|AuthenticID|https://www.authenticid.com/|US / Global|Identity proofing
+identity|Intellicheck|https://intellicheck.com/|US|ID validation
+identity|IDScan.net|https://idscan.net/|US / Global|Document and identity checks
+identity|Acuant / IDology product family|https://www.gbg.com/|US / Global|Legacy Acuant products; parent GBG; not incremental vendor count
+identity|Regula|https://regulaforensics.com/|Global|Document and biometric SDKs
+identity|Innovatrics|https://www.innovatrics.com/|Global|Digital onboarding and biometrics
+identity|FaceTec|https://www.facetec.com/|Global|Liveness and face verification component
+identity|iProov|https://www.iproov.com/|Global|Biometric verification component
+identity|Daon|https://www.daon.com/|Global|Identity proofing and biometrics
+identity|TECH5|https://tech5.ai/|Global|Biometric identity component
+identity|Veridas|https://veridas.com/|Europe / Americas|Biometric and document verification
+identity|Facephi|https://facephi.com/|Europe / Latin America / APAC|Biometric onboarding
+identity|Aware|https://www.aware.com/|Global|Biometric verification component
+identity|Trust Stamp|https://truststamp.ai/|US / Global|Identity technology
+identity|Bureau|https://www.bureau.id/|Asia / Global|Identity and fraud
+identity|HyperVerge|https://hyperverge.co/|India / Southeast Asia|Identity and onboarding
+identity|Signzy|https://www.signzy.com/|India / US / MENA / Global|KYC KYB and financial APIs
+identity|IDfy|https://www.idfy.com/|India / Asia|Identity and business verification
+identity|Karza|https://www.karza.in/|India|Perfios product family; validate current packaging
+identity|Perfios|https://perfios.com/|India / Asia|Financial and identity data
+identity|Digitap|https://www.digitap.ai/|India|Identity and financial data
+identity|Decentro|https://decentro.tech/|India|Verification and banking APIs
+identity|AuthBridge|https://authbridge.com/|India|Identity and background verification
+identity|OnGrid|https://ongrid.in/|India|Identity and background verification
+identity|Surepass|https://surepass.io/|India|Verification APIs
+identity|SprintVerify|https://sprintverify.com/|India|Verification APIs
+identity|IDcentral|https://www.idcentral.io/|India / Global|Identity verification
+identity|arya.ai|https://arya.ai/|India / Global|Banking AI and identity components
+identity|Advance.AI|https://www.advance.ai/|Southeast Asia|Identity and risk
+identity|VIDA|https://vida.id/|Indonesia|Digital identity
+identity|Privy|https://privy.id/|Indonesia|Digital identity and signing
+identity|VIDOS|https://vidos.id/|Europe / Global|Digital identity wallet verification
+identity|Innov8tif|https://innov8tif.com/|Southeast Asia|Digital onboarding
+identity|CTOS eKYC|https://ctosdigital.com/|Malaysia / Asia|Bureau and eKYC family
+identity|Liquid|https://liquidinc.asia/|Japan / Asia|LIQUID eKYC
+identity|TRUSTDOCK|https://trustdock.io/|Japan|eKYC
+identity|Polarify|https://www.polarify.co.jp/|Japan|Biometric identity
+identity|GMO GlobalSign identity|https://www.globalsign.com/|Japan / Global|Identity services; KYC applicability to confirm
+identity|China Financial Certification Authority|https://www.cfca.com.cn/|China|Identity and certification; access restricted
+identity|Tencent Cloud FaceID|https://www.tencentcloud.com/|Asia / Global|Face and document verification
+identity|Alibaba Cloud ID Verification|https://www.alibabacloud.com/|Asia / Global|Identity verification service
+identity|Baidu AI identity|https://ai.baidu.com/|China|Identity components; permission and locality restrictions
+identity|Smile ID|https://www.usesmileid.com/|Africa|Smile Identity; includes Appruve legacy family
+identity|Prembly|https://prembly.com/|Africa / emerging markets|IdentityPass and Peleza product families
+identity|Youverify|https://youverify.co/|Africa / Global|KYC KYB and compliance
+identity|Dojah|https://dojah.io/|Africa|Verification APIs
+identity|QoreID|https://qoreid.com/|Africa|VerifyMe family; confirm contracting entity
+identity|Seamfix|https://seamfix.com/|Africa|Digital identity
+identity|iiDENTIFii|https://iidentifii.com/|Africa|Biometric verification
+identity|ThisIsMe|https://thisisme.com/|South Africa|Identity and compliance
+identity|WhoYou|https://whoyou.co.za/|South Africa|Biometric identity
+identity|MetaMap|https://www.metamap.com/|Latin America / Africa / Global|Mati legacy brand
+identity|Inscribe|https://www.inscribe.ai/|US / Europe|Document fraud and financial evidence
+identity|Invoid|https://invoid.co/|India|Candidate; current availability requires confirmation
+identity|Unico|https://unico.io/|Brazil / Latin America|Identity platform
+identity|idwall|https://idwall.co/|Brazil|Identity and compliance
+identity|CAF|https://www.caf.io/|Brazil / Global|Combate a Fraude legacy naming
+identity|Neoway|https://www.neoway.com.br/|Brazil|B3 family; data and compliance
+identity|BigDataCorp|https://bigdatacorp.com.br/|Brazil|Person and business data
+identity|Serpro|https://www.serpro.gov.br/|Brazil|Government data validation; lawful access required
+identity|Truora|https://www.truora.com/|Latin America|Identity and background checks
+identity|TOC Biometrics|https://www.tocbiometrics.com/|Latin America|Identity verification
+identity|MobbScan / Mobbeel|https://www.mobbeel.com/|Europe / Latin America|Biometrics and ID capture
+identity|VU|https://www.vusecurity.com/|Latin America|Digital identity and fraud
+identity|Verifik|https://verifik.co/|Latin America|Identity and KYB APIs
+identity|ReconoSer ID|https://reconoserid.com/|Latin America|Identity and biometrics
+identity|Valify|https://www.valify.me/|MENA|Digital identity
+identity|Digified|https://digified.io/|MENA|Digital identity
+identity|Uqudo|https://uqudo.com/|MENA / Africa|Identity verification
+identity|Lean identity services|https://www.leantech.me/|MENA|Account identity via open banking; verify product
+screening|LSEG World-Check|https://www.lseg.com/en/risk-intelligence|Global|Refinitiv legacy; World-Check One and On Demand product family
+screening|Dow Jones Risk & Compliance|https://www.dowjones.com/professional/risk/|Global|Sanctions PEP adverse media ownership
+screening|LexisNexis Risk Solutions|https://risk.lexisnexis.com/|Global|WorldCompliance Bridger Firco and identity products
+screening|Moody's Compliance|https://www.moodys.com/|Global|Grid RDC Orbis Bureau van Dijk kompany PassFort legacy families
+screening|ComplyAdvantage|https://complyadvantage.com/|Global|Screening and monitoring
+screening|OpenSanctions|https://www.opensanctions.org/|Global|API and licensed data
+screening|Castellum.AI|https://www.castellum.ai/|Global|Screening and risk data
+screening|Sanction Scanner|https://sanctionscanner.com/|Global|Screening and AML
+screening|sanctions.io|https://www.sanctions.io/|Global|Screening API
+screening|NameScan|https://namescan.io/|Global|MemberCheck family; confirm product relationship
+screening|MemberCheck|https://membercheck.com/|Global|Screening service family
+screening|dilisense|https://dilisense.com/|Global|Screening API
+screening|AML Watcher|https://amlwatcher.com/|Global|Screening intelligence
+screening|Acuris Risk Intelligence|https://www.acurisriskintelligence.com/|Global|Legacy/product family; current ownership and feed availability not verified
+screening|AML Intelligence|https://www.amlintelligence.com/|Europe / Global|News and compliance intelligence; not presumed screening API
+screening|FinScan / Innovative Systems|https://www.finscan.com/|Global|Screening engine
+screening|Neterium|https://www.neterium.io/|Global|Screening engine; upstream data license separate
+screening|Vneuron|https://www.vneuron.com/|Africa / MENA / Global|Reis screening and AML
+screening|Vixio|https://www.vixio.com/|Global|Regulatory intelligence adjacent to AML
+screening|Kharon|https://www.kharon.com/|Global|Ownership networks and sanctions-linked intelligence
+screening|Sayari|https://sayari.com/|Global|Corporate networks and ownership intelligence
+screening|Altana|https://altana.ai/|Global|Trade and ownership intelligence
+screening|Ripjar|https://ripjar.com/|Global|Risk intelligence and screening
+screening|Silent Eight|https://silenteight.com/|Global|Screening alert resolution
+screening|Sensa / SymphonyAI|https://www.symphonyai.com/financial-services/|Global|NetReveal legacy and financial crime
+screening|Datactics|https://www.datactics.com/|Global|Data quality and matching component
+kyb|Dun & Bradstreet|https://www.dnb.com/|Global|D&B Direct+ Bisnode legacy; corporate data
+kyb|Creditsafe|https://www.creditsafe.com/|Global|Graydon legacy; business data
+kyb|OpenCorporates|https://opencorporates.com/|Global|Corporate registry aggregation
+kyb|GLEIF|https://www.gleif.org/|Global|LEI records and accounting consolidation parents; not universal UBO
+kyb|Middesk|https://www.middesk.com/|US / international product to verify|Business verification
+kyb|Kyckr|https://www.kyckr.com/|Global|Company registry data
+kyb|Encompass|https://www.encompasscorporation.com/|Global|Corporate digital identity; kompany not assumed owned here
+kyb|Know Your Customer|https://knowyourcustomer.com/|Global|KYB platform; distinguish from Swift KYC Registry
+kyb|FullCircl|https://www.fullcircl.com/|UK / Global|SmartSearch and W2 legacy/product brands; current parent confirm
+kyb|SmartSearch|https://www.smartsearch.com/|UK / Global|Product-family row; corporate relationship review required
+kyb|W2|https://www.w2globaldata.com/|UK / Global|Legacy/product-family row; FullCircl relationship review
+kyb|Detected|https://detected.co/|Global|KYB; current GBG relationship to confirm
+kyb|AsiaVerify|https://www.asiaverify.com/|APAC|Corporate and ownership data
+kyb|Handshakes|https://www.handshakes.ai/|APAC|Corporate intelligence
+kyb|CRIF|https://www.crif.com/|Global|SkyMinder and bureau/business data
+kyb|Coface|https://www.coface.com/|Global|Business information
+kyb|Creditreform|https://www.creditreform.com/|Europe / Global|Business information
+kyb|NorthRow|https://www.northrow.com/|UK / Europe|KYB KYC monitoring
+kyb|Vespia|https://vespia.io/|Europe / Global|KYB
+kyb|The KYB|https://thekyb.com/|Global|Business verification
+kyb|Kompli-Global|https://www.kompli-global.com/|UK / Global|Corporate due diligence; current availability confirm
+kyb|Ubisecure|https://www.ubisecure.com/|Europe / Global|LEI identity and corporate identity
+kyb|Global Database|https://www.globaldatabase.com/|Global|Company information
+kyb|InfobelPRO|https://www.infobelpro.com/|Global|Company information
+kyb|CompanyData.com|https://companydata.com/|Global|Company data
+kyb|Bureau van Dijk Orbis|https://www.moodys.com/|Global|Moody's product-family row; not incremental vendor
+kyb|kompany|https://www.kompany.com/|Global|Moody's product-family row; not incremental vendor
+kyb|Kontomatik|https://www.kontomatik.com/|Europe|Open banking and business financial evidence
+kyb|Compliancely|https://compliancely.com/|US|Business and tax checks
+kyb|Valid8Me|https://www.valid8me.com/|Europe / Global|CDD document exchange
+kyb|KYC Portal|https://www.kycportal.com/|Global|CDD orchestration
+bureau|Experian|https://www.experian.com/|Global|Identity fraud and consumer/business bureau products
+bureau|Equifax|https://www.equifax.com/|Global|Identity bureau and employment products
+bureau|TransUnion|https://www.transunion.com/|Global|TruValidate iovation Neustar and bureau products
+bureau|Prove|https://www.prove.com/|US / Global|Phone-centric identity
+bureau|Ekata / Mastercard|https://ekata.com/|Global|Identity data product family
+bureau|Early Warning Services|https://www.earlywarning.com/|US|Account and identity network; restricted access
+bureau|ChexSystems / FIS|https://www.chexsystems.com/|US|Deposit-account consumer reporting; restricted permissible purpose
+bureau|Innovis|https://www.innovis.com/|US|Consumer identity and bureau
+bureau|SentiLink|https://www.sentilink.com/|US|Synthetic identity and identity risk
+bureau|Giact / LSEG|https://www.giact.com/|US|Account and identity verification
+bureau|Trustfull|https://trustfull.com/|Global|Digital identity risk
+bureau|TrustCloud|https://trustcloud.tech/|Europe / Global|Digital identity; distinct from similarly named security vendors
+bureau|Sprinque|https://www.sprinque.com/|Europe|Business payment risk adjacent; current availability confirm
+fraud|SEON|https://seon.io/|Global|Device email phone risk and AML product family
+fraud|Sift|https://sift.com/|Global|Digital fraud signals; not a substitute for AML
+fraud|Fingerprint|https://fingerprint.com/|Global|Device intelligence component
+fraud|IPQS|https://www.ipqualityscore.com/|Global|IP email phone intelligence
+fraud|MaxMind|https://www.maxmind.com/|Global|minFraud and GeoIP
+fraud|IPinfo|https://ipinfo.io/|Global|IP enrichment component
+fraud|Telesign|https://www.telesign.com/|Global|Phone intelligence
+fraud|Twilio Lookup|https://www.twilio.com/|Global|Phone intelligence; product row
+fraud|Vonage Identity Insights|https://www.vonage.com/|Global|Phone and network signals
+fraud|CAMARA / GSMA Open Gateway|https://www.gsma.com/solutions-and-impact/gsma-open-gateway/|Global|API ecosystem not one provider; national operators required
+fraud|BioCatch|https://www.biocatch.com/|Global|Behavioral intelligence
+fraud|ThreatMetrix / LexisNexis|https://risk.lexisnexis.com/|Global|Product-family row; not incremental vendor
+fraud|TruNarrative / LexisNexis|https://risk.lexisnexis.com/|Global|Product-family row; not incremental vendor
+fraud|Transmit Security|https://www.transmitsecurity.com/|Global|Identity risk and authentication component
+fraud|DataVisor|https://www.datavisor.com/|Global|Fraud and AML risk
+fraud|Forter|https://www.forter.com/|Global|Commerce fraud adjacent
+fraud|Incognia|https://www.incognia.com/|Global|Location and device intelligence
+fraud|Deduce|https://www.deduce.com/|US / Global|Identity network signals
+fraud|Emailage / LexisNexis|https://risk.lexisnexis.com/|Global|Product-family row; not incremental vendor
+fraud|Darwinium|https://www.darwinium.com/|Global|Digital risk component
+account|Plaid|https://plaid.com/|US / Europe|Identity Match and Identity Verification; Cognito legacy
+account|Tink|https://tink.com/|Europe|Open banking and account evidence
+account|TrueLayer|https://truelayer.com/|Europe|Account verification and open banking
+account|Yapily|https://www.yapily.com/|Europe|Open banking
+account|Token.io|https://token.io/|Europe|Open banking
+account|Salt Edge|https://www.saltedge.com/|Europe / Global|Open banking data
+account|Finicity / Mastercard|https://www.finicity.com/|US|Open banking product family
+account|MX|https://www.mx.com/|US|Account data and verification
+account|Akoya|https://akoya.com/|US|Permissioned financial data
+account|Yodlee|https://www.yodlee.com/|Global|Account data; current parent confirm
+account|Flinks|https://flinks.com/|Canada / US|Account data and verification
+account|Belvo|https://belvo.com/|Latin America|Open finance data
+account|Prometeo|https://prometeoapi.com/|Latin America|Account and bank data
+account|Fintoc|https://fintoc.com/|Latin America|Open banking
+account|Finverse|https://www.finverse.com/|Asia|Financial account data
+account|Brankas|https://www.brankas.com/|Southeast Asia|Open finance
+account|Finantier|https://finantier.co/|Southeast Asia|Candidate; current availability requires confirmation
+account|Mono|https://mono.co/|Africa|Financial account data
+account|Okra|https://okra.ng/|Africa|Candidate; current availability requires confirmation
+account|Stitch|https://www.stitch.money/|Africa|Account data and payments; product confirm
+account|Moneyhub|https://www.moneyhub.com/|UK|Open finance
+account|SurePay|https://www.surepay.eu/|Europe|Confirmation of Payee / verification of payee
+account|Trustpair|https://trustpair.com/|Global|Bank account validation
+account|iPiD|https://www.ipid.tech/|Global|Payee verification
+account|Swift Payment Pre-validation|https://www.swift.com/|Global|Network product; contracted access
+account|LexisNexis Bankers Almanac|https://risk.lexisnexis.com/|Global|Bank reference data; LexisNexis product-family row
+monitoring|NICE Actimize|https://www.niceactimize.com/|Global|AML screening monitoring and investigations
+monitoring|Nasdaq Verafin|https://verafin.com/|North America / Global|Financial crime platform
+monitoring|SAS|https://www.sas.com/|Global|AML and fraud analytics
+monitoring|Oracle Financial Services|https://www.oracle.com/financial-services/|Global|FCCM and AML
+monitoring|FICO|https://www.fico.com/|Global|SirOn family; current availability / ownership confirm
+monitoring|BAE Systems Digital Intelligence|https://www.baesystems.com/en/cybersecurity|Global|NetReveal legacy; SymphonyAI product family not separate incumbent
+monitoring|Fiserv|https://www.fiserv.com/|Global|Financial crime risk products
+monitoring|FIS|https://www.fisglobal.com/|Global|Financial crime products
+monitoring|ACI Worldwide|https://www.aciworldwide.com/|Global|Payments fraud and compliance
+monitoring|Temenos|https://www.temenos.com/|Global|Financial crime mitigation
+monitoring|Napier AI|https://www.napier.ai/|Global|Screening monitoring and client risk
+monitoring|Hawk|https://hawk.ai/|Global|Hawk AI legacy naming
+monitoring|Feedzai|https://www.feedzai.com/|Global|Fraud and AML
+monitoring|ThetaRay|https://www.thetaray.com/|Global|AML transaction monitoring
+monitoring|Tookitaki|https://www.tookitaki.com/|Asia / Global|FinCense AML
+monitoring|Unit21|https://www.unit21.ai/|US / Global|Monitoring and case management
+monitoring|Sardine|https://www.sardine.ai/|Global|Fraud and AML
+monitoring|Flagright|https://www.flagright.com/|Global|AML monitoring
+monitoring|Oscilar|https://oscilar.com/|Global|Risk decisioning and AML
+monitoring|Lucinity|https://lucinity.com/|Global|Investigations and AML
+monitoring|Hummingbird|https://www.hummingbird.co/|Global|Investigations and reporting
+monitoring|Alessa|https://alessa.com/|Global|AML monitoring and reporting
+monitoring|AML Partners|https://www.amlpartners.com/|US / Global|RegTechONE
+monitoring|IMTF|https://imtf.com/|Global|SirOn family; confirm regional product rights
+monitoring|Eastnets|https://www.eastnets.com/|Global|Screening and AML
+monitoring|Intix|https://www.intix.eu/|Global|Transaction data intelligence; current Vyntra brand confirm
+monitoring|Vyntra|https://vyntra.com/|Global|Financial crime and transaction intelligence
+monitoring|Clari5|https://www.clari5.com/|India / Global|Enterprise fraud and AML
+monitoring|AML RightSource|https://www.amlrightsource.com/|Global|Managed services and technology; Arachnys legacy family
+monitoring|Quantifind|https://www.quantifind.com/|Global|Graphyte investigations and intelligence
+monitoring|Quantexa|https://www.quantexa.com/|Global|Entity resolution and network analytics
+monitoring|Fenergo|https://www.fenergo.com/|Global|CLM KYC and AML; Sentinels legacy family
+monitoring|Appway / FNZ|https://www.fnz.com/|Global|Onboarding workflow family
+orchestration|Alloy|https://www.alloy.com/|US / Global|Identity orchestration and decisioning
+orchestration|Taktile|https://www.taktile.com/|Global|Decisioning and data orchestration
+orchestration|Oscilar orchestration|https://oscilar.com/|Global|Same provider as monitoring row
+orchestration|Provenir|https://www.provenir.com/|Global|Risk decisioning orchestration
+orchestration|Atfinity|https://www.atfinity.swiss/|Europe / Global|Onboarding and KYC orchestration
+orchestration|Camunda|https://camunda.com/|Global|Generic workflow component not KYC data source
+orchestration|Pega|https://www.pega.com/|Global|CLM and KYC workflow
+crypto|Chainalysis|https://www.chainalysis.com/|Global|KYT Reactor and blockchain intelligence
+crypto|TRM Labs|https://www.trmlabs.com/|Global|Wallet screening and monitoring
+crypto|Elliptic|https://www.elliptic.co/|Global|Blockchain screening and intelligence
+crypto|Merkle Science|https://www.merklescience.com/|Global / APAC|Blockchain intelligence
+crypto|Crystal Intelligence|https://crystalintelligence.com/|Global|Blockchain intelligence
+crypto|Scorechain|https://www.scorechain.com/|Europe / Global|Blockchain compliance
+crypto|Lukka|https://lukka.tech/|Global|Coinfirm legacy family
+crypto|CipherTrace / Mastercard|https://ciphertrace.com/|Global|Legacy product; current availability requires confirmation
+crypto|Coinfirm|https://www.coinfirm.com/|Global|Lukka product-family row; not incremental vendor
+crypto|AnChain.AI|https://www.anchain.ai/|Global|Blockchain risk and investigations
+crypto|Uppsala Security|https://uppsalasecurity.com/|Asia / Global|Blockchain intelligence
+crypto|AMLBot|https://amlbot.com/|Global|Crypto AML tools
+crypto|Global Ledger|https://globalledger.io/|Europe / Global|Blockchain intelligence
+crypto|Blockaid|https://www.blockaid.io/|Global|On-chain security; AML applicability product-specific
+crypto|Solidus Labs|https://www.soliduslabs.com/|Global|Crypto market surveillance adjacent
+travel_rule|Notabene|https://notabene.id/|Global|Travel Rule counterparty and messaging
+travel_rule|Sygna|https://www.sygna.io/|APAC / Global|Travel Rule messaging
+travel_rule|VerifyVASP|https://verifyvasp.com/|APAC / Global|Travel Rule messaging
+travel_rule|TRISA|https://trisa.io/|Global|Open protocol and network not one data vendor
+travel_rule|TRUST network|https://www.coinbase.com/travelrule|Global|Travel Rule network not unrestricted public API
+travel_rule|21 Analytics|https://www.21analytics.ch/|Europe / Global|Travel Rule and self-hosted wallet proof
+travel_rule|Shyft / Veriscope|https://www.shyft.network/|Global|Travel Rule protocol and messaging
+edd|Control Risks|https://www.controlrisks.com/|Global|EDD and investigations; managed service not presumed API
+edd|Kroll|https://www.kroll.com/|Global|EDD and investigations
+edd|Exiger|https://www.exiger.com/|Global|DDIQ and supply chain risk
+edd|S-RM|https://www.s-rminform.com/|Global|EDD investigations
+edd|Mintz Group|https://www.mintzgroup.com/|Global|EDD investigations
+edd|LSEG Due Diligence|https://www.lseg.com/en/risk-intelligence|Global|Product-family row; not incremental vendor
+edd|Diligent|https://www.diligent.com/|Global|Third-party risk and due diligence
+edd|GAN Integrity|https://www.ganintegrity.com/|Global|Third-party compliance
+edd|RepRisk|https://www.reprisk.com/|Global|Business conduct risk intelligence; adjacent
+edd|S&P Global Market Intelligence|https://www.spglobal.com/marketintelligence/|Global|Entity ownership and maritime data products
+edd|Lloyd's List Intelligence|https://www.lloydslistintelligence.com/|Global|Maritime and trade risk intelligence
+edd|Windward|https://windward.ai/|Global|Maritime risk intelligence
+edd|Pole Star Global|https://www.polestarglobal.com/|Global|PurpleTRAC maritime screening
+edd|VesselBot|https://www.vesselbot.com/|Global|Maritime data; AML product suitability confirm
+edd|RavenPack|https://www.ravenpack.com/|Global|News analytics component
+edd|Factiva / Dow Jones|https://www.dowjones.com/professional/factiva/|Global|Product-family row; licensed news not screening clearance
+edd|LexisNexis Nexis Diligence|https://www.lexisnexis.com/|Global|Different business line from Risk Solutions; contracting entity confirm
+registry|Companies House|https://developer.company-information.service.gov.uk/|UK|Company profiles PSC officers filings; API public with key
+registry|US state Secretaries of State|https://www.nass.org/business-services/corporate-registration|US|Registry family; state-by-state inventory needed; no common national API
+registry|SEC EDGAR|https://www.sec.gov/edgar|US|Public company filings; not full private company registry
+registry|FinCEN BOI|https://www.fincen.gov/boi|US|Restricted authorization; not an open KYC lookup API; legal scope must be checked
+registry|IRS TIN Matching|https://www.irs.gov/tax-professionals/taxpayer-identification-number-tin-matching|US|Authorized participants and permissible purposes only
+registry|SSA eCBSV|https://www.ssa.gov/dataexchange/eCBSV/|US|Consent-based restricted SSN verification
+registry|AAMVA DLDV|https://www.aamva.org/|US / Canada|Restricted driver license data verification network
+registry|Corporations Canada|https://ised-isde.canada.ca/site/corporations-canada/en|Canada|Federal registry; provinces separate
+registry|SEDAR+|https://www.sedarplus.ca/|Canada|Issuer filings; not full KYB registry
+registry|INPI RNE|https://data.inpi.fr/|France|Company register data; access and UBO rights constrained
+registry|INSEE Sirene|https://www.insee.fr/|France|Business register and APIs
+registry|German Handelsregister|https://www.handelsregister.de/|Germany|Registry portal; API not assumed
+registry|Unternehmensregister|https://www.unternehmensregister.de/|Germany|Business register; API not assumed
+registry|EU BRIS|https://e-justice.europa.eu/|EU / EEA|Registry interconnection; not unrestricted universal API
+registry|KVK|https://www.kvk.nl/|Netherlands|Business register; data rights and UBO restrictions apply
+registry|CBE / KBO|https://economie.fgov.be/|Belgium|Crossroads Bank for Enterprises; bulk and access terms verify
+registry|Bolagsverket|https://bolagsverket.se/|Sweden|Registry and beneficial ownership access restricted
+registry|Brønnøysund Register Centre|https://www.brreg.no/|Norway|Entity register and APIs
+registry|PRH|https://www.prh.fi/|Finland|Trade register and company data
+registry|Danish Business Authority CVR|https://datacvr.virk.dk/|Denmark|CVR registry data
+registry|Registro Imprese / InfoCamere|https://www.registroimprese.it/|Italy|Registry and commercial data access
+registry|Registradores|https://www.registradores.org/|Spain|Company registry; contracted access
+registry|CRO|https://cro.ie/|Ireland|Company registry
+registry|Luxembourg Business Registers|https://www.lbr.lu/|Luxembourg|Registry; beneficial ownership access controlled
+registry|Zefix|https://www.zefix.ch/|Switzerland|Company index
+registry|ASIC|https://asic.gov.au/|Australia|Company registry; paid extracts and terms verify
+registry|Australian Business Register|https://abr.business.gov.au/|Australia|ABN Lookup; not beneficial ownership verification
+registry|New Zealand Companies Office|https://www.companiesoffice.govt.nz/|New Zealand|Company and NZBN records
+registry|ACRA|https://www.acra.gov.sg/|Singapore|Bizfile and data products; restricted beneficial ownership access
+registry|Hong Kong Companies Registry|https://www.cr.gov.hk/|Hong Kong|Registry search; access conditions apply
+registry|MCA|https://www.mca.gov.in/|India|Company and LLP registry
+registry|UIDAI|https://uidai.gov.in/|India|Aadhaar regulated authentication / offline verification; not open lookup
+registry|DigiLocker|https://www.digilocker.gov.in/|India|Consent-based document ecosystem
+registry|CERSAI CKYCR|https://www.ckycindia.in/|India|Restricted central KYC registry
+registry|Protean eGov|https://www.proteantech.in/|India|PAN and identity services; authorized access only
+registry|GSTN|https://www.gstn.org.in/|India|GST data; authorized partner rules
+registry|SSM|https://www.ssm.com.my/|Malaysia|Company registry
+registry|Indonesia AHU|https://ahu.go.id/|Indonesia|Legal entity registry
+registry|Philippines SEC|https://www.sec.gov.ph/|Philippines|Company registry
+registry|China GSXT|https://www.gsxt.gov.cn/|China|Enterprise publicity; locality and access restrictions
+registry|Japan Corporate Number Publication Site|https://www.houjin-bangou.nta.go.jp/|Japan|Corporate identifiers; not UBO verification
+registry|Taiwan MOEA|https://www.moea.gov.tw/|Taiwan|Business registry
+registry|Korea DART|https://dart.fss.or.kr/|South Korea|Issuer filings and open data; not all private entities
+registry|Brazil Receita Federal|https://www.gov.br/receitafederal/|Brazil|CPF/CNPJ data; lawful access and scope verify
+registry|Mexico SAT|https://www.sat.gob.mx/|Mexico|Tax data; RFC scope and authorization verify
+registry|Mexico RENAPO|https://www.gob.mx/segob/renapo|Mexico|CURP / identity; lawful access only
+registry|Colombia RUES|https://www.rues.org.co/|Colombia|Business registry
+registry|Argentina ARCA|https://www.arca.gob.ar/|Argentina|AFIP legacy name; tax data permission required
+registry|Chile Registro de Empresas y Sociedades|https://www.registrodeempresasysociedades.cl/|Chile|Business registry
+registry|South Africa CIPC|https://www.cipc.co.za/|South Africa|Company registry; access terms apply
+registry|Nigeria CAC|https://www.cac.gov.ng/|Nigeria|Company registry
+registry|Nigeria NIMC|https://nimc.gov.ng/|Nigeria|Restricted identity verification; authorized access
+registry|Nigeria NIBSS|https://nibss-plc.com.ng/|Nigeria|Restricted BVN and account verification network
+registry|Kenya BRS|https://brs.go.ke/|Kenya|Company registry
+registry|Ghana ORC|https://orc.gov.gh/|Ghana|Company registry
+registry|Saudi Wathq / Thiqah|https://wathq.sa/|Saudi Arabia|Authorized business data services
+registry|Saudi ELM|https://www.elm.sa/|Saudi Arabia|Yakeen identity service; regulated access
+registry|UAE PASS|https://uaepass.ae/|UAE|Consented digital identity; relying party onboarding
+registry|Bahrain BENEFIT eKYC|https://benefit.bh/|Bahrain|Restricted national eKYC service
+registry|Singapore MyInfo / Singpass|https://www.developer.tech.gov.sg/|Singapore|Consent-based digital identity; relying party approval
+registry|BankID Sweden|https://www.bankid.com/|Sweden|Digital identity network; relying party onboarding
+registry|itsme|https://www.itsme-id.com/|Europe|Digital identity network
+registry|Norwegian BankID|https://bankid.no/|Norway|Digital identity network
+registry|SwissID|https://www.swissid.ch/|Switzerland|Digital identity network
+registry|Yoti|https://www.yoti.com/|UK / Global|Digital identity and document verification
+registry|ConnectID|https://connectid.com.au/|Australia|Digital identity network
+official_lists|OFAC Sanctions List Service|https://ofac.treasury.gov/sanctions-list-service|US / Global subjects|SDN and non-SDN lists; data publisher not a bank decision engine
+ official_lists|UN Security Council Consolidated List|https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list|Global|Official sanctions publisher
+ official_lists|UK Sanctions List|https://www.gov.uk/government/publications/the-uk-sanctions-list|UK / Global subjects|FCDO source; current OFSI migration and list scope must be checked
+ official_lists|EU Financial Sanctions Files|https://data.europa.eu/|EU / Global subjects|Official consolidated financial sanctions data; licensing and endpoint confirm
+ official_lists|Canada Consolidated Autonomous Sanctions|https://www.international.gc.ca/|Canada / Global subjects|Autonomous list not all Canadian legal sanctions obligations
+ official_lists|Australia DFAT Consolidated List|https://www.dfat.gov.au/international-relations/security/sanctions/consolidated-list|Australia / Global subjects|Official sanctions publisher
+ official_lists|Switzerland SECO Sanctions|https://www.seco.admin.ch/|Switzerland / Global subjects|Official sanctions publisher
+ official_lists|Japan MOF Sanctions|https://www.mof.go.jp/english/|Japan / Global subjects|Official sanctions notices; machine format verify
+ official_lists|Singapore MAS targeted financial sanctions|https://www.mas.gov.sg/|Singapore / Global subjects|Official notices; not presumed single API
+ official_lists|World Bank Debarment|https://www.worldbank.org/en/projects-operations/procurement/debarred-firms|Global|Debarment is not identical to financial sanctions
+ official_lists|US SAM Exclusions|https://sam.gov/|US|Government procurement exclusions; API access terms verify
+ official_lists|US BIS Consolidated Screening List|https://www.trade.gov/consolidated-screening-list|US / Global subjects|Trade/export controls; distinct from AML sanctions
+ official_lists|FinCEN Section 314(a)|https://www.fincen.gov/section-314a|US|Confidential restricted bank information-sharing; no public catalog of subjects
+ official_lists|FATF high-risk and monitored jurisdictions|https://www.fatf-gafi.org/|Global|Jurisdiction risk publications not name-screening list
+ official_lists|Basel AML Index|https://index.baselgovernance.org/|Global|Country risk indicator; commercial terms verify
+network|Swift KYC Registry|https://www.swift.com/our-solutions/compliance-and-shared-services/kyc-registry|Global|Financial institution KYC exchange; contracted access
+network|SwiftRef|https://www.swift.com/our-solutions/compliance-and-shared-services/swiftref|Global|BIC bank reference and identifier data
+network|Wolfsberg Group|https://wolfsberg-group.org/|Global|CBDDQ and FCCQ standards; not a KYC screening API
+network|GLEIF vLEI ecosystem|https://www.gleif.org/en/vlei|Global|Credential trust ecosystem; GLEIF family not separate vendor
+network|Open Ownership|https://www.openownership.org/|Global|Beneficial ownership standards and data; register availability verify
+network|Open Supply Hub|https://opensupplyhub.org/|Global|Facility identities; trade due diligence adjacent

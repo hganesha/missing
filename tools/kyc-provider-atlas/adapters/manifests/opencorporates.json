@@ -1,0 +1,69 @@
+{
+  "adapter_id": "opencorporates",
+  "provider_id": "opencorporates",
+  "adapter_version": "0.1.0",
+  "host_schema_version": "1.0.0",
+  "capability": "business.registry.lookup",
+  "maturity": "fixture_tested",
+  "enabled": false,
+  "native": {
+    "method": "GET",
+    "path": "/v0.4/companies/{jurisdiction_code}/{company_number}",
+    "api_version": "0.4",
+    "authentication": "API token; redact query strings in logs",
+    "documentation_urls": [
+      "https://api.opencorporates.com/documentation/API-Reference"
+    ],
+    "fixture_only": true
+  },
+  "mapping_rules": [
+    {
+      "source_pointer": "/results/company/company_number",
+      "target_pointer": "/entities/0/identifiers",
+      "transform": "pair number with jurisdiction_code",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S10"
+      ]
+    },
+    {
+      "source_pointer": "/results/company/current_status",
+      "target_pointer": "/entities/0/status_original",
+      "transform": "preserve; inactive false does not prove active",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S10"
+      ]
+    },
+    {
+      "source_pointer": "/results/company/name",
+      "target_pointer": "/entities/0/names",
+      "transform": "copy legal name",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S10"
+      ]
+    }
+  ],
+  "supported_countries": [],
+  "entitlement_ref": null,
+  "secret_ref": null,
+  "transport_requirements": [
+    "TLS",
+    "approved regional base URL allowlist",
+    "secret vault injection",
+    "rate limiting and circuit breaker",
+    "bounded retry with jitter and idempotency",
+    "verify raw webhook signatures before decoding",
+    "durable inbox and tenant-bound correlation",
+    "replay and stale-event protection",
+    "original-byte hash and encrypted evidence storage"
+  ],
+  "limitations": [
+    "Synthetic representative payload subset only; not vendor-certified",
+    "No live HTTP, authentication, webhook signature, or sandbox integration implemented",
+    "No proof of contractual dataset coverage, country entitlements, retention rights or bank adoption",
+    "Empty country allowlist blocks live routing",
+    "Unmapped native properties available only in restricted raw artifact"
+  ]
+}

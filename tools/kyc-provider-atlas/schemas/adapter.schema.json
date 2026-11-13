@@ -1,0 +1,203 @@
+{
+  "type": "object",
+  "properties": {
+    "adapter_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "adapter_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "host_schema_version": {
+      "const": "1.0.0"
+    },
+    "capability": {
+      "type": "string",
+      "enum": [
+        "identity.person.verify",
+        "identity.document.verify",
+        "identity.biometric.verify",
+        "identity.address.verify",
+        "identity.digital_id.verify",
+        "identity.tax_id.verify",
+        "business.verify",
+        "business.registry.lookup",
+        "business.ownership.discover",
+        "business.officers.lookup",
+        "screening.sanctions",
+        "screening.pep",
+        "screening.adverse_media",
+        "screening.enforcement",
+        "screening.payment",
+        "risk.device",
+        "risk.email",
+        "risk.phone",
+        "risk.network",
+        "risk.jurisdiction",
+        "risk.customer.assess",
+        "account.ownership.verify",
+        "financial.evidence.retrieve",
+        "transaction.monitor",
+        "case.manage",
+        "regulatory.report",
+        "crypto.wallet.screen",
+        "crypto.transaction.monitor",
+        "travel_rule.exchange",
+        "edd.report.retrieve",
+        "entity.resolve",
+        "monitoring.subscribe",
+        "reference.identifier.lookup",
+        "reference.list.ingest",
+        "workflow.orchestrate",
+        "credential.verify",
+        "questionnaire.collect"
+      ]
+    },
+    "maturity": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "documented",
+        "fixture_tested",
+        "sandbox_tested",
+        "production_validated"
+      ]
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "native": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "api_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "authentication": {
+          "type": "string"
+        },
+        "documentation_urls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "fixture_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "method",
+        "path",
+        "api_version",
+        "authentication",
+        "documentation_urls",
+        "fixture_only"
+      ],
+      "additionalProperties": false
+    },
+    "mapping_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_pointer": {
+            "type": "string"
+          },
+          "target_pointer": {
+            "type": "string"
+          },
+          "transform": {
+            "type": "string"
+          },
+          "missing_behavior": {
+            "type": "string"
+          },
+          "evidence_source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "source_pointer",
+          "target_pointer",
+          "transform",
+          "missing_behavior",
+          "evidence_source_ids"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "supported_countries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "entitlement_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "secret_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "transport_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "adapter_id",
+    "provider_id",
+    "adapter_version",
+    "host_schema_version",
+    "capability",
+    "maturity",
+    "enabled",
+    "native",
+    "mapping_rules",
+    "supported_countries",
+    "entitlement_ref",
+    "secret_ref",
+    "transport_requirements",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/kyc/adapter/1.0.0"
+}

@@ -1,0 +1,30 @@
+{
+  "responses": {
+    "q": {
+      "status": 200,
+      "total": {
+        "value": 1,
+        "relation": "eq"
+      },
+      "results": [
+        {
+          "id": "synthetic-candidate",
+          "caption": "Alex Example",
+          "schema": "Person",
+          "score": 0.94,
+          "datasets": [
+            "synthetic_list_NOT_REAL"
+          ],
+          "properties": {
+            "name": [
+              "Alex Example"
+            ],
+            "topics": [
+              "sanction"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,664 @@
+{
+  "caseId": "KYB-1042",
+  "records": [
+    {
+      "object_type": "DocumentVersion",
+      "object_id": "doc_779093eab5c33653af964d04",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "document_id": "doc_779093eab5c33653af964d04",
+        "artifact_hash": "779093eab5c33653af964d044b16e0e33c5cba6dd5db4cdc4c3070158c5a4523",
+        "media_type": "text/plain",
+        "artifact_ref": "kyc-evidence-pipeline:doc_779093eab5c33653af964d04",
+        "page_count": 1,
+        "extensions": {
+          "ehf.connector": {
+            "schema_version": "1.0.0",
+            "value": {
+              "filename": "meridian-shareholder-register.txt",
+              "format": "txt",
+              "page_count_basis": "decoded_pages"
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "DocumentPage",
+      "object_id": "page:doc_779093eab5c33653af964d04:1",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "text": "SYNTHETIC SHAREHOLDER REGISTER\nCompany: Example Trading\nOwner: Alex Example; owned entity: Example Trading; ordinary; 60%; direct\nOwner: Morgan Example; owned entity: Example Trading; ordinary; 40%; direct\nAs of: 2026-10-01\n",
+        "page": 1,
+        "document_version": "779093eab5c33653af964d044b16e0e33c5cba6dd5db4cdc4c3070158c5a4523",
+        "extensions": {
+          "ehf.connector": {
+            "schema_version": "1.0.0",
+            "value": {
+              "text_basis": "full_text",
+              "document_id": "doc_779093eab5c33653af964d04"
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "ExtractedAssertion",
+      "object_id": "extraction:779093eab5c33653af964d04:entity_name",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "subject": "subject-meridian",
+        "field": "entity_name",
+        "value": "Example Trading",
+        "document_version": "779093eab5c33653af964d044b16e0e33c5cba6dd5db4cdc4c3070158c5a4523",
+        "extensions": {
+          "ehf.document": {
+            "schema_version": "1.0.0",
+            "value": {
+              "path": "/extracted_fields/entity_name",
+              "document_type": "shareholder_register",
+              "contract_hash": "b4cb8ae366982e5994df973cd8c4ea93a84a1719a34e126d3791c7b02964d70a",
+              "source_digest": "86dd93d778305667567556cbc4a45d736f392af4752aae9538cb2dbd691f3ab0",
+              "epistemic_status": "EXTRACTED_ASSERTION",
+              "verification": "UNVERIFIED",
+              "review_state": "PENDING_REVIEW",
+              "source_spans": [
+                {
+                  "end": 55,
+                  "page_id": "page:doc_779093eab5c33653af964d04:1",
+                  "quote": "Example Trading",
+                  "start": 40
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "ExtractedAssertion",
+      "object_id": "extraction:779093eab5c33653af964d04:record_as_of_date",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "subject": "subject-meridian",
+        "field": "record_as_of_date",
+        "value": "2026-10-01",
+        "document_version": "779093eab5c33653af964d044b16e0e33c5cba6dd5db4cdc4c3070158c5a4523",
+        "extensions": {
+          "ehf.document": {
+            "schema_version": "1.0.0",
+            "value": {
+              "path": "/extracted_fields/record_as_of_date",
+              "document_type": "shareholder_register",
+              "contract_hash": "b4cb8ae366982e5994df973cd8c4ea93a84a1719a34e126d3791c7b02964d70a",
+              "source_digest": "86dd93d778305667567556cbc4a45d736f392af4752aae9538cb2dbd691f3ab0",
+              "epistemic_status": "EXTRACTED_ASSERTION",
+              "verification": "UNVERIFIED",
+              "review_state": "PENDING_REVIEW",
+              "source_spans": [
+                {
+                  "end": 223,
+                  "page_id": "page:doc_779093eab5c33653af964d04:1",
+                  "quote": "2026-10-01",
+                  "start": 213
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "DocumentVersion",
+      "object_id": "doc_445301365649a0175d00f9c1",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "document_id": "doc_445301365649a0175d00f9c1",
+        "artifact_hash": "445301365649a0175d00f9c1ef1aae9b462920d0cbe3be09801ac490db062945",
+        "media_type": "text/plain",
+        "artifact_ref": "kyc-evidence-pipeline:doc_445301365649a0175d00f9c1",
+        "page_count": 1,
+        "extensions": {
+          "ehf.connector": {
+            "schema_version": "1.0.0",
+            "value": {
+              "filename": "director-passport.txt",
+              "format": "txt",
+              "page_count_basis": "decoded_pages"
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "DocumentPage",
+      "object_id": "page:doc_445301365649a0175d00f9c1:1",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "text": "SYNTHETIC PASSPORT\nName: Alex Example\nPassport number: SYN-000042\nBirth date: 1987-04-12\nExpiry: 2030-05-31\n",
+        "page": 1,
+        "document_version": "445301365649a0175d00f9c1ef1aae9b462920d0cbe3be09801ac490db062945",
+        "extensions": {
+          "ehf.connector": {
+            "schema_version": "1.0.0",
+            "value": {
+              "text_basis": "full_text",
+              "document_id": "doc_445301365649a0175d00f9c1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "ExtractedAssertion",
+      "object_id": "extraction:445301365649a0175d00f9c1:date_of_birth",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "subject": "subject-meridian",
+        "field": "date_of_birth",
+        "value": "1987-04-12",
+        "document_version": "445301365649a0175d00f9c1ef1aae9b462920d0cbe3be09801ac490db062945",
+        "extensions": {
+          "ehf.document": {
+            "schema_version": "1.0.0",
+            "value": {
+              "path": "/extracted_fields/date_of_birth",
+              "document_type": "passport",
+              "contract_hash": "1224b6b6e23170cd92b0ccf29fb2c8817254d9c3ce90300e6cc13f43f75ae68c",
+              "source_digest": "68643b1505a6a5893ffd9af1e8d452b8ff92dd3cb6a484c8d7ee726cd37ad31e",
+              "epistemic_status": "EXTRACTED_ASSERTION",
+              "verification": "UNVERIFIED",
+              "review_state": "PENDING_REVIEW",
+              "source_spans": [
+                {
+                  "end": 88,
+                  "page_id": "page:doc_445301365649a0175d00f9c1:1",
+                  "quote": "1987-04-12",
+                  "start": 78
+                }
+              ]
+            }
+          },
+          "ehf.document.adjudication": {
+            "schema_version": "1.0.0",
+            "value": {
+              "route_mode": "shadow",
+              "proposed_route": "llm",
+              "routes": {
+                "azure_di": "valid",
+                "llm": "valid"
+              },
+              "route_errors": {},
+              "outcome": "CONFLICT",
+              "rule": "R6",
+              "review": "required",
+              "criticality": "material",
+              "comparison": "different",
+              "selected_route": null,
+              "candidates": {
+                "azure_di": {
+                  "value": "2030-05-31",
+                  "grounded": true,
+                  "confidence": 0.91
+                },
+                "llm": {
+                  "value": "1987-04-12",
+                  "grounded": true,
+                  "confidence": null
+                }
+              },
+              "policy_digest": "8ddf832dba47e2ac4c28bbfd4408c3609b1372a7fe77918109b47c5b6e9cd9a3",
+              "route_policy_digest": "c92858d6fcf4fd8c072d92d4762e6a4d984b465c638a8abcaa1aa3fa26c246d9",
+              "inputs_digest": "db42b4076e2e7e5cf5fd1dc803f2429a386ddbee7cd50a77eba5c9c3f8c55084"
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "ExtractedAssertion",
+      "object_id": "extraction:445301365649a0175d00f9c1:document_number",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "subject": "subject-meridian",
+        "field": "document_number",
+        "value": "SYN-000042",
+        "document_version": "445301365649a0175d00f9c1ef1aae9b462920d0cbe3be09801ac490db062945",
+        "extensions": {
+          "ehf.document": {
+            "schema_version": "1.0.0",
+            "value": {
+              "path": "/extracted_fields/document_number",
+              "document_type": "passport",
+              "contract_hash": "1224b6b6e23170cd92b0ccf29fb2c8817254d9c3ce90300e6cc13f43f75ae68c",
+              "source_digest": "68643b1505a6a5893ffd9af1e8d452b8ff92dd3cb6a484c8d7ee726cd37ad31e",
+              "epistemic_status": "EXTRACTED_ASSERTION",
+              "verification": "UNVERIFIED",
+              "review_state": "PENDING_REVIEW",
+              "source_spans": [
+                {
+                  "end": 65,
+                  "page_id": "page:doc_445301365649a0175d00f9c1:1",
+                  "quote": "SYN-000042",
+                  "start": 55
+                }
+              ]
+            }
+          },
+          "ehf.document.adjudication": {
+            "schema_version": "1.0.0",
+            "value": {
+              "route_mode": "shadow",
+              "proposed_route": "llm",
+              "routes": {
+                "azure_di": "valid",
+                "llm": "valid"
+              },
+              "route_errors": {},
+              "outcome": "AGREED_GROUNDED",
+              "rule": "R1",
+              "review": "standard",
+              "criticality": "material",
+              "comparison": "equivalent",
+              "selected_route": "llm",
+              "candidates": {
+                "azure_di": {
+                  "value": "SYN-000042",
+                  "grounded": true,
+                  "confidence": 0.91
+                },
+                "llm": {
+                  "value": "SYN-000042",
+                  "grounded": true,
+                  "confidence": null
+                }
+              },
+              "policy_digest": "8ddf832dba47e2ac4c28bbfd4408c3609b1372a7fe77918109b47c5b6e9cd9a3",
+              "route_policy_digest": "c92858d6fcf4fd8c072d92d4762e6a4d984b465c638a8abcaa1aa3fa26c246d9",
+              "inputs_digest": "82f3a6c3925a3605a04d8631d9f5dbfb5b8e950ada26f4aa2a66c9ae03e19894"
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "ExtractedAssertion",
+      "object_id": "extraction:445301365649a0175d00f9c1:expiry_date",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "subject": "subject-meridian",
+        "field": "expiry_date",
+        "value": "2030-05-31",
+        "document_version": "445301365649a0175d00f9c1ef1aae9b462920d0cbe3be09801ac490db062945",
+        "extensions": {
+          "ehf.document": {
+            "schema_version": "1.0.0",
+            "value": {
+              "path": "/extracted_fields/expiry_date",
+              "document_type": "passport",
+              "contract_hash": "1224b6b6e23170cd92b0ccf29fb2c8817254d9c3ce90300e6cc13f43f75ae68c",
+              "source_digest": "68643b1505a6a5893ffd9af1e8d452b8ff92dd3cb6a484c8d7ee726cd37ad31e",
+              "epistemic_status": "EXTRACTED_ASSERTION",
+              "verification": "UNVERIFIED",
+              "review_state": "PENDING_REVIEW",
+              "source_spans": [
+                {
+                  "end": 107,
+                  "page_id": "page:doc_445301365649a0175d00f9c1:1",
+                  "quote": "2030-05-31",
+                  "start": 97
+                }
+              ]
+            }
+          },
+          "ehf.document.adjudication": {
+            "schema_version": "1.0.0",
+            "value": {
+              "route_mode": "shadow",
+              "proposed_route": "llm",
+              "routes": {
+                "azure_di": "valid",
+                "llm": "valid"
+              },
+              "route_errors": {},
+              "outcome": "AGREED_GROUNDED",
+              "rule": "R1",
+              "review": "standard",
+              "criticality": "material",
+              "comparison": "equivalent",
+              "selected_route": "llm",
+              "candidates": {
+                "azure_di": {
+                  "value": "2030-05-31",
+                  "grounded": true,
+                  "confidence": 0.91
+                },
+                "llm": {
+                  "value": "2030-05-31",
+                  "grounded": true,
+                  "confidence": null
+                }
+              },
+              "policy_digest": "8ddf832dba47e2ac4c28bbfd4408c3609b1372a7fe77918109b47c5b6e9cd9a3",
+              "route_policy_digest": "c92858d6fcf4fd8c072d92d4762e6a4d984b465c638a8abcaa1aa3fa26c246d9",
+              "inputs_digest": "58640598fe7ca2c3dd918d6214d08d4107a50a0cef97aacb61d79b961c1eb355"
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "ExtractedAssertion",
+      "object_id": "extraction:445301365649a0175d00f9c1:person_name",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "subject": "subject-meridian",
+        "field": "person_name",
+        "value": "Alex Example",
+        "document_version": "445301365649a0175d00f9c1ef1aae9b462920d0cbe3be09801ac490db062945",
+        "extensions": {
+          "ehf.document": {
+            "schema_version": "1.0.0",
+            "value": {
+              "path": "/extracted_fields/person_name",
+              "document_type": "passport",
+              "contract_hash": "1224b6b6e23170cd92b0ccf29fb2c8817254d9c3ce90300e6cc13f43f75ae68c",
+              "source_digest": "68643b1505a6a5893ffd9af1e8d452b8ff92dd3cb6a484c8d7ee726cd37ad31e",
+              "epistemic_status": "EXTRACTED_ASSERTION",
+              "verification": "UNVERIFIED",
+              "review_state": "PENDING_REVIEW",
+              "source_spans": [
+                {
+                  "end": 37,
+                  "page_id": "page:doc_445301365649a0175d00f9c1:1",
+                  "quote": "Alex Example",
+                  "start": 25
+                }
+              ]
+            }
+          },
+          "ehf.document.adjudication": {
+            "schema_version": "1.0.0",
+            "value": {
+              "route_mode": "shadow",
+              "proposed_route": "llm",
+              "routes": {
+                "azure_di": "valid",
+                "llm": "valid"
+              },
+              "route_errors": {},
+              "outcome": "AGREED_GROUNDED",
+              "rule": "R1",
+              "review": "standard",
+              "criticality": "material",
+              "comparison": "equivalent",
+              "selected_route": "llm",
+              "candidates": {
+                "azure_di": {
+                  "value": "Alex Example",
+                  "grounded": true,
+                  "confidence": 0.91
+                },
+                "llm": {
+                  "value": "Alex Example",
+                  "grounded": true,
+                  "confidence": null
+                }
+              },
+              "policy_digest": "8ddf832dba47e2ac4c28bbfd4408c3609b1372a7fe77918109b47c5b6e9cd9a3",
+              "route_policy_digest": "c92858d6fcf4fd8c072d92d4762e6a4d984b465c638a8abcaa1aa3fa26c246d9",
+              "inputs_digest": "c8dcc1a59ae3d4a9d018f4bdd790b3027c9aef8b001e12a2c8640fbf88f34001"
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "DocumentVersion",
+      "object_id": "doc_501b6f97eb9dc6cc4010292a",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "document_id": "doc_501b6f97eb9dc6cc4010292a",
+        "artifact_hash": "501b6f97eb9dc6cc4010292a2fa5de11f136100e0f93cd280c43ee83b677beeb",
+        "media_type": "text/plain",
+        "artifact_ref": "kyc-evidence-pipeline:doc_501b6f97eb9dc6cc4010292a",
+        "page_count": 1,
+        "extensions": {
+          "ehf.connector": {
+            "schema_version": "1.0.0",
+            "value": {
+              "filename": "operating-account-statement.txt",
+              "format": "txt",
+              "page_count_basis": "decoded_pages"
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "DocumentPage",
+      "object_id": "page:doc_501b6f97eb9dc6cc4010292a:1",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "text": "SYNTHETIC BANK STATEMENT\nCustomer: Example Trading\nAccount: ****0042\nInstitution: Synthetic Bank\nCurrency: XTS\nOpening: 1000.00\nClosing: 1250.00\nPeriod: 2026-09-01 to 2026-09-30\n",
+        "page": 1,
+        "document_version": "501b6f97eb9dc6cc4010292a2fa5de11f136100e0f93cd280c43ee83b677beeb",
+        "extensions": {
+          "ehf.connector": {
+            "schema_version": "1.0.0",
+            "value": {
+              "text_basis": "full_text",
+              "document_id": "doc_501b6f97eb9dc6cc4010292a"
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "ExtractedAssertion",
+      "object_id": "extraction:501b6f97eb9dc6cc4010292a:period_end",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "subject": "subject-meridian",
+        "field": "period_end",
+        "value": "2026-09-30",
+        "document_version": "501b6f97eb9dc6cc4010292a2fa5de11f136100e0f93cd280c43ee83b677beeb",
+        "extensions": {
+          "ehf.document": {
+            "schema_version": "1.0.0",
+            "value": {
+              "path": "/extracted_fields/period_end",
+              "document_type": "bank_statement",
+              "contract_hash": "08aa701fea0537cb89da8c868fb4e5bb288954dc5986024c5d5067ed31b2ce5b",
+              "source_digest": "599ce62c86a05c407c4c813bf48c81e44dc60fa851d06a2b81890de485cdeac2",
+              "epistemic_status": "EXTRACTED_ASSERTION",
+              "verification": "UNVERIFIED",
+              "review_state": "PENDING_REVIEW",
+              "source_spans": [
+                {
+                  "end": 177,
+                  "page_id": "page:doc_501b6f97eb9dc6cc4010292a:1",
+                  "quote": "2026-09-30",
+                  "start": 167
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "ExtractedAssertion",
+      "object_id": "extraction:501b6f97eb9dc6cc4010292a:period_start",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "subject": "subject-meridian",
+        "field": "period_start",
+        "value": "2026-09-01",
+        "document_version": "501b6f97eb9dc6cc4010292a2fa5de11f136100e0f93cd280c43ee83b677beeb",
+        "extensions": {
+          "ehf.document": {
+            "schema_version": "1.0.0",
+            "value": {
+              "path": "/extracted_fields/period_start",
+              "document_type": "bank_statement",
+              "contract_hash": "08aa701fea0537cb89da8c868fb4e5bb288954dc5986024c5d5067ed31b2ce5b",
+              "source_digest": "599ce62c86a05c407c4c813bf48c81e44dc60fa851d06a2b81890de485cdeac2",
+              "epistemic_status": "EXTRACTED_ASSERTION",
+              "verification": "UNVERIFIED",
+              "review_state": "PENDING_REVIEW",
+              "source_spans": [
+                {
+                  "end": 163,
+                  "page_id": "page:doc_501b6f97eb9dc6cc4010292a:1",
+                  "quote": "2026-09-01",
+                  "start": 153
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "object_type": "ExtractedAssertion",
+      "object_id": "extraction:501b6f97eb9dc6cc4010292a:subject_name",
+      "version_id": "v1",
+      "synthetic": true,
+      "data": {
+        "subject": "subject-meridian",
+        "field": "subject_name",
+        "value": "Example Trading",
+        "document_version": "501b6f97eb9dc6cc4010292a2fa5de11f136100e0f93cd280c43ee83b677beeb",
+        "extensions": {
+          "ehf.document": {
+            "schema_version": "1.0.0",
+            "value": {
+              "path": "/extracted_fields/subject_name",
+              "document_type": "bank_statement",
+              "contract_hash": "08aa701fea0537cb89da8c868fb4e5bb288954dc5986024c5d5067ed31b2ce5b",
+              "source_digest": "599ce62c86a05c407c4c813bf48c81e44dc60fa851d06a2b81890de485cdeac2",
+              "epistemic_status": "EXTRACTED_ASSERTION",
+              "verification": "UNVERIFIED",
+              "review_state": "PENDING_REVIEW",
+              "source_spans": [
+                {
+                  "end": 50,
+                  "page_id": "page:doc_501b6f97eb9dc6cc4010292a:1",
+                  "quote": "Example Trading",
+                  "start": 35
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "workItems": [
+    {
+      "work_item_id": "work_skill_269943edfe939b11d4d5fa2e",
+      "work_type": "DOCUMENT_FIELD_CONFLICT",
+      "status": "OPEN",
+      "description": "The extraction routes disagree on date_of_birth in the Passport (445301365649) (CONFLICT; azure_di: '2030-05-31'; llm: '1987-04-12'). Check the source before the value is used.",
+      "subject_ref": "extraction:445301365649a0175d00f9c1:date_of_birth",
+      "created_at": "2026-11-13T09:00:00.000Z"
+    }
+  ],
+  "outputs": {
+    "classifications": [
+      {
+        "document_version": "779093eab5c33653af964d044b16e0e33c5cba6dd5db4cdc4c3070158c5a4523",
+        "document_type": "shareholder_register",
+        "basis": "title"
+      },
+      {
+        "document_version": "445301365649a0175d00f9c1ef1aae9b462920d0cbe3be09801ac490db062945",
+        "document_type": "passport",
+        "basis": "title"
+      },
+      {
+        "document_version": "501b6f97eb9dc6cc4010292a2fa5de11f136100e0f93cd280c43ee83b677beeb",
+        "document_type": "bank_statement",
+        "basis": "title"
+      }
+    ],
+    "extractions": [
+      {
+        "document_version": "779093eab5c33653af964d044b16e0e33c5cba6dd5db4cdc4c3070158c5a4523",
+        "extraction_status": "NEEDS_REVIEW"
+      },
+      {
+        "document_version": "445301365649a0175d00f9c1ef1aae9b462920d0cbe3be09801ac490db062945",
+        "extraction_status": "NEEDS_REVIEW"
+      },
+      {
+        "document_version": "501b6f97eb9dc6cc4010292a2fa5de11f136100e0f93cd280c43ee83b677beeb",
+        "extraction_status": "NEEDS_REVIEW"
+      }
+    ],
+    "requirements": {
+      "requirements": [
+        {
+          "id": "EVD-BUSINESS-REGISTRATION",
+          "description": "Evidence of legal existence and registration",
+          "any_of": [
+            "certificate_of_incorporation",
+            "company_registry_extract"
+          ],
+          "satisfied_by": [],
+          "satisfied": false
+        },
+        {
+          "id": "EVD-BENEFICIAL-OWNERSHIP",
+          "description": "Evidence of ownership and beneficial owners",
+          "any_of": [
+            "beneficial_ownership_declaration",
+            "shareholder_register"
+          ],
+          "satisfied_by": [
+            "shareholder_register"
+          ],
+          "satisfied": true
+        },
+        {
+          "id": "EVD-DIRECTOR-IDENTITY",
+          "description": "Government identity document of a director",
+          "any_of": [
+            "national_identity_card",
+            "passport"
+          ],
+          "satisfied_by": [
+            "passport"
+          ],
+          "satisfied": true
+        }
+      ],
+      "request_types": [
+        "certificate_of_incorporation",
+        "company_registry_extract"
+      ]
+    },
+    "validity": [
+      {
+        "document_version": "445301365649a0175d00f9c1ef1aae9b462920d0cbe3be09801ac490db062945",
+        "status": "CURRENT"
+      }
+    ],
+    "conflicts": []
+  }
+}

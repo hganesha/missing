@@ -1,0 +1,607 @@
+{
+  "$defs": {
+    "Assignment": {
+      "additionalProperties": false,
+      "properties": {
+        "actor": {
+          "$ref": "#/$defs/Id"
+        },
+        "role": {
+          "$ref": "#/$defs/Id"
+        },
+        "task_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "task_id",
+        "actor",
+        "role"
+      ],
+      "type": "object"
+    },
+    "Bool": {
+      "type": "boolean"
+    },
+    "CaseCommandData": {
+      "additionalProperties": false,
+      "properties": {
+        "case_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "disposition": {
+          "$ref": "#/$defs/Disposition"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "state": {
+          "$ref": "#/$defs/CaseState"
+        }
+      },
+      "required": [
+        "state",
+        "case_type"
+      ],
+      "type": "object"
+    },
+    "CaseState": {
+      "enum": [
+        "OPEN",
+        "REVIEW",
+        "CLOSED"
+      ]
+    },
+    "Count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Decimal": {
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": "string"
+    },
+    "Disposition": {
+      "enum": [
+        "ACCEPT",
+        "REJECT",
+        "ESCALATE"
+      ]
+    },
+    "EffectCommand": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/CaseCommandData"
+            },
+            "expected_revision": {
+              "$ref": "#/$defs/Count"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "kind": {
+              "const": "state"
+            },
+            "type": {
+              "const": "case"
+            }
+          },
+          "required": [
+            "kind",
+            "type",
+            "id",
+            "expected_revision",
+            "data"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "expected_revision": {
+              "$ref": "#/$defs/Count"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "kind": {
+              "const": "state"
+            },
+            "type": {
+              "const": "assignment"
+            }
+          },
+          "required": [
+            "kind",
+            "type",
+            "id",
+            "expected_revision",
+            "data"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/EscalationData"
+            },
+            "expected_revision": {
+              "$ref": "#/$defs/Count"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "kind": {
+              "const": "state"
+            },
+            "type": {
+              "const": "escalation"
+            }
+          },
+          "required": [
+            "kind",
+            "type",
+            "id",
+            "expected_revision",
+            "data"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/FeedbackData"
+            },
+            "expected_revision": {
+              "$ref": "#/$defs/Count"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "kind": {
+              "const": "state"
+            },
+            "type": {
+              "const": "feedback"
+            }
+          },
+          "required": [
+            "kind",
+            "type",
+            "id",
+            "expected_revision",
+            "data"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/ScheduleData"
+            },
+            "expected_revision": {
+              "$ref": "#/$defs/Count"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "kind": {
+              "const": "state"
+            },
+            "type": {
+              "const": "schedule"
+            }
+          },
+          "required": [
+            "kind",
+            "type",
+            "id",
+            "expected_revision",
+            "data"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/ScreeningDispositionData"
+            },
+            "expected_revision": {
+              "$ref": "#/$defs/Count"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "kind": {
+              "const": "state"
+            },
+            "type": {
+              "const": "screening_disposition"
+            }
+          },
+          "required": [
+            "kind",
+            "type",
+            "id",
+            "expected_revision",
+            "data"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/ReviewData"
+            },
+            "expected_revision": {
+              "$ref": "#/$defs/Count"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "kind": {
+              "const": "state"
+            },
+            "type": {
+              "const": "review"
+            }
+          },
+          "required": [
+            "kind",
+            "type",
+            "id",
+            "expected_revision",
+            "data"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "const": "execute_skill"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "kind": {
+              "const": "outbox"
+            },
+            "parameters": {
+              "$ref": "#/$defs/JsonObject"
+            },
+            "parent_execution_id": {
+              "$ref": "#/$defs/Id"
+            },
+            "skill_id": {
+              "$ref": "#/$defs/Id"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "action",
+            "skill_id",
+            "parameters",
+            "parent_execution_id"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "const": "submit_filing"
+            },
+            "filing": {
+              "$ref": "#/$defs/FilingData"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "kind": {
+              "const": "outbox"
+            },
+            "synthetic": {
+              "$ref": "#/$defs/Bool"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "action",
+            "filing",
+            "synthetic"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "action": {
+              "const": "delete_artifact"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "kind": {
+              "const": "outbox"
+            },
+            "object_id": {
+              "$ref": "#/$defs/Id"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "action",
+            "object_id"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "EscalationData": {
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "$ref": "#/$defs/Text"
+        },
+        "role": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "reason",
+        "role"
+      ],
+      "type": "object"
+    },
+    "Extension": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "$ref": "#/$defs/Semver"
+        },
+        "source_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "required": [
+        "schema_version",
+        "value"
+      ],
+      "type": "object"
+    },
+    "Extensions": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Extension"
+      },
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+        "type": "string"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "explicit versioned source/institution extensions"
+    },
+    "FeedbackData": {
+      "additionalProperties": false,
+      "properties": {
+        "actor": {
+          "$ref": "#/$defs/Id"
+        },
+        "alert_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "label": {
+          "$ref": "#/$defs/Id"
+        },
+        "reason": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "alert_id",
+        "label",
+        "reason",
+        "actor"
+      ],
+      "type": "object"
+    },
+    "FilingData": {
+      "additionalProperties": false,
+      "properties": {
+        "citations": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        "extensions": {
+          "$ref": "#/$defs/Extensions"
+        },
+        "narrative": {
+          "$ref": "#/$defs/Text"
+        },
+        "report_type": {
+          "$ref": "#/$defs/ReportType"
+        },
+        "subject_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "totals": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Decimal"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "keyed collection"
+        }
+      },
+      "required": [
+        "report_type",
+        "subject_id"
+      ],
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "JsonObject": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "type": "object",
+      "x-dynamic-map-reason": "schema-selected or source-domain JSON values"
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "maxLength": 200000,
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "type": "object",
+          "x-dynamic-map-reason": "raw JSON source value"
+        }
+      ]
+    },
+    "Ref": {
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "object_type": {
+          "$ref": "#/$defs/Id"
+        },
+        "schema_version": {
+          "$ref": "#/$defs/Semver",
+          "default": "2.0.0"
+        },
+        "tenant_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "version_id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "object_type",
+        "object_id",
+        "version_id"
+      ],
+      "type": "object"
+    },
+    "ReportType": {
+      "enum": [
+        "SAR",
+        "CTR"
+      ]
+    },
+    "ReviewData": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/CaseState"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "type": "object"
+    },
+    "ScheduleData": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/Id"
+        },
+        "due_at": {
+          "$ref": "#/$defs/Timestamp"
+        }
+      },
+      "required": [
+        "due_at",
+        "action"
+      ],
+      "type": "object"
+    },
+    "ScreeningDispositionData": {
+      "additionalProperties": false,
+      "properties": {
+        "disposition": {
+          "$ref": "#/$defs/Id"
+        },
+        "hit_ids": {
+          "items": {
+            "$ref": "#/$defs/Id"
+          },
+          "maxItems": 10000,
+          "type": "array"
+        }
+      },
+      "required": [
+        "disposition",
+        "hit_ids"
+      ],
+      "type": "object"
+    },
+    "Semver": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$",
+      "type": "string"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "$ref": "#/$defs/EffectCommand",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "@ehf/blob-store",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./testing": "./src/testing.ts",
+    "./qualification": "./src/qualification.ts",
+    "./adls": "./src/adls.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "3.1152.0",
+    "@azure/arm-storage": "21.0.0",
+    "@azure/identity": "4.14.1",
+    "@azure/storage-blob": "12.34.0",
+    "@ehf/identity": "workspace:*"
+  }
+}

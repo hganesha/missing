@@ -1,0 +1,738 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kyc-provider-atlas.local/schemas/v2/provider-capability-binding.schema.json",
+  "title": "ProviderCapabilityBinding",
+  "description": "Who can supply which scoped contract (section 3.2). Coverage evidence, transport, field mapping and execution authorization are independent. An unresolved jurisdiction, quarantine or empty approved scope blocks live resolution.",
+  "type": "object",
+  "properties": {
+    "binding_id": {
+      "type": "string",
+      "pattern": "^binding:[a-z0-9-]+:[a-z0-9_.]+:v[0-9]+$"
+    },
+    "provider_record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider_family_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contracting_entity_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "product_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "capability_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)*\\.intelligence\\.(?:[a-z]{2}(?:_[a-z0-9]+)?|global|unresolved)$"
+    },
+    "capability_path": {
+      "type": "string",
+      "enum": [
+        "account.control",
+        "account.ownership",
+        "account.profile",
+        "business.officers",
+        "business.ownership",
+        "business.registry",
+        "business.verification",
+        "case.management",
+        "credential.issuance",
+        "credential.verification",
+        "crypto.transaction",
+        "crypto.wallet",
+        "document.evidence",
+        "document.signature",
+        "edd.report",
+        "entity.resolution",
+        "financial.analytics",
+        "financial.balance",
+        "financial.evidence",
+        "financial.income",
+        "financial.institution",
+        "financial.personal_management",
+        "financial.transactions",
+        "identity.address",
+        "identity.biometric",
+        "identity.digital_id",
+        "identity.document",
+        "identity.document.extraction",
+        "identity.identifier.derivation",
+        "identity.person",
+        "identity.profile",
+        "identity.tax_id",
+        "identity.vehicle",
+        "monitoring.subscription",
+        "platform.integration",
+        "platform.testing",
+        "questionnaire.collection",
+        "questionnaire.template",
+        "reference.identifier",
+        "reference.list",
+        "regulatory.reporting",
+        "risk.customer",
+        "risk.device",
+        "risk.email",
+        "risk.jurisdiction",
+        "risk.network",
+        "risk.phone",
+        "screening.adverse_media",
+        "screening.enforcement",
+        "screening.payment",
+        "screening.pep",
+        "screening.sanctions",
+        "screening.watchlist",
+        "transaction.monitoring",
+        "travel_rule.exchange",
+        "workflow.orchestration"
+      ]
+    },
+    "capability_definition_ref": {
+      "type": "string",
+      "pattern": "^[a-z0-9_.]+@\\d+\\.\\d+\\.\\d+$"
+    },
+    "model_version": {
+      "const": "2.0.0"
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "subject_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "selectors": {
+      "type": "object",
+      "properties": {
+        "account_identifier_schemes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "comparison_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "document_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "identifier_schemes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "registry_namespaces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "protocols": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "account_identifier_schemes",
+        "comparison_fields",
+        "document_types",
+        "identifier_schemes",
+        "registry_namespaces",
+        "protocols"
+      ],
+      "additionalProperties": false
+    },
+    "jurisdiction": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "ae",
+            "ar",
+            "au",
+            "be",
+            "bh",
+            "br",
+            "ca",
+            "ch",
+            "cl",
+            "cn",
+            "co",
+            "de",
+            "dk",
+            "es",
+            "eu",
+            "fi",
+            "fr",
+            "gb",
+            "gh",
+            "global",
+            "hk",
+            "id",
+            "ie",
+            "in",
+            "it",
+            "jp",
+            "ke",
+            "kr",
+            "lu",
+            "mx",
+            "my",
+            "ng",
+            "nl",
+            "no",
+            "nz",
+            "ph",
+            "sa",
+            "se",
+            "sg",
+            "tw",
+            "un",
+            "unresolved",
+            "us",
+            "za"
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "enum": [
+            "registry_authority",
+            "issuer_authority",
+            "dataset_authority",
+            "policy_jurisdiction",
+            "financial_source_authority",
+            "account_servicing",
+            "integration_scope"
+          ]
+        },
+        "resolution_status": {
+          "type": "string",
+          "enum": [
+            "proposed",
+            "evidence_supported",
+            "approved"
+          ]
+        },
+        "assignment_basis": {
+          "type": "string",
+          "enum": [
+            "no_evidence",
+            "national_source_hint",
+            "publisher_authority",
+            "federation_unresolved"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "code",
+        "basis",
+        "resolution_status",
+        "assignment_basis",
+        "evidence_refs"
+      ],
+      "additionalProperties": false
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "partial",
+            "complete",
+            "not_supported"
+          ]
+        },
+        "eligible_subject_countries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "eligible_account_countries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "issuing_authorities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dataset_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excluded_scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "freshness_policy_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "assessed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "coverage_evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "eligible_subject_countries",
+        "eligible_account_countries",
+        "issuing_authorities",
+        "dataset_refs",
+        "excluded_scopes",
+        "freshness_policy_ref",
+        "assessed_at",
+        "coverage_evidence_refs"
+      ],
+      "additionalProperties": false
+    },
+    "operation_mapping_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "versions": {
+      "type": "object",
+      "properties": {
+        "native_api": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "native_schema_digest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "adapter": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "request_mapping": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "response_mapping": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "host_schema": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "native_api",
+        "native_schema_digest",
+        "adapter",
+        "request_mapping",
+        "response_mapping",
+        "host_schema"
+      ],
+      "additionalProperties": false
+    },
+    "implementation": {
+      "type": "object",
+      "properties": {
+        "transport": {
+          "type": "string",
+          "enum": [
+            "not_implemented",
+            "documented_unverified",
+            "host_native_subset_unverified",
+            "sandbox_accepted",
+            "production"
+          ]
+        },
+        "request_mapping": {
+          "type": "string",
+          "enum": [
+            "not_defined",
+            "proposed",
+            "legacy_v1_offline_planner",
+            "validated"
+          ]
+        },
+        "response_mapping": {
+          "type": "string",
+          "enum": [
+            "not_defined",
+            "proposed",
+            "legacy_v1_fixture_subset",
+            "fixture_tested_subset",
+            "validated"
+          ]
+        },
+        "validation": {
+          "type": "string",
+          "enum": [
+            "none",
+            "legacy_v1_synthetic_fixture",
+            "synthetic_fixture",
+            "sandbox",
+            "production"
+          ]
+        },
+        "v2_validated": {
+          "type": "boolean"
+        },
+        "accepted_test_evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "transport",
+        "request_mapping",
+        "response_mapping",
+        "validation",
+        "v2_validated",
+        "accepted_test_evidence_refs"
+      ],
+      "additionalProperties": false
+    },
+    "access": {
+      "type": "object",
+      "properties": {
+        "tenant_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "environments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allowed_purposes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "policy_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "approved_endpoints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "processing_regions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "storage_regions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "permitted_dataset_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "entitlement_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "consent_requirement_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "secret_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "tenant_ids",
+        "environments",
+        "allowed_purposes",
+        "policy_refs",
+        "approved_endpoints",
+        "processing_regions",
+        "storage_regions",
+        "permitted_dataset_refs",
+        "entitlement_ref",
+        "consent_requirement_ref",
+        "secret_ref"
+      ],
+      "additionalProperties": false
+    },
+    "governance": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "approval_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quarantine": {
+          "type": "boolean"
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "enabled",
+        "approval_ref",
+        "quarantine",
+        "blockers"
+      ],
+      "additionalProperties": false
+    },
+    "lineage": {
+      "type": "object",
+      "properties": {
+        "legacy_binding_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_capability": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_result_family": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_mapping_maturity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legacy_adapter_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "migration": {
+          "type": "string",
+          "enum": [
+            "vocabulary_mapping",
+            "semantic_correction",
+            "conditional_split"
+          ]
+        },
+        "conditional_branch": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "correction_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_file": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "legacy_binding_id",
+        "legacy_capability",
+        "legacy_result_family",
+        "legacy_mapping_maturity",
+        "legacy_status",
+        "legacy_adapter_id",
+        "migration",
+        "conditional_branch",
+        "correction_reason",
+        "source_file"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "binding_id",
+    "provider_record_id",
+    "provider_family_id",
+    "contracting_entity_id",
+    "product_id",
+    "capability_id",
+    "capability_path",
+    "capability_definition_ref",
+    "model_version",
+    "actions",
+    "subject_types",
+    "selectors",
+    "jurisdiction",
+    "coverage",
+    "operation_mapping_refs",
+    "versions",
+    "implementation",
+    "access",
+    "governance",
+    "lineage"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "governance": {
+            "properties": {
+              "enabled": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "capability_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z][a-z0-9_]*)*\\.intelligence\\.(?:[a-z]{2}(?:_[a-z0-9]+)?|global)$"
+          },
+          "jurisdiction": {
+            "properties": {
+              "resolution_status": {
+                "const": "approved"
+              }
+            }
+          },
+          "governance": {
+            "properties": {
+              "quarantine": {
+                "const": false
+              },
+              "blockers": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "jurisdiction": {
+            "properties": {
+              "code": {
+                "const": "unresolved"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "governance": {
+            "properties": {
+              "enabled": {
+                "const": false
+              },
+              "blockers": {
+                "contains": {
+                  "const": "jurisdiction_unresolved"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

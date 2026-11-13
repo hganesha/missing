@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/kyc/event/1.0.0",
+  "title": "Proposed host result-change event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "specversion",
+    "id",
+    "source",
+    "type",
+    "time",
+    "subject",
+    "tenant_id",
+    "resource_version",
+    "data"
+  ],
+  "properties": {
+    "specversion": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "format": "uri"
+    },
+    "type": {
+      "enum": [
+        "kyc.check.result.updated.v1",
+        "kyc.check.failed.v1",
+        "kyc.check.coverage.changed.v1"
+      ]
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "resource_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "check_id",
+        "result_id",
+        "result_schema_version",
+        "changed_paths"
+      ],
+      "properties": {
+        "check_id": {
+          "type": "string"
+        },
+        "result_id": {
+          "type": "string"
+        },
+        "result_schema_version": {
+          "const": "1.0.0"
+        },
+        "changed_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

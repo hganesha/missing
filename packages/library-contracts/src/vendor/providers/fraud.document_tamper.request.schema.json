@@ -1,0 +1,49 @@
+{
+  "$defs": {
+    "DocumentProviderRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "document_version": {
+          "$ref": "#/$defs/Id"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "text": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "document_version"
+      ],
+      "type": "object"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Text": {
+      "maxLength": 200000,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:provider:fraud.document_tamper:request:2.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "records": {
+      "items": {
+        "$ref": "#/$defs/DocumentProviderRecord"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "records"
+  ],
+  "type": "object"
+}

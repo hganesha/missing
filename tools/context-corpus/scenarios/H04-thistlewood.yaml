@@ -1,0 +1,187 @@
+# H04: clean SME for KYB. Two-level ownership; both individuals are registrable PSCs.
+id: H04
+seed: 1004
+as_of: 2026-09-30
+customer: thistlewood_fab
+entities:
+  - ref: thistlewood_fab
+    kind: company
+    name: Thistlewood Fabrication Ltd
+    industry: metal_fabrication
+    business_purpose: Precision sheet-metal fabrication for UK B2B customers
+    employees: 34
+    verification: registry_extract
+    address:
+      lines: ["Unit 7, Calder Works", "Foundry Lane"]
+      locality: Sheffield
+      postal_code: S9 9ZZ
+      country: GB
+    registration:
+      jurisdiction: GB
+      authority: synthetic-registry
+      registration_id: SYN-GB-00041042
+      incorporated: 2012-06-19
+      status: active
+    aliases:
+      - { name: Thistlewood Fab, language: en }
+  - ref: thistlewood_holdings
+    kind: company
+    name: Thistlewood Holdings Ltd
+    business_purpose: Holding company
+    verification: registry_extract
+    address:
+      lines: ["Unit 7, Calder Works", "Foundry Lane"]
+      locality: Sheffield
+      postal_code: S9 9ZZ
+      country: GB
+    registration:
+      jurisdiction: GB
+      authority: synthetic-registry
+      registration_id: SYN-GB-00041077
+      incorporated: 2015-02-03
+      status: active
+  - ref: gareth
+    kind: individual
+    name: Gareth Thistlewood
+    dob: 1971-11-08
+    nationality: GB
+    verification: government_id_document
+    identifiers:
+      - { type: passport, issuer: GB-SPECIMEN, value: SPECIMEN-H04-PP-0001, verified: true }
+    address: { lines: ["12 Linden Close"], locality: Sheffield, postal_code: S11 7ZZ, country: GB }
+  - ref: priya
+    kind: individual
+    name: Priya Nair-Calloway
+    dob: 1979-03-22
+    nationality: GB
+    verification: government_id_document
+    identifiers:
+      - { type: passport, issuer: GB-SPECIMEN, value: SPECIMEN-H04-PP-0002, verified: true }
+    address: { lines: ["3 Westfield Mews"], locality: Sheffield, postal_code: S10 4ZZ, country: GB }
+  - ref: helen
+    kind: individual
+    name: Helen Marsh
+    dob: 1983-07-30
+    nationality: GB
+    verification: government_id_document
+    identifiers:
+      - { type: passport, issuer: GB-SPECIMEN, value: SPECIMEN-H04-PP-0003, verified: true }
+    address: { lines: ["88 Hartley Road"], locality: Rotherham, postal_code: S60 2ZZ, country: GB }
+officers:
+  - { person: gareth, org: thistlewood_fab, role: director, appointed: 2012-06-19 }
+  - { person: priya, org: thistlewood_fab, role: director, appointed: 2015-02-03 }
+  - { person: helen, org: thistlewood_fab, role: director, appointed: 2021-09-01 }
+ownership:
+  - { owner: thistlewood_holdings, owned: thistlewood_fab, interest: "1", since: 2015-02-03 }
+  - { owner: gareth, owned: thistlewood_holdings, interest: "0.6", since: 2015-02-03 }
+  - { owner: priya, owned: thistlewood_holdings, interest: "0.4", since: 2015-02-03 }
+relationship:
+  institution: bank.synthetic
+  booking_jurisdiction: GB
+  policy_jurisdiction: US
+  customer_type: private_company
+  started: 2023-05-15
+  risk_tier: LOW
+  ownership_complete: true
+  parties:
+    - { entity: thistlewood_fab, role: customer }
+    - { entity: gareth, role: beneficial_owner }
+    - { entity: priya, role: beneficial_owner }
+    - { entity: gareth, role: director }
+    - { entity: priya, role: director }
+    - { entity: helen, role: director }
+  products:
+    - type: deposit
+      currencies: [GBP]
+      countries: [GB]
+      channels: [online, branch]
+      expected_activity:
+        monthly_inflow: "310000"
+        monthly_outflow: "295000"
+        currency: GBP
+        transaction_count: 85
+        cash_exposure: false
+        counterparty_countries: [GB, IE, DE]
+        counterparty_types: [business]
+        rails: [faster_payments, bacs, chaps]
+    - type: payments
+      currencies: [EUR, GBP]
+      countries: [GB, IE, DE]
+      channels: [online]
+      expected_activity:
+        monthly_inflow: "21000"
+        monthly_outflow: "14500"
+        currency: EUR
+        transaction_count: 11
+        cash_exposure: false
+        counterparty_countries: [IE, DE]
+        counterparty_types: [business]
+        rails: [sepa, swift]
+    - type: lending
+      currencies: [GBP]
+      countries: [GB]
+      channels: [branch]
+    - type: merchant_acquiring
+      currencies: [GBP]
+      countries: [GB]
+      channels: [pos]
+  geography:
+    - { country: GB, basis: operations, value: "0.85" }
+    - { country: IE, basis: customers, value: "0.08" }
+    - { country: DE, basis: suppliers, value: "0.07" }
+source_of_funds:
+  - { claim: "Revenue from fabrication contracts with UK manufacturers; seasonal peak in Q4", verified: true }
+risk_factors:
+  - { name: geography, score: "0.10" }
+  - { name: product, score: "0.25" }
+  - { name: industry, score: "0.20" }
+  - { name: ownership_structure, score: "0.15" }
+screening:
+  provider: synthetic-lists
+  capability: screening.sanctions.v1
+  subjects: [thistlewood_fab, thistlewood_holdings, gareth, priya, helen]
+  types: [sanctions, pep, watchlist, adverse_media]
+  dataset_versions: [synthetic-lists-2026-09-29]
+  scope: [ofac-sdn, un-consolidated, uk-sanctions, eu-consolidated]
+  list_published: 2026-09-29
+signals: []
+expected:
+  workflow:
+    kyb: APPROVE
+  alerts: 0
+  non_findings:
+    - screening.sanctions.ownership.evaluate
+    - ownership.nominee.detect
+    - aml.structuring.detect
+  hard_negative: true
+  notes: >
+    Gareth holds 60% of Holdings, which owns 100% of the company (effective 0.6). Priya 0.4. Both
+    cross the 25% threshold; Helen is a director with no ownership.
+ledger:
+  start: 2024-09-30
+  end: 2026-09-30
+  opening_balance: { deposit: "180000.00", payments: "20000.00" }
+  counterparties:
+    - { ref: payroll-bureau, name: Brightwater Payroll Services Ltd, kind: company, country: GB }
+    - { ref: landlord, name: Kingsmead Industrial Estates Ltd, kind: company, country: GB }
+    - { ref: tax, name: Exchequer Collections Office (synthetic), kind: company, country: GB }
+    - { ref: asset-finance, name: Fernhill Asset Finance Ltd, kind: company, country: GB }
+    - { ref: power, name: Overton Energy Ltd, kind: company, country: GB }
+  pools:
+    - { ref: customers, kind: company, country: GB, size: 30, style: customer }
+    - { ref: suppliers, kind: company, country: GB, size: 12, style: supplier }
+    - { ref: eu-customers, kind: company, country: DE, size: 6, style: customer }
+    - { ref: eu-suppliers, kind: company, country: IE, size: 4, style: supplier }
+  flows:
+    - { id: invoices, direction: in, counterparty: customers, rail: faster_payments, type: customer_payment, per_month: 60, max_per_day: 4, cooldown_days: 5,
+        seasonality: [0.9, 0.9, 1.0, 1.0, 1.0, 1.0, 0.85, 0.85, 1.05, 1.15, 1.2, 1.1], amount: { median: "4200", sigma: 0.8, floor: "300", cap: "38000" } }
+    - { id: suppliers, direction: out, counterparty: suppliers, rail: bacs, type: supplier_payment, per_month: 18, max_per_day: 1, cooldown_days: 5, amount: { median: "5800", sigma: 0.7, floor: "250", cap: "30000" } }
+    - { id: payroll, direction: out, counterparty: payroll-bureau, rail: bacs, type: payroll, schedule: { freq: monthly, day: 25 }, amount: { value: "41000.00", jitter: 0.03 } }
+    - { id: rent, direction: out, counterparty: landlord, rail: bacs, type: rent, schedule: { freq: monthly, day: 1 }, amount: { value: "6800.00" } }
+    - { id: vat, direction: out, counterparty: tax, rail: faster_payments, type: tax, schedule: { freq: monthly, day: 7 }, amount: { value: "13500.00", jitter: 0.25 } }
+    - { id: loan, direction: out, counterparty: asset-finance, rail: bacs, type: loan_repayment, schedule: { freq: monthly, day: 5 }, amount: { value: "6200.00" } }
+    - { id: power, direction: out, counterparty: power, rail: bacs, type: utility, schedule: { freq: monthly, day: 14 }, amount: { value: "2900.00", jitter: 0.2 } }
+    - { id: eu-invoices, account: payments, currency: EUR, direction: in, counterparty: eu-customers, rail: sepa, type: customer_payment, per_month: 6, cooldown_days: 7,
+        amount: { median: "3500", sigma: 0.5, floor: "400", cap: "15000" } }
+    - { id: eu-suppliers, account: payments, currency: EUR, direction: out, counterparty: eu-suppliers, rail: sepa, type: supplier_payment, per_month: 5, cooldown_days: 7,
+        amount: { median: "2900", sigma: 0.5, floor: "300", cap: "12000" } }

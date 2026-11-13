@@ -1,0 +1,19 @@
+{
+  "name": "@ehf/runtime-state",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@ehf/contracts": "workspace:*",
+    "@ehf/telemetry": "workspace:*",
+    "zod": "4.6.6"
+  }
+}

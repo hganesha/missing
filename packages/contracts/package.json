@@ -1,0 +1,35 @@
+{
+  "name": "@ehf/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./deployment": "./src/deployment.ts",
+    "./intelligence": "./src/intelligence.ts",
+    "./intelligence-adapters": "./src/intelligence-adapters.ts",
+    "./document-factory": "./src/document-factory.ts",
+    "./external-bindings": "./src/external-bindings.ts",
+    "./deployment-plan": "./src/deployment-plan.ts",
+    "./context-sources": "./src/context-sources.ts",
+    "./context-refresh": "./src/context-refresh.ts",
+    "./document-search": "./src/document-search.ts",
+    "./resource-provisioning": "./src/resource-provisioning.ts",
+    "./context-setup": "./src/context-setup.ts",
+    "./platform-health": "./src/platform-health.ts",
+    "./workbench": "./src/workbench.ts",
+    "./users": "./src/users.ts",
+    "./financial-crime": "./src/financial-crime.ts",
+    "./products": "./src/products.ts",
+    "./application-intake": "./src/application-intake.ts",
+    "./foundry": "./src/foundry.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "4.6.6"
+  }
+}

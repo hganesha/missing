@@ -1,0 +1,73 @@
+{
+  "connection": {
+    "id": "customer-db",
+    "name": "Customer database",
+    "provider": "postgresql",
+    "endpoint": "postgresql://source.example.test:5432/governed",
+    "credentialRef": "env:CUSTOMER_DB",
+    "identityMode": "service",
+    "openapiPath": "/openapi.json",
+    "resource": {
+      "database": "governed",
+      "schema": "public",
+      "object": "customers",
+      "catalog": "",
+      "warehouse": "",
+      "project": ""
+    }
+  },
+  "binding": {
+    "id": "customer-records",
+    "name": "Customer records",
+    "productId": "identity.intelligence",
+    "connectionId": "customer-db",
+    "connectionRevision": 1,
+    "query": "SELECT id, name, entity_type, identifiers, observed_at FROM customers WHERE id = :customer_id",
+    "operationPath": "/customers/{customer_id}",
+    "responsePath": "rows",
+    "parameters": [
+      {
+        "name": "customer_id",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "objectType": "Entity",
+    "keyField": "id",
+    "observedAtField": "observed_at",
+    "mapping": [
+      {
+        "source": "name",
+        "target": "name",
+        "required": true,
+        "transform": "identity"
+      },
+      {
+        "source": "entity_type",
+        "target": "entity_type",
+        "required": true,
+        "transform": "identity"
+      },
+      {
+        "source": "identifiers",
+        "target": "identifiers",
+        "required": true,
+        "transform": "identity"
+      }
+    ],
+    "datasetId": "customer-master",
+    "maximumRows": 50,
+    "timeoutMs": 10000,
+    "maxAgeSeconds": 86400,
+    "refresh": {
+      "enabled": false,
+      "intervalMinutes": 60,
+      "planDigest": null,
+      "sourceContextDigest": null,
+      "input": {
+        "caseId": ""
+      }
+    },
+    "canonicalSchemaVersion": "2.0.0"
+  }
+}

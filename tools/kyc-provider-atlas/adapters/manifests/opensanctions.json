@@ -1,0 +1,77 @@
+{
+  "adapter_id": "opensanctions",
+  "provider_id": "opensanctions",
+  "adapter_version": "0.1.0",
+  "host_schema_version": "1.0.0",
+  "capability": "screening.sanctions",
+  "maturity": "fixture_tested",
+  "enabled": false,
+  "native": {
+    "method": "POST",
+    "path": "/match/{dataset}",
+    "api_version": null,
+    "authentication": "Authorization: ApiKey; commercial data license",
+    "documentation_urls": [
+      "https://www.opensanctions.org/docs/api/request/",
+      "https://www.opensanctions.org/docs/api/response/",
+      "https://www.opensanctions.org/docs/api/"
+    ],
+    "fixture_only": true
+  },
+  "mapping_rules": [
+    {
+      "source_pointer": "/responses/{query}/results/*/id",
+      "target_pointer": "/entities/*/source_record_ids",
+      "transform": "create separate candidate entity, never merge automatically",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S13",
+        "S14",
+        "S15"
+      ]
+    },
+    {
+      "source_pointer": "/responses/{query}/results/*/score",
+      "target_pointer": "/result/matches/*/scores",
+      "transform": "raw provider-specific score; no cross-provider normalization",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S13",
+        "S14",
+        "S15"
+      ]
+    },
+    {
+      "source_pointer": "/responses/{query}/results/*/properties/topics",
+      "target_pointer": "/result/matches/*/categories",
+      "transform": "retain provider taxonomy; disposition unresolved",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S13",
+        "S14",
+        "S15"
+      ]
+    }
+  ],
+  "supported_countries": [],
+  "entitlement_ref": null,
+  "secret_ref": null,
+  "transport_requirements": [
+    "TLS",
+    "approved regional base URL allowlist",
+    "secret vault injection",
+    "rate limiting and circuit breaker",
+    "bounded retry with jitter and idempotency",
+    "verify raw webhook signatures before decoding",
+    "durable inbox and tenant-bound correlation",
+    "replay and stale-event protection",
+    "original-byte hash and encrypted evidence storage"
+  ],
+  "limitations": [
+    "Synthetic representative payload subset only; not vendor-certified",
+    "No live HTTP, authentication, webhook signature, or sandbox integration implemented",
+    "No proof of contractual dataset coverage, country entitlements, retention rights or bank adoption",
+    "Empty country allowlist blocks live routing",
+    "Unmapped native properties available only in restricted raw artifact"
+  ]
+}

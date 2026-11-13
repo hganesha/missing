@@ -1,0 +1,87 @@
+# Fixture package for a business skill served by a skill host (skill.execution.v1,
+# docs/implementation/skill-library-integration-contract.md). The node `registry-verify` is bound
+# to sample.registry.verify, whose only candidate is the skill-hosted capability
+# `skill.sample.registry.verify.v1` (connector skills:sample.registry.verify). harnessc pins the
+# manifest digest and the reference host's bundle digest, and adds the skill's declared
+# dependency (business.registry.lookup.v1) to the node's permission envelope so the gateway can
+# narrow a delegated envelope to it. Digests are those of apps/skill-host-reference.
+# Recompile with:
+#   harnessc compile packages/contracts/test-fixtures/skill-hosted --out packages/contracts/test-fixtures/skill-hosted.plan.json
+apiVersion: harness.factory/domain-package-v2
+kind: DomainPackage
+metadata:
+  name: skill-hosted-registry
+  version: 0.1.0
+  domain: conformance
+  objective: Run a business skill on a skill host with a delegated envelope.
+  owners: [financial-crime-platform]
+  riskClass: high
+workflow: workflow.yaml
+coordinationMode: caseStore
+budgets:
+  maxDurationMs: 60000
+  maxCostUsd: 0.05
+  maxModelCalls: 0
+  maxCapabilityCalls: 6
+modelProfiles: []
+agentProfiles: []
+capabilities:
+  - id: skill.sample.registry.verify.v1
+    kind: tool
+    effect: read
+    adapterBindingId: skills:sample.registry.verify
+    inputSchema: { type: object }
+    outputSchema: { type: object }
+    timeoutMs: 20000
+    maxAttempts: 1
+    idempotent: true
+  - id: business.registry.lookup.v1
+    kind: tool
+    effect: read
+    adapterBindingId: simulator:vendor.lookup
+    inputSchema: { type: object }
+    outputSchema: { type: object }
+    timeoutMs: 5000
+    maxAttempts: 1
+    idempotent: true
+  - id: screening.sanctions.v1
+    kind: tool
+    effect: read
+    adapterBindingId: simulator:screening.sanctions.search
+    inputSchema: { type: object }
+    outputSchema: { type: object }
+    timeoutMs: 5000
+    maxAttempts: 1
+    idempotent: true
+bindings:
+  sanctions-screen: screening.sanctions.v1
+skillBindings:
+  - skillId: sample.registry.verify
+    semver: 0.1.0
+    manifestDigest: sha256:cb3624e365a1cdd6a25a7ca0f0db0aae0b517c3b62c6ccc604b738ef60c162e3
+    bundleDigest: sha256:c0e0ba20bd921f24f6a1b095f5fd049bfcb5cb79a66208f0acea870ef29e852f
+    dependencyCapabilities: [business.registry.lookup.v1]
+    # The registry entry's write authority (proposal: records, no effects), which node grants may not exceed.
+    effects: { mode: proposal, approval: none, caseCommands: [] }
+    candidates:
+      - skill.sample.registry.verify.v1
+    policy:
+      require_entitlement: false
+      require_list_freshness: false
+      require_jurisdiction_coverage: false
+      allow_fallback: false
+      log_selected_implementation: true
+policies: []
+contextSelectors:
+  - id: subject
+    source: case
+    path: subjects.0.display_name
+    purpose: KYC_ONBOARDING
+    classification: PII
+    required: true
+contextClassificationPolicies:
+  - classification: PII
+    action: allow
+allowedRegions: [US]
+dataClasses: [PII]
+evaluationRequirements: [skill-host-conformance]

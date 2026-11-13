@@ -1,0 +1,118 @@
+{
+  "library": "financial-crime-skills",
+  "version": "0.5.0",
+  "context_schema_version": "2.0.0",
+  "catalog_source_hash": "ca1b81c58aae535d695dd589fbf471502ff55c9ad780c36f1c9490a02dc1d7d4",
+  "bundle_code_hash": "fe30e3c8f3002a57d59ea641334dbdd3ef6c7524a264345156aec34cfbf45e20",
+  "synthetic": true,
+  "files": {
+    "ontology.schema.json": {
+      "source": "schemas/context/ontology.schema.json",
+      "sha256": "84a60ebe9c40bb9f5bee571e665588eeece8d6ec6a5642dfb025a4fafddf8f35"
+    },
+    "context-relationships.json": {
+      "source": "catalog/context-relationships.json",
+      "sha256": "04a6b52ee486daa9ea01fa7b03185f2fc4afdd8dbb2d7b8f0b5694ba70660318"
+    },
+    "effect-command.schema.json": {
+      "source": "schemas/runtime/EffectCommand.schema.json",
+      "sha256": "bd9ee68fcb1ee094fa7b60f7df8a6f384032a764b8a24cedb565ef0870a23d78"
+    },
+    "providers/document.entities.request.schema.json": {
+      "source": "schemas/providers/document.entities.request.schema.json",
+      "sha256": "f80723c172ff619801c3d35fca18d52f82b77326fc39850beb6c5db0e36a0d16"
+    },
+    "providers/document.entities.response.schema.json": {
+      "source": "schemas/providers/document.entities.response.schema.json",
+      "sha256": "a10c0048fc3850a554acfce34891da341112a48e47bc1b39354f69e7641f4325"
+    },
+    "providers/document.fields.request.schema.json": {
+      "source": "schemas/providers/document.fields.request.schema.json",
+      "sha256": "34381707d8d18460da6078e621447107543df357a898d0c918b5186480e81f68"
+    },
+    "providers/document.fields.response.schema.json": {
+      "source": "schemas/providers/document.fields.response.schema.json",
+      "sha256": "b72ab14f10a5464e9904ca68dbc086e14a8fee8bbcbd8449d2605db1329dd299"
+    },
+    "providers/document.forensics.request.schema.json": {
+      "source": "schemas/providers/document.forensics.request.schema.json",
+      "sha256": "f3e30060bf84371ba8a58d23076c4bc9a68eb97932ad13d95b505e16f708e316"
+    },
+    "providers/document.forensics.response.schema.json": {
+      "source": "schemas/providers/document.forensics.response.schema.json",
+      "sha256": "f14816400ffdd918fcade73d493ecc826fa834a9a45250f3bbe04616ba95f090"
+    },
+    "providers/document.model.request.schema.json": {
+      "source": "schemas/providers/document.model.request.schema.json",
+      "sha256": "c775afa317103e7b5c5efed0173b808f3080504aba83171d3252e224fba2a4bb"
+    },
+    "providers/document.model.response.schema.json": {
+      "source": "schemas/providers/document.model.response.schema.json",
+      "sha256": "99ac84c38b45ae19ed1d4ced0cb4fabff643424d7023eba62e52f3618d2f7e02"
+    },
+    "providers/document.ocr.request.schema.json": {
+      "source": "schemas/providers/document.ocr.request.schema.json",
+      "sha256": "485fc17408da1d0ce3f29cc18fb65f6fef5827f1310fe6c154f8d26ea7abdc1f"
+    },
+    "providers/document.ocr.response.schema.json": {
+      "source": "schemas/providers/document.ocr.response.schema.json",
+      "sha256": "d692725f4a19b2832f4233e53c822e9abddee163e88691212b90449eac799e34"
+    },
+    "providers/document.translate.request.schema.json": {
+      "source": "schemas/providers/document.translate.request.schema.json",
+      "sha256": "c8fbdaf567fc1f41c5aa251cad32ef3dd6ec4bad6fe50561397a603a0991a084"
+    },
+    "providers/document.translate.response.schema.json": {
+      "source": "schemas/providers/document.translate.response.schema.json",
+      "sha256": "a73922b822216d49c30d7ad92b3751ff09e4ea4e6999997640d6604739dbe7ac"
+    },
+    "providers/fraud.account_takeover.request.schema.json": {
+      "source": "schemas/providers/fraud.account_takeover.request.schema.json",
+      "sha256": "468ef698a7419429b9df8e3a1215db14af8e6759813182bff40943a2e3dac1af"
+    },
+    "providers/fraud.account_takeover.response.schema.json": {
+      "source": "schemas/providers/fraud.account_takeover.response.schema.json",
+      "sha256": "bbb2a95c4f74de001112d00f9cc7a2cf300b2f583c1c8da81dba2ce3891a84d0"
+    },
+    "providers/fraud.deepfake.request.schema.json": {
+      "source": "schemas/providers/fraud.deepfake.request.schema.json",
+      "sha256": "18f6f3ed9f8ec683fcd66a8fefd4874659fbed4509bdc5a2ce49c8907d49166c"
+    },
+    "providers/fraud.deepfake.response.schema.json": {
+      "source": "schemas/providers/fraud.deepfake.response.schema.json",
+      "sha256": "ba91ca383eef0e66ff688f1571dd3b76b15c0417d38e872d7195341aa8bb46ce"
+    },
+    "providers/fraud.document_tamper.request.schema.json": {
+      "source": "schemas/providers/fraud.document_tamper.request.schema.json",
+      "sha256": "ba5432e75653e793cd07d14da2ceeac1c313e177b204b0727128ff7f9fd7e954"
+    },
+    "providers/fraud.document_tamper.response.schema.json": {
+      "source": "schemas/providers/fraud.document_tamper.response.schema.json",
+      "sha256": "8d02bb4478a6ef4e46cfe22d3405596adde8da692f3d6c401a516ccdb5d51b11"
+    },
+    "providers/fraud.identity_theft.request.schema.json": {
+      "source": "schemas/providers/fraud.identity_theft.request.schema.json",
+      "sha256": "0b148a1b22f660d0b33fe66c29a56aacefd4926c402acb70a04e3ca13851967a"
+    },
+    "providers/fraud.identity_theft.response.schema.json": {
+      "source": "schemas/providers/fraud.identity_theft.response.schema.json",
+      "sha256": "ff6fd3f210465c85c1ac3e4efba6a4940cf16027f5aeb3fe7cd8f0e015b7c45e"
+    },
+    "providers/fraud.liveness.request.schema.json": {
+      "source": "schemas/providers/fraud.liveness.request.schema.json",
+      "sha256": "b97a9b7e4193a7383ef19430a106d19c23bf26f43780b9eaba67f989fbefc7d3"
+    },
+    "providers/fraud.liveness.response.schema.json": {
+      "source": "schemas/providers/fraud.liveness.response.schema.json",
+      "sha256": "950876f6fe43f407b588f424e8b5983dfe2f7555cc5d127c23900f3efa14a59c"
+    },
+    "providers/fraud.synthetic_identity.request.schema.json": {
+      "source": "schemas/providers/fraud.synthetic_identity.request.schema.json",
+      "sha256": "6b2457c6381ee63caf35f0f9cd1801d27c0e37b6812f96fc752ee3d99e04e3b7"
+    },
+    "providers/fraud.synthetic_identity.response.schema.json": {
+      "source": "schemas/providers/fraud.synthetic_identity.response.schema.json",
+      "sha256": "dbf9d09c7550dcba407b4ab482895f7666092967f2cde2ee7dc038b88348ac38"
+    }
+  }
+}

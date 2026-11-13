@@ -1,0 +1,24 @@
+{
+  "name": "@ehf/kyc-policy",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./corpus": "./src/corpus.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "corpus:generate": "tsx src/generate-corpus-cli.ts",
+    "conformance:opa": "tsx src/opa-conformance.ts"
+  },
+  "dependencies": {
+    "@ehf/contracts": "workspace:*",
+    "@ehf/policy-engine": "workspace:*",
+    "yaml": "2.9.1",
+    "zod": "4.6.6",
+    "tsx": "4.23.1"
+  }
+}

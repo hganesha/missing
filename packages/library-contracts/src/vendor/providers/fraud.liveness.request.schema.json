@@ -1,0 +1,49 @@
+{
+  "$defs": {
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "LivenessProviderRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_hash": {
+          "$ref": "#/$defs/Hash"
+        },
+        "challenge_id": {
+          "$ref": "#/$defs/Id"
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "id",
+        "artifact_hash",
+        "challenge_id"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:financial-crime:provider:fraud.liveness:request:2.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "records": {
+      "items": {
+        "$ref": "#/$defs/LivenessProviderRecord"
+      },
+      "maxItems": 10000,
+      "type": "array"
+    }
+  },
+  "required": [
+    "records"
+  ],
+  "type": "object"
+}

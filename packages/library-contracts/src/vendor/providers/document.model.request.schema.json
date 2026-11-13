@@ -1,0 +1,37 @@
+{
+  "$defs": {
+    "Hash": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "$id": "urn:financial-crime:provider:document.model:request:2.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "$ref": "#/$defs/Hash"
+    },
+    "artifact_ref": {
+      "$ref": "#/$defs/Id"
+    },
+    "document_type": {
+      "$ref": "#/$defs/Id"
+    },
+    "media_type": {
+      "$ref": "#/$defs/Id"
+    }
+  },
+  "required": [
+    "document_type",
+    "artifact_ref",
+    "artifact_hash",
+    "media_type"
+  ],
+  "type": "object"
+}

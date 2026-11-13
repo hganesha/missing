@@ -1,0 +1,18 @@
+{
+  "name": "@ehf/ui-tokens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Design tokens for the new UI (BUILD-SPEC v2 §7.1): tokens.css, typed tokens, stateTone/stateGlyph over tokens.json stateMap, self-hosted OFL fonts.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens.css": "./src/generated/tokens.css"
+  },
+  "scripts": {
+    "build": "node scripts/build-tokens.mjs",
+    "pretypecheck": "node scripts/build-tokens.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "pretest": "node scripts/build-tokens.mjs",
+    "test": "vitest run"
+  }
+}

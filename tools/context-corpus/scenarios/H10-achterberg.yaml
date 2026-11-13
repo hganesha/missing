@@ -1,0 +1,101 @@
+# H10: individual, NL. Account takeover: new device, credential reset, impossible travel, a new
+# payee that is a mule (shares a phone number with two unconnected people), a probe payment, then a
+# large payment that is held.
+id: H10
+seed: 1010
+as_of: 2026-09-30
+customer: devon
+entities:
+  - ref: devon
+    kind: individual
+    name: Devon Achterberg
+    dob: 1990-02-14
+    nationality: NL
+    phone: "+31-600-555-0110"
+    email: devon.achterberg@example.test
+    verification: government_id_document
+    address: { lines: ["Zonnelaan 22"], locality: Utrecht, postal_code: 3500 XX, country: NL }
+    identifiers:
+      - { type: passport, issuer: NL-SPECIMEN, value: SPECIMEN-H10-PP-0001, verified: true }
+relationship:
+  institution: bank.synthetic
+  booking_jurisdiction: NL
+  policy_jurisdiction: US
+  started: 2023-02-01
+  risk_tier: LOW
+  ownership_complete: null
+  parties:
+    - { entity: devon, role: customer }
+  products:
+    - type: deposit
+      currencies: [EUR]
+      countries: [NL]
+      channels: [online, mobile]
+      expected_activity:
+        monthly_inflow: "3300"
+        monthly_outflow: "3100"
+        currency: EUR
+        transaction_count: 45
+        cash_exposure: false
+        counterparty_countries: [NL]
+        counterparty_types: [employer, landlord, merchant, individual]
+        rails: [sepa, card]
+    - type: card
+      currencies: [EUR]
+      countries: [NL]
+      channels: [online, pos]
+    - type: payments
+      currencies: [EUR]
+      countries: [NL]
+      channels: [mobile]
+  geography:
+    - { country: NL, basis: residence, value: "1" }
+source_of_funds:
+  - { claim: "Salaried employment as a nurse practitioner; monthly payroll by SEPA credit transfer", verified: true }
+risk_factors:
+  - { name: geography, score: "0.05" }
+  - { name: product, score: "0.10" }
+  - { name: customer_type, score: "0.05" }
+screening:
+  provider: synthetic-lists
+  capability: screening.sanctions.v1
+  types: [sanctions, pep, watchlist, adverse_media]
+  dataset_versions: [synthetic-lists-2026-09-29]
+  scope: [ofac-sdn, un-consolidated, uk-sanctions, eu-consolidated]
+  list_published: 2026-09-29
+ledger:
+  start: 2024-09-30
+  end: 2026-09-30
+  opening_balance: { deposit: "2500.00" }
+  counterparties:
+    - { ref: employer, name: Northfield Care Group BV, kind: company, country: NL }
+    - { ref: landlord, name: Kingsmead Woningbeheer BV, kind: company, country: NL }
+    - { ref: power, name: Overton Energie BV, kind: company, country: NL }
+  pools:
+    - { ref: merchants, kind: company, country: NL, size: 12, style: merchant }
+    - { ref: friends, kind: individual, country: NL, size: 4, style: generic }
+  flows:
+    - { id: salary, currency: EUR, direction: in, counterparty: employer, rail: sepa, type: payroll, schedule: { freq: monthly, day: 25 }, amount: { value: "3150.00" } }
+    - { id: rent, currency: EUR, direction: out, counterparty: landlord, rail: sepa, type: rent, schedule: { freq: monthly, day: 1 }, amount: { value: "1250.00" } }
+    - { id: power, currency: EUR, direction: out, counterparty: power, rail: sepa, type: utility, schedule: { freq: monthly, day: 12 }, amount: { value: "110.00", jitter: 0.2 } }
+    - { id: card, currency: EUR, direction: out, counterparty: merchants, rail: card, type: card_purchase, per_month: 30, cooldown_days: 0, max_per_day: 3, amount: { median: "28", sigma: 0.6, floor: "2", cap: "300" } }
+    - { id: friends, currency: EUR, direction: out, counterparty: friends, rail: sepa, type: transfer, per_month: 3, cooldown_days: 3, amount: { median: "120", sigma: 0.5, floor: "10", cap: "600" } }
+digital:
+  sessions_per_month: 3
+  payments: { baseline_maximum: "1500.00", types: [transfer] }
+signals:
+  - id: SIG-H10-ATO
+    type: account_takeover
+    params: { day: 2026-08-18, probe: "1.00", amount: "4800.00", currency: EUR, shared_phone: "+31-600-555-0199", ring_size: 2, payee_country: NL }
+    expect:
+      detected_by: [fraud.behavior.anomaly, fraud.payment.anomaly, fraud.beneficiary.risk, fraud.network.detect, fraud.case.assess, fraud.account_takeover.detect]
+      outcome: PAYMENT_HELD
+expected:
+  workflow:
+    kyc_v2: APPROVE
+    monitoring: PAYMENT_HELD
+  alerts: 0
+  non_findings: [screening.sanctions.execute, screening.pep.execute, aml.structuring.detect]
+  notes: >
+    The main payment is held (pending). The probe payment is under the baseline and settles; it is
+    still part of the episode. Everything outside the episode is the customer's ordinary history.

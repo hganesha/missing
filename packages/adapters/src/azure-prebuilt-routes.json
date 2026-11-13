@@ -1,0 +1,132 @@
+{
+  "$comment": "Azure Document Intelligence prebuilt models mapped to catalog fields (API 2024-11-30), written against live results. One source for the platform adapter (document-model-azure.ts) and the Factory worker (document_factory.prebuilt). An identity card's printed number is the personal identity number in the catalog; a separate personal number wins.",
+  "routes": {
+    "passport": {
+      "model": "prebuilt-idDocument",
+      "fields": [
+        {
+          "from": "DocumentNumber",
+          "to": "document_number"
+        },
+        {
+          "from": "PersonalNumber",
+          "to": "identity_number"
+        },
+        {
+          "from": "FirstName",
+          "to": "given_names"
+        },
+        {
+          "from": "LastName",
+          "to": "family_name"
+        },
+        {
+          "from": "DateOfBirth",
+          "to": "date_of_birth",
+          "kind": "date"
+        },
+        {
+          "from": "DateOfExpiration",
+          "to": "expiry_date",
+          "kind": "date"
+        },
+        {
+          "from": "DateOfIssue",
+          "to": "issue_date",
+          "kind": "date"
+        },
+        {
+          "from": "PlaceOfBirth",
+          "to": "place_of_birth"
+        }
+      ]
+    },
+    "national_identity_card": {
+      "model": "prebuilt-idDocument",
+      "fields": [
+        {
+          "from": "PersonalNumber",
+          "to": "identity_number"
+        },
+        {
+          "from": "DocumentNumber",
+          "to": "identity_number"
+        },
+        {
+          "from": "FirstName",
+          "to": "given_names"
+        },
+        {
+          "from": "LastName",
+          "to": "family_name"
+        },
+        {
+          "from": "DateOfBirth",
+          "to": "date_of_birth",
+          "kind": "date"
+        },
+        {
+          "from": "DateOfExpiration",
+          "to": "expiry_date",
+          "kind": "date"
+        },
+        {
+          "from": "DateOfIssue",
+          "to": "issue_date",
+          "kind": "date"
+        },
+        {
+          "from": "PlaceOfBirth",
+          "to": "place_of_birth"
+        }
+      ]
+    },
+    "bank_statement": {
+      "model": "prebuilt-bankStatement.us",
+      "fields": [
+        {
+          "from": "AccountHolderName",
+          "to": "subject_name"
+        },
+        {
+          "from": "BankName",
+          "to": "issuer_name"
+        },
+        {
+          "from": "StatementStartDate",
+          "to": "period_start",
+          "kind": "date"
+        },
+        {
+          "from": "StatementEndDate",
+          "to": "period_end",
+          "kind": "date"
+        }
+      ],
+      "rows": {
+        "from": "Accounts",
+        "to": "accounts",
+        "members": [
+          {
+            "from": "AccountNumber",
+            "to": "account_identifier"
+          },
+          {
+            "from": "AccountType",
+            "to": "account_type"
+          },
+          {
+            "from": "BeginningBalance",
+            "to": "opening_balance",
+            "kind": "decimal"
+          },
+          {
+            "from": "EndingBalance",
+            "to": "closing_balance",
+            "kind": "decimal"
+          }
+        ]
+      }
+    }
+  }
+}

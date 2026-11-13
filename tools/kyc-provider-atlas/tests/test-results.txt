@@ -1,0 +1,33 @@
+test_all_capabilities_have_example (test_contracts.ContractTests.test_all_capabilities_have_example) ... ok
+test_all_host_examples (test_contracts.ContractTests.test_all_host_examples) ... ok
+test_bad_payload_fails_closed (test_contracts.ContractTests.test_bad_payload_fails_closed) ... ok
+test_catalog_references (test_contracts.ContractTests.test_catalog_references) ... ok
+test_completed_is_not_approved (test_contracts.ContractTests.test_completed_is_not_approved) ... ok
+test_empty_screening_not_clearance (test_contracts.ContractTests.test_empty_screening_not_clearance) ... ok
+test_expired_and_abandoned_not_identity_failures (test_contracts.ContractTests.test_expired_and_abandoned_not_identity_failures) ... ok
+test_failed_execution_cannot_pass (test_contracts.ContractTests.test_failed_execution_cannot_pass) ... ok
+test_identifier_namespace_required (test_contracts.ContractTests.test_identifier_namespace_required) ... ok
+test_manifests (test_contracts.ContractTests.test_manifests) ... ok
+test_middesk_approved_client_workflow (test_contracts.ContractTests.test_middesk_approved_client_workflow) ... ok
+test_names_are_not_merged (test_contracts.ContractTests.test_names_are_not_merged) ... ok
+test_null_score_is_not_zero (test_contracts.ContractTests.test_null_score_is_not_zero) ... ok
+test_opencorporates_inactive_false_not_active (test_contracts.ContractTests.test_opencorporates_inactive_false_not_active) ... ok
+test_partial_screening (test_contracts.ContractTests.test_partial_screening) ... ok
+test_plaid_requires_consent (test_contracts.ContractTests.test_plaid_requires_consent) ... ok
+test_quarantine_no_route (test_contracts.ContractTests.test_quarantine_no_route) ... ok
+test_request_plan_rejects_capability_mismatch (test_contracts.ContractTests.test_request_plan_rejects_capability_mismatch) ... ok
+test_request_plans (test_contracts.ContractTests.test_request_plans) ... ok
+test_requests (test_contracts.ContractTests.test_requests) ... ok
+test_schema_metaschemas (test_contracts.ContractTests.test_schema_metaschemas) ... ok
+test_screening_candidates_not_confirmed (test_contracts.ContractTests.test_screening_candidates_not_confirmed) ... ok
+test_semantic_relationship_checks (test_contracts.ContractTests.test_semantic_relationship_checks) ... ok
+test_sumsub_missing_reject_type_is_inconclusive (test_contracts.ContractTests.test_sumsub_missing_reject_type_is_inconclusive) ... ok
+test_sumsub_retry_not_final_failure (test_contracts.ContractTests.test_sumsub_retry_not_final_failure) ... ok
+test_unknown_field_rejected (test_contracts.ContractTests.test_unknown_field_rejected) ... ok
+test_unknown_status_never_passes (test_contracts.ContractTests.test_unknown_status_never_passes) ... ok
+test_wrong_result_family_rejected (test_contracts.ContractTests.test_wrong_result_family_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.474s
+
+OK

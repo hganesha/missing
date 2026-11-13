@@ -1,0 +1,214 @@
+{
+  "notice": "Synthetic test data only. These artifacts grant no production authority.",
+  "connector": {
+    "connectorId": "opensanctions:sanctions",
+    "adapterId": "opensanctions",
+    "providerId": "opensanctions",
+    "providerName": "Synthetic sanctions transport",
+    "capabilityId": "screening.sanctions.v1",
+    "operation": "sanctions",
+    "resultFamily": null,
+    "status": "live_ready",
+    "demoSupported": false,
+    "liveBlockers": [],
+    "source": {
+      "catalog": "synthetic-test",
+      "revision": "test"
+    },
+    "canonical": null
+  },
+  "binding": {
+    "kind": "source-binding",
+    "schemaVersion": "source.binding.v1",
+    "id": "synthetic-sanctions",
+    "capabilityId": "screening.sanctions.v1",
+    "connectorId": "opensanctions:sanctions",
+    "connectorDigest": "ae2ead3ba6b0af31b4be642247a8c9369e37ebf8fc87a1c64390314e17933257",
+    "providerId": "synthetic-provider",
+    "product": "screening",
+    "operation": "sanctions",
+    "definitionVersion": "1.0.0",
+    "mappingVersion": "1.0.0",
+    "jurisdiction": "us",
+    "jurisdictionBasis": "dataset_authority",
+    "globalScopeRef": null,
+    "subjectCountries": [
+      "US",
+      "GB",
+      "DE"
+    ],
+    "allowAnySubjectCountry": false,
+    "datasetIds": [
+      "synthetic-us-list"
+    ],
+    "evidenceRoles": [
+      "primary"
+    ],
+    "fields": [
+      "name"
+    ],
+    "transport": "network",
+    "approvedEndpoints": [
+      "https://sources.example.test/v1"
+    ],
+    "processingRegions": [
+      "us-central"
+    ],
+    "storageRegions": [
+      "us-central"
+    ],
+    "subprocessors": [],
+    "transferBasisRef": "synthetic-transfer-approval",
+    "evidenceRefs": [
+      "synthetic-integration-report"
+    ],
+    "readiness": "integration_verified",
+    "quarantined": false,
+    "validFrom": "2026-01-01T00:00:00Z",
+    "expiresAt": "2099-01-01T00:00:00Z"
+  },
+  "access": {
+    "kind": "source-access",
+    "schemaVersion": "source.access.v1",
+    "id": "synthetic-access",
+    "bindingDigest": "6f96c75b2e498fb7fb46fad7e01c1f8229bba913f060a80091a7c44947d27ca0",
+    "institutionId": "synthetic-bank",
+    "bookingEntityIds": [
+      "bank-us"
+    ],
+    "products": [
+      "deposit"
+    ],
+    "purposes": [
+      "CDD"
+    ],
+    "datasetIds": [
+      "synthetic-us-list"
+    ],
+    "accessBasis": "contract",
+    "accessBasisRef": "synthetic-license",
+    "legalBasisRef": "synthetic-legal-basis",
+    "consentRequired": false,
+    "approvedEndpoints": [
+      "https://sources.example.test/v1"
+    ],
+    "processingRegions": [
+      "us-central"
+    ],
+    "storageRegions": [
+      "us-central"
+    ],
+    "subprocessors": [],
+    "transferBasisRef": "synthetic-transfer-approval",
+    "evidenceRefs": [
+      "synthetic-access-evidence"
+    ],
+    "validFrom": "2026-01-01T00:00:00Z",
+    "expiresAt": "2099-01-01T00:00:00Z"
+  },
+  "policy": {
+    "kind": "source-policy",
+    "schemaVersion": "jurisdiction.source-policy.v1",
+    "id": "synthetic-cdd-source",
+    "version": "1.0.0",
+    "owner": "synthetic-policy-owner",
+    "legalBasisRefs": [
+      "synthetic-policy-review"
+    ],
+    "scope": {
+      "institutionId": "synthetic-bank",
+      "bookingEntityIds": [
+        "bank-us"
+      ],
+      "policyJurisdictions": [
+        "us"
+      ],
+      "products": [
+        "deposit"
+      ],
+      "purposes": [
+        "CDD"
+      ]
+    },
+    "rules": [
+      {
+        "id": "sanctions-primary",
+        "effect": "ALLOW",
+        "capabilityIds": [
+          "screening.sanctions.v1"
+        ],
+        "bindingDigests": [],
+        "sourceJurisdictions": [
+          "us"
+        ],
+        "datasetIds": [
+          "synthetic-us-list"
+        ],
+        "evidenceRoles": [
+          "primary"
+        ],
+        "requiredFields": [
+          "name"
+        ],
+        "processingRegions": [
+          "us-central"
+        ],
+        "storageRegions": [
+          "us-central"
+        ],
+        "maxAgeSeconds": 86400,
+        "maxRetentionSeconds": 31536000,
+        "allowRedistribution": false,
+        "recipientIds": [
+          "tenant_demo"
+        ]
+      }
+    ],
+    "validFrom": "2026-01-01T00:00:00Z",
+    "expiresAt": "2099-01-01T00:00:00Z"
+  },
+  "context": {
+    "kind": "source-context",
+    "schemaVersion": "source.context.v1",
+    "tenantId": "tenant_demo",
+    "caseId": "case-1",
+    "planDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "institutionId": "synthetic-bank",
+    "bookingEntityId": "bank-us",
+    "branchId": "branch-us",
+    "product": "deposit",
+    "purpose": "CDD",
+    "policyJurisdictions": [
+      "us"
+    ],
+    "subjectCountries": [
+      "DE"
+    ],
+    "registrationJurisdictions": [
+      "de"
+    ],
+    "issuerJurisdictions": [
+      "de"
+    ],
+    "accountJurisdictions": [
+      "de"
+    ],
+    "consentRef": null,
+    "factsProvenanceRefs": [
+      "synthetic-case-facts"
+    ],
+    "validFrom": "2026-01-01T00:00:00Z",
+    "expiresAt": "2099-01-01T00:00:00Z"
+  },
+  "observation": {
+    "datasetIds": [
+      "synthetic-us-list"
+    ],
+    "fields": [
+      "name"
+    ],
+    "role": "primary",
+    "observedAt": "2026-11-08T11:00:00Z",
+    "complete": true
+  }
+}

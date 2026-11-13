@@ -1,0 +1,67 @@
+[
+  {
+    "record_type": "CanonicalRecord",
+    "local_ref": "assertion-entity_name",
+    "evidence": [],
+    "body": {
+      "object_type": "ExtractedAssertion",
+      "object_id": "extraction:doc-v1:entity_name",
+      "version_id": "v-6a38eda228046d98ecc99da062d3118a",
+      "schema_version": "2.0.0",
+      "data": {
+        "subject": "acme",
+        "field": "entity_name",
+        "value": "Acme",
+        "document_version": "doc-v1",
+        "extensions": {
+          "ehf.document": {
+            "schema_version": "1.0.0",
+            "value": {
+              "path": "/extracted_fields/entity_name",
+              "document_type": "certificate_of_incorporation",
+              "contract_hash": "18b8a2cbe16b37a9364cceef55fbfb44c8c7fa131151c55c910ae4e8a0073e33",
+              "catalog_hash": "05f289200cab38f0710d00b3f8546fd26ed0e3a7a236f0d73426c989d956b1b3",
+              "source_digest": "d82fd18125cab232dd8bac1d0c8e0b4d326293fb9b05fc00f9264c379702bbf7",
+              "source_spans": [
+                {
+                  "page_id": "page-1",
+                  "start": 35,
+                  "end": 39,
+                  "quote": "Acme"
+                }
+              ],
+              "epistemic_status": "EXTRACTED_ASSERTION",
+              "verification": "UNVERIFIED",
+              "review_state": "PENDING_REVIEW"
+            }
+          }
+        }
+      },
+      "subject_ids": [
+        "acme"
+      ],
+      "observed_at": "2026-11-07T12:00:00+00:00",
+      "source_refs": [
+        {
+          "tenant_id": "tenant-synthetic",
+          "object_type": "DocumentPage",
+          "object_id": "page-1",
+          "version_id": "v1",
+          "schema_version": "2.0.0"
+        }
+      ],
+      "classification": "CONFIDENTIAL",
+      "synthetic": true
+    }
+  },
+  {
+    "record_type": "UnresolvedQuestion",
+    "local_ref": "review-entity_name",
+    "evidence": [],
+    "body": {
+      "question": "Review the extracted entity_name from the Certificate of incorporation or formation (doc-v1) against its source span before it is used for Entity.name.",
+      "work_type": "DOCUMENT_FIELD_REVIEW",
+      "priority": "NORMAL"
+    }
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "name": "@ehf/ui-shell",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Domain-neutral shell: module contract, access rules and layout templates (BUILD-SPEC v2 §8). Never imports a domain module (N13).",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@ehf/ui-contracts": "workspace:*",
+    "@ehf/ui-kit": "workspace:*"
+  },
+  "peerDependencies": { "react": "19.2.6" },
+  "devDependencies": {
+    "@testing-library/react": "16.3.3",
+    "@types/react": "19.2.14",
+    "jsdom": "27.4.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  }
+}

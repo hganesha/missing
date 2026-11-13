@@ -1,0 +1,15 @@
+{
+  "applicantId": "synthetic-applicant-1",
+  "inspectionId": "synthetic-inspection",
+  "type": "applicantReviewed",
+  "reviewStatus": "completed",
+  "externalUserId": "synthetic-customer",
+  "reviewResult": {
+    "reviewAnswer": "RED",
+    "reviewRejectType": "RETRY",
+    "rejectLabels": [
+      "BAD_PROOF_OF_IDENTITY"
+    ],
+    "clientComment": "INTERNAL ONLY: deliberately not copied to host"
+  }
+}

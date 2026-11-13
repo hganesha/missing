@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "intelligence.binding.v1",
+  "id": "document.identity",
+  "name": "Identity document extraction",
+  "owner": "Platform engineering",
+  "description": "Synthetic configuration fixture",
+  "dataClass": "internal",
+  "serviceClass": "document",
+  "connection": {
+    "cloud": "private",
+    "adapterId": "private_document",
+    "endpoint": "https://models.example.com",
+    "account": "test-project",
+    "resourceId": "test-document-service",
+    "region": "us-approved",
+    "networkZone": "private-models",
+    "auth": {
+      "mode": "workload_identity",
+      "principal": "capability-gateway",
+      "audience": "https://documents.example.com",
+      "issuer": "",
+      "subject": "",
+      "credentialRef": null,
+      "clientIdRef": null,
+      "certificateRef": null
+    }
+  },
+  "configuration": {
+    "capabilityId": "document.identity.extract.v1",
+    "operation": "extract",
+    "model": "identity-processor",
+    "modelVersion": "3",
+    "apiVersion": "2024-11-30",
+    "outputSchemaRef": "schema:document.identity.v1",
+    "locale": "en",
+    "features": [
+      "tables",
+      "key_values"
+    ],
+    "executionMode": "asynchronous",
+    "maxPages": 100,
+    "maxBytes": 20971520,
+    "timeoutMs": 120000,
+    "pollIntervalMs": 2000,
+    "resultStoreRef": "store:document-results",
+    "provenanceRequired": true,
+    "minConfidence": 0.8,
+    "unavailableBehavior": "review",
+    "evaluationRef": "evaluation:identity.v3"
+  }
+}

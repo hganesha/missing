@@ -1,0 +1,234 @@
+[
+  {
+    "source_id": "S01",
+    "provider": "Sumsub",
+    "url": "https://docs.sumsub.com/docs/receive-and-interpret-results-via-api",
+    "evidence_type": "reviewed_documentation",
+    "observations": "reviewResult.reviewAnswer GREEN/RED; RED FINAL versus RETRY; comments restricted",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S02",
+    "provider": "Veriff",
+    "url": "https://devdocs.veriff.com/docs/verification-session-status-codes-table",
+    "evidence_type": "reviewed_documentation",
+    "observations": "Approved 9001; review 9121; expired and abandoned share 9104; map by status not code alone",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S03",
+    "provider": "Persona",
+    "url": "https://docs.withpersona.com/api-reference/inquiries/retrieve-an-inquiry",
+    "evidence_type": "reviewed_documentation",
+    "observations": "JSON API inquiry response; bearer authentication; default version 2026-09-29",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S04",
+    "provider": "Persona",
+    "url": "https://docs.withpersona.com/model-lifecycle",
+    "evidence_type": "reviewed_search_excerpt",
+    "observations": "Completed is user-flow completion, not post-inquiry approved",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S05",
+    "provider": "Persona",
+    "url": "https://docs.withpersona.com/integration-guide-understanding-a-persona-api-payload",
+    "evidence_type": "reviewed_search_excerpt",
+    "observations": "data.attributes.fields typed values; webhook wraps inquiry under data.attributes.payload",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S06",
+    "provider": "Middesk",
+    "url": "https://docs.middesk.com/quickstart.md",
+    "evidence_type": "reviewed_documentation",
+    "observations": "POST /v1/businesses; basic auth sandbox example; asynchronous; HTTP 201 is not verification; tasks",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S07",
+    "provider": "Middesk",
+    "url": "https://docs.middesk.com/lifecycle-of-business.md",
+    "evidence_type": "reviewed_documentation",
+    "observations": "open/pending/in_audit/in_review; approved and rejected are client decisions",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S08",
+    "provider": "Middesk",
+    "url": "https://docs.middesk.com/llms.txt",
+    "evidence_type": "reviewed_documentation",
+    "observations": "Index now includes international businesses; older US-only comparisons are insufficient",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S09",
+    "provider": "Companies House",
+    "url": "https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/resources/companyprofile?v=latest",
+    "evidence_type": "reviewed_documentation",
+    "observations": "company_name company_number company_status jurisdiction registered_office_address; PSC separate",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S10",
+    "provider": "OpenCorporates",
+    "url": "https://api.opencorporates.com/documentation/API-Reference",
+    "evidence_type": "reviewed_documentation",
+    "observations": "0.4 company lookup results.company; inactive not true does not establish active; jurisdiction namespace",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S11",
+    "provider": "GLEIF",
+    "url": "https://www.gleif.org/en/lei-data/gleif-api",
+    "evidence_type": "reviewed_documentation",
+    "observations": "LEI legal entity and parent relationships, not universal natural-person UBO",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S12",
+    "provider": "GLEIF",
+    "url": "https://api.gleif.org/docs",
+    "evidence_type": "reviewed_documentation",
+    "observations": "JSON API v1 records and linked Level 2 relationships; data examples may be stale",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S13",
+    "provider": "OpenSanctions",
+    "url": "https://www.opensanctions.org/docs/api/request/",
+    "evidence_type": "reviewed_documentation",
+    "observations": "POST /match/{dataset}; queries keyed by caller; ApiKey authorization",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S14",
+    "provider": "OpenSanctions",
+    "url": "https://www.opensanctions.org/docs/api/response/",
+    "evidence_type": "reviewed_documentation",
+    "observations": "responses.<query>.results; candidate schema properties; provenance and matching must be retained",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S15",
+    "provider": "OpenSanctions",
+    "url": "https://www.opensanctions.org/docs/api/",
+    "evidence_type": "reviewed_documentation",
+    "observations": "Match for screening, search not for screening; commercial license required",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S16",
+    "provider": "ComplyAdvantage",
+    "url": "https://docs.complyadvantage.com/api-docs",
+    "evidence_type": "reviewed_documentation",
+    "observations": "Classic API regional endpoints and Token auth; POST /searches; Mesh wire contract not assumed identical",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S17",
+    "provider": "Plaid",
+    "url": "https://plaid.com/docs/api/products/identity/",
+    "evidence_type": "reviewed_search_excerpt",
+    "observations": "/identity/match returns per-field scores; account identity complements KYC",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S18",
+    "provider": "Plaid",
+    "url": "https://plaid.com/docs/identity/add-to-app/",
+    "evidence_type": "reviewed_search_excerpt",
+    "observations": "accounts[].legal_name.score and address/phone/email scores; consent and access token required",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S19",
+    "provider": "OFAC Sanctions List Service",
+    "url": "https://ofac.treasury.gov/sanctions-list-service",
+    "evidence_type": "reviewed_documentation",
+    "observations": "SLS publishes SDN and non-SDN downloadable data and delta archives; not universal clearance",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S20",
+    "provider": "LSEG World-Check",
+    "url": "https://developers.lseg.com/content/dam/devportal/en_us/product-docs/wc1-api/",
+    "evidence_type": "reviewed_search_excerpt",
+    "observations": "World-Check One and Zero Footprint versions; API exists, detailed mapping not implemented",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S21",
+    "provider": "LexisNexis Risk Solutions",
+    "url": "https://risk.lexisnexis.com/-/media/files/product%20pages/brochure/bridger_infographic_tile-nxr12777-01-0520-en-us.pdf",
+    "evidence_type": "reviewed_search_excerpt",
+    "observations": "Bridger Search API and batch; WorldCompliance screening data",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S22",
+    "provider": "Moody's Compliance",
+    "url": "https://www.moodys.com/web/en/us/kyc/products/compliance-catalyst.html",
+    "evidence_type": "reviewed_search_excerpt",
+    "observations": "Orbis corporate data and Grid risk database feed Compliance Catalyst",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S23",
+    "provider": "Prembly",
+    "url": "https://prembly.com/",
+    "evidence_type": "reviewed_product_page",
+    "observations": "KYC KYB AML fraud and transaction monitoring marketed; API wire contract not inspected",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S24",
+    "provider": "Smile ID",
+    "url": "https://www.usesmileid.com/",
+    "evidence_type": "reviewed_product_page",
+    "observations": "African identity verification and AML marketed; coverage not uniform",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S25",
+    "provider": "MetaMap",
+    "url": "https://www.metamap.com/identity-verification-platform/",
+    "evidence_type": "reviewed_search_excerpt",
+    "observations": "Latin America and Africa focus; varies by region",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S26",
+    "provider": "Signzy",
+    "url": "https://www.signzy.com/use-cases/know-your-business",
+    "evidence_type": "reviewed_search_excerpt",
+    "observations": "Business verification and UBO API marketed; numeric coverage claims not adopted",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S27",
+    "provider": "Market discovery",
+    "url": "https://www.gbg.com/en-us/blog/best-kyc-providers/",
+    "evidence_type": "vendor_comparison_discovery",
+    "observations": "Discovery only, not independent verification of competitors",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S28",
+    "provider": "Market discovery",
+    "url": "https://companydata.com/b2b-data-provider-comparisons/best-kyc-api-providers/",
+    "evidence_type": "vendor_comparison_discovery",
+    "observations": "Discovery only; no ranking or pricing claim adopted",
+    "review_date": "2026-10-15"
+  },
+  {
+    "source_id": "S29",
+    "provider": "Market discovery",
+    "url": "https://bitquery.io/blog/best-blockchain-analysis-tools-and-software",
+    "evidence_type": "vendor_comparison_discovery",
+    "observations": "Blockchain vendor discovery only; no chain count adopted",
+    "review_date": "2026-10-15"
+  }
+]

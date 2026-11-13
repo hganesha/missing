@@ -1,0 +1,5 @@
+# Binding to the canonical catalog in domains/kyc/policy, not a second policy definition.
+policyId: policy.kyc.customer-acceptance.v1
+policyVersion: 1.0.0
+bundleDigest: 22fc309f6d02d12b1b474163605f81ef58caa88fffafb08d9ed23f26447fcec1
+# Changes to the catalog require compilation, a new binding digest, approval and release.

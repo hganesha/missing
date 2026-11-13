@@ -1,0 +1,928 @@
+{
+  "description": "Reviewed capability families: section 4 of docs/CANONICAL_EXTERNAL_CAPABILITY_MODEL.md. not_substitutable_for lists contracts this family can never satisfy as a fallback (sections 4.1, 5.1 and 6.1).",
+  "families": [
+    {
+      "capability_path": "identity.person",
+      "group": "legacy_compatible",
+      "legacy_capability": "identity.person.verify",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "person"
+      ],
+      "default_action": "verify",
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Corroborate a person against named identity sources; return individual checks, matched fields and gaps.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "identity.document",
+      "group": "legacy_compatible",
+      "legacy_capability": "identity.document.verify",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "document"
+      ],
+      "default_action": "verify",
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Assess document authenticity and validity; state document type, issuer, expiry and the checks actually performed.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "identity.biometric",
+      "group": "legacy_compatible",
+      "legacy_capability": "identity.biometric.verify",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "person"
+      ],
+      "default_action": "verify",
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Return face/fingerprint comparison, liveness or presentation-attack findings with method, reference and thresholds; distinguish 1:1 from 1:N.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "identity.address",
+      "group": "legacy_compatible",
+      "legacy_capability": "identity.address.verify",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "verify",
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Corroborate an address using a named source and method; address parsing alone is insufficient.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "identity.digital_id",
+      "group": "legacy_compatible",
+      "legacy_capability": "identity.digital_id.verify",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "verify",
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Validate a digital-identity assertion, issuer, audience, trust scheme and assurance; session login alone is insufficient.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "identity.tax_id",
+      "group": "legacy_compatible",
+      "legacy_capability": "identity.tax_id.verify",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "verify",
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Validate a tax identifier in its issuer namespace and return any evidenced name/status match; syntax calculation is not validation.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "business.verification",
+      "group": "legacy_compatible",
+      "legacy_capability": "business.verify",
+      "kind": "intelligence",
+      "jurisdiction_basis": "registry_authority",
+      "subject_types": [
+        "organization"
+      ],
+      "default_action": "verify",
+      "result_family": "business",
+      "result_family_status": "existing_host_union",
+      "definition": "Verify specified business facts against evidenced sources; registry retrieval alone is not a verified business outcome.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "business.registry",
+      "group": "legacy_compatible",
+      "legacy_capability": "business.registry.lookup",
+      "kind": "intelligence",
+      "jurisdiction_basis": "registry_authority",
+      "subject_types": [
+        "organization"
+      ],
+      "default_action": "lookup",
+      "result_family": "business",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve a registered organization, status and filing references in an explicit registry namespace.",
+      "not_substitutable_for": [
+        "business.verification"
+      ]
+    },
+    {
+      "capability_path": "business.ownership",
+      "group": "legacy_compatible",
+      "legacy_capability": "business.ownership.discover",
+      "kind": "intelligence",
+      "jurisdiction_basis": "registry_authority",
+      "subject_types": [
+        "organization"
+      ],
+      "default_action": "discover",
+      "result_family": "ownership",
+      "result_family_status": "existing_host_union",
+      "definition": "Return dated ownership/control edges, interest types, source and completeness; distinguish legal ownership, control and accounting parents.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "business.officers",
+      "group": "legacy_compatible",
+      "legacy_capability": "business.officers.lookup",
+      "kind": "intelligence",
+      "jurisdiction_basis": "registry_authority",
+      "subject_types": [
+        "organization",
+        "person"
+      ],
+      "default_action": "lookup",
+      "result_family": "ownership",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve officer roles, appointments, resignations and disqualification facts with dates and source.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "screening.sanctions",
+      "group": "legacy_compatible",
+      "legacy_capability": "screening.sanctions",
+      "kind": "intelligence",
+      "jurisdiction_basis": "dataset_authority",
+      "subject_types": [
+        "person",
+        "organization",
+        "vessel",
+        "account"
+      ],
+      "default_action": "screen",
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Match against explicitly named sanctions datasets and versions; return candidates and coverage, without a legal clearance decision.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "screening.pep",
+      "group": "legacy_compatible",
+      "legacy_capability": "screening.pep",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "person"
+      ],
+      "default_action": "screen",
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Return political-exposure candidates, roles, relationships and time intervals under an explicit PEP definition.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "screening.adverse_media",
+      "group": "legacy_compatible",
+      "legacy_capability": "screening.adverse_media",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "screen",
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Return attributed media findings with publication date, language and allegation/proceeding status; do not imply sanctions coverage.",
+      "not_substitutable_for": [
+        "screening.sanctions"
+      ]
+    },
+    {
+      "capability_path": "screening.enforcement",
+      "group": "legacy_compatible",
+      "legacy_capability": "screening.enforcement",
+      "kind": "intelligence",
+      "jurisdiction_basis": "dataset_authority",
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "screen",
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Return regulator, court, debarment or enforcement candidates with action type and source; distinguish these from financial sanctions.",
+      "not_substitutable_for": [
+        "screening.sanctions"
+      ]
+    },
+    {
+      "capability_path": "screening.payment",
+      "group": "legacy_compatible",
+      "legacy_capability": "screening.payment",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "payment"
+      ],
+      "default_action": "screen",
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Screen payment parties and structured/unstructured payment fields under named lists and policy; not payment execution.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "risk.device",
+      "group": "legacy_compatible",
+      "legacy_capability": "risk.device",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "device",
+        "session"
+      ],
+      "default_action": "assess",
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Return device identifiers, behavioral/integrity signals, observation times and provider scores; collection is a separate action.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "risk.email",
+      "group": "legacy_compatible",
+      "legacy_capability": "risk.email",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "email"
+      ],
+      "default_action": "assess",
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Return email validity, reputation and linked-risk signals with observation times and score provenance.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "risk.phone",
+      "group": "legacy_compatible",
+      "legacy_capability": "risk.phone",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "phone"
+      ],
+      "default_action": "assess",
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Return telephone line, carrier, validity and risk signals; possession/OTP assurance must be explicitly evidenced.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "risk.network",
+      "group": "legacy_compatible",
+      "legacy_capability": "risk.network",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "ip",
+        "network"
+      ],
+      "default_action": "assess",
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Return network/IP location, proxy and reputation signals; geolocation is probabilistic and not residence verification.",
+      "not_substitutable_for": [
+        "identity.address"
+      ]
+    },
+    {
+      "capability_path": "risk.jurisdiction",
+      "group": "legacy_compatible",
+      "legacy_capability": "risk.jurisdiction",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "jurisdiction"
+      ],
+      "default_action": "assess",
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve or assess country/jurisdiction risk under a named methodology, publisher and as-of date; separate publication authority from target country.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "risk.customer",
+      "group": "legacy_compatible",
+      "legacy_capability": "risk.customer.assess",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "person",
+        "organization",
+        "session"
+      ],
+      "default_action": "assess",
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Return provider risk factors and scores with methodology, scale and input scope; preserve the institution decision separately.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "account.ownership",
+      "group": "legacy_compatible",
+      "legacy_capability": "account.ownership.verify",
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "subject_types": [
+        "account",
+        "person",
+        "organization"
+      ],
+      "default_action": "verify",
+      "result_family": "account",
+      "result_family_status": "existing_host_union",
+      "definition": "Compare a named subject against account-holder evidence; return per-field comparisons, account namespace and match method.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "financial.evidence",
+      "group": "legacy_compatible",
+      "legacy_capability": "financial.evidence.retrieve",
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "subject_types": [
+        "account",
+        "person",
+        "organization"
+      ],
+      "default_action": "retrieve",
+      "result_family": "financial",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve financial documents or extracted financial facts with institution, period, currency and provenance; not account ownership or transaction surveillance.",
+      "not_substitutable_for": [
+        "account.ownership",
+        "transaction.monitoring"
+      ]
+    },
+    {
+      "capability_path": "transaction.monitoring",
+      "group": "legacy_compatible",
+      "legacy_capability": "transaction.monitor",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "transaction",
+        "account"
+      ],
+      "default_action": "monitor",
+      "result_family": "monitoring",
+      "result_family_status": "existing_host_union",
+      "definition": "Evaluate fiat transaction activity under explicit scenarios/time windows and return alerts, observation coverage and rule versions.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "case.management",
+      "group": "legacy_compatible",
+      "legacy_capability": "case.manage",
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "case"
+      ],
+      "default_action": "manage",
+      "result_family": "case",
+      "result_family_status": "existing_host_union",
+      "definition": "Manage investigation cases, assignments, dispositions and audit history; this is an operational service contract.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "regulatory.reporting",
+      "group": "legacy_compatible",
+      "legacy_capability": "regulatory.report",
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "report",
+        "case"
+      ],
+      "default_action": "report",
+      "result_family": "report",
+      "result_family_status": "existing_host_union",
+      "definition": "Create, validate or submit regulator-specific reports; distinguish draft, submitted, acknowledged, accepted and rejected.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "crypto.wallet",
+      "group": "legacy_compatible",
+      "legacy_capability": "crypto.wallet.screen",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "wallet"
+      ],
+      "default_action": "screen",
+      "result_family": "crypto",
+      "result_family_status": "existing_host_union",
+      "definition": "Return wallet attribution/exposure by chain, asset, counterparty and hop policy; a wallet address requires a chain namespace.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "crypto.transaction",
+      "group": "legacy_compatible",
+      "legacy_capability": "crypto.transaction.monitor",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "crypto_transaction",
+        "wallet"
+      ],
+      "default_action": "monitor",
+      "result_family": "crypto",
+      "result_family_status": "existing_host_union",
+      "definition": "Return blockchain transaction alerts and exposure with chain, transaction hash, block/time and asset units.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "travel_rule.exchange",
+      "group": "legacy_compatible",
+      "legacy_capability": "travel_rule.exchange",
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "transfer",
+        "counterparty"
+      ],
+      "default_action": "exchange",
+      "result_family": "travel_rule",
+      "result_family_status": "existing_host_union",
+      "definition": "Exchange originator/beneficiary information with protocol and counterparty state; delivery does not prove counterparty acceptance.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "edd.report",
+      "group": "legacy_compatible",
+      "legacy_capability": "edd.report.retrieve",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "person",
+        "organization",
+        "vessel"
+      ],
+      "default_action": "retrieve",
+      "result_family": "edd",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve an attributed investigation/due-diligence report with scope, author, dates, evidence and unresolved findings.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "entity.resolution",
+      "group": "legacy_compatible",
+      "legacy_capability": "entity.resolve",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "entity_set"
+      ],
+      "default_action": "resolve",
+      "result_family": "resolution",
+      "result_family_status": "existing_host_union",
+      "definition": "Return identity-resolution candidates and supporting identifiers; preserve candidate versus confirmed links and avoid automatic merges.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "monitoring.subscription",
+      "group": "legacy_compatible",
+      "legacy_capability": "monitoring.subscribe",
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "subject",
+        "capability_binding"
+      ],
+      "default_action": "subscribe",
+      "result_family": "subscription",
+      "result_family_status": "existing_host_union",
+      "definition": "Create or manage a change subscription to a specified parent capability, datasets and scope; an active subscription is not a fresh check.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "reference.identifier",
+      "group": "legacy_compatible",
+      "legacy_capability": "reference.identifier.lookup",
+      "kind": "reference",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "identifier"
+      ],
+      "default_action": "lookup",
+      "result_family": "reference",
+      "result_family_status": "existing_host_union",
+      "definition": "Resolve a namespaced identifier to reference records; LEI/BIC/reference identity is not beneficial ownership proof.",
+      "not_substitutable_for": [
+        "business.registry",
+        "business.ownership"
+      ]
+    },
+    {
+      "capability_path": "reference.list",
+      "group": "legacy_compatible",
+      "legacy_capability": "reference.list.ingest",
+      "kind": "reference",
+      "jurisdiction_basis": "dataset_authority",
+      "subject_types": [
+        "dataset"
+      ],
+      "default_action": "ingest",
+      "result_family": "reference",
+      "result_family_status": "existing_host_union",
+      "definition": "Acquire a versioned list/snapshot/delta with publisher, category, digest and effective time; ingesting a list does not screen a subject.",
+      "not_substitutable_for": [
+        "screening.sanctions",
+        "screening.pep",
+        "screening.enforcement",
+        "screening.adverse_media",
+        "screening.watchlist"
+      ]
+    },
+    {
+      "capability_path": "workflow.orchestration",
+      "group": "legacy_compatible",
+      "legacy_capability": "workflow.orchestrate",
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "workflow"
+      ],
+      "default_action": "orchestrate",
+      "result_family": "workflow",
+      "result_family_status": "existing_host_union",
+      "definition": "Run a governed workflow and preserve child capability results; an orchestrator is not assumed to own upstream datasets.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "credential.verification",
+      "group": "legacy_compatible",
+      "legacy_capability": "credential.verify",
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "credential"
+      ],
+      "default_action": "verify",
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Validate a credential issuer, signature, trust chain, expiry and revocation state; issuance/retrieval is distinct.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "questionnaire.collection",
+      "group": "legacy_compatible",
+      "legacy_capability": "questionnaire.collect",
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "questionnaire",
+        "organization"
+      ],
+      "default_action": "collect",
+      "result_family": "questionnaire",
+      "result_family_status": "existing_host_union",
+      "definition": "Collect or retrieve versioned questionnaire responses with respondent and attestation provenance; a template is not an answered questionnaire.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "identity.profile",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "retrieve",
+      "result_family": "profile",
+      "result_family_status": "proposed_schema",
+      "definition": "Retrieve source identity fields or a stored KYC record without asserting corroboration or identity verification.",
+      "not_substitutable_for": [
+        "identity.person"
+      ]
+    },
+    {
+      "capability_path": "identity.document.extraction",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "document"
+      ],
+      "default_action": "extract",
+      "result_family": "extraction",
+      "result_family_status": "proposed_schema",
+      "definition": "Extract text, barcode/NFC or document fields with field confidence and source pointers; extraction is not authenticity verification.",
+      "not_substitutable_for": [
+        "identity.document"
+      ]
+    },
+    {
+      "capability_path": "identity.identifier.derivation",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "identifier"
+      ],
+      "default_action": "derive",
+      "result_family": "reference",
+      "result_family_status": "existing_host_union",
+      "definition": "Calculate an identifier or perform syntax derivation; output must not be reported as authoritative identifier validation.",
+      "not_substitutable_for": [
+        "identity.tax_id"
+      ]
+    },
+    {
+      "capability_path": "identity.vehicle",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "vehicle"
+      ],
+      "default_action": "validate",
+      "result_family": "verification",
+      "result_family_status": "existing_host_union",
+      "definition": "Validate vehicle identifiers/vehicle facts; this adjacent capability is not person identity verification.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "credential.issuance",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "operational",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "credential"
+      ],
+      "default_action": "issue",
+      "result_family": "credential",
+      "result_family_status": "proposed_schema",
+      "definition": "Issue or manage a credential and expose its lifecycle; issuing does not independently verify underlying facts.",
+      "not_substitutable_for": [
+        "credential.verification"
+      ]
+    },
+    {
+      "capability_path": "document.evidence",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "issuer_authority",
+      "subject_types": [
+        "document",
+        "media"
+      ],
+      "default_action": "retrieve",
+      "result_family": "artifact",
+      "result_family_status": "proposed_schema",
+      "definition": "Upload, obtain or export documents/media and their provenance; possession of an artifact is not a check outcome.",
+      "not_substitutable_for": [
+        "credential.verification",
+        "identity.document",
+        "identity.digital_id"
+      ]
+    },
+    {
+      "capability_path": "document.signature",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "operational",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "document"
+      ],
+      "default_action": "sign",
+      "result_family": "signature",
+      "result_family_status": "proposed_schema",
+      "definition": "Create/retrieve electronic signatures, receipts or attestations with scheme and signer provenance; not identity verification.",
+      "not_substitutable_for": [
+        "identity.person",
+        "identity.digital_id"
+      ]
+    },
+    {
+      "capability_path": "screening.watchlist",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "screen",
+      "result_family": "screening",
+      "result_family_status": "existing_host_union",
+      "definition": "Represent a composite/custom watchlist operation whose categories are parameterized; emit atomic sanctions/PEP/media results only for evidenced categories.",
+      "not_substitutable_for": [
+        "screening.sanctions",
+        "screening.pep",
+        "screening.adverse_media",
+        "screening.enforcement"
+      ]
+    },
+    {
+      "capability_path": "account.control",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "subject_types": [
+        "account"
+      ],
+      "default_action": "validate",
+      "result_family": "account_control",
+      "result_family_status": "proposed_schema",
+      "definition": "Validate access/control of an account using microdeposits or account credentials; does not establish that the named subject is its legal holder.",
+      "not_substitutable_for": [
+        "account.ownership"
+      ]
+    },
+    {
+      "capability_path": "account.profile",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "subject_types": [
+        "account"
+      ],
+      "default_action": "retrieve",
+      "result_family": "account_profile",
+      "result_family_status": "proposed_schema",
+      "definition": "Retrieve account metadata or holder details without a subject comparison; not account ownership verification.",
+      "not_substitutable_for": [
+        "account.ownership"
+      ]
+    },
+    {
+      "capability_path": "financial.transactions",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "subject_types": [
+        "account",
+        "transaction"
+      ],
+      "default_action": "retrieve",
+      "result_family": "transactions",
+      "result_family_status": "proposed_schema",
+      "definition": "Retrieve, enrich or categorize financial transactions; no AML monitoring conclusion is implied.",
+      "not_substitutable_for": [
+        "transaction.monitoring"
+      ]
+    },
+    {
+      "capability_path": "financial.balance",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "subject_types": [
+        "account"
+      ],
+      "default_action": "retrieve",
+      "result_family": "balance",
+      "result_family_status": "proposed_schema",
+      "definition": "Retrieve balance snapshots with amount, currency, balance type and timestamp.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "financial.income",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "financial_source_authority",
+      "subject_types": [
+        "person",
+        "organization"
+      ],
+      "default_action": "retrieve",
+      "result_family": "financial",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve or assess income/employment evidence with period, source and verification method.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "financial.analytics",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "account_servicing",
+      "subject_types": [
+        "account",
+        "person",
+        "organization"
+      ],
+      "default_action": "assess",
+      "result_family": "risk",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve financial features, insights or credit/lending metrics; preserve provider methodology and distinguish computed features from verified evidence.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "financial.institution",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "intelligence",
+      "jurisdiction_basis": "registry_authority",
+      "subject_types": [
+        "financial_institution"
+      ],
+      "default_action": "lookup",
+      "result_family": "reference",
+      "result_family_status": "existing_host_union",
+      "definition": "Retrieve supported financial institution, routing and merchant reference metadata; support catalogs are not customer checks.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "financial.personal_management",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "operational",
+      "jurisdiction_basis": "account_servicing",
+      "subject_types": [
+        "user",
+        "account"
+      ],
+      "default_action": "manage",
+      "result_family": "resource",
+      "result_family_status": "proposed_schema",
+      "definition": "Manage budgets, goals, tags, categories, rewards or other personal-finance resources; adjacent product functionality, not financial-crime evidence.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "questionnaire.template",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "reference",
+      "jurisdiction_basis": "policy_jurisdiction",
+      "subject_types": [
+        "questionnaire"
+      ],
+      "default_action": "retrieve",
+      "result_family": "template",
+      "result_family_status": "proposed_schema",
+      "definition": "Retrieve questionnaire definitions/standards; a blank template is not a response or attestation.",
+      "not_substitutable_for": [
+        "questionnaire.collection"
+      ]
+    },
+    {
+      "capability_path": "platform.integration",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "operational",
+      "jurisdiction_basis": "integration_scope",
+      "subject_types": [
+        "integration",
+        "session",
+        "subject_resource"
+      ],
+      "default_action": "manage",
+      "result_family": "operation",
+      "result_family_status": "proposed_schema",
+      "definition": "Manage authentication, sessions, consent, subject records, webhooks, audit logs, queues, diagnostics and native controls. Require an operation_kind and, where known, enables[]; produce no intelligence assertion merely from control success.",
+      "not_substitutable_for": []
+    },
+    {
+      "capability_path": "platform.testing",
+      "group": "native_inventory_addition",
+      "legacy_capability": null,
+      "kind": "testing",
+      "jurisdiction_basis": "integration_scope",
+      "subject_types": [
+        "test_resource"
+      ],
+      "default_action": "simulate",
+      "result_family": "operation",
+      "result_family_status": "proposed_schema",
+      "definition": "Perform sandbox/test setup or webhook simulation; results remain explicitly synthetic and cannot satisfy a live intelligence requirement.",
+      "not_substitutable_for": []
+    }
+  ]
+}

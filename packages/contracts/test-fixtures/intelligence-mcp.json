@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "intelligence.binding.v1",
+  "id": "mcp.customer_lookup",
+  "name": "Customer lookup MCP server",
+  "owner": "Platform engineering",
+  "description": "Synthetic configuration fixture",
+  "dataClass": "internal",
+  "serviceClass": "mcp",
+  "connection": {
+    "cloud": "gateway",
+    "adapterId": "mcp_gateway",
+    "endpoint": "https://mcp.example.com/mcp",
+    "account": "test-subscription",
+    "resourceId": "test-model-resource",
+    "region": "us-approved",
+    "networkZone": "private-models",
+    "auth": {
+      "mode": "oauth_delegated",
+      "principal": "gateway-mcp-client",
+      "audience": "https://mcp.example.com",
+      "issuer": "https://identity.example.com",
+      "subject": "",
+      "credentialRef": null,
+      "clientIdRef": "MCP_CLIENT_ID",
+      "certificateRef": null
+    }
+  },
+  "configuration": {
+    "transport": "streamable_http",
+    "protocolVersion": "2026-07-28",
+    "serverName": "customer-tools",
+    "serverVersion": "1.0.0",
+    "identityMode": "delegated_user",
+    "scopes": [
+      "customers:read"
+    ],
+    "catalogSource": "pinned_snapshot",
+    "catalogRef": "artifact:customer-tools.catalog.v1",
+    "catalogDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "tools": [
+      {
+        "name": "customer_lookup",
+        "capabilityId": "mcp.customer.lookup.v1",
+        "inputSchemaRef": "schema:customer-lookup.input.v1",
+        "outputSchemaRef": "schema:customer-lookup.output.v1",
+        "effect": "read",
+        "approval": "always"
+      }
+    ],
+    "launchProfileRef": "",
+    "policyRef": "policy:mcp-customer-access.v1",
+    "evaluationRef": "evaluation:mcp-customer-conformance.v1",
+    "catalogChangeBehavior": "block",
+    "timeoutMs": 30000,
+    "maxConcurrency": 4,
+    "maxResultBytes": 1048576,
+    "unavailableBehavior": "deny"
+  }
+}

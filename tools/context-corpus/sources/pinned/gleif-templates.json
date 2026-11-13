@@ -1,0 +1,44 @@
+{
+  "depth_histogram": {
+    "2": 36,
+    "3": 6,
+    "4": 1
+  },
+  "note": "Structure only; entity names and LEIs are deliberately not retained.",
+  "parent_to_child_country_steps": {
+    "BE>LU": 1,
+    "CH>GB": 1,
+    "CY>CY": 3,
+    "DE>LU": 1,
+    "DK>CY": 1,
+    "GB>CY": 2,
+    "GB>GB": 4,
+    "GB>NL": 1,
+    "IE>IE": 6,
+    "IE>US": 1,
+    "JP>NL": 1,
+    "KY>KY": 2,
+    "LI>CY": 1,
+    "LU>LU": 3,
+    "NL>LU": 1,
+    "NL>US": 1,
+    "SE>US": 1,
+    "US>GB": 2,
+    "US>IE": 1,
+    "US>KY": 1,
+    "US>LU": 2,
+    "US>US": 13,
+    "VG>VG": 1
+  },
+  "requests": 74,
+  "sample_chains": 43,
+  "source": "GLEIF Level 1 + Level 2 (direct parent)",
+  "ultimate_to_subject_shapes_depth_ge_3": {
+    "CH>GB>CY": 1,
+    "DE>LU>LU": 1,
+    "JP>NL>LU": 1,
+    "US>GB>GB>CY": 1,
+    "US>IE>IE": 1,
+    "US>US>US": 2
+  }
+}

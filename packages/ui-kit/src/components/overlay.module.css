@@ -1,0 +1,22 @@
+.scrim {
+  position: fixed; inset: 0; background: var(--surface-scrim); z-index: var(--z-sheet);
+  display: flex; align-items: center; justify-content: center; padding: var(--space-8);
+}
+.sheet {
+  width: min(760px, 100%); max-height: calc(100vh - 64px); overflow: auto; display: flex; flex-direction: column;
+  background: var(--surface-panel); border-radius: var(--radius-xl); box-shadow: var(--shadow-2);
+}
+.sheet:focus-visible { box-shadow: var(--focus-ring), var(--shadow-2); }
+.head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); padding: var(--space-5) var(--space-6) var(--space-3); border-bottom: 1px solid var(--line-1); }
+.title { font-size: var(--text-xl); line-height: var(--lh-xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-tight); }
+.description { margin-top: var(--space-1); color: var(--ink-2); font-size: var(--text-sm); }
+.body { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5); }
+.foot { display: flex; align-items: center; gap: var(--space-3); justify-content: flex-end; padding: var(--space-4) var(--space-6); border-top: 1px solid var(--line-1); background: var(--surface-raised); }
+
+.tooltipAnchor { position: relative; display: inline-flex; }
+.tooltip {
+  position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); z-index: var(--z-toast);
+  max-width: 280px; width: max-content; padding: 6px 10px; border-radius: var(--radius-sm);
+  background: var(--surface-inverse); color: var(--ink-inverse); font-size: var(--text-xs); line-height: var(--lh-xs);
+  box-shadow: var(--shadow-2); pointer-events: none;
+}

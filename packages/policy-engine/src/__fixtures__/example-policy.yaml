@@ -1,0 +1,121 @@
+# A minimal policy in the assertion-tree authoring form, used to exercise the compiler.
+#
+# It is deliberately not a real domain's policy: a compiler test that depends on whatever a
+# domain currently says breaks every time a policy owner edits a rule, and stops telling you
+# anything about the compiler. Everything here exists to exercise one compiler behaviour.
+apiVersion: harness.factory/policy-v1
+kind: Policy
+
+metadata:
+  id: policy.example.acceptance.v1
+  name: Example Acceptance Policy
+  version: 1.0.0
+  domain: example
+  jurisdiction: US
+  status: CANDIDATE
+
+spec:
+  compilation:
+    target: opa
+    regoVersion: v1
+    entrypoint: data.harness.example.acceptance.evaluate
+    deterministic: true
+    networkAccess: denied
+
+  authority:
+    source: POLICY_DB
+    casePath: $.policyAuthority
+    requireSnapshotDigest: true
+
+  outcomes: [ALLOW, BLOCK, REVIEW, UNKNOWN, ERROR]
+  defaultOutcome: BLOCK
+  unknownHandling: REVIEW
+
+  deploymentReadiness:
+    productionEligible: false
+    blockers:
+      - id: EXAMPLE-CONFIG-001
+        path: $.spec.institutionSettings.approvalThreshold
+        status: UNRESOLVED
+        reasonCode: APPROVAL_THRESHOLD_UNRESOLVED
+
+  institutionSettings:
+    approvalThreshold: null
+    automaticDeclineEnabled: false
+
+  gates:
+    readiness:
+      description: Authoritative context must exist before the case advances.
+      permittedCaseStatuses: [INTAKE]
+      requirements:
+        - id: EXAMPLE-GATE-001
+          description: Authority evidence exists.
+          assert:
+            path: $.evidence
+            operator: contains
+            where:
+              purpose: EXAMPLE_AUTHORITY
+          onFailure:
+            outcome: BLOCK
+            reasonCode: AUTHORITY_MISSING
+      onPass:
+        outcome: ALLOW
+        command:
+          commandType: RecordGateResult
+          decision: AUTHORIZED
+
+    disposition:
+      description: Determine the permitted handling without granting agent authority.
+      permittedCaseStatuses: [READY_FOR_DECISION]
+      rules:
+        - id: EXAMPLE-DISP-001
+          priority: 10
+          description: An explicit review request is honoured.
+          when:
+            path: $.recommendation.requiresHumanReview
+            operator: eq
+            value: true
+          outcome:
+            result: REVIEW
+            reasonCode: HUMAN_REVIEW_REQUIRED
+            commandType: RequestHumanReview
+        - id: EXAMPLE-DISP-002
+          priority: 20
+          description: A decline recommendation always requires human authority.
+          when:
+            path: $.recommendation.outcome
+            operator: eq
+            value: DECLINE
+          outcome:
+            result: REVIEW
+            reasonCode: DECLINE_REQUIRES_HUMAN_AUTHORITY
+            commandType: RequestHumanReview
+        - id: EXAMPLE-DISP-010
+          priority: 100
+          description: Approval is permitted only when the citations are present.
+          when:
+            path: $.recommendation.outcome
+            operator: eq
+            value: APPROVE
+          require:
+            all:
+              - path: $.recommendation.evidenceRefs
+                operator: notEmpty
+              - path: $.findings
+                operator: none
+                where:
+                  findingType:
+                    in: [POSSIBLE_SANCTIONS_MATCH, IDENTITY_CONFLICT]
+          outcome:
+            result: ALLOW
+            reasonCode: REQUIREMENTS_SATISFIED
+            commandType: RecordGateResult
+            decision: AUTHORIZED
+          onRequirementFailure:
+            result: REVIEW
+            reasonCode: APPROVAL_REQUIREMENTS_NOT_MET
+            commandType: RequestHumanReview
+      otherwise:
+        result: REVIEW
+        reasonCode: NO_AUTOMATIC_DISPOSITION_RULE
+        commandType: RequestHumanReview

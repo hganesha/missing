@@ -1,0 +1,28 @@
+{
+  "records": 376,
+  "contracts": 824,
+  "capabilities": 37,
+  "result_families": 18,
+  "fixture_normalizers": 9,
+  "categories": {
+    "identity": 94,
+    "screening": 26,
+    "kyb": 31,
+    "bureau": 13,
+    "fraud": 20,
+    "account": 26,
+    "monitoring": 33,
+    "orchestration": 7,
+    "crypto": 15,
+    "travel_rule": 7,
+    "edd": 17,
+    "registry": 66,
+    "official_lists": 15,
+    "network": 6
+  },
+  "evidence_levels": {
+    "candidate_unverified": 358,
+    "public_docs_reviewed": 10,
+    "public_material_reviewed": 8
+  }
+}

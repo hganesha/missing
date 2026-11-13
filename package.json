@@ -1,0 +1,52 @@
+{
+  "name": "ehf-concept",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "onboarding:build": "pnpm ui:sync && pnpm --filter @ehf/ui-tokens build && pnpm --filter @ehf/web build && node scripts/build-service.mjs launcher",
+    "onboarding:dev": "node scripts/launch-onboarding.mjs",
+    "onboarding:test": "pnpm --filter @ehf/launcher test && node --test scripts/deploy-azure.test.mjs && node --import tsx --test scripts/deploy-runtime.test.mjs scripts/deploy-azure-foundation.test.mjs scripts/provision-azure-resources.test.mjs scripts/lib/entra-directory.test.mjs",
+    "onboarding:smoke-image": "node scripts/smoke-onboarding-image.mjs",
+    "deploy:azure": "node --import tsx scripts/deploy-azure.mjs",
+    "deploy:azure:foundation": "node --import tsx scripts/deploy-azure-foundation.mjs",
+    "agentic:prepare": "node --import tsx scripts/prepare-agentic-flows.ts",
+    "build": "pnpm -r --if-present build",
+    "build:service": "node scripts/build-service.mjs",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test && vitest run scripts/lib/installation-policy-package.test.ts scripts/lib/agentic-gate-rules.test.ts scripts/lib/agentic-flow-faults.test.ts scripts/lib/discovery-advisory.test.ts",
+    "check": "pnpm typecheck && pnpm test && pnpm build",
+    "perf": "node scripts/performance.mjs",
+    "corpus:seed": "pnpm --filter @ehf/context-corpus seed",
+    "corpus:validate": "pnpm --filter @ehf/context-corpus seed --validate",
+    "db:migrate": "pnpm --filter @ehf/persistence exec tsx src/ensure-databases.ts && pnpm --filter @ehf/persistence migrate && pnpm --filter @ehf/case-store migrate && pnpm --filter @ehf/context-store migrate && pnpm --filter @ehf/case-store discovery:migrate",
+    "dev:api": "pnpm --filter @ehf/control-api dev",
+    "dev:gateway": "pnpm --filter @ehf/capability-gateway dev",
+    "dev:dispatcher": "pnpm --filter @ehf/runtime-worker dev",
+    "dev:runtime-host": "pnpm --filter @ehf/runtime-host dev",
+    "dev:case-api": "pnpm --filter @ehf/case-api dev",
+    "ui:sync": "node scripts/ui-sync.mjs",
+    "ui:contracts": "node scripts/ui-contracts.mjs",
+    "ui:build": "pnpm ui:sync && pnpm --filter @ehf/web build && pnpm --filter @ehf/experience-bff build",
+    "ui:test": "pnpm --filter @ehf/ui-contracts --filter @ehf/ui-client --filter @ehf/ui-mock --filter @ehf/ui-tokens --filter @ehf/ui-kit --filter @ehf/ui-shell --filter @ehf/web --filter @ehf/experience-bff test",
+    "dev:web": "pnpm --filter @ehf/web dev",
+    "dev:bff": "pnpm --filter @ehf/experience-bff dev",
+    "storybook": "pnpm --filter @ehf/ui-kit storybook",
+    "ui:test:e2e": "pnpm --filter @ehf/e2e-ui e2e",
+    "onboarding:smoke-migrations": "node scripts/smoke-migrations-image.mjs",
+    "deploy:runtime": "node --import tsx scripts/deploy-runtime.mjs",
+    "onboarding:smoke-runtime": "node --import tsx scripts/smoke-runtime-image.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "26.0.1",
+    "esbuild": "0.25.10",
+    "tsx": "4.23.1",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11",
+    "yaml": "2.9.1"
+  }
+}

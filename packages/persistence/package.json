@@ -1,0 +1,30 @@
+{
+  "name": "@ehf/persistence",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./runtime-state": "./src/runtime-state.ts",
+    "./admin": "./src/admin.ts",
+    "./connectors": "./src/connectors.ts",
+    "./business-skills": "./src/business-skills.ts",
+    "./ensure-databases": "./src/ensure-databases.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "migrate": "tsx src/migrate.ts"
+  },
+  "dependencies": {
+    "@ehf/contracts": "workspace:*",
+    "@ehf/identity": "workspace:*",
+    "@ehf/runtime-state": "workspace:*",
+    "pg": "8.23.0",
+    "tsx": "4.23.1"
+  },
+  "devDependencies": {
+    "@types/pg": "8.16.0"
+  }
+}

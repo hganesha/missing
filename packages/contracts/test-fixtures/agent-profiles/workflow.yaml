@@ -1,0 +1,588 @@
+apiVersion: ladder.dev/v1alpha1
+kind: Workflow
+metadata:
+  name: kyc-onboarding-demo
+  title: Governed KYC onboarding
+  description: Canonical intake evidence, live sanctions and PEP screening, adverse-media research, policy gates, advisory assessment, and independent review.
+  version: 2.0.0
+spec:
+  objective: Produce a complete, auditable KYC case packet without granting a model or screening provider final disposition authority.
+  inputs:
+    type: object
+    required: [tenantId, caseId]
+    properties:
+      tenantId: {type: string}
+      caseId: {type: string}
+  outputs:
+    type: object
+    required: [decision]
+    properties:
+      decision: {type: string, enum: [APPROVE, REJECT]}
+  policies:
+    maxConcurrency: 6
+    onFailure: stop
+  nodes:
+    - id: intake
+      kind: input
+      name: Case identity
+      summary: Accept only tenant and case identity; material KYC facts come from the canonical case store.
+
+    - id: policy-authority
+      kind: transform
+      name: Pin policy authority evidence
+      summary: Materialize the case's immutable policy binding as authoritative canonical evidence and a policy claim.
+      contextSelectorIds: [policyGateContext]
+      config:
+        operation: select
+        path: /
+        caseWriteActor: system
+        caseWritePrincipalId: kyc-policy-context
+        evidenceCapture:
+          type: kyc_policy_authority_binding
+          sourceType: INTERNAL_SYSTEM
+          trustTier: AUTHORITATIVE_POLICY
+          instructionTrust: TRUSTED
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_POLICY_AUTHORITY}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+          - commandType: ProposeClaim
+            payload:
+              claimId: "claim_policy_{{ run.runId }}"
+              predicate: applicable_kyc_policy
+              value:
+                policyId: "{{ case.policyAuthority.policyId }}"
+                policyVersion: "{{ case.policyAuthority.policyVersion }}"
+                policySnapshotDigest: "{{ case.policyAuthority.policySnapshotDigest }}"
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              confidence: {value: 1, method: release_binding}
+            payloadSchema: {type: object, required: [claimId, predicate, value, evidenceRefs]}
+          - commandType: TransitionCaseStatus
+            payload: {toStatus: VALIDATING, reason: Authoritative policy context and intake prerequisites are being validated.}
+            payloadSchema: {type: object, required: [toStatus, reason]}
+
+    - id: identity-document
+      kind: transform
+      name: Record identity-document evidence
+      summary: Persist the demo intake's verified identity-document assertion as canonical evidence.
+      contextSelectorIds: [policyGateContext]
+      config:
+        operation: select
+        path: /
+        caseWriteActor: system
+        caseWritePrincipalId: kyc-demo-intake
+        evidenceCapture: {type: kyc_cip_identity_document, sourceType: INTERNAL_SYSTEM, trustTier: VERIFIED_DOCUMENT, instructionTrust: UNTRUSTED_DATA}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_CIP_IDENTITY_DOCUMENT}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+
+    - id: address-evidence
+      kind: transform
+      name: Record address evidence
+      summary: Persist the verified address assertion used by the demo case.
+      contextSelectorIds: [policyGateContext]
+      config:
+        operation: select
+        path: /
+        caseWriteActor: system
+        caseWritePrincipalId: kyc-demo-intake
+        evidenceCapture: {type: kyc_cip_address, sourceType: INTERNAL_SYSTEM, trustTier: VERIFIED_DOCUMENT, instructionTrust: UNTRUSTED_DATA}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_CIP_ADDRESS}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+
+    - id: tin-evidence
+      kind: transform
+      name: Record taxpayer-ID evidence
+      summary: Persist the verified taxpayer-identifier assertion used by the demo case.
+      contextSelectorIds: [policyGateContext]
+      config:
+        operation: select
+        path: /
+        caseWriteActor: system
+        caseWritePrincipalId: kyc-demo-intake
+        evidenceCapture: {type: kyc_cip_tin, sourceType: INTERNAL_SYSTEM, trustTier: VERIFIED_DOCUMENT, instructionTrust: UNTRUSTED_DATA}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_CIP_TIN}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+
+    - id: identity-verification
+      kind: transform
+      name: Record identity-verification evidence
+      summary: Persist the bounded demo verification result used by the case.
+      contextSelectorIds: [policyGateContext]
+      config:
+        operation: select
+        path: /
+        caseWriteActor: system
+        caseWritePrincipalId: kyc-demo-intake
+        evidenceCapture: {type: kyc_identity_verification, sourceType: INTERNAL_SYSTEM, trustTier: VERIFIED_PROVIDER, instructionTrust: UNTRUSTED_DATA}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_IDENTITY_VERIFICATION}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+
+    - id: risk-profile
+      kind: transform
+      name: Record relationship and risk profile
+      summary: Persist relationship-purpose evidence and the policy-readable risk profile.
+      contextSelectorIds: [policyGateContext]
+      config:
+        operation: select
+        path: /
+        caseWriteActor: system
+        caseWritePrincipalId: kyc-demo-intake
+        evidenceCapture: {type: kyc_relationship_profile, sourceType: INTERNAL_SYSTEM, trustTier: AGENT_DERIVED, instructionTrust: TRUSTED}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_RELATIONSHIP_PURPOSE}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+          - commandType: ProposeClaim
+            payload:
+              claimId: "claim_risk_{{ run.runId }}"
+              subjectRef: "{{ case.subjects.0.subject_id }}"
+              predicate: kyc_risk_profile
+              value:
+                riskTier: "{{ case.subjects.0.attributes.riskTier }}"
+                jurisdictionRisk: "{{ case.subjects.0.attributes.jurisdictionRisk }}"
+                productRisk: "{{ case.subjects.0.attributes.productRisk }}"
+                pepExposure: "{{ case.subjects.0.attributes.pepExposure }}"
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              confidence: {value: 1, method: deterministic_intake}
+            payloadSchema: {type: object, required: [claimId, predicate, value, evidenceRefs]}
+          - commandType: AcceptClaimAsFact
+            payload:
+              factId: "fact_risk_{{ run.runId }}"
+              claimRefs: ["claim_risk_{{ run.runId }}"]
+              subjectRef: "{{ case.subjects.0.subject_id }}"
+              acceptancePolicyRef: kyc-demo-intake-v2
+              purpose: KYC_POLICY_EVALUATION
+            payloadSchema: {type: object, required: [factId, claimRefs, acceptancePolicyRef, purpose]}
+
+    - id: intake-evidence-ready
+      kind: join
+      name: Intake evidence barrier
+      summary: Continue only after every canonical intake and policy write has committed.
+      contextSelectorIds: []
+      config: {join: all, mode: all}
+
+    - id: screening-ready
+      kind: gate
+      name: Screening readiness gate
+      summary: Verify policy authority, identifying attributes, and screening prerequisites against the canonical case.
+      contextSelectorIds: [policyGateContext]
+      config:
+        policyRef: policy.kyc.customer-acceptance.v1
+        gateId: screening-ready
+        caseWriteActor: system
+        caseWritePrincipalId: policy-gate
+        caseWrites:
+          - commandType: TransitionCaseStatus
+            when: output.outcome == "ALLOW"
+            payload: {toStatus: SCREENING, reason: Screening readiness policy gate allowed the case to proceed.}
+            payloadSchema: {type: object, required: [toStatus, reason]}
+
+    - id: sanctions-screen
+      kind: tool
+      name: OpenSanctions sanctions screen
+      summary: Screen the canonical subject against sanctions and linked-entity topics and write the result to the case.
+      contextSelectorIds: [name, country, dateOfBirth]
+      inputSchema: {type: object, required: [name]}
+      outputSchema: {type: object, required: [status, provider, screeningType, screenedAt, alerts]}
+      capabilities: {tools: [screening.sanctions.v1]}
+      config:
+        evidenceCapture: {type: kyc_sanctions_screening, sourceType: TOOL, trustTier: VERIFIED_PROVIDER, instructionTrust: UNTRUSTED_EXTERNAL}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_SANCTIONS_SCREENING}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+          - commandType: RecordScreeningFinding
+            payload:
+              findingId: "finding_sanctions_{{ run.runId }}"
+              findingType: SANCTIONS_SCREEN_COMPLETED
+              classification: CLEAR
+              confidence: {value: 1, method: provider_result}
+              reason: OpenSanctions sanctions screening completed; provider output is linked as evidence.
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-SCR-001
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+          - commandType: RecordScreeningFinding
+            when: output.alerts.0
+            payload:
+              findingId: "finding_sanctions_signal_{{ run.runId }}"
+              findingType: POSSIBLE_SANCTIONS_MATCH
+              classification: REVIEW
+              confidence: {value: 0.8, method: provider_match}
+              reason: OpenSanctions returned at least one sanctions or linked-entity alert.
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-SCR-003
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+
+    - id: pep-screen
+      kind: tool
+      name: OpenSanctions PEP screen
+      summary: Screen the canonical subject for politically exposed person roles and write the result to the case.
+      contextSelectorIds: [name, country, dateOfBirth]
+      inputSchema: {type: object, required: [name]}
+      outputSchema: {type: object, required: [status, provider, screeningType, screenedAt, alerts]}
+      capabilities: {tools: [screening.pep.v1]}
+      config:
+        evidenceCapture: {type: kyc_pep_screening, sourceType: TOOL, trustTier: VERIFIED_PROVIDER, instructionTrust: UNTRUSTED_EXTERNAL}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_PEP_SCREENING}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+          - commandType: RecordScreeningFinding
+            payload:
+              findingId: "finding_pep_{{ run.runId }}"
+              findingType: PEP_SCREEN_COMPLETED
+              classification: CLEAR
+              confidence: {value: 1, method: provider_result}
+              reason: OpenSanctions PEP screening completed; provider output is linked as evidence.
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-EDD-002
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+          - commandType: RecordScreeningFinding
+            when: output.alerts.0
+            payload:
+              findingId: "finding_pep_signal_{{ run.runId }}"
+              findingType: PEP_SIGNAL
+              classification: REVIEW
+              confidence: {value: 0.8, method: provider_match}
+              reason: OpenSanctions returned at least one politically exposed person alert.
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-EDD-002
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+
+    - id: adverse-media-screen
+      kind: tool
+      name: Adverse-media screen
+      summary: Screen the subject through the registered adverse-media connector and preserve the provider result as evidence; an incomplete check is recorded as incomplete, never as clear.
+      contextSelectorIds: [name, country, dateOfBirth]
+      inputSchema: {type: object, required: [name]}
+      outputSchema: {type: object, required: [operationId, outcome, bankDecision, coverage, evidenceRefs, warnings]}
+      capabilities: {tools: [screening.adverse_media.v1]}
+      config:
+        evidenceCapture: {type: kyc_adverse_media_screening, sourceType: TOOL, trustTier: VERIFIED_PROVIDER, instructionTrust: UNTRUSTED_EXTERNAL}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_ADVERSE_MEDIA}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+          - commandType: RecordScreeningFinding
+            when: output.outcome == "passed"
+            payload:
+              findingId: "finding_adverse_media_completed_{{ run.runId }}"
+              findingType: ADVERSE_MEDIA_SCREEN_COMPLETED
+              classification: CLEAR
+              confidence: {value: 1, method: provider_result}
+              reason: The adverse-media connector positively cleared the subject; provider output is linked as evidence.
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-SCR-005
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+          - commandType: RecordScreeningFinding
+            when: output.outcome == "review"
+            payload:
+              findingId: "finding_adverse_media_signal_{{ run.runId }}"
+              findingType: ADVERSE_MEDIA
+              classification: REVIEW
+              confidence: {value: 0.8, method: provider_result}
+              reason: The adverse-media connector returned material adverse media for review.
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-SCR-005
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+          - commandType: RecordScreeningFinding
+            when: output.outcome == "failed"
+            payload:
+              findingId: "finding_adverse_media_failed_{{ run.runId }}"
+              findingType: ADVERSE_MEDIA
+              classification: REVIEW
+              confidence: {value: 0.8, method: provider_result}
+              reason: The adverse-media connector reported a failed screen; the subject needs review.
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-SCR-005
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+          - commandType: RecordScreeningFinding
+            when: output.outcome == "not_checked"
+            payload:
+              findingId: "finding_adverse_media_incomplete_not_checked_{{ run.runId }}"
+              findingType: ADVERSE_MEDIA_SCREEN_INCOMPLETE
+              classification: REVIEW
+              confidence: {value: 0.8, method: provider_result}
+              reason: The adverse-media check did not complete (outcome not_checked); the obligation remains open.
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-SCR-005
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+          - commandType: RecordScreeningFinding
+            when: output.outcome == "unknown"
+            payload:
+              findingId: "finding_adverse_media_incomplete_unknown_{{ run.runId }}"
+              findingType: ADVERSE_MEDIA_SCREEN_INCOMPLETE
+              classification: REVIEW
+              confidence: {value: 0.8, method: provider_result}
+              reason: The adverse-media check did not complete (outcome unknown); the obligation remains open.
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-SCR-005
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+          - commandType: RecordScreeningFinding
+            when: output.outcome == "inconclusive"
+            payload:
+              findingId: "finding_adverse_media_incomplete_inconclusive_{{ run.runId }}"
+              findingType: ADVERSE_MEDIA_SCREEN_INCOMPLETE
+              classification: REVIEW
+              confidence: {value: 0.8, method: provider_result}
+              reason: The adverse-media check did not complete (outcome inconclusive); the obligation remains open.
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-SCR-005
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+          - commandType: RecordScreeningFinding
+            when: output.outcome == "resubmit"
+            payload:
+              findingId: "finding_adverse_media_incomplete_resubmit_{{ run.runId }}"
+              findingType: ADVERSE_MEDIA_SCREEN_INCOMPLETE
+              classification: REVIEW
+              confidence: {value: 0.8, method: provider_result}
+              reason: The adverse-media check did not complete (outcome resubmit); the obligation remains open.
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-SCR-005
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+
+    - id: public-source-investigation
+      kind: tool
+      name: Public-source investigation
+      summary: Complete bounded public-source research and persist its evidence, finding, and work item.
+      contextSelectorIds: [name, country, dateOfBirth]
+      inputSchema: {type: object, required: [name]}
+      outputSchema: {type: object, required: [query, retrievedAt, sources, findings, contradictions, confidence]}
+      capabilities: {tools: [investigation.web.search.v1]}
+      config:
+        evidenceCapture: {type: kyc_public_source_investigation, sourceType: TOOL, trustTier: PROVIDER_UNVERIFIED, instructionTrust: UNTRUSTED_EXTERNAL}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_PUBLIC_SOURCE_RESEARCH}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+          - commandType: ProposeWorkItem
+            payload: {workItemId: "work_investigation_{{ run.runId }}", workType: PUBLIC_SOURCE_KYC_INVESTIGATION, priority: NORMAL, requiredCapability: investigation.web.search.v1}
+            payloadSchema: {type: object, required: [workItemId, workType]}
+          - commandType: RecordScreeningFinding
+            payload:
+              findingId: "{{ output.findings.0.findingId }}"
+              findingType: "{{ output.findings.0.type }}"
+              classification: "{{ output.findings.0.classification }}"
+              confidence: {value: "{{ output.confidence }}", method: provider_result}
+              reason: "{{ output.findings.0.reason }}"
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-INV-002
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+          - commandType: CompleteWorkItem
+            payload: {workItemId: "work_investigation_{{ run.runId }}", resultRefs: ["{{ output.findings.0.findingId }}", "{{ evidence.evidenceId }}"]}
+            payloadSchema: {type: object, required: [workItemId, resultRefs]}
+
+    - id: identity-document-verify
+      kind: tool
+      name: Identity document verification
+      summary: Verify the subject's identity document through the registered identity connector and link the provider result as evidence.
+      contextSelectorIds: [name, country, dateOfBirth]
+      inputSchema: {type: object, required: [name]}
+      outputSchema: {type: object, required: [operationId, outcome, bankDecision, coverage, evidenceRefs, warnings]}
+      capabilities: {tools: [identity.document.verify.v1]}
+      config:
+        evidenceCapture: {type: kyc_identity_document_verification, sourceType: TOOL, trustTier: VERIFIED_PROVIDER, instructionTrust: UNTRUSTED_EXTERNAL}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_IDENTITY_DOCUMENT_VERIFICATION}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+          - commandType: RecordScreeningFinding
+            when: output.outcome != "passed"
+            payload:
+              findingId: "finding_idv_{{ run.runId }}"
+              findingType: IDENTITY_DOCUMENT_NOT_VERIFIED
+              classification: REVIEW
+              confidence: {value: 0.8, method: provider_result}
+              reason: "The identity connector did not positively verify the document (outcome {{ output.outcome }})."
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-ID-001
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+
+    - id: screening-join
+      kind: join
+      name: Screening results barrier
+      summary: Preserve all provider and investigation results; a provider failure remains visible and blocks downstream readiness.
+      contextSelectorIds: []
+      config: {join: allSettled, mode: allSettled}
+
+    - id: kyc-investigation
+      kind: agent
+      name: Connector-driven investigation
+      summary: Bounded agent loop that chooses which registered connectors to call and records cited findings and gaps for the policy gate and assessor.
+      prompt: >-
+        Investigate this KYC subject with the available connectors. Establish what the registry, ownership,
+        enforcement, adverse-media, identity and document connectors say, and list every gap that remains.
+      contextSelectorIds: [investigationContext]
+      inputSchema: {type: object}
+      outputSchema: {type: object, required: [summary, findings, gaps, requiresHumanReview]}
+      config:
+        agentRef: agent.kyc.investigation.v1
+        loop:
+          maxSteps: 8
+          tools: [business.registry.lookup.v1, business.ownership.discover.v1, business.officers.lookup.v1, reference.identifier.lookup.v1, screening.enforcement.v1, screening.adverse_media.v1, identity.document.verify.v1, document.evidence.package.v1]
+          maxObservationChars: 12000
+          repairAttempts: 1
+        evidenceCapture: {type: kyc_agent_investigation, sourceType: DERIVED, trustTier: AGENT_DERIVED, instructionTrust: TRUSTED}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_AGENT_INVESTIGATION}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+          - commandType: RecordScreeningFinding
+            when: output.requiresHumanReview == true
+            payload:
+              findingId: "finding_investigation_{{ run.runId }}"
+              findingType: AGENT_INVESTIGATION_REVIEW
+              classification: REVIEW
+              confidence: {value: 0.7, method: agent_investigation}
+              reason: "{{ output.summary }}"
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              factRefs: []
+              policyRelevance: KYC-INV-002
+            payloadSchema: {type: object, required: [findingId, findingType, reason, evidenceRefs]}
+
+    - id: decision-ready
+      kind: gate
+      name: Decision readiness gate
+      summary: Confirm canonical evidence completeness, provider coverage, freshness, and investigation completion.
+      contextSelectorIds: [policyGateContext]
+      config:
+        policyRef: policy.kyc.customer-acceptance.v1
+        gateId: decision-ready
+        caseWriteActor: system
+        caseWritePrincipalId: policy-gate
+        caseWrites:
+          - commandType: TransitionCaseStatus
+            when: output.outcome == "ALLOW"
+            payload: {toStatus: READY_FOR_DECISION, reason: Decision readiness policy gate confirmed a complete KYC packet.}
+            payloadSchema: {type: object, required: [toStatus, reason]}
+
+    - id: case-assessment
+      kind: evaluate
+      name: Evidence-grounded case assessment
+      summary: Produce and persist an advisory recommendation from purpose-bound canonical case context.
+      prompt: >-
+        Review the canonical KYC case. Cite policy rule ids, evidence ids, and finding ids. Recommend APPROVE only
+        when all obligations are met and no material signal remains; otherwise recommend REVIEW or DECLINE.
+      contextSelectorIds: [assessmentContext]
+      inputSchema: {type: object}
+      outputSchema: {type: object, required: [recommendationId, outcome, rationale, requiresHumanReview, policyRuleRefs, findingRefs, evidenceRefs, confidence]}
+      config:
+        agentRef: agent.kyc.case-assessment.v2
+        evidenceCapture: {type: kyc_decision_recommendation, sourceType: DERIVED, trustTier: AGENT_DERIVED, instructionTrust: TRUSTED}
+        caseWrites:
+          - commandType: LinkEvidence
+            payload: {evidenceId: "{{ evidence.evidenceId }}", purpose: KYC_DECISION_RECOMMENDATION}
+            payloadSchema: {type: object, required: [evidenceId, purpose]}
+          - commandType: SubmitDecisionRecommendation
+            payload:
+              recommendationId: "recommendation_{{ run.runId }}"
+              outcome: "{{ output.outcome }}"
+              rationale: "{{ output.rationale }}"
+              policyRuleRefs: "{{ output.policyRuleRefs }}"
+              findingRefs: [finding_public_001]
+              evidenceRefs: ["{{ evidence.evidenceId }}"]
+              confidence: "{{ output.confidence }}"
+              requiresHumanReview: "{{ output.requiresHumanReview }}"
+            payloadSchema: {type: object, required: [recommendationId, outcome, rationale, policyRuleRefs, findingRefs, evidenceRefs, confidence, requiresHumanReview]}
+
+    - id: disposition
+      kind: gate
+      name: Policy disposition gate
+      summary: Evaluate the pinned policy bundle; ALLOW remains subject to independent review and REVIEW or configuration ERROR escalates to a human.
+      contextSelectorIds: [policyGateContext]
+      config:
+        policyRef: policy.kyc.customer-acceptance.v1
+        gateId: disposition
+        caseWriteActor: system
+        caseWritePrincipalId: policy-gate
+        caseWrites:
+          - commandType: RecordGateResult
+            when: output.outcome == "ALLOW"
+            payload: {gateResultId: "gate_disposition_{{ run.runId }}", recommendationRef: "recommendation_{{ run.runId }}", decision: AUTHORIZED, ruleResults: [{gateId: disposition, outcome: "{{ output.outcome }}", reasonCode: "{{ output.reasonCode }}"}]}
+            payloadSchema: {type: object, required: [gateResultId, recommendationRef, decision, ruleResults]}
+          - commandType: RecordGateResult
+            when: output.outcome != "ALLOW"
+            payload: {gateResultId: "gate_disposition_{{ run.runId }}", recommendationRef: "recommendation_{{ run.runId }}", decision: DENIED, ruleResults: [{gateId: disposition, outcome: "{{ output.outcome }}", reasonCode: "{{ output.reasonCode }}"}]}
+            payloadSchema: {type: object, required: [gateResultId, recommendationRef, decision, ruleResults]}
+          - commandType: RequestHumanReview
+            when: output.outcome != "BLOCK"
+            payload: {objectRef: "recommendation_{{ run.runId }}", reason: "Disposition gate requires independent human review: {{ output.reasonCode }}", priority: HIGH, evidenceRefs: ["{{ values.case-assessment.__caseWrite.evidenceId }}"]}
+            payloadSchema: {type: object, required: [objectRef, reason, evidenceRefs]}
+
+    - id: independent-review
+      kind: approval
+      name: Independent dual-control review
+      summary: Suspend durably until two distinct authorized reviewers record the same decision.
+      contextSelectorIds: [reviewContext]
+      config: {dualControlRequired: true, allowedDecisions: [APPROVE, REJECT]}
+
+    - id: result
+      kind: output
+      name: Reviewed KYC result
+      summary: Persist the human review and execution link; final case disposition remains a separately authorized command.
+      contextSelectorIds: [reviewContext]
+      outputSchema: {type: object, required: [decision]}
+      config:
+        usePredecessorInput: true
+        caseWriteActor: humanDecision
+        caseWrites:
+          - commandType: RecordReview
+            payload: {reviewId: "review_{{ run.runId }}", reviewType: KYC_DISPOSITION, outcome: "{{ output.decision }}", objectRef: "recommendation_{{ run.runId }}", rationale: "{{ output.rationale }}", viewedEvidenceRefs: ["{{ values.case-assessment.__caseWrite.evidenceId }}"]}
+            payloadSchema: {type: object, required: [reviewId, reviewType, outcome, objectRef, rationale, viewedEvidenceRefs]}
+          - commandType: LinkExecution
+            payload: {runId: "{{ run.runId }}", planDigest: "{{ run.planDigest }}", purpose: KYC_V2_GOVERNED_ONBOARDING}
+            payloadSchema: {type: object, required: [runId, planDigest, purpose]}
+
+  edges:
+    - {id: e01, from: intake, to: policy-authority, kind: data}
+    - {id: e02, from: intake, to: identity-document, kind: data}
+    - {id: e03, from: intake, to: address-evidence, kind: data}
+    - {id: e04, from: intake, to: tin-evidence, kind: data}
+    - {id: e05, from: intake, to: identity-verification, kind: data}
+    - {id: e06, from: intake, to: risk-profile, kind: data}
+    - {id: e07, from: policy-authority, to: intake-evidence-ready, kind: data}
+    - {id: e08, from: identity-document, to: intake-evidence-ready, kind: data}
+    - {id: e09, from: address-evidence, to: intake-evidence-ready, kind: data}
+    - {id: e10, from: tin-evidence, to: intake-evidence-ready, kind: data}
+    - {id: e11, from: identity-verification, to: intake-evidence-ready, kind: data}
+    - {id: e12, from: risk-profile, to: intake-evidence-ready, kind: data}
+    - {id: e13, from: intake-evidence-ready, to: screening-ready, kind: data}
+    - {id: e14, from: screening-ready, to: sanctions-screen, kind: data, outcome: ALLOW}
+    - {id: e15, from: screening-ready, to: pep-screen, kind: data, outcome: ALLOW}
+    - {id: e16, from: screening-ready, to: adverse-media-screen, kind: data, outcome: ALLOW}
+    - {id: e17, from: screening-ready, to: public-source-investigation, kind: data, outcome: ALLOW}
+    - {id: e18, from: sanctions-screen, to: screening-join, kind: data}
+    - {id: e19, from: pep-screen, to: screening-join, kind: data}
+    - {id: e20, from: adverse-media-screen, to: screening-join, kind: data}
+    - {id: e21, from: public-source-investigation, to: screening-join, kind: data}
+    - {id: e22, from: screening-join, to: kyc-investigation, kind: data}
+    - {id: e29, from: screening-ready, to: identity-document-verify, kind: data, outcome: ALLOW}
+    - {id: e30, from: identity-document-verify, to: screening-join, kind: data}
+    - {id: e31, from: kyc-investigation, to: decision-ready, kind: data}
+    - {id: e23, from: decision-ready, to: case-assessment, kind: data, outcome: ALLOW}
+    - {id: e24, from: case-assessment, to: disposition, kind: data}
+    - {id: e25, from: disposition, to: independent-review, kind: data, outcome: ALLOW}
+    - {id: e26, from: disposition, to: independent-review, kind: data, outcome: REVIEW}
+    - {id: e27, from: disposition, to: independent-review, kind: data, outcome: ERROR}
+    - {id: e28, from: independent-review, to: result, kind: data}

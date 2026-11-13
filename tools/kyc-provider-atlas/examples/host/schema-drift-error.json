@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "result_id": "1cf6963469179028e608deab20edae0a74a3cf630f5b5da8fda8a33c4c917a2d",
+  "request_id": "demo-request",
+  "tenant_id": "demo-tenant",
+  "subject_entity_id": "subject-001",
+  "capability": "identity.person.verify",
+  "provider": {
+    "provider_id": "veriff",
+    "adapter_version": "0.1.0",
+    "status_original": null,
+    "decision_origin": "unknown"
+  },
+  "execution": {
+    "status": "failed",
+    "received_at": "2026-10-15T12:00:00Z"
+  },
+  "assessment": {
+    "outcome": "unknown",
+    "reason_codes": [],
+    "bank_decision": "not_evaluated"
+  },
+  "coverage": {
+    "status": "unknown",
+    "requested_scope": [
+      "identity.person.verify"
+    ],
+    "checked_scope": [],
+    "not_checked_scope": [
+      "identity.person.verify"
+    ],
+    "reason": "Fixture mapping only; entitled datasets and country coverage not established"
+  },
+  "entities": [
+    {
+      "entity_id": "subject-001",
+      "entity_type": "person",
+      "names": [],
+      "identifiers": []
+    }
+  ],
+  "relationships": [],
+  "assertions": [],
+  "evidence": [
+    {
+      "evidence_id": "ev-d06710bad021c7a9",
+      "provider_id": "veriff",
+      "retrieved_at": "2026-10-15T12:00:00Z",
+      "content_sha256": "d06710bad021c7a9f42f8de491c6537525b27aa133bd8f1dd17bf7282c5f54b3",
+      "source_pointer": "/",
+      "authority": "unknown",
+      "access_classification": "restricted"
+    }
+  ],
+  "result": {
+    "kind": "verification",
+    "checks": [],
+    "assertion_ids": []
+  },
+  "errors": [
+    {
+      "code": "PAYLOAD_CONTRACT_MISMATCH",
+      "category": "schema_drift",
+      "message": "missing verification.id",
+      "retryable": false
+    }
+  ],
+  "warnings": [
+    "SYNTHETIC_FIXTURE_NOT_VENDOR_TESTED",
+    "Coverage and bank decision are not inferred from this payload"
+  ],
+  "raw_payload": {
+    "vault_ref": "example://canonical-json/d06710bad021c7a9f42f8de491c6537525b27aa133bd8f1dd17bf7282c5f54b3",
+    "sha256": "d06710bad021c7a9f42f8de491c6537525b27aa133bd8f1dd17bf7282c5f54b3",
+    "classification": "restricted"
+  },
+  "extensions": {
+    "digest_representation": "canonical JSON UTF-8; not signed HTTP bytes"
+  }
+}

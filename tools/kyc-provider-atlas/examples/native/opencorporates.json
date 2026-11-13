@@ -1,0 +1,13 @@
+{
+  "api_version": "0.4",
+  "results": {
+    "company": {
+      "name": "EXAMPLE WORKSHOP LTD",
+      "company_number": "00000001",
+      "jurisdiction_code": "gb",
+      "current_status": "Active",
+      "inactive": false,
+      "incorporation_date": "2020-01-01"
+    }
+  }
+}

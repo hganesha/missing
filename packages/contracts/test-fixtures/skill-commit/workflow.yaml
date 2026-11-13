@@ -1,0 +1,77 @@
+apiVersion: ladder.dev/v1alpha1
+kind: Workflow
+metadata:
+  name: skill-commit-path
+  title: Skill output commit path
+  description: skill.execution.v1 §6.2–6.3 fixture.
+  version: 0.1.0
+spec:
+  objective: Commit what one skill proposes so the next skill reads it; hold an approval-required skill's effects until approval.
+  inputs:
+    type: object
+    required: [tenantId, caseId]
+    properties:
+      tenantId: { type: string }
+      caseId: { type: string }
+  outputs:
+    type: object
+  policies: { maxConcurrency: 1, onFailure: stop }
+  nodes:
+    - { id: intake, kind: input, name: Intake }
+    - id: ubo-propose
+      kind: tool
+      name: Propose beneficial owners
+      contextSelectorIds: [subjects]
+      config:
+        skillId: sample.ubo.propose
+        caseWrites:
+          - { commandType: LinkEvidence, skillGrant: proposal }
+          - { commandType: ProposeClaim, skillGrant: proposal }
+          - { commandType: RecordScreeningFinding, skillGrant: proposal }
+          - { commandType: RaiseContradiction, skillGrant: proposal }
+          - { commandType: ProposeWorkItem, skillGrant: proposal }
+          - { commandType: RecordCanonicalRecords, skillGrant: proposal }
+    - id: ubo-review
+      kind: tool
+      name: Review beneficial owners
+      contextSelectorIds: [subjects, recBeneficialOwner]
+      config:
+        skillId: sample.ubo.review
+    - id: case-close
+      kind: tool
+      name: Close the case (approval-gated)
+      contextSelectorIds: [subjects]
+      config:
+        skillId: sample.case.close
+        caseWrites:
+          - { commandType: LinkEvidence, skillGrant: proposal }
+          - { commandType: ProposeClaim, skillGrant: proposal }
+          - { commandType: RecordScreeningFinding, skillGrant: proposal }
+          - { commandType: RaiseContradiction, skillGrant: proposal }
+          - { commandType: ProposeWorkItem, skillGrant: proposal }
+          - { commandType: RecordCanonicalRecords, skillGrant: proposal }
+          - { commandType: TransitionCaseStatus, skillGrant: held }
+    - id: case-close-approval
+      kind: approval
+      name: Independent approval of the close
+      contextSelectorIds: [subjects]
+      config: { dualControlRequired: false, allowedDecisions: [APPROVE, REJECT] }
+    - id: case-close-effects
+      kind: transform
+      name: Release approved effects
+      config:
+        operation: select
+        path: /
+        skillEffectRelease: { skillNodeId: case-close, approvalNodeId: case-close-approval }
+        caseWrites:
+          - { commandType: TransitionCaseStatus, skillGrant: release }
+    - { id: result, kind: output, name: Result, config: { usePredecessorInput: true } }
+    - { id: stopped, kind: output, name: Stopped, config: { usePredecessorInput: true } }
+  edges:
+    - { id: e1, from: intake, to: ubo-propose, kind: data }
+    - { id: e2, from: ubo-propose, to: ubo-review, kind: data }
+    - { id: e3, from: ubo-review, to: case-close, kind: data }
+    - { id: e4, from: case-close, to: case-close-approval, kind: data }
+    - { id: e5, from: case-close-approval, to: case-close-effects, kind: data }
+    - { id: e6, from: case-close-effects, to: result, kind: control, condition: 'case-close-effects.decision == "APPROVE"' }
+    - { id: e7, from: case-close-effects, to: stopped, kind: control, condition: 'case-close-effects.decision != "APPROVE"' }

@@ -1,0 +1,2814 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/kyc/host/1.0.0",
+  "title": "KYC Host Result 1.0.0 — proposed bank-owned model",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "result_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject_entity_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capability": {
+      "type": "string",
+      "enum": [
+        "identity.person.verify",
+        "identity.document.verify",
+        "identity.biometric.verify",
+        "identity.address.verify",
+        "identity.digital_id.verify",
+        "identity.tax_id.verify",
+        "business.verify",
+        "business.registry.lookup",
+        "business.ownership.discover",
+        "business.officers.lookup",
+        "screening.sanctions",
+        "screening.pep",
+        "screening.adverse_media",
+        "screening.enforcement",
+        "screening.payment",
+        "risk.device",
+        "risk.email",
+        "risk.phone",
+        "risk.network",
+        "risk.jurisdiction",
+        "risk.customer.assess",
+        "account.ownership.verify",
+        "financial.evidence.retrieve",
+        "transaction.monitor",
+        "case.manage",
+        "regulatory.report",
+        "crypto.wallet.screen",
+        "crypto.transaction.monitor",
+        "travel_rule.exchange",
+        "edd.report.retrieve",
+        "entity.resolve",
+        "monitoring.subscribe",
+        "reference.identifier.lookup",
+        "reference.list.ingest",
+        "workflow.orchestrate",
+        "credential.verify",
+        "questionnaire.collect"
+      ]
+    },
+    "provider": {
+      "type": "object",
+      "properties": {
+        "provider_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "product": {
+          "type": "string"
+        },
+        "api_version": {
+          "type": "string"
+        },
+        "adapter_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider_request_id": {
+          "type": "string"
+        },
+        "provider_record_id": {
+          "type": "string"
+        },
+        "status_original": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decision_origin": {
+          "type": "string",
+          "enum": [
+            "provider_check",
+            "provider_workflow",
+            "client_workflow",
+            "data_only",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "provider_id",
+        "adapter_version",
+        "status_original",
+        "decision_origin"
+      ],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "completed",
+            "partial",
+            "failed",
+            "cancelled",
+            "unknown"
+          ]
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "provider_observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_ms": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "status",
+        "received_at"
+      ],
+      "additionalProperties": false
+    },
+    "assessment": {
+      "type": "object",
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "passed",
+            "failed",
+            "review",
+            "resubmit",
+            "inconclusive",
+            "not_checked",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "bank_decision": {
+          "type": "string",
+          "enum": [
+            "not_evaluated",
+            "approve",
+            "reject",
+            "hold",
+            "escalate"
+          ]
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "policy_version": {
+          "type": "string"
+        },
+        "actor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "outcome",
+        "reason_codes",
+        "bank_decision"
+      ],
+      "additionalProperties": false
+    },
+    "coverage": {
+      "$ref": "#/$defs/coverage"
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entity"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relationship"
+      }
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/assertion"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "result": {
+      "$ref": "#/$defs/result"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/error"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "raw_payload": {
+      "type": "object",
+      "properties": {
+        "vault_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "retention_policy_ref": {
+          "type": "string"
+        },
+        "classification": {
+          "type": "string",
+          "enum": [
+            "confidential",
+            "restricted"
+          ]
+        }
+      },
+      "required": [
+        "vault_ref",
+        "sha256",
+        "classification"
+      ],
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "result_id",
+    "request_id",
+    "tenant_id",
+    "subject_entity_id",
+    "capability",
+    "provider",
+    "execution",
+    "assessment",
+    "coverage",
+    "entities",
+    "relationships",
+    "assertions",
+    "evidence",
+    "result",
+    "errors",
+    "warnings",
+    "raw_payload",
+    "extensions"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "partialDate": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "precision": {
+          "type": "string",
+          "enum": [
+            "year",
+            "month",
+            "day"
+          ]
+        },
+        "calendar": {
+          "type": "string",
+          "enum": [
+            "gregorian",
+            "other"
+          ]
+        },
+        "original": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "precision"
+      ],
+      "additionalProperties": false
+    },
+    "identifier": {
+      "type": "object",
+      "properties": {
+        "scheme": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "issuer": {
+          "type": "string"
+        },
+        "jurisdiction": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "scheme",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "name": {
+      "type": "object",
+      "properties": {
+        "full": {
+          "type": "string"
+        },
+        "given": {
+          "type": "string"
+        },
+        "middle": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "family": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "legal",
+            "alias",
+            "former",
+            "transliteration",
+            "trading",
+            "unknown"
+          ]
+        },
+        "language": {
+          "type": "string"
+        },
+        "script": {
+          "type": "string"
+        },
+        "original": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "full",
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "lines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "city": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "postal_code": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        },
+        "country_original": {
+          "type": "string"
+        },
+        "full": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "registered",
+            "residential",
+            "business",
+            "service",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entity_type": {
+          "type": "string",
+          "enum": [
+            "person",
+            "organization",
+            "trust",
+            "legal_arrangement",
+            "account",
+            "wallet",
+            "vessel",
+            "aircraft",
+            "address",
+            "device",
+            "unknown"
+          ]
+        },
+        "names": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/name"
+          }
+        },
+        "identifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identifier"
+          }
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/address"
+          }
+        },
+        "birth_date": {
+          "$ref": "#/$defs/partialDate"
+        },
+        "incorporation_date": {
+          "$ref": "#/$defs/partialDate"
+        },
+        "nationalities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "jurisdiction": {
+          "type": "string"
+        },
+        "legal_form": {
+          "type": "string"
+        },
+        "status_original": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "inactive",
+            "dissolved",
+            "unknown"
+          ]
+        },
+        "source_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attributes": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "entity_id",
+        "entity_type",
+        "names",
+        "identifiers"
+      ],
+      "additionalProperties": false
+    },
+    "score": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": [
+            "number",
+            "string",
+            "null"
+          ]
+        },
+        "scale_min": {
+          "type": "number"
+        },
+        "scale_max": {
+          "type": "number"
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "higher_is_riskier",
+            "higher_is_better_match",
+            "higher_is_better",
+            "unknown"
+          ]
+        },
+        "semantics": {
+          "type": "string"
+        },
+        "model_version": {
+          "type": "string"
+        },
+        "calibration_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "direction",
+        "semantics"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "evidence_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_record_id": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source_title": {
+          "type": "string"
+        },
+        "published_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "effective_from": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "effective_to": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_pointer": {
+          "type": "string"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "authority": {
+          "type": "string",
+          "enum": [
+            "official",
+            "commercial",
+            "customer_supplied",
+            "inferred",
+            "unknown"
+          ]
+        },
+        "license_ref": {
+          "type": "string"
+        },
+        "retention_policy_ref": {
+          "type": "string"
+        },
+        "access_classification": {
+          "type": "string",
+          "enum": [
+            "public",
+            "internal",
+            "confidential",
+            "restricted"
+          ]
+        }
+      },
+      "required": [
+        "evidence_id",
+        "provider_id",
+        "retrieved_at",
+        "authority",
+        "access_classification"
+      ],
+      "additionalProperties": false
+    },
+    "relationship": {
+      "type": "object",
+      "properties": {
+        "relationship_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "from_entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "to_entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "owns",
+            "controls",
+            "director_of",
+            "officer_of",
+            "beneficial_owner_of",
+            "parent_of",
+            "account_holder_of",
+            "wallet_attributed_to",
+            "same_as",
+            "possible_same_as",
+            "shares_address",
+            "shares_device",
+            "associated_with",
+            "family_of",
+            "close_associate_of",
+            "transacts_with",
+            "other"
+          ]
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "directed",
+            "undirected"
+          ]
+        },
+        "assertion_status": {
+          "type": "string",
+          "enum": [
+            "asserted",
+            "inferred",
+            "candidate",
+            "confirmed",
+            "rejected",
+            "unknown"
+          ]
+        },
+        "ownership": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "equity",
+                "voting",
+                "economic",
+                "control",
+                "unknown"
+              ]
+            },
+            "lower_percent": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "upper_percent": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "exact_percent": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "directness": {
+              "type": "string",
+              "enum": [
+                "direct",
+                "indirect",
+                "unknown"
+              ]
+            },
+            "calculation_policy_ref": {
+              "type": "string"
+            },
+            "calculation_path_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "kind",
+            "directness"
+          ],
+          "additionalProperties": false
+        },
+        "valid_from": {
+          "$ref": "#/$defs/partialDate"
+        },
+        "valid_to": {
+          "$ref": "#/$defs/partialDate"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "confidence_basis": {
+          "type": "string"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "jurisdiction": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "relationship_id",
+        "from_entity_id",
+        "to_entity_id",
+        "type",
+        "direction",
+        "assertion_status",
+        "evidence_ids"
+      ],
+      "additionalProperties": false
+    },
+    "assertion": {
+      "type": "object",
+      "properties": {
+        "assertion_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "field_path": {
+          "type": "string"
+        },
+        "value": {},
+        "verification": {
+          "type": "string",
+          "enum": [
+            "verified",
+            "not_verified",
+            "mismatch",
+            "unknown",
+            "not_checked"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "assertion_id",
+        "entity_id",
+        "field_path",
+        "value",
+        "verification",
+        "evidence_ids"
+      ],
+      "additionalProperties": false
+    },
+    "match": {
+      "type": "object",
+      "properties": {
+        "match_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "list_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "programs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "matched_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "conflicting_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scores": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/score"
+          }
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "unresolved",
+            "true_match",
+            "false_positive",
+            "inconclusive"
+          ]
+        },
+        "disposition_actor": {
+          "type": "string"
+        },
+        "disposition_policy_ref": {
+          "type": "string"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "match_id",
+        "subject_entity_id",
+        "candidate_entity_id",
+        "categories",
+        "disposition",
+        "evidence_ids"
+      ],
+      "additionalProperties": false
+    },
+    "check": {
+      "type": "object",
+      "properties": {
+        "check_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "passed",
+            "failed",
+            "inconclusive",
+            "not_checked",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scores": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/score"
+          }
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "check_id",
+        "name",
+        "outcome",
+        "evidence_ids"
+      ],
+      "additionalProperties": false
+    },
+    "alert": {
+      "type": "object",
+      "properties": {
+        "alert_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_entity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "transaction_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scenario_id": {
+          "type": "string"
+        },
+        "scenario_version": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical",
+            "unknown"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "open",
+            "in_review",
+            "closed",
+            "unknown"
+          ]
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "window_start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "window_end": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "alert_id",
+        "severity",
+        "status",
+        "evidence_ids"
+      ],
+      "additionalProperties": false
+    },
+    "money": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{3,12}$"
+        }
+      },
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "transaction": {
+      "type": "object",
+      "properties": {
+        "transaction_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "amount": {
+          "$ref": "#/$defs/money"
+        },
+        "originator_entity_id": {
+          "type": "string"
+        },
+        "beneficiary_entity_id": {
+          "type": "string"
+        },
+        "account_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rail": {
+          "type": "string"
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "inbound",
+            "outbound",
+            "internal",
+            "unknown"
+          ]
+        },
+        "chain": {
+          "type": "string"
+        },
+        "tx_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "transaction_id",
+        "occurred_at",
+        "amount"
+      ],
+      "additionalProperties": false
+    },
+    "error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "authentication",
+            "authorization",
+            "rate_limit",
+            "validation",
+            "not_found",
+            "timeout",
+            "provider_unavailable",
+            "schema_drift",
+            "unsupported",
+            "unknown"
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "retry_after_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "provider_code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "category",
+        "message",
+        "retryable"
+      ],
+      "additionalProperties": false
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "complete_for_requested_scope",
+            "partial",
+            "unknown",
+            "not_supported"
+          ]
+        },
+        "requested_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "checked_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "not_checked_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "requested_scope",
+        "checked_scope",
+        "not_checked_scope"
+      ],
+      "additionalProperties": false
+    },
+    "verificationResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "verification"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/check"
+          }
+        },
+        "assertion_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "checks",
+        "assertion_ids"
+      ],
+      "additionalProperties": false
+    },
+    "businessResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "business"
+        },
+        "organization_entity_id": {
+          "type": "string"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/check"
+          }
+        },
+        "assertion_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "organization_entity_id",
+        "checks",
+        "assertion_ids"
+      ],
+      "additionalProperties": false
+    },
+    "ownershipResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "ownership"
+        },
+        "root_entity_id": {
+          "type": "string"
+        },
+        "relationship_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "completeness": {
+          "type": "string",
+          "enum": [
+            "complete",
+            "partial",
+            "unknown"
+          ]
+        },
+        "legal_test_policy_ref": {
+          "type": "string"
+        },
+        "unresolved_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "root_entity_id",
+        "relationship_ids",
+        "completeness",
+        "legal_test_policy_ref",
+        "unresolved_reasons"
+      ],
+      "additionalProperties": false
+    },
+    "screeningResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "screening"
+        },
+        "matches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/match"
+          }
+        },
+        "dataset_versions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "total_candidates": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "kind",
+        "matches",
+        "dataset_versions",
+        "scope",
+        "truncated",
+        "total_candidates"
+      ],
+      "additionalProperties": false
+    },
+    "riskResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "risk"
+        },
+        "scores": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/score"
+          }
+        },
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {},
+              "reason_codes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "name",
+              "value",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "scores",
+        "signals"
+      ],
+      "additionalProperties": false
+    },
+    "accountResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "account"
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "account_entity_id": {
+                "type": "string"
+              },
+              "field_scores": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/score"
+                }
+              },
+              "ownership_outcome": {
+                "type": "string",
+                "enum": [
+                  "matched",
+                  "not_matched",
+                  "inconclusive",
+                  "not_checked"
+                ]
+              },
+              "checks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/check"
+                }
+              }
+            },
+            "required": [
+              "account_entity_id",
+              "field_scores",
+              "ownership_outcome"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "accounts"
+      ],
+      "additionalProperties": false
+    },
+    "financialResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "financial"
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "document_id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "evidence_id": {
+                "type": "string"
+              },
+              "period_start": {
+                "$ref": "#/$defs/partialDate"
+              },
+              "period_end": {
+                "$ref": "#/$defs/partialDate"
+              },
+              "extracted_facts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/assertion"
+                }
+              }
+            },
+            "required": [
+              "document_id",
+              "type",
+              "evidence_id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "monitoringResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "monitoring"
+        },
+        "alerts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/alert"
+          }
+        },
+        "transactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/transaction"
+          }
+        },
+        "window_start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "window_end": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "caseResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "case"
+        },
+        "case_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "assigned_actor": {
+          "type": "string"
+        },
+        "alert_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "decision_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "actor": {
+                "type": "string"
+              },
+              "action": {
+                "type": "string"
+              },
+              "policy_ref": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "at",
+              "actor",
+              "action"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "reportResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "report"
+        },
+        "report_id": {
+          "type": "string"
+        },
+        "jurisdiction": {
+          "type": "string"
+        },
+        "report_type": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "approved",
+            "submitted",
+            "accepted",
+            "rejected",
+            "unknown"
+          ]
+        },
+        "acknowledgement_id": {
+          "type": "string"
+        },
+        "filing_authority": {
+          "type": "string"
+        },
+        "restricted_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "cryptoResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "crypto"
+        },
+        "wallet_entity_id": {
+          "type": "string"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "asset": {
+          "type": "string"
+        },
+        "scores": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/score"
+          }
+        },
+        "exposures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "counterparty_entity_id": {
+                "type": "string"
+              },
+              "direction": {
+                "type": "string",
+                "enum": [
+                  "incoming",
+                  "outgoing",
+                  "both",
+                  "unknown"
+                ]
+              },
+              "hops": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "share_percent": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "amount": {
+                "$ref": "#/$defs/money"
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "category",
+              "direction",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "alerts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/alert"
+          }
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "travel_ruleResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "travel_rule"
+        },
+        "message_id": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "protocol_version": {
+          "type": "string"
+        },
+        "originator_vasp_entity_id": {
+          "type": "string"
+        },
+        "beneficiary_vasp_entity_id": {
+          "type": "string"
+        },
+        "transfer_transaction_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "delivered",
+            "accepted",
+            "rejected",
+            "failed",
+            "unknown"
+          ]
+        },
+        "pii_vault_ref": {
+          "type": "string"
+        },
+        "counterparty_due_diligence_status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "eddResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "edd"
+        },
+        "report_id": {
+          "type": "string"
+        },
+        "summary_internal": {
+          "type": "string"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "finding_id": {
+                "type": "string"
+              },
+              "category": {
+                "type": "string"
+              },
+              "allegation_status": {
+                "type": "string",
+                "enum": [
+                  "alleged",
+                  "charged",
+                  "convicted",
+                  "acquitted",
+                  "dismissed",
+                  "unknown"
+                ]
+              },
+              "summary": {
+                "type": "string"
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "finding_id",
+              "category",
+              "allegation_status",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "resolutionResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "resolution"
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "left_entity_id": {
+                "type": "string"
+              },
+              "right_entity_id": {
+                "type": "string"
+              },
+              "outcome": {
+                "type": "string",
+                "enum": [
+                  "same",
+                  "different",
+                  "possible",
+                  "insufficient"
+                ]
+              },
+              "method": {
+                "type": "string"
+              },
+              "model_version": {
+                "type": "string"
+              },
+              "matched_features": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "contradictions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "scores": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/score"
+                }
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "left_entity_id",
+              "right_entity_id",
+              "outcome",
+              "method",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "merge_policy_ref": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "subscriptionResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "subscription"
+        },
+        "subscription_id": {
+          "type": "string"
+        },
+        "subject_entity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "paused",
+            "cancelled",
+            "unknown"
+          ]
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "identity.person.verify",
+              "identity.document.verify",
+              "identity.biometric.verify",
+              "identity.address.verify",
+              "identity.digital_id.verify",
+              "identity.tax_id.verify",
+              "business.verify",
+              "business.registry.lookup",
+              "business.ownership.discover",
+              "business.officers.lookup",
+              "screening.sanctions",
+              "screening.pep",
+              "screening.adverse_media",
+              "screening.enforcement",
+              "screening.payment",
+              "risk.device",
+              "risk.email",
+              "risk.phone",
+              "risk.network",
+              "risk.jurisdiction",
+              "risk.customer.assess",
+              "account.ownership.verify",
+              "financial.evidence.retrieve",
+              "transaction.monitor",
+              "case.manage",
+              "regulatory.report",
+              "crypto.wallet.screen",
+              "crypto.transaction.monitor",
+              "travel_rule.exchange",
+              "edd.report.retrieve",
+              "entity.resolve",
+              "monitoring.subscribe",
+              "reference.identifier.lookup",
+              "reference.list.ingest",
+              "workflow.orchestrate",
+              "credential.verify",
+              "questionnaire.collect"
+            ]
+          }
+        },
+        "next_review_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "referenceResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "reference"
+        },
+        "record_entity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dataset_id": {
+          "type": "string"
+        },
+        "dataset_version": {
+          "type": "string"
+        },
+        "record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "relationship_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "workflowResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "workflow"
+        },
+        "workflow_id": {
+          "type": "string"
+        },
+        "workflow_version": {
+          "type": "string"
+        },
+        "step_run_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "running",
+            "completed",
+            "failed",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "questionnaireResult": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "questionnaire"
+        },
+        "questionnaire_id": {
+          "type": "string"
+        },
+        "template_version": {
+          "type": "string"
+        },
+        "answers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "question_id": {
+                "type": "string"
+              },
+              "value": {},
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "question_id",
+              "value",
+              "evidence_ids"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "result": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/verificationResult"
+        },
+        {
+          "$ref": "#/$defs/businessResult"
+        },
+        {
+          "$ref": "#/$defs/ownershipResult"
+        },
+        {
+          "$ref": "#/$defs/screeningResult"
+        },
+        {
+          "$ref": "#/$defs/riskResult"
+        },
+        {
+          "$ref": "#/$defs/accountResult"
+        },
+        {
+          "$ref": "#/$defs/financialResult"
+        },
+        {
+          "$ref": "#/$defs/monitoringResult"
+        },
+        {
+          "$ref": "#/$defs/caseResult"
+        },
+        {
+          "$ref": "#/$defs/reportResult"
+        },
+        {
+          "$ref": "#/$defs/cryptoResult"
+        },
+        {
+          "$ref": "#/$defs/travel_ruleResult"
+        },
+        {
+          "$ref": "#/$defs/eddResult"
+        },
+        {
+          "$ref": "#/$defs/resolutionResult"
+        },
+        {
+          "$ref": "#/$defs/subscriptionResult"
+        },
+        {
+          "$ref": "#/$defs/referenceResult"
+        },
+        {
+          "$ref": "#/$defs/workflowResult"
+        },
+        {
+          "$ref": "#/$defs/questionnaireResult"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "identity.person.verify"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/verificationResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "identity.document.verify"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/verificationResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "identity.biometric.verify"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/verificationResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "identity.address.verify"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/verificationResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "identity.digital_id.verify"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/verificationResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "identity.tax_id.verify"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/verificationResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "business.verify"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/businessResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "business.registry.lookup"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/businessResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "business.ownership.discover"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/ownershipResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "business.officers.lookup"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/ownershipResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "screening.sanctions"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/screeningResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "screening.pep"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/screeningResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "screening.adverse_media"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/screeningResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "screening.enforcement"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/screeningResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "screening.payment"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/screeningResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "risk.device"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/riskResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "risk.email"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/riskResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "risk.phone"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/riskResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "risk.network"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/riskResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "risk.jurisdiction"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/riskResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "risk.customer.assess"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/riskResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "account.ownership.verify"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/accountResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "financial.evidence.retrieve"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/financialResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "transaction.monitor"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/monitoringResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "case.manage"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/caseResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "regulatory.report"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/reportResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "crypto.wallet.screen"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/cryptoResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "crypto.transaction.monitor"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/cryptoResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "travel_rule.exchange"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/travel_ruleResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "edd.report.retrieve"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/eddResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "entity.resolve"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/resolutionResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "monitoring.subscribe"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/subscriptionResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "reference.identifier.lookup"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/referenceResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "reference.list.ingest"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/referenceResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "workflow.orchestrate"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/workflowResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "credential.verify"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/verificationResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "capability": {
+            "const": "questionnaire.collect"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "$ref": "#/$defs/questionnaireResult"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "execution": {
+            "properties": {
+              "status": {
+                "const": "failed"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "errors": {
+            "minItems": 1
+          },
+          "assessment": {
+            "properties": {
+              "outcome": {
+                "enum": [
+                  "unknown",
+                  "inconclusive",
+                  "not_checked"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "assessment": {
+            "properties": {
+              "bank_decision": {
+                "not": {
+                  "const": "not_evaluated"
+                }
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "assessment": {
+            "required": [
+              "policy_id",
+              "policy_version",
+              "actor"
+            ],
+            "properties": {
+              "policy_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "policy_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "actor": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

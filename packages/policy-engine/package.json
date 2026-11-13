@@ -1,0 +1,25 @@
+{
+  "name": "@ehf/policy-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./diligence": "./src/diligence/index.ts",
+    "./effective": "./src/effective.ts",
+    "./impact": "./src/impact.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "compile:kyc": "tsx src/cli-decision-table.ts ../../domains/kyc/policy ../../artifacts/policy/kyc"
+  },
+  "dependencies": {
+    "@ehf/contracts": "workspace:*",
+    "yaml": "2.9.1",
+    "zod": "4.6.6",
+    "tsx": "4.23.1",
+    "@ehf/library-contracts": "workspace:*"
+  }
+}

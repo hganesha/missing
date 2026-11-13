@@ -1,0 +1,69 @@
+{
+  "adapter_id": "companies_house",
+  "provider_id": "companies-house",
+  "adapter_version": "0.1.0",
+  "host_schema_version": "1.0.0",
+  "capability": "business.registry.lookup",
+  "maturity": "fixture_tested",
+  "enabled": false,
+  "native": {
+    "method": "GET",
+    "path": "/company/{company_number}",
+    "api_version": null,
+    "authentication": "Basic API key with empty password; confirm current contract",
+    "documentation_urls": [
+      "https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/resources/companyprofile?v=latest"
+    ],
+    "fixture_only": true
+  },
+  "mapping_rules": [
+    {
+      "source_pointer": "/company_number",
+      "target_pointer": "/entities/0/identifiers",
+      "transform": "scheme companies_house_number; GB namespace",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S09"
+      ]
+    },
+    {
+      "source_pointer": "/company_status",
+      "target_pointer": "/entities/0/status_original",
+      "transform": "preserve; canonical status unknown until enum/jurisdiction policy added",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S09"
+      ]
+    },
+    {
+      "source_pointer": "/company_name",
+      "target_pointer": "/entities/0/names",
+      "transform": "copy legal name; data lookup not applicant verification",
+      "missing_behavior": "preserve unknown; required shape mismatch=>schema_drift error; no approval",
+      "evidence_source_ids": [
+        "S09"
+      ]
+    }
+  ],
+  "supported_countries": [],
+  "entitlement_ref": null,
+  "secret_ref": null,
+  "transport_requirements": [
+    "TLS",
+    "approved regional base URL allowlist",
+    "secret vault injection",
+    "rate limiting and circuit breaker",
+    "bounded retry with jitter and idempotency",
+    "verify raw webhook signatures before decoding",
+    "durable inbox and tenant-bound correlation",
+    "replay and stale-event protection",
+    "original-byte hash and encrypted evidence storage"
+  ],
+  "limitations": [
+    "Synthetic representative payload subset only; not vendor-certified",
+    "No live HTTP, authentication, webhook signature, or sandbox integration implemented",
+    "No proof of contractual dataset coverage, country entitlements, retention rights or bank adoption",
+    "Empty country allowlist blocks live routing",
+    "Unmapped native properties available only in restricted raw artifact"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "@ehf/case-store",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./outbox-relay": "./src/outbox-relay.ts",
+    "./ledger-export": "./src/ledger-export.ts",
+    "./ledger-segment": "./src/ledger-segment.ts",
+    "./governance": "./src/governance.ts",
+    "./discovery": "./src/discovery.ts",
+    "./discovery-observer": "./src/discovery-observer.ts",
+    "./recon-jobs": "./src/recon-jobs.ts",
+    "./recon-web-search": "./src/recon-web-search.ts",
+    "./recon-worker": "./src/recon-worker.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "migrate": "tsx src/migrate.ts",
+    "discovery:rehearse": "tsx src/rehearse-discovery.ts",
+    "discovery:hosted": "tsx src/hosted-discovery.ts",
+    "discovery:worker": "tsx src/run-recon-worker.ts",
+    "discovery:watch": "tsx src/watch-discovery.ts",
+    "discovery:migrate": "tsx src/migrate-discovery.ts",
+    "ledger:export": "tsx src/ledger-export.ts",
+    "ledger:verify": "tsx src/ledger-verify.ts",
+    "evidence:govern": "tsx src/governance.ts"
+  },
+  "dependencies": {
+    "@ehf/blob-store": "workspace:*",
+    "@ehf/context-plane": "workspace:*",
+    "@ehf/contracts": "workspace:*",
+    "@ehf/fincrime-integration": "workspace:*",
+    "@ehf/identity": "workspace:*",
+    "@ehf/library-contracts": "workspace:*",
+    "pdf-lib": "1.17.1",
+    "pg": "8.23.0",
+    "tsx": "4.23.1",
+    "zod": "4.6.6"
+  },
+  "devDependencies": {
+    "@types/pg": "8.16.0"
+  }
+}

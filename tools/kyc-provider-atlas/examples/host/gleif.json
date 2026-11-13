@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0.0",
+  "result_id": "46a1775af8653c28ffef54091a764b8b445d745d6abedbdbd13203664135da43",
+  "request_id": "demo-request",
+  "tenant_id": "demo-tenant",
+  "subject_entity_id": "subject-001",
+  "capability": "reference.identifier.lookup",
+  "provider": {
+    "provider_id": "gleif",
+    "adapter_version": "0.1.0",
+    "status_original": "ACTIVE",
+    "decision_origin": "data_only",
+    "provider_record_id": "00000000000000000001"
+  },
+  "execution": {
+    "status": "completed",
+    "received_at": "2026-10-15T12:00:00Z"
+  },
+  "assessment": {
+    "outcome": "inconclusive",
+    "reason_codes": [],
+    "bank_decision": "not_evaluated"
+  },
+  "coverage": {
+    "status": "unknown",
+    "requested_scope": [
+      "reference.identifier.lookup"
+    ],
+    "checked_scope": [],
+    "not_checked_scope": [
+      "reference.identifier.lookup"
+    ],
+    "reason": "Fixture mapping only; entitled datasets and country coverage not established"
+  },
+  "entities": [
+    {
+      "entity_id": "subject-001",
+      "entity_type": "organization",
+      "names": [
+        {
+          "full": "Example Holding Ltd",
+          "kind": "legal"
+        }
+      ],
+      "identifiers": [
+        {
+          "scheme": "LEI",
+          "value": "00000000000000000001",
+          "jurisdiction": "GB"
+        }
+      ],
+      "jurisdiction": "GB",
+      "status_original": "ACTIVE",
+      "status": "unknown",
+      "evidence_ids": [
+        "ev-2593ad18e636e207"
+      ]
+    }
+  ],
+  "relationships": [],
+  "assertions": [
+    {
+      "assertion_id": "assert-1",
+      "entity_id": "subject-001",
+      "field_path": "names",
+      "value": [
+        {
+          "full": "Example Holding Ltd",
+          "kind": "legal"
+        }
+      ],
+      "verification": "unknown",
+      "evidence_ids": [
+        "ev-2593ad18e636e207"
+      ]
+    },
+    {
+      "assertion_id": "assert-2",
+      "entity_id": "subject-001",
+      "field_path": "status_original",
+      "value": "ACTIVE",
+      "verification": "unknown",
+      "evidence_ids": [
+        "ev-2593ad18e636e207"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-2593ad18e636e207",
+      "provider_id": "gleif",
+      "retrieved_at": "2026-10-15T12:00:00Z",
+      "content_sha256": "2593ad18e636e2070f38c335b4f481f5ac616d352f3de6e2bd48b30ee02af095",
+      "source_pointer": "/",
+      "authority": "unknown",
+      "access_classification": "restricted"
+    }
+  ],
+  "result": {
+    "kind": "reference",
+    "record_entity_ids": [
+      "subject-001"
+    ],
+    "relationship_ids": [],
+    "dataset_id": "gleif_lei",
+    "record_count": 1
+  },
+  "errors": [],
+  "warnings": [
+    "SYNTHETIC_FIXTURE_NOT_VENDOR_TESTED",
+    "Coverage and bank decision are not inferred from this payload",
+    "LEI_LEVEL2_PARENTS_ARE_NOT_NATURAL_PERSON_UBOS"
+  ],
+  "raw_payload": {
+    "vault_ref": "example://examples/native/gleif.json",
+    "sha256": "2593ad18e636e2070f38c335b4f481f5ac616d352f3de6e2bd48b30ee02af095",
+    "classification": "restricted"
+  },
+  "extensions": {
+    "digest_representation": "canonical JSON UTF-8; not signed HTTP bytes"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "intelligence.binding.v1",
+  "id": "reasoning.med",
+  "name": "Standard enterprise reasoning",
+  "owner": "Platform engineering",
+  "description": "Synthetic configuration fixture",
+  "dataClass": "internal",
+  "serviceClass": "reasoning",
+  "connection": {
+    "cloud": "databricks",
+    "adapterId": "databricks-serving",
+    "endpoint": "https://models.example.com",
+    "account": "test-workspace",
+    "resourceId": "test-serving-endpoint",
+    "region": "us-approved",
+    "networkZone": "private-models",
+    "auth": {
+      "mode": "workload_identity",
+      "principal": "intelligence-gateway",
+      "audience": "https://models.example.com",
+      "issuer": "", "subject": "", "credentialRef": null, "clientIdRef": null, "certificateRef": null
+    }
+  },
+  "configuration": {
+    "tier": "med", "profileId": null, "model": "approved-deployment", "nativeEffort": "medium",
+    "maxOutputTokens": 2400, "timeoutMs": 45000, "maxConcurrency": 4,
+    "outputMode": "json_schema", "toolCalling": true, "evaluationRef": "eval:synthetic-r1"
+  }
+}

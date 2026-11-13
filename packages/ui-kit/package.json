@@ -1,0 +1,42 @@
+{
+  "name": "@ehf/ui-kit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Design-system components for the new UI (BUILD-SPEC v2 §7.2): primitives and platform components on @ehf/ui-tokens. CSS Modules, token variables only.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./trusted": "./src/trusted/index.ts",
+    "./base.css": "./src/styles/base.css"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "storybook": "storybook dev --port 6010 --no-open",
+    "build-storybook": "storybook build --quiet --output-dir storybook-static"
+  },
+  "dependencies": {
+    "@ehf/ui-tokens": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "8.6.19",
+    "@storybook/react": "8.6.19",
+    "@storybook/react-vite": "8.6.19",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.8",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "5.2.0",
+    "axe-core": "4.14.0",
+    "jsdom": "27.4.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "storybook": "8.6.19",
+    "vite": "6.4.5"
+  }
+}

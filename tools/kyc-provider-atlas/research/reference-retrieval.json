@@ -1,0 +1,3276 @@
+[
+  {
+    "url": "https://abr.business.gov.au/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://abr.business.gov.au/",
+    "title": "ABN Lookup",
+    "description": "Provides access to the publicly available information provided by businesses when they register for an Australian Business Number (ABN). ",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://ahu.go.id/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://ahu.go.id/",
+    "title": "DITJEN AHU ONLINE",
+    "description": "Website Resmi Direktorat Jenderal Administrasi Hukum Umum, Kementerian Hukum Republik Indonesia. Gedung Direktorat Jenderal Administrasi Hukum Umum, Jalan HR. Rasuna Said Kav. 6-7 Kuningan, Jakarta Selatan, DKI Jakarta 12940 Indonesia.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://ai.baidu.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://ai.baidu.com/",
+    "title": "百度AI开放平台-全球领先的人工智能服务平台",
+    "description": "百度AI开放平台提供全球领先的语音、图像、NLP等多项人工智能技术，开放对话式人工智能系统、智能驾驶系统两大行业生态，共享AI领域最新的应用场景和解决方案，帮您提升竞争力，开创未来。",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://akoya.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://akoya.com/",
+    "title": "Open Finance Solutions | Akoya - Secure, Reliable Data Sharing",
+    "description": "Discover how Akoya revolutionizes Open Finance with 100% API-connected data sharing. Empower consumers and ensure secure financial data access. ",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://alessa.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://alessa.com/",
+    "title": "Alessa - AML Compliance Software",
+    "description": "Alessa is a fraud management and AML compliance software solution for banks, casinos and gaming industry, fintechs, lenders and more.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://altana.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://altana.ai/",
+    "title": "Altana | The AI-Powered Network for Trusted Trade",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://amlbot.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://amlbot.com/",
+    "title": "Crypto Compliance Solutions for AML Monitoring and Risk Detection",
+    "description": "Crypto compliance software to monitor transactions, screen wallets, and verify users. Detect risks early and protect your business from illicit activity",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://amlwatcher.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://amlwatcher.com/",
+    "title": "AI-Powered AML Compliance Software | AML Watcher",
+    "description": "AML Watcher's AI-powered AML compliance platform combines sanctions, PEP, adverse media, and risk intelligence to reduce false positives and accelerate investigations.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://arya.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://arya.ai/",
+    "title": "Arya.ai: Enterprise-Grade AI Solutions",
+    "description": "Accelerate AI adoption with Arya.ai’s production-ready solutions. Leverage AI models that meet the business-critical needs of financial institutions & enterprises.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://asic.gov.au/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.asic.gov.au/",
+    "title": "ASIC Home | ASIC",
+    "description": "ASIC is an independent Australian Government body responsible for regulating financial services and consumer credit, and authorised financial markets operating in Australia.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://authbridge.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://authbridge.com/",
+    "title": "AuthBridge | India's Largest Verification Company | KYC | KYB",
+    "description": "AuthBridge's authentication platform powers employee onboarding, background verification, TPRM, and customer identity verification for enterprises.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://authenteq.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "ConnectionError",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://bankid.no/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://bankid.no/",
+    "title": "BankID",
+    "description": "BankID er personlig identifikasjon på høyeste sikkerhetsnivå. Bruk BankID til å identifisere deg i et stort antall offentlige og private tjenester.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://belvo.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://belvo.com/",
+    "title": "Belvo | The leading open finance data and payments platform in Latin America",
+    "description": "Belvo enables financial innovators in Latin America to access and interpret financial data and make payments to build better services.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://benefit.bh/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://benefit.bh/",
+    "title": "Just a moment...",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://bigdatacorp.com.br/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://bigdatacorp.com.br/",
+    "title": "BigDataCorp | Dados confiáveis te levam mais longe",
+    "description": "Conte com a datatech mais confiável da América Latina para enriquecer processos e produtos usando dados seguros e completos.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://bolagsverket.se/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://bolagsverket.se/",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://brs.go.ke/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://brs.go.ke/",
+    "title": "Business Registration Service | Doing Business Made Easier",
+    "description": "The Business Registration Service (BRS), is the sole custodian of a list of all companies and information for entities registered in Kenya.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://camunda.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://camunda.com/",
+    "title": "Agentic Orchestration Platform | Camunda",
+    "description": "Camunda is the open platform for agentic orchestration. Coordinate AI agents, people, and systems across end-to-end processes with governance and control.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://ciphertrace.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "ConnectionError",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://companydata.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://companydata.com/",
+    "title": "Company Data API from Public Registries | CompanyData",
+    "description": "Access global company databases with emails, contacts, websites, and financials. API access to B2B data from all registered companies.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://compliancely.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://compliancely.com/",
+    "title": "Business Verification, KYB & Credit Risk Platform | Compliancely",
+    "description": "Verify businesses and reduce compliance risk with TIN matching, KYB, credit risk checks, IRS tax transcripts, and monitoring within one platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://complyadvantage.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://complyadvantage.com/",
+    "title": "ComplyAdvantage | AI-driven fraud & AML risk detection",
+    "description": "Discover ComplyAdvantage solutions where we automate manual labor-intensive processes and significantly minimize false-positive hit rate.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://connectid.com.au/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.auspayplus.com.au/solutions/connectid",
+    "title": "ConnectID - Home - Australian Payments Plus",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://cro.ie/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://cro.ie/",
+    "title": "Just a moment...",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://crystalintelligence.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://crystalintelligence.com/",
+    "title": "Decision Intelligence for Digital Assets | Crystal Intelligence",
+    "description": "Decision intelligence for digital assets: crypto compliance software turning blockchain data and AI into evidence, from licence reviews to agentic payments.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://ctosdigital.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://ctosdigital.com/",
+    "title": "Home - CTOS Digital Berhad",
+    "description": "Just another WordPress site",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://dart.fss.or.kr/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://dart.fss.or.kr/",
+    "title": "전자공시시스템",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://data.europa.eu/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://data.europa.eu/",
+    "title": "The European Data Portal",
+    "description": "Discover the single point of access to open data from European countries, EU institutions, agencies and bodies and other European countries.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://data.inpi.fr/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://data.inpi.fr/",
+    "title": "Just a moment...",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://datacvr.virk.dk/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://datacvr.virk.dk/",
+    "title": "Just a moment...",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://decentro.tech/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://decentro.tech/global",
+    "title": "Decentro – APIs & SDKs to Build, Launch, and Scale Fintech",
+    "description": "Simple & Automated APIs for Cross Border Payments and Reconciliations. Launch your products 10X faster with Decentro.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://detected.co/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://detected.co/",
+    "title": "",
+    "description": "The all-in-one platform that helps modern organisations establish and maintain trust with any business or individual, anywhere in the world.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://developer.company-information.service.gov.uk/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://developer.company-information.service.gov.uk/",
+    "title": "Developer Hub Home",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://digified.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "ReadTimeout",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://dilisense.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://dilisense.com/en",
+    "title": "Sanctions Screening & PEP Checks - Free | dilisense",
+    "description": "Perform your sanctions screening in a myriad of lists from UN, OFAC, BIS, HMT and EU. The PEP check is based on government and company sources including RCAs.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://dojah.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://dojah.io/",
+    "title": "Dojah | KYC & AML Compliance with Secure Identity Verification",
+    "description": "Dojah is the identity verification and anti-fraud infrastructure trusted by African and global businesses. Onboard customers in seconds with KYC, AML, BVN, NIN, document and biometric checks — all from one API.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://e-justice.europa.eu/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://e-justice.europa.eu/",
+    "title": "ERROR: The request could not be satisfied",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://economie.fgov.be/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://economie.fgov.be/language_selection_page?destination=/node/15",
+    "title": "Language selection | FPS Economy",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://ekata.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.mastercard.com/us/en/business/cybersecurity-fraud-prevention/identity.html",
+    "title": "Access Denied",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://facephi.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://facephi.com/",
+    "title": "Facephi: Expertos en verificación biométrica de la identidad digital",
+    "description": "Especialistas en la protección y verificación de la identidad mediante soluciones tecnológicas que crean procesos libres de fraude.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://finantier.co/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://finantier.co/",
+    "title": "BOSGACOR : Login Situs Raja Slot Gacor Maxwin & Slot 777 Terbaik Terpercaya",
+    "description": "BOSGACOR hadir memberikan akses login situs raja slot gacor gampang maxwin & sajian game slot 777 dengan performa terbaik melalui link terpercaya.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://fingerprint.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://fingerprint.com/",
+    "title": "Fingerprint | Identify Every Web Visitor & Mobile Device",
+    "description": "The Fingerprint device intelligence platform works across web and mobile applications to identify all visitors with industry-leading accuracy — even if they’re anonymous.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://fintoc.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.fintoc.com/cl",
+    "title": "Fintoc | Plataforma de Pagos y API para Empresas en Chile",
+    "description": "Sistema operativo de pagos para escalar tu negocio. Recibe pagos online, cobra suscripciones y optimiza con IA. +1200 empresas confían en Fintoc.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://flinks.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.flinks.com/",
+    "title": "Flinks | Embedded Finance Platform",
+    "description": "Flinks is an embedded finance platform unifying data connectivity, intelligence, and payments through powerful APIs and ready-to-use dashboards.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://getid.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://getid.com/",
+    "title": "Identity Verification Service and Online KYC - GetID",
+    "description": "GetID's identity verification service ensures secure and compliant KYC online with real-time document checks, face matching, and AML screening.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://globalledger.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://globalledger.io/",
+    "title": "Global Ledger: the Blockchain Analytics Company",
+    "description": "Simplify compliance and blockchain intelligence with Global Ledger’s crypto investigation, KYT and KYB AML solutions trusted by institutions worldwide.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://hawk.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://hawk.ai/",
+    "title": "Hawk – Increase Your Risk Coverage. Improve Efficiency.",
+    "description": "Award-winning AML & CFT technology powered by explainable AI increases your risk coverage, helps you identify more crime, and reduces your false positives.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://hyperverge.co/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://hyperverge.co/",
+    "title": "Passive Liveness & Face Authentication | Digital KYC",
+    "description": "Boost conversion rates with passive liveness, face authentication, and financial document insights. OCR for bank statements & payslips for global markets.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://idscan.net/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://idscan.net/",
+    "title": "ID Fraud Prevention & ID Verification - IDScan.net",
+    "description": "Best-in-Class ID Fraud Platform Provider & ID Scanning Software Solutions For Compliance and Security - IDScan.net",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://idwall.co/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://idwall.co/",
+    "title": "Verificação de documentos & Background Check",
+    "description": "Consulte dados públicos e valide CNH de maneira automática. Aceite mais clientes, reduza o trabalho manual e combata fraudes. Saiba mais",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://iidentifii.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://iidentifii.com/",
+    "title": "iiDENTIFii: Leading Biometric Identity Solutions for Fraud Prevention",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://imtf.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://imtf.com/",
+    "title": "AML & Financial Crime Compliance Software | IMTF",
+    "description": "End-to-end AML & financial crime compliance software. Try the world’s most trusted compliance platform. Fast, efficient, AI-powered.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://incode.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://incode.com/",
+    "title": "AI Identity Verification Software & KYC Platform | Incode",
+    "description": "Identity verification software that checks documents, biometrics, and government records in one platform. Named a Leader in the 2026 Gartner Magic Quadrant.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://index.baselgovernance.org/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://index.baselgovernance.org/",
+    "title": "Assessing money laundering risks around the world | Basel AML Index",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://innov8tif.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://innov8tif.com/",
+    "title": "Innov8tif — ASEAN's eKYC and identity assurance experts",
+    "description": "Since 2011, Innov8tif has helped 100+ ASEAN businesses verify identities, prevent fraud, and stay compliant — powered by EMAS eKYC.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://intellicheck.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.intellicheck.com/",
+    "title": "Intellicheck Identity Verification | Intellicheck",
+    "description": "Intellicheck is fast, accurate, and frictionless identity verification that protects your business and customers from fraud.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://invoid.co/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://bureau.id/",
+    "title": "Real-Time Fraud Prevention & Identity Decisioning | Bureau",
+    "description": "Bureau stops fraud in real time using device, identity, and behavioral signals. Trusted by 200+ global brands across fintech and e-commerce.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://ipinfo.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://ipinfo.io/",
+    "title": "IP Data Intelligence for Developers & Enterprises | IPinfo",
+    "description": "IPinfo, the trusted global leader in IP address data and intelligence. Powering applications and security solutions for developers and businesses.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://ised-isde.canada.ca/site/corporations-canada/en",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://ised-isde.canada.ca/site/corporations-canada/en",
+    "title": "Corporations Canada",
+    "description": "Corporations Canada is Canada's federal corporate regulator. We offer you everything you need to create and maintain a corporation under the federal laws governing corporations in Canada.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://knowyourcustomer.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://knowyourcustomer.com/",
+    "title": "Business KYC & KYB Verification Solutions | Know Your Customer",
+    "description": "Know Your Customer is an award-winning KYC & KYB platform automating corporate onboarding, UBO checks and periodic review across 100+ jurisdictions.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://liquidinc.asia/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://liquidinc.asia/",
+    "title": "株式会社Liquid",
+    "description": "確かな本人確認を社会に届けるリーディングカンパニー 株式会社Liquidの公式サイト。オンライン本人確認サービス「LIQUID eKYC」、当人認証サービス「LIQUID Auth」、デジタルIDウォレット「PASS」、外国人材管理システム「GPASS」のプロダクトをご紹介。",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://lucinity.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://lucinity.com/",
+    "title": "Lucinity - Human AI Operations for Modern FinCrime Teams",
+    "description": "Lucinity delivers a new operating model for financial crime teams by combining Human AI Operations with transparent, explainable automation. As FinCrime workloads rise and traditional processes struggle to keep pace, Lucinity increases investigation capacity, improves clarity, and strengthens oversight without disrupting existing systems. Our AI prepares cases with consistent, defensible reasoning so your teams can focus on high-value decisions while maintaining full governance and control.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://lukka.tech/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://lukka.tech/",
+    "title": "Digital Asset Data Solutions | Lukka Global Platform",
+    "description": "Get a demo of digital asset data with Lukka. Lukka helps institutions access reconciled digital asset data and audit-ready pricing.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://main.un.org/securitycouncil/en/content/un-sc-consolidated-list",
+    "title": "United Nations Security Council Consolidated List | Security Council",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://membercheck.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://membercheck.com/",
+    "title": "MemberCheck | Risk Management for Regulated Business",
+    "description": "Global risk management for regulated business: screen customers and entities against 1,000+ watchlists in 195 countries, verify identities, evidence every decision.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://mono.co/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://mono.co/",
+    "title": "Powering African businesses with Open Banking",
+    "description": "Mono helps businesses link their customers accounts for financial data, bank payments and identity verification across Africa.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://namescan.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://namescan.io/",
+    "title": "NameScan | Free PEP and Sanctions Checks | Simple KYC Tools",
+    "description": "NameScan is a Risk Management platform that offers AML/CTF services around the world. Learn more how NameScan can help you meet your AML compliance obligations!",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://nect.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://nect.com/",
+    "title": "Nect – digitale Identität für Verifizierung, Signatur & Kommunikation",
+    "description": "Nect bietet modernste eIDAS‑zertifizierte Technologie für digitale Identifikation, Vertragsunterzeichnung und sichere Identitäts‑Wallets.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://nibss-plc.com.ng/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "ReadTimeout",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://nimc.gov.ng/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://nimc.gov.ng/",
+    "title": "National Identity Management Commission",
+    "description": "Official website of the National Identity Management Commission. Manage your National Identification Number (NIN), enroll, and access digital identity services, including the NINAuth digital identity experience.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://notabene.id/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://notabene.id/",
+    "title": "Notabene - The open trust layer for global payments",
+    "description": "The Notabene network connects thousands of trusted counterparties, facilitating trillions of dollars in transaction volume annually across over 100 jurisdictions. Notabene provides industry-leading tools for stablecoin payment coordination, real-time transaction authorization, counterparty verification, and self-hosted wallet identification—helping institutions build trust into every transaction.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://ofac.treasury.gov/sanctions-list-service",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://ofac.treasury.gov/sanctions-list-service",
+    "title": "Sanctions List Service | Office of Foreign Assets Control",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://okra.ng/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "SSLError",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://ondato.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://ondato.com/",
+    "title": "Ondato | KYC Software for Secure Customer Onboarding",
+    "description": "Ondato provides KYC software for secure customer onboarding, identity verification and AML compliance. Prevent fraud and automate customer checks.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://ongrid.in/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://ongrid.in/",
+    "title": "OnGrid | India’s No. 1 BGV Platform | KYC | KYB | Due Diligence",
+    "description": "Streamline verifications with OnGrid, India's #1 BGV platform for KYC, KYB & Due Diligence, ensuring security & compliance.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://opencorporates.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://opencorporates.com/",
+    "title": "OpenCorporates",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://opensupplyhub.org/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://opensupplyhub.org/",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://orc.gov.gh/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://orc.gov.gh/",
+    "title": "Office of the Registrar of Companies - Ghana",
+    "description": "The Office of the Registrar of Companies (ORC) provides business registration, licensing and corporate information services in Ghana. Register a business, file annual returns, and access Prestige and online renewal services.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://oscilar.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://oscilar.com/",
+    "title": "AI Risk Decisioning Platform for Fintechs & Banks - Oscilar",
+    "description": "Power real-time, explainable decisions with Oscilar—the AI-native risk decisioning platform unifying fraud, credit, and compliance.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://perfios.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://perfios.ai/",
+    "title": "Best FinTech Software Company -Digital Onboarding, Underwriting, Risk & Fraud Assessment",
+    "description": "Perfios offers accurate and timely financial statement/ data analysis software & tools and SME lending solutions in India. We extract, categorize, and analyze thousands of data-types in real-time, helping financial institutions take lending decisions in stringent privacy & compliance environments.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://plaid.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://plaid.com/",
+    "title": "Plaid: Enabling all companies to build fintech solutions",
+    "description": "Plaid helps all companies build fintech solutions by making it easy, safe and reliable for people to connect their financial data to apps and services.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://prembly.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://prembly.com/",
+    "title": "Prembly - Identity Verification, KYC, AML & Fraud Prevention Solutions",
+    "description": "Leading provider of identity verification, KYC/KYB compliance, AML screening, fraud detection, and background check solutions. Trusted by businesses across Africa and globally for secure, real-time verification.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://privy.id/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://privy.id/",
+    "title": "Digital Identity & e-Signature Platform Indonesia | Privy",
+    "description": "Indonesia's trusted digital identity and e-signature platform: certified PSrE, e-KYC, e-Meterai and warranty-backed certificates for individuals and businesses.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://prometeoapi.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://prometeoapi.com/",
+    "title": "La API financiera para una banca sin fronteras| Prometeo",
+    "description": "Prometeo es la plataforma líder de infraestructura fintech que ofrece una única API para banca agéntica, acceso a datos financieros, validación de cuentas, pagos y operaciones transfronterizas en toda América.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://qoreid.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://qoreid.com/",
+    "title": "QoreID - Trusted Onboarding and Customer Analytics",
+    "description": "Trusted Onboarding and Customer Analytics",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://reconoserid.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "SSLError",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://regulaforensics.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://regulaforensics.com/",
+    "title": "Identity Verification Solutions & Forensic Devices by Regula",
+    "description": "Regula provides identity verification solutions and forensic devices for reliable and secure automated ID document verification and biometric checks.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://ripjar.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://ripjar.com/",
+    "title": "Ripjar | Financial Crime & Risk Screening Platform",
+    "description": "Ripjar's risk screening platform brings sanctions, PEPs, watchlists and adverse media into a single, intelligent view of risk. Request a demo.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://risk.lexisnexis.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://risk.lexisnexis.com/",
+    "title": "LexisNexis Risk Solutions | Transform Your Risk Decision Making",
+    "description": "LexisNexis Risk Solutions uses Big Data, proprietary linking and targeted solutions to provide insights that help make organizations more secure and efficient.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://sam.gov/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://sam.gov/",
+    "title": "Home | SAM.gov",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://sanctionscanner.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.sanctionscanner.com/",
+    "title": "Sanction Scanner: Anti-Money Laundering Solutions - Sanction Scanner",
+    "description": "Sanction Scanner is an AML compliance software that provides AML screening, Transaction Monitoring, Transaction Screening and Adverse Media Screening solutions.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://sayari.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://sayari.com/",
+    "title": "Sovereign AI for Risk Intelligence | Sayari",
+    "description": "Sayari delivers AI grounded in real commercial risk intelligence and trained on real investigative tradecraft.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://seamfix.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://seamfix.com/",
+    "title": "Seamfix | Trust infrastructure for processes that cannot afford to be wrong",
+    "description": "Seamfix helps governments, regulators and enterprises redesign, digitise and operate trust-critical processes with consulting, proven technology and global delivery.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://seon.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://seon.io/",
+    "title": "SEON: AI Fraud Prevention & AML Compliance Platform",
+    "description": "SEON's fraud prevention platform unifies real-time detection and AML in one place. Built on 1,100+ first-party signals, with 14 days implementation average.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://shuftipro.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://shuftipro.com/",
+    "title": "Global Identity Verification Platform for KYC and AML | G2 Leader - Shufti",
+    "description": "Shufti delivers the best identity verification solutions for global compliance. G2 Leader rated 4.6/5, trusted by 2,000+ enterprises, verifying users across 240+ countries and 150+ languages.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://sift.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://sift.com/",
+    "title": "Fraud Prevention Platform for Digital Business | Sift",
+    "description": "Sift's fraud prevention platform stops payment fraud and account takeover in real time - with transparent workflows, global data and expert analysts.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://silenteight.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.silenteight.com/",
+    "title": "Iris 7 | Policy-Bound Agentic AI for Financial Crime Compliance",
+    "description": "Iris 7 delivers policy-bound Agentic AI for financial crime compliance, executing sanctions, AML, and CDD decisions with governance, traceability, and control.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://sprintverify.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "SSLError",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://sumsub.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://sumsub.com/",
+    "title": "Leading Identity Verification Service - 2025 G2’s Top Pick | Sumsub",
+    "description": "Sumsub - Identity verification platform to secure the whole user journey ✔️Verify users, businesses or transactions, all while managing cases and deterring fraud ✔️ Highest pass rates ✔️4000+ clients ✔️Book a free demo now!",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://surepass.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://surepass.io/",
+    "title": "Digital Identity Verification & Income Verification - Surepass",
+    "description": "End-to-End user OnBoarding & Digital Identity Verification solutions for Enterprises | Digital KYC | Background Verification | Banking",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://tech5.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://tech5.ai/",
+    "title": "",
+    "description": "Welcome to TECH5, the pioneer in biometric and identity management technologies, driving secure, inclusive digital transformation worldwide.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://thekyb.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://thekyb.com/",
+    "title": "Building Trust Among Businesses Through KYB Verification",
+    "description": "Empowering global businesses with comprehensive KYB solutions to verify businesses and develop a risk-free corporate environment.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://thisisme.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://thisisme.com/",
+    "title": "ThisIsMe | Homepage",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://tink.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://tink.com/",
+    "title": "",
+    "description": "Tink’s open banking platform has over 6000 connections to European banks and institutions, and offers enriched and categorised financial data – through 1 API.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://token.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 202,
+    "final_url": "https://token.io/",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://trisa.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "ReadTimeout",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://truelayer.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://truelayer.com/",
+    "title": "",
+    "description": "We power faster and safer online payments with our open banking payments network. Onboard users, accept payments & make payouts in seconds. Learn more today.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://trustcloud.tech/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://trustcloud.tech/",
+    "title": "TrustCloud | We build Trust in Secure Digital Transactions",
+    "description": "At TrustCloud we drive change with the only platform for orchestration, choreography and custody of secure digital transactions.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://trustdock.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://biz.trustdock.io:443/",
+    "title": "eKYC・デジタル本人確認のTRUSTDOCK｜導入社数No.1のeKYCサービス",
+    "description": "TRUSTDOCKは、導入社数No.1のオンライン本人確認（eKYC / KYC）サービスです。犯罪収益移転防止法を始め様々な法律に準拠。あらゆるKYC業務を24時間365日スピーディに提供。",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://trustfull.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://trustfull.com/",
+    "title": "Trustfull - Stop Fraud, Not Customers",
+    "description": "Trustfull enables frictionless fraud prevention by assessing user risk via hundreds of digital signals on phone, email, IP, device, browser and domain.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://trustpair.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://trustpair.com/",
+    "title": "Best-in-Class Fraud Prevention and Account Validation Platform - Trustpair",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://truststamp.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://truststamp.ai/",
+    "title": "Privacy-First AI Infrastructure | Trust Stamp",
+    "description": "Trust Stamp delivers privacy-first identity verification, biometric authentication, fraud prevention, and AI-powered trust infrastructure for regulated organizations.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://uaepass.ae/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://uaepass.ae/",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://uidai.gov.in/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://uidai.gov.in/hi",
+    "title": "Home - Unique Identification Authority of India | Government of India - Unique Identification Authority of India | Government of India",
+    "description": "UIDAI is mandated to issue an easily verifiable 12 digit random number as Unique Identity - Aadhaar to all Residents of India.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://unico.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://unico.io/",
+    "title": "Attention Required! | Cloudflare",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://uppsalasecurity.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://uppsalasecurity.com/",
+    "title": "Blockchain Threat Intelligence & Crypto Investigations - Uppsala Security",
+    "description": "Uppsala Security helps law enforcement, exchanges, and compliance teams fight crypto crime with advanced blockchain analytics. Explore CATV, CARA, Asset Tracking, and ICF API.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://uqudo.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://uqudo.com/",
+    "title": "Digital Identity Verification Company | UAE, Middle East, Africa",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://verafin.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://verafin.com/",
+    "title": "Nasdaq Verafin: Financial Crime Management Solutions",
+    "description": "Nasdaq Verafin provides Financial Crime Management Technology solutions for Fraud Detection, AML/CFT Compliance, High-Risk Customer Management, Sanctions Screening and Management, and Information Sharing.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://veridas.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://veridas.com/en/",
+    "title": "Veridas - The IDV platform that delivers proven fraud prevention",
+    "description": "Get ironclad prevention against all fraud types with our 100% proprietary suite of solutions. Keep bad actors out and let real customers in.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://verifik.co/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://verifik.co/",
+    "title": "Mejor Plataforma de Verificación de Identidad para América Latina | Verifik",
+    "description": "Protege tu negocio con las soluciones de verificación de identidad centradas en la privacidad de Verifik, garantizando verificación precisa de identidad, validación de documentos y detección de fraude.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://verifyvasp.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.verifyvasp.com/en/",
+    "title": "VerifyVASP - The Travel Rule Solution for Digital Assets",
+    "description": "A FATF standard compliant Travel Rule solution connecting over 150 VASPs worldwide.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://vespia.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://vespia.io/",
+    "title": "AI-powered Business Verification Solution | Vespia",
+    "description": "Vespia offers AI-powered Business Verification to ensure AML compliance and minimize fraud risk during customer onboarding.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://vida.id/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://vida.id/id/",
+    "title": "HOME | VIDA DIGITAL IDENTITY",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://vidos.id/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://vidos.id/",
+    "title": "Vidos | Revolutionizing Verified Digital Identity",
+    "description": "Our mission is to empower a digital evolution that prioritizes user centric control of identity, data and communications. That is why we created Vidos.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://vyntra.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://vyntra.com/",
+    "title": "Vyntra - Transaction Intelligence for Financial Institutions.",
+    "description": "See your transactions, understand their risk. Vyntra gives financial institutions real-time mastery over transaction risk, combining visibility and protection to drive transparency, compliance, and trust across the full payment lifecycle.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://wathq.sa/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "ReadTimeout",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://webid-solutions.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://webid-solutions.com/de/",
+    "title": "WebID ► Dein Partner für sichere Online-Identifikation",
+    "description": "WebID ist die Lösung für schnelle und sichere Online-Identitätsprüfung ✔ Bester Komfort ✔ Benutzerfreundlicher Services ✔ Hohe Sicherheit",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://whoyou.co.za/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.whoyou.co.za",
+    "title": "WhoYou - Leading & Trusted Digital Identity Partner",
+    "description": "WhoYou manages the entire digital identity lifecycle, empowering businesses of all sizes to minimize fraud, comply with regulations and mitigate risk effectively.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://windward.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://windward.ai/",
+    "title": "Power Your Organization with Windward Maritime AI™",
+    "description": "Discover Windward's Maritime AI platform for real-time data insights and enhanced decision-making in trading, shipping, and logistics.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://withpersona.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://withpersona.com/",
+    "title": "Just a moment...",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://wolfsberg-group.org/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://wolfsberg-group.org/",
+    "title": "Home - Wolfsberg Group",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.21analytics.ch/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.21analytics.co/",
+    "title": "FATF Travel Rule Solution for Crypto Compliance | 21 Analytics",
+    "description": "Ensure FATF Travel Rule compliance: Connect to every top VASP via TRUST, and verify self-hosted wallets with AOPP.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.aamva.org/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.aamva.org/",
+    "title": "Home - American Association of Motor Vehicle Administrators - AAMVA",
+    "description": "AAMVA is a non-governmental, voluntary, tax-exempt, nonprofit educational association. AAMVA is a private corporation which strives to develop model programs in motor vehicle administration, police traffic services, and highway safety.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.aciworldwide.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.aciworldwide.com/",
+    "title": "ACI Worldwide: Powering the world’s payments ecosystem",
+    "description": "An original innovator in global payments technology, ACI delivers transformative software solutions that power intelligent payments orchestration in real time.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.acra.gov.sg/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.acra.gov.sg/",
+    "title": "Home | Accounting and Corporate Regulatory Authority",
+    "description": "The Interim Sustainability Standards Committee seeks public feedback on the draft Singapore Sustainability Disclosure Standards. The draft standards are based on the International Sustainability Standards Board (ISSB) Standards, with adjustments for Singapore's context. ",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.acurisriskintelligence.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://ionanalytics.com/kyc6/",
+    "title": "KYC6",
+    "description": "Simplify KYC compliance with KYC6’s advanced solutions. Automate sanctions, PEPs, and media monitoring across 230+ jurisdictions. Contact us to learn more.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.advance.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://advance.ai/",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.alibabacloud.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.alibabacloud.com/en?_p_lc=5",
+    "title": "Empower Your Business in USA & Canada with Alibaba Cloud's Cloud Products & Services",
+    "description": "Alibaba Cloud offers integrated suite of cloud products and services to businesses in America, to help to digitalize by providing scalable, secure and reliable cloud computing solutions. Try for Free.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.alloy.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.alloy.com/",
+    "title": "AI-Powered Financial Crime and Customer Risk Management… | Alloy",
+    "description": "Alloy is the global AI-powered risk management platform that accelerates onboarding, stops financial crime, and simplifies compliance.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.amlintelligence.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.amlintelligence.com/",
+    "title": "AML Intelligence - Business Intelligence on AML and Financial Crime for Executive Leaders",
+    "description": "Business Intelligence on AML and Financial Crime for Executive Leaders",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.amlpartners.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://amlpartners.com/",
+    "title": "Anti-Money Laundering (AML) Software | RegTechONE",
+    "description": "AML Partners designs leading GRC & AML software for AML/CTF, risk management, & workflow processes on the RegTechONE software platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.amlrightsource.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.amlrightsource.com/",
+    "title": "AML RightSource | Experts in Financial Crime Compliance",
+    "description": "AML RightSource provides advanced financial crime protection systems, monitoring, compliance tools, and future-proofed cyber security consulting.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.anchain.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.anchain.ai/",
+    "title": "AnChainAI - Crypto Investigations, AML, Payment risk screening API, Agentic AI advisory",
+    "description": "AnChain.AI is a leader in AML compliance, cryptocurrency and DeFi investigations, and agentic AI / LLM advisory services. Trusted by global regulators, financial institutions, VASPs, and stablecoin payment providers to combat crypto fraud and strengthen regulatory compliance.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.arca.gob.ar/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.arca.gob.ar/",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.asiaverify.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://asiaverify.com/",
+    "title": "Your Partner for APAC Company Registry Data | AsiaVerify",
+    "description": "AsiaVerify connects you to live government registry and AML data across 13 APAC jurisdictions, with AI-powered translation and structuring. Cut onboarding d ... | Unlock APAC business with AsiaVerify",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.atfinity.swiss/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.atfinity.swiss/",
+    "title": "AI-Powered No-Code Process Automation Platform for Banks | Atfinity",
+    "description": "Digitise onboarding, reviews and updates in one regulator-ready, no code platform. Swiss engineered, ISO 27001 certified, ROI in under six months.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.au10tix.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.au10tix.com/",
+    "title": "Identity Verification Service - AI-based ID verification | AU10TIX",
+    "description": "AU10TIX is a cutting-edge and leading ID verification provider. Enhance security and compliance with our innovative technology >",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.authenticid.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.authenticid.com/",
+    "title": "AuthenticID is now part of Incode",
+    "description": "AuthenticID has joined Incode. Discover what we're building together: deeper AI, broader reach, and a bolder vision for a world where every identity is trusted.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.aware.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.aware.com/",
+    "title": "Trusted Biometric Intelligence for Enterprise and Government",
+    "description": "Explore biometric intelligence that provides accurate identity verification and decision-making workflows for enterprises and governments.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.baesystems.com/en/cybersecurity",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.baesystems.com/en/cybersecurity",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.bankid.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.bankid.com/",
+    "title": "BankID",
+    "description": "BankID - Sveriges mest använda e-legitimation.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.biocatch.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.biocatch.com/",
+    "title": "BioCatch - Behavioral Intelligence to Prevent Fraud & Build Trust",
+    "description": "Seamless and secure online experiences are built with BioCatch behavioral biometrics. We’re more than just fraud prevention. Our solution powers your digital growth.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.blockaid.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "ReadTimeout",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://www.brankas.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.brankas.com/",
+    "title": "Unlock Modern Financial Services with Robust APIs | Brankas",
+    "description": "Brankas is the leading Open Finance technology company, enabling innovation and embedded finance for brands globally. Elevate your banking experience today.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.brreg.no/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.brreg.no/",
+    "title": "Forsiden - Brønnøysundregistrene",
+    "description": "På brreg.no kan du registrere og endre opplysninger på bedrift, finne bedriftsinformasjon og kunngjøringer, sjekke heftelser i bil og stoppe telefonsalg",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.bureau.id/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://bureau.id/",
+    "title": "Real-Time Fraud Prevention & Identity Decisioning | Bureau",
+    "description": "Bureau stops fraud in real time using device, identity, and behavioral signals. Trusted by 200+ global brands across fintech and e-commerce.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.cac.gov.ng/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.cac.gov.ng/",
+    "title": "Corporate Affairs Commission",
+    "description": "Official website of the Corporate Affairs Commission",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.caf.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.certta.ai/",
+    "title": "Caf is now Certta | Your Intelligent Verification Hub",
+    "description": "Certta develops and  integrates antifraud solutions within a single platform, intelligently and scalably connecting all verification layers.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.castellum.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.castellum.ai/",
+    "title": "Castellum.AI - Agentic Screening for AML",
+    "description": "AI agents, risk data and screening trusted by financial institutions to reduce the time spent on AML/KYC alerts by 83%",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.cfca.com.cn/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.cfca.com.cn/",
+    "title": "中金金融认证中心（CFCA）-全球服务器证书、SSL证书、全球信任体系证书、电子签名、身份认证、移动安全行业领军者，保障信息安全防欺诈专家。",
+    "description": "中金金融认证中心有限公司（China Financial Certification Authority，简称CFCA）是由中国人民银行于1998年牵头组建、经国家信息安全管理机构批准成立的国家级权威安全认证机构，是国家重要的金融信息安全基础设施，目前覆盖电子认证、安全支付、信息安全产品、信息安全服务、大数据服务、互联网媒体及软件测评等七大业务。",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.chainalysis.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.chainalysis.com/",
+    "title": "The Blockchain Data Platform - Chainalysis",
+    "description": "Chainalysis combines blockchain data and AI to help government agencies, crypto businesses, and financial institutions engage confidently with crypto.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.chexsystems.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.chexsystems.com/",
+    "title": "ChexSystems.com Home Page",
+    "description": "Chex Systems, Inc. (ChexSystems) is a nationwide specialty consumer reporting agency under the federal Fair Credit Reporting Act (FCRA).",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.cipc.co.za/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.cipc.co.za/",
+    "title": "CIPC | Your business, our focus",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.ckycindia.in/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.ckycindia.in/",
+    "title": "Access Denied",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.clari5.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.clari5.com/",
+    "title": "AI Fraud Detection & AML Software for Banks | Clari5",
+    "description": "Real-time fraud detection, AML compliance & financial crime prevention software trusted by leading global banks. AI-powered platform processing 12B+ transactions.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.coface.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.coface.com/",
+    "title": "Coface: Global Credit Insurance Solutions To Protect Your Business | Coface",
+    "description": "Trade credit insurance, debt collection, business information & surety to empower businesses with tools to optimize credit management & reduce credit risks",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.coinbase.com/travelrule",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.coinbase.com/travelrule",
+    "title": "Travel Rule Universal Solution Technology",
+    "description": "Coinbase is a secure online platform for buying, selling, transferring, and storing cryptocurrency.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.coinfirm.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "SSLError",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://www.companiesoffice.govt.nz/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.companiesoffice.govt.nz/",
+    "title": "New Zealand Companies Office",
+    "description": "The Companies Office is the government agency responsible for administering New Zealand’s business registers.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.complycube.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.complycube.com/en/",
+    "title": "Identity Verification, KYC & AML Platform | ComplyCube",
+    "description": "Automate identity verification, KYC, KYB, AML screening and fraud prevention with ComplyCube, a G2 Leader. Verify customers globally and reduce onboarding risk.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.controlrisks.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.controlrisks.com/",
+    "title": "Control Risks | Global Risk Consultancy",
+    "description": "Control Risks is the specialist global risk consultancy that helps organisations succeed in a volatile world. Find out more.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.cr.gov.hk/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.cr.gov.hk/",
+    "title": "Companies Registry 公司註冊處",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.creditreform.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.creditreform.com/",
+    "title": "creditreform.com | Creditreform",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.creditsafe.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.creditsafe.com/cs/en.html",
+    "title": "Creditsafe - The Global Business Intelligence Experts",
+    "description": "Founded in 1997 in Oslo, Norway, Creditsafe offers data-driven solutions that transform efficiency and performance to over 100,000 businesses across the world.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.crif.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.crif.com/",
+    "title": "CRIF | Credit Bureau Reporting and Business Information - CRIF.com",
+    "description": "Elevate your financial strategy with CRIF's premier credit bureau reporting services and business information. Explore solutions that empower decisions.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.daon.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.daon.com/",
+    "title": "The Digital Identity Trust Company - Daon",
+    "description": "Enabling organizations worldwide to easily and accurately proof, verify, authenticate, and secure identities across the customer lifecycle.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.darwinium.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.darwinium.com/",
+    "title": "Digital Security and Fraud Prevention | Darwinium",
+    "description": "Darwinium offers a comprehensive digital security and fraud prevention platform to protect against online fraud and abuse. Safeguard every customer journey",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.datactics.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.datactics.com/",
+    "title": "Datactics Home - Datactics",
+    "description": "Datactics Augmented Data Quality solution delivers trust in your data. AI Automation to save time, reduce risk and increase business revenue",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.datavisor.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.datavisor.com/",
+    "title": "AI Powered Fraud Platform for Enterprise",
+    "description": "DataVisor delivers a powerful fraud and risk management platform that enables organizations to respond to fraud attacks in real time.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.deduce.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.deduce.com/",
+    "title": "Home - Deduce",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.developer.tech.gov.sg/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.developer.tech.gov.sg/",
+    "title": "ERROR: The request could not be satisfied",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.dfat.gov.au/international-relations/security/sanctions/consolidated-list",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "ReadTimeout",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://www.digilocker.gov.in/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.digilocker.gov.in/",
+    "title": "DigiLocker | Access, Share & Verify Digital Documents",
+    "description": "Access, share and instantly verify government-issued documents, certificates, driving licences, vehicle registration certificates, marksheets and more with DigiLocker, India's trusted digital document platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.digitap.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.digitap.ai/",
+    "title": "AI Powered End to End API Platform for Banking and FinTech",
+    "description": " AI driven solutions for analysing financial data of customers to enable credit underwriting and powering digital customer onboarding journeys for enterprises in the Banking sector.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.diligent.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.diligent.com/",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.dnb.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.dnb.com/en-us/",
+    "title": "Power Confident Business Decisions | Dun & Bradstreet",
+    "description": "Verified business data and persistent identity help you reduce risk, improve decisions, and drive growth across your organization.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.dowjones.com/professional/factiva/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.dowjones.com/business-intelligence/factiva/",
+    "title": "Dow Jones Factiva - News, Data & Media Monitoring Solutions",
+    "description": "Get global market news and actionable insights from 33,000 global sources covering 200 countries and 32 languages with Dow Jones Factiva, enhanced by the power of GenAI.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.dowjones.com/professional/risk/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.dowjones.com/business-intelligence/risk/",
+    "title": "",
+    "description": "Get reliable risk data, integrated solutions and due diligence services. Solutions for AML, CTF, sanctions, anti-bribery and corruption and international trade compliance.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.earlywarning.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.earlywarning.com/",
+    "title": "",
+    "description": "Early Warning® powers trusted financial technology brands including Zelle®, Paze®, and Certos℠, helping banks, credit unions, merchants, and consumers move money, reduce fraud, and improve digital payment experiences.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.eastnets.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.eastnets.com/",
+    "title": "Eastnets | Leading Provider of AML , SWIFT and Payments Solutions",
+    "description": "Eastnets provides secure compliance solutions, combating financial crime and payment fraud. Modernize your payments with our trusted SWIFT solutions today",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.elliptic.co/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.elliptic.co/",
+    "title": "Blockchain Analytics & Crypto Compliance | Elliptic",
+    "description": "Blockchain analytics for financial crime risk management and compliance across crypto and digital assets. Innovate with confidence.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.elm.sa/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "SSLError",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://www.encompasscorporation.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.encompasscorporation.com/",
+    "title": "Corporate Digital Identity | CDI & KYC | Encompass Corporation",
+    "description": "Award-winning EC360 CDI platform and EC solutions for fast, flawless, and frictionless corporate client identity validation and verification.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.entrust.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.entrust.com/",
+    "title": "Just a moment...",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.equifax.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.equifax.com/",
+    "title": "Equifax | Credit Bureau | Check Your Credit",
+    "description": "Get credit reports and credit scores for businesses and consumers from Equifax today! We also have identity protection tools with daily monitoring and alerts",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.exiger.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.exiger.com/",
+    "title": "One platform for end-to-end visibility into your entire supply chain and risk - Exiger",
+    "description": "AI-powered supply chain management technology that's changing the way corporations, government agencies and banks navigate risk and compliance",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.experian.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.experian.com/",
+    "title": "",
+    "description": "Get your free credit report and FICO® Score. Experian can help you with credit cards, loans, insurance, and more.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.facetec.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.facetec.com/",
+    "title": "FaceTec.com | 3D Liveness, 3D Face Matching, UR Codes, OCR & NFC",
+    "description": "Highest-rated 3D Face Authentication for iOS, Android & Webcam, with NIST/iBeta Level 1&2 Certified Anti-Spoofing.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.fatf-gafi.org/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.fatf-gafi.org/",
+    "title": "Just a moment...",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.feedzai.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.feedzai.com/",
+    "title": "AI-Native Fraud & Financial Crime Prevention Platform| Feedzai",
+    "description": "Stop fraud and financial crime across all channels. Learn about our AI-Native Fraud & Financial Crime prevention platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.fenergo.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.fenergo.com/",
+    "title": "Financial Compliance Software | CLM and KYC | Fenergo",
+    "description": "Fenergo helps banking and financial institutions to streamline customer journeys with automation. Future-proof your Client Lifecycle Management.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.fico.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.fico.com/",
+    "title": "Pardon Our Interruption",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.fincen.gov/boi",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.fincen.gov/boi",
+    "title": "Beneficial Ownership Information Reporting | FinCEN.gov",
+    "description": "Beneficial ownership information reporting requirements are now back in effect, with a new deadline of March 21, 2025, for most companies. Prior to March 21, 2025, FinCEN will assess its options for further modifying deadlines. For more information, see our website https://fincen.gov/boi.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.fincen.gov/section-314a",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.fincen.gov/resources/section-314a",
+    "title": "Section 314(a) | FinCEN.gov",
+    "description": "IMPORTANT INFORMATION!This is to notify Legacy SISS users that the Legacy SISS URL has been changed to https://fiportal.fincen.gov. Users are advised to update their bookmarks and begin using the new FI Portal URL.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.finicity.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.mastercard.com/us/en/business/open-finance.html",
+    "title": "Access Denied",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.finscan.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.finscan.com/",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.finverse.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.finverse.com/",
+    "title": "Finverse Home",
+    "description": "An intuitive API and dashboard that allows your teams to collect payments and make bank transfers. Automagically, at a fraction of the cost.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.fiserv.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.fiserv.com/",
+    "title": "Financial Services Technology, Mobile Banking, Payments | Fiserv",
+    "description": "Fiserv is a global fintech and payments company with solutions for banking, global commerce, merchant acquiring, billing and payments, and point-of-sale.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.fisglobal.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.fisglobal.com/",
+    "title": "Access Denied",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.flagright.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.flagright.com/",
+    "title": "The modern standard in fincrime compliance | Flagright",
+    "description": "Revolutionize your AML compliance with Flagright's AI-native platform — globally recognized as a leading AML compliance solution. Monitor, screen, and report in real-time.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.fnz.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.fnz.com/",
+    "title": "FNZ - End-to-end wealth management platform | FNZ",
+    "description": "We provide a global, end-to-end wealth management platform that integrates technology, business & investment operations all in a regulated financial institution",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.forter.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.forter.com/",
+    "title": "Forter – Fraud Prevention, Payment Optimization and Agentic Commerce",
+    "description": "AI powered fraud, abuse, and payment decisions — so your best customers feel less friction, and you leave no revenue behind.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.fourthline.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.fourthline.com/",
+    "title": "Fourthline | Raising the Standard of Identity Verification",
+    "description": "Fourthline solves mission-critical identity challenges for banks, fintechs, & non-financial businesses with a single API integration.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.fullcircl.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://legal.ncino.com/",
+    "title": "nCino Legal Center",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.ganintegrity.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.ganintegrity.com/",
+    "title": "GAN Integrity | Third-Party and Compliance Platform",
+    "description": "GAN Integrity connects third-party risk, COI, gifts and incidents on one compliance record. Trusted by 200+ global enterprises.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.gbg.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.gbg.com/en-us/",
+    "title": "GBG | Global identity verification leaders",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.giact.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://giact.com/",
+    "title": "GIACT Now Part of LSEG - GIACT",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.gleif.org/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.gleif.org/en",
+    "title": "Home – GLEIF",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.gleif.org/en/vlei",
+    "retrieval_date": "2026-10-15",
+    "http_status": 404,
+    "final_url": "https://www.gleif.org/en/vlei",
+    "title": "Error – Page not found – GLEIF",
+    "description": "The page has not been found.\nLearn more about us:",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.globaldatabase.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.globaldatabase.com/",
+    "title": "Global Database - Company Intelligence platform On Global Markets. Company Information for Sales - globaldatabase.com",
+    "description": "Global Database - b2b databases for sale make it easy to connect with the right contacts in the right way. Company database, company financial information, Credit Reports and get an insight about which technology a company is using - GlobalDatabase.com - globaldatabase.com",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.globalsign.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.globalsign.com/en",
+    "title": "Digital Certificates - PKI - SSL/TLS 🌎 GlobalSign GMO",
+    "description": "We're experts in automated, Scalable, Integrated Digital Certificates Solutions, SSLs/TLSs, managed PKI, IoT, authentication & email security. Learn more about our identity management services.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.gob.mx/segob/renapo",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.gob.mx/segob/renapo",
+    "title": "Challenge Validation",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.gov.br/receitafederal/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.gov.br/receitafederal/pt-br",
+    "title": "Receita Federal — Receita Federal",
+    "description": "Secretaria Especial da Receita Federal do Brasil (RFB)",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.gov.uk/government/publications/the-uk-sanctions-list",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.gov.uk/government/publications/the-uk-sanctions-list",
+    "title": "The UK Sanctions List - GOV.UK",
+    "description": "Find out which people, entities and ships are designated or specified under regulations made under the Sanctions and Anti-Money Laundering Act 2018, and why.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.gsma.com/solutions-and-impact/gsma-open-gateway/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.gsma.com/solutions-and-impact/gsma-open-gateway/",
+    "title": "GSMA Open Gateway | Open Network APIs for Developers",
+    "description": "GSMA Open Gateway is a global framework of open network APIs that simplifies access to mobile operator networks.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.gstn.org.in/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "ReadTimeout",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://www.gsxt.gov.cn/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.gsxt.gov.cn/",
+    "title": "请求异常",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.handelsregister.de/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "ConnectionError",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://www.handshakes.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.handshakes.ai/",
+    "title": "Data Analytics Company Singapore | Singapore Entity Search",
+    "description": "Perform entity search and gain useful insights to support your due diligence with Handshakes Singapore’s data analytics solutions. Find out more today.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.houjin-bangou.nta.go.jp/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.houjin-bangou.nta.go.jp/",
+    "title": "国税庁法人番号公表サイト",
+    "description": "このサイトでは、法人番号の指定を受けた者の1.商号又は名称、2.本店又は主たる事務所の所在地、3.法人番号（基本３情報）を公表しています。また、「基本３情報ダウンロード」画面より、データをダウンロードすることができます。",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.hummingbird.co/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.hummingbird.co/",
+    "title": "Hummingbird | Unified Risk & Compliance Operations",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.id-pal.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.id-pal.com/",
+    "title": "ID-Pal - Identity Verification & Compliance Platform",
+    "description": "AI-powered identity verification, KYC, KYB and AML screening by ID-Pal. Real-time results, ongoing monitoring and zero access to customer data.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.idcentral.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.idcentral.io/",
+    "title": "IDcentral – Digital Identity Management | Identification | Verification – IDcentral",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.idenfy.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://idenfy.com/",
+    "title": "Identity Verification Service | ID Verification - iDenfy",
+    "description": "Identity verification service for user onboarding. Mitigate fraud with instant ID verification. Meet Know Your Customer, AML regulations.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.identomat.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.identomat.com/",
+    "title": "Identomat | AI-Powered KYC & Identity Verification",
+    "description": "AI-powered identity verification & KYC platform for instant frictionless customer onboarding and biometric authentication.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.idfy.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.idfy.com/",
+    "title": "IDfy | Asia's Leading TrustStack",
+    "description": "Secure Customer Onboarding | Smarter Fraud Detection | DPDP Compliance & Privacy Governance made Easy for Banks, E-Commerce, and Logistics.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.idnow.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://idnow.io/",
+    "title": "IDnow: Transforming KYC to TYC",
+    "description": "Move beyond KYC to TYC with IDnow’s scalable identity platform - combining adaptive compliance, real-time fraud prevention, and end-to-end trust.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.incognia.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.incognia.com/",
+    "title": "Incognia | Identify Users vs. Fraudsters. Across devices.",
+    "description": "Incognia is the leader in AI-powered cross-device risk intelligence, delivering frictionless growth and security for enterprises across consumer internet and financial services.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.infobelpro.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.infobelpro.com/",
+    "title": "InfobelPRO — Global Company Data Infrastructure Platform",
+    "description": "380M verified companies across 200+ markets. Registry-sourced firmographic data, group structure, and tax ID validation for B2B teams.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.innovatrics.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.innovatrics.com/",
+    "title": "Innovatrics: Biometric Solutions for Government & Enterprise",
+    "description": "We are an independent provider of leading biometric technology since 2004. Our biometric solutions helped 1 billion people in 80+ countries.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.innovis.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.innovis.com/",
+    "title": "Identity and Credit Information Solutions | Innovis",
+    "description": "Innovis provides credit, identity, and authentication solutions designed to manage risk and empower consumers and customers to achieve their financial goals",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.inscribe.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.inscribe.ai/",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.insee.fr/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.insee.fr/fr/accueil",
+    "title": "Accueil − Insee − Institut national de la statistique et des études économiques | Insee",
+    "description": "L’Institut national de la statistique et des études économiques collecte, produit, analyse et diffuse des informations sur l’économie et la société françaises",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.international.gc.ca/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.international.gc.ca/",
+    "title": "Global Affairs Canada – Splash page / Affaires mondiales Canada – Page de garde",
+    "description": "Welcome / Bienvenue",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.intix.eu/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://vyntra.com/transaction-observability/",
+    "title": "Transaction Observability - Vyntra",
+    "description": "Unlock the power of financial transparency. Use Vyntra’s transaction observability to detect anomalies, track SLAs, and resolve bottlenecks in real time.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.ipid.tech/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://ipid.tech/",
+    "title": "IPID | Know Your Payee (KYP) Globally",
+    "description": "IPID provides a single global API for real-time payee validation, reducing fraud and ensuring seamless payments across borders. Discover our KYP solutions today.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.ipqualityscore.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.ipqualityscore.com/",
+    "title": "",
+    "description": "Prevent fraud, detect bots, and analyze IP, email, phone, proxy, and VPN risk signals with the IPQS fraud detection and threat intelligence platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.iproov.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.iproov.com/",
+    "title": "iProov: Onboard & Authenticate Users | Biometric Identity Verification",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.irs.gov/tax-professionals/taxpayer-identification-number-tin-matching",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.irs.gov/tax-professionals/taxpayer-identification-number-tin-matching",
+    "title": "Taxpayer Identification Number (TIN) Matching | Internal Revenue Service",
+    "description": "Apply to use the IRS Taxpayer Identification Number (TIN) Matching service. You can validate TIN and name combinations prior to submitting information returns.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.itsme-id.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.itsme-id.com/",
+    "title": "itsme® Home",
+    "description": "itsme® makes online life easy and secure. Log in, confirm transactions, and sign documents without passwords or card readers. Learn more.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.jumio.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.jumio.com/",
+    "title": "Leading AI-Powered Identity Verification Platform | Jumio",
+    "description": "Accelerate customer onboarding, combat fraud, and ensure compliance with Jumio's industry-leading identity verification platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.karza.in/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "SSLError",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://www.kharon.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.kharon.com/",
+    "title": "The premier global risk analytics platform | Kharon",
+    "description": "See the whole picture with the world's premier global risk analytics platform: Kharon. The leading solution for sanctions compliance, trade controls, and more.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.kompany.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.kompany.com/",
+    "title": "kompany - KYC KYB AML UBO ✔ Register Report, Company Check, Credit Report – Instant Online Access",
+    "description": "KYC KYB AML UBO ✔ Credit Report & Register Report ✔ 100m Companies ✔ 4m Officers ✔ Official & Real Time ✔ Instant Online Access",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.kompli-global.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.kompli-global.com/",
+    "title": "Kompli-Global » Kompli-Global - Safe in the knowledge",
+    "description": "Kompli-Global - Technology and expertise working in harmony to deliver frictionless, accurate and comprehensive intelligence on organisations and their people",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.kontomatik.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.kontomatik.com/",
+    "title": "Kontomatik - open banking provider in CEE region",
+    "description": "Enhance business decisions with open banking solutions. Build data-driven financial services with us through a single API",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.kroll.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.kroll.com/en",
+    "title": "Kroll | Financial and Risk Advisory Solutions",
+    "description": "As the leading independent provider of financial and risk advisory solutions, Kroll leverages our unique insights, data and technology to help clients stay ahead of complex demands. Click for more details.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.kvk.nl/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.kvk.nl/",
+    "title": "KVK - Kamer van Koophandel | KVK",
+    "description": "KVK biedt informatie, voorlichting en ondersteuning aan ondernemers. Betrouwbaar advies en praktische tools voor het starten en runnen van je bedrijf.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.kyckr.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://kyckr.com/",
+    "title": "Kyckr | The Global Business Register | KYB & AML Compliance Solution",
+    "description": "Access 300+ official company registers on one platform. Verify businesses, retrieve documents, and identify UBOs in seconds with Kyckr - The Global Business Register.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.kycportal.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.kycp.com/",
+    "title": "403 - Forbidden",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.lbr.lu/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.lbr.lu/",
+    "title": "Luxembourg Business Registers",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.leantech.me/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.leantech.me/uae/en",
+    "title": "Deliver seamless payments and data experiences in MENA | Lean Technologies",
+    "description": "Lean helps businesses move money, verify identities, and understand customer finances through a single, compliant platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.lexisnexis.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.lexisnexis.com/en-us/gateway.page",
+    "title": "Welcome to LexisNexis - Choose Your Path",
+    "description": "Provider of legal, government, business and high-tech information sources. Learn more or login to your product now.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.lloydslistintelligence.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.lloydslistintelligence.com/",
+    "title": "Lloyd's List Intelligence | The Authority in Maritime Intelligence",
+    "description": "Navigate risk and advance global trade with trusted maritime data, AI, and expert analysis. 100% fleet coverage, 200m+ daily vessel positions, 80+ analysts.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.lseg.com/en/risk-intelligence",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.lseg.com/en/risk-intelligence",
+    "title": "LSEG Risk Intelligence | Screening and Verification Solutions  | LSEG",
+    "description": "Explore LSEG Risk Intelligence solutions for screening, due diligence, identity verification and account verification across KYC, third-party and payment workflows.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.mas.gov.sg/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.mas.gov.sg/",
+    "title": "Monetary Authority of Singapore",
+    "description": "MAS is the central bank of Singapore. Our mission is to promote sustained non-inflationary economic growth, and a sound and progressive financial centre.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.maxmind.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.maxmind.com/en/home",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.mca.gov.in/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.mca.gov.in/",
+    "title": "Access Denied",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.merklescience.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.merklescience.com/",
+    "title": "The Predictive Crypto Risk & Intelligence Platform | Merkle Science",
+    "description": "Next generation crypto threat detection, risk management and compliance for businesses, banks and government agencies. Sign up now",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.metamap.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.metamap.com/",
+    "title": "Identity Verification Platform for Global Companies • MetaMap",
+    "description": "Identity verification platform for businesses. MetaMap offers user onboarding and KYC & AML compliance solutions.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.middesk.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.middesk.com/",
+    "title": "Business Verification & KYB Platform",
+    "description": "Middesk brings business verification, risk assessment, AI agent investigations, and ongoing monitoring into one platform. Onboard customers faster with less manual work.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.mintzgroup.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.mintzgroup.com/",
+    "title": "Home",
+    "description": "Mintz Group offers integrated risk advisory and dispute consultancy services, helping clients navigate complex global challenges with expert insights and innovative technology.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.miteksystems.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.miteksystems.com/",
+    "title": "The Trusted Leader in Digital Fraud Defense | Mitek",
+    "description": "Know your customers, verify transactions, and securely grow your business with identity verification and authentication in a single platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.mobbeel.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.mobbeel.com/",
+    "title": "Mobbeel: Verificación de Identidad Digital | KYC | Firma digital | Biometría",
+    "description": "Conoce nuestras soluciones de onboarding digital KYC, firma biométrica y autenticación biometría para verificación de identidad digital.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.moea.gov.tw/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.moea.gov.tw/Mns/populace/home/Home.aspx",
+    "title": "中華民國經濟部(Ministry of Economic Affairs,R.O.C.)全球資訊網",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.mof.go.jp/english/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.mof.go.jp/english/",
+    "title": "Ministry of Finance Japan",
+    "description": "MOF, Ministry of Finance Japan",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.moneyhub.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://moneyhub.com/",
+    "title": "Home - Moneyhub",
+    "description": "Welcome to Moneyhub. We collect, enrich and contextualise customer data so that financial institutions can drive better customer outcomes.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.moodys.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.moodys.com/",
+    "title": "Moody's - credit ratings, research, and data for global capital markets",
+    "description": "Moody's CreditView is our flagship solution for global capital markets that incorporates credit ratings, research and data from Moody's Investors Service plus research, data and content from Moody's Analytics.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.mx.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.mx.com/",
+    "title": "#1 Financial Data Platform | MX",
+    "description": "MX is rated the #1 Financial Data Platform. Convert Your Data into More Deposits, Loans, and Lifetime Value. Build stronger financial relationships with the right message at the right moment",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.napier.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.napier.ai/",
+    "title": "Napier AI: AI powered Anti-Money Laundering platform to combat evolving threats",
+    "description": "Advanced Transaction Monitoring and Sanction Screening platform to combat evolving threats.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.nass.org/business-services/corporate-registration",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.nass.org/business-services/corporate-registration",
+    "title": "Corporate Registration | NASS",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.neoway.com.br/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.neoway.com.br/",
+    "title": "Neoway: maior empresa de Dados e Analytics do Brasil",
+    "description": "Saiba como auxiliamos empresas a ganharem eficiência operacional e reduzirem custos, com o uso de Data Analytics e Inteligência Artificial.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.neterium.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.neterium.io/",
+    "title": "Neterium | Watchlist screening API",
+    "description": "Watchlist screening API. Easily integrate screening into your platform",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.niceactimize.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.niceactimize.com/",
+    "title": "Combat Financial Crime with AI-Driven AML and Fraud Solutions | NICE Actimize",
+    "description": "NICE Actimize provides AI-driven fraud prevention and AML solutions that help financial institutions detect financial crime, reduce risk and meet regulatory compliance",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.northrow.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.id-pal.com/northrow/",
+    "title": "NorthRow - ID-Pal",
+    "description": "Learn about ID-Pal's acquisition of NorthRow and discover more about ID-Pal's KYB and AML compliance capabilities.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.openownership.org/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.openownership.org/en/",
+    "title": "Open Ownership",
+    "description": "Open Ownership provides support and guidance on all aspects of beneficial ownership transparency reforms as we believe revealing the true owners of corporate vehicles is an essential part of a well-functioning economy and society",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.opensanctions.org/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.opensanctions.org/",
+    "title": "OpenSanctions: The open database of sanctions, PEPs and watchlists",
+    "description": "The open-source database of sanctions, watchlists, and politically exposed persons — aggregating hundreds of sources and relied on by compliance teams, investigators, and journalists.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.oracle.com/financial-services/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.oracle.com/financial-services/",
+    "title": "Financial Services Solutions | Oracle",
+    "description": "Oracle enables retail banking, corporate banking and insurance technology solutions for the digital age, providing analytical insight for regulatory compliance.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.pega.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.pega.com/",
+    "title": "The leading AI-powered platform for enterprise transformation | Pega",
+    "description": "The world’s most influential organizations trust Pega to reimagine work - automating workflows, personalizing customer experiences, and modernizing legacy systems.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.polarify.co.jp/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.polarify.co.jp/",
+    "title": "【ベンダーシェアNo.1】eKYC・生体認証ならポラリファイ",
+    "description": "利用ユーザー6000万人突破！ポラリファイは、世界各国の政府・金融機関で利用される世界最高水準の生体認証技術を採用した身元確認サービス Polaryfy eKYC、当人認証サービス Polarify eAuthを提供しています。",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.polestarglobal.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.polestarglobal.com/",
+    "title": "Pole Star Global - Maritime Intelligence, Vessel Tracking, and Compliance Software",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.prh.fi/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.prh.fi/fi/index.html",
+    "title": "PRH - Etusivu | PRH",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.proteantech.in/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.proteantech.in/",
+    "title": "Best in Building Digital Public Infrastructure | Protean eGov Technologies",
+    "description": "Revolutionizing e-Governance for 28 years. From tax modernization to digital infrastructure, we empower citizens, businesses, and governments with innovative solutions.\\r\\n",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.prove.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.prove.com/",
+    "title": "Prove - Most accurate digital identity verification platform",
+    "description": "The modern way of proving identity. Trusted by 2,000+ leading companies to reduce fraud and improve consumer experiences, Prove is the world's most accurate ...",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.provenir.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.provenir.com/",
+    "title": "The Decision Intelligence Platform - Own The Decision Layer - Provenir",
+    "description": "One unified platform. Decisions that improve over time. Provenir consolidates data, AI models, analytics, and decisioning agents into one platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.quantexa.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.quantexa.com/",
+    "title": "Quantexa - Context Behind Every Decision",
+    "description": "Connect fragmented data to reveal real-world relationships so humans and AI can make trusted decisions at scale.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.quantifind.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.quantifind.com/",
+    "title": "Intelligent Financial Crimes Automation for AML and KYC | Quantifind",
+    "description": "Quantifind’s risk screening and investigations platform harnesses the full potential of AI and external data to streamline AML-KYC from end to end.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.ravenpack.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.ravenpack.com/",
+    "title": "Technology and insights for data-driven companies | RavenPack",
+    "description": "RavenPack is the leading provider of insights and technology for data-driven companies, including the most successful hedge funds, banks, and asset managers in the world.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.registradores.org/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.registradores.org/",
+    "title": "Registradores de España",
+    "description": "Página oficial de los Registradores de la Propiedad, Mercantiles y Bienes Muebles de España. Información y trámites online",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.registrodeempresasysociedades.cl/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.registrodeempresasysociedades.cl/",
+    "title": "Tu Empresa en un Día | Registro de Empresas y Sociedades",
+    "description": "Crea, modifica o disuelve tu empresa de forma rápida, 100% online y sin costo adicional. Plataforma oficial del Ministerio de Economía.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.registroimprese.it/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.registroimprese.it/",
+    "title": "Registro Imprese | I dati Ufficiali della Camera di Commercio",
+    "description": "Registro Imprese, il portale con i dati e i documenti ufficiali della Camera di Commercio per richiedere visure, bilanci, elenchi, protesti, statuti, fascicoli.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.reprisk.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.reprisk.com/",
+    "title": "RepRisk | World’s most respected DaaS company for reputational risks and responsible business conduct",
+    "description": "World’s most respected Data as a Service (DaaS) company for reputational risks and responsible business conduct.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.rues.org.co/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.rues.org.co/",
+    "title": "RUES Registro Unico Empresarial y Social",
+    "description": "Confecamaras, RUES, Registro Unico Empresarial y Social",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.s-rminform.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.s-rminform.com/",
+    "title": "S-RM | Your first call for corporate intelligence and cyber security",
+    "description": "Leading cyber security consultancy and intelligence experts delivering intelligence, resilience, and response solutions to clients worldwide.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.saltedge.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.saltedge.com/",
+    "title": "Salt Edge | Global Open Banking and Open Finance Platform",
+    "description": "With connections to 5000+ banks worldwide, we enable data aggregation, power secure and fast open banking payments, and compliance under 1 powerful platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.sanctions.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.sanctions.io/",
+    "title": "Sanctions Lists & PEP Screening for AML Compliance",
+    "description": "sanctions.io: The simple, cost-effective, and easy to integrate Sanctions screening & PEP API for your AML compliance. Free Sanctions check on our website.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.sardine.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.sardine.ai/",
+    "title": "Agentic Financial Crime Platform for Fraud Prevention & AML",
+    "description": "The top agentic risk platform used by leading banks and merchants worldwide to stop fraud in real-time, prevent AI-driven attacks, automate fraud & AML operations",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.sas.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.sas.com/en_us/home.geo.html",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.sat.gob.mx/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.sat.gob.mx/",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.scorechain.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.scorechain.com/",
+    "title": "Crypto AML Compliance & Blockchain Analytics Platform | Scorechain",
+    "description": "Scorechain is your trusted crypto compliance partner, offering advanced blockchain analytics, risk scoring, and KYT solutions to help VASPs, banks, and regulators navigate crypto with confidence. Unlock transparency. Mitigate risk. Stay compliant.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.sec.gov.ph/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.sec.gov.ph/",
+    "title": "Just a moment...",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.sec.gov/edgar",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.sec.gov/edgar",
+    "title": "SEC.gov | Request Rate Threshold Exceeded",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.seco.admin.ch/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.seco.admin.ch/de",
+    "title": "Staatssekretariat für Wirtschaft SECO",
+    "description": "Das SECO ist das Kompetenzzentrum des Bundes für zentrale Fragen der Wirtschaftspolitik. Es setzt sich für nachhaltiges Wachstum, hohe Beschäftigung und faire Arbeitsbedingungen ein.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.sedarplus.ca/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "http://validate.perfdrive.com/?ssa=9a79ce51-9f17-4f2f-885e-1568bf1012bf&ssb=36422379190&ssc=https%3A%2F%2Fwww.sedarplus.ca%2F&ssi=e3e17817-brc7-46a9-80e2-2028d20c7def&ssk=support@shieldsquare.com&ssm=12992944991181467108230205502752&ssn=679704920760cce2a8759953783d8bd5b165277e09b6-352c-45cc-afab80&sso=76d31043-83ac46ea119290347b7da77f574a7437e19899fbc40eed40&ssp=63897657481792067603179203275140407&ssq=49663198302285600186283022789795687572220&ssr=MTM2Ljg3LjU3Ljk=&sst=Mozilla/5.0%20(public%20research;%20no%20authentication)&ssu=&ssv=&ssw=&ssx=eyJyZCI6InNlZGFycGx1cy5jYSIsIl9fdXptZiI6IjdmOTAwMDI3N2UwOWI2LTM1MmMtNDVjYy1hMDQzLTgzYWM0NmVhMTE5MjEtMTc5MjA4MzAyMjE3MjAtMDA1ZTIwZDdkNTE4NmI2ZmEyNzEwIiwidXpteCI6IjdmYzAwMDk2ZTAxN2JiLTE2Y2ItNGRlMy1iMDM0LWM1OGFkNTE4NTgxMDEtMTc5MjA4MzAyMjE3MjAtMDA5ZjBkOTM2ZTgzNGEwOGZkZTEwIn0=",
+    "title": "Radware Block Page",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.sentilink.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.sentilink.com/",
+    "title": "SentiLink: The fraud experts",
+    "description": "SentiLink combines technology and expertise to help financial institutions stop identity fraud at the application stage.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.serpro.gov.br/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.serpro.gov.br/",
+    "title": "Serpro",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.shyft.network/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.shyft.network/",
+    "title": "Shyft Network | Trusted Blockchain Compliance",
+    "description": "Shyft Network is a public protocol designed to deliver meaningful user information that institutions can utilize to secure cryptocurrency while maintaining privacy.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.signicat.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.signicat.com/",
+    "title": "Identity solutions for a trusted digital world - Signicat",
+    "description": "One point of integration for all your digital identity needs across borders – in every step of the customer journey.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.signzy.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.signzy.com/",
+    "title": "Signzy – Global Identity Verification and Compliance Platform",
+    "description": "Verify, onboard, and monitor users with Signzy's KYC, KYB, and AML APIs. Trusted by 500+ global companies for secure and compliant user journeys.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.smartsearch.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.smartsearch.com/",
+    "title": "",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.socure.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.socure.com/",
+    "title": "Identity Verification Platform for AI Risk Decisioning | Socure",
+    "description": "Socure is the leading AI-powered identity verification platform trusted by 3,000+ customers to verify consumers, businesses, & employees with confidence.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.soliduslabs.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.soliduslabs.com/",
+    "title": "Solidus Labs | Multidimensional Market Integrity for Modern Markets",
+    "description": "Born in crypto, built for Wall Street. Solidus Labs provides trade surveillance, transaction monitoring, and compliance technology across digital assets, derivatives, and equities from one platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.spglobal.com/marketintelligence/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.spglobal.com/marketintelligence/",
+    "title": "Error | S&",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.sprinque.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "SSLError",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://www.ssa.gov/dataexchange/eCBSV/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.ssa.gov/dataexchange/eCBSV/",
+    "title": "Access Denied",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.ssm.com.my/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.ssm.com.my/Pages/Home.aspx",
+    "title": "Suruhanjaya Syarikat Malaysia (SSM)\r\n\tPages - \r\n\tHome2",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.stitch.money/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://stitch.money/",
+    "title": "One Platform for Online + In-Person Payments in South Africa | Stitch",
+    "description": "Stitch powers pay-ins, payouts and in-store payments for South African businesses. Built-in redundancy, real-time fraud prevention, seamless reconciliation and 99.995% uptime. Enterprise and Express solutions on one platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.surepay.eu/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.surepay.eu/",
+    "title": "SurePay - Verification Of Payee: for European Banks & PSPs",
+    "description": "SurePay’s Verification of Payee ensures secure payments, fraud prevention, and EU compliance with APIs and portals for banks and businesses.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.swift.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.swift.com/",
+    "title": "SWIFT site off-line",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.swift.com/our-solutions/compliance-and-shared-services/kyc-registry",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.swift.com/our-solutions/compliance-and-shared-services/kyc-registry",
+    "title": "SWIFT site off-line",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.swift.com/our-solutions/compliance-and-shared-services/swiftref",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.swift.com/our-solutions/compliance-and-shared-services/swiftref",
+    "title": "SWIFT site off-line",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.swissid.ch/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.swisssign.com/identitaeten/swissid",
+    "title": "SwissID | SwissSign",
+    "description": "SwissID ist das sichere Login und die zertifizierte Schweizer digitale Identität für Online-Anwendungen, die einen Identitätsnachweis erfordern. Die elektronische Signatur, basierend auf einer SwissID-Identität, ermöglicht es Nutzerinnen und Nutzern rund um die Uhr rechtsgültige Geschäfte abzuschliessen.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.sygna.io/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.sygna.io/",
+    "title": "Sygna - A Travel Rule Solution For VASP",
+    "description": "Sygna is a Travel Rule solution that is solving the puzzle of FATF's R.16 compliance for virtual asset service providers (VASPs).",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.symphonyai.com/financial-services/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.symphonyai.com/financial-services",
+    "title": "Financial Crime Prevention AI-powered AML Software - SymphonyAI",
+    "description": "AML software and financial crime prevention AI solutions uncover your risks, improve investigations, and transform your operations.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.taktile.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.taktile.com/",
+    "title": "Taktile - The Agentic Decision Platform for Financial Institutions",
+    "description": "Taktile is the Agentic Decision Platform empowering financial institutions to combine the speed of AI automation with the oversight of people, so teams can safely approve customers, catch more fraud, and stay compliant.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.telesign.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.telesign.com/",
+    "title": "Phone Number, SMS & Identity Verification APIs | Telesign",
+    "description": "APIs Delivering Global Verification and Programmable Communications as a service. SMS, Voice, and phone number intelligence solutions. Get started now.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.temenos.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.temenos.com/",
+    "title": "Temenos | Core, Digital & AI Banking Software Leader",
+    "description": "Temenos offers cloud-native, AI-driven banking software trusted by 950+ banks for core, digital & wealth. Explore our solutions.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.tencentcloud.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.tencentcloud.com/",
+    "title": "Tencent Cloud",
+    "description": "Tencent is a leading influencer in industries such as social media, mobile payments, online video, games, music, and more. Leverage Tencent's vast ecosystem of key products across various verticals as well as its extensive expertise and networks to gain a competitive edge and make your own impact in these industries.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.thetaray.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://thetaray.com/",
+    "title": "AI AML Transaction Monitoring & Sanctions Screening Software",
+    "description": "Learn more about our Cognitive AI financial crime compliance solutions for AML transaction monitoring, screening and risk profiling.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.tocbiometrics.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://sovos.com/es/iva/servicios-de-confianza/",
+    "title": "Servicios de confianza - Sovos LATAM",
+    "description": "Los servicios de confianza de Sovos protegen la información, las personas y las transacciones en cualquier momento y lugar. Aprende más aquí.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.tookitaki.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.tookitaki.com/",
+    "title": "Tookitaki | AML & Fraud Prevention Platform for APAC",
+    "description": "Tookitaki's FinCense platform combines AI-powered transaction monitoring backed by community intelligence from 200+ APAC institutions. Pre-configured for MAS, BSP, AUSTRAC and BNM.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.trade.gov/consolidated-screening-list",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.trade.gov/consolidated-screening-list",
+    "title": "Consolidated Screening List",
+    "description": "Search the Consolidated Screening List, find parties for which U.S. Government maintains restrictions on certain exports, reexports, or transfers of items.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.transmitsecurity.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://transmitsecurity.com",
+    "title": "Transmit Security - Customer Identity and Access Management (CIAM) and fraud prevention Leader.",
+    "description": "Customer Identity and Access Management with Fraud Prevention in one powerful enterprise-grade platform.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.transunion.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 403,
+    "final_url": "https://www.transunion.com/",
+    "title": "Attention Required! | Cloudflare",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.trmlabs.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.trmlabs.com/",
+    "title": "TRM Labs | AI Investigations and Blockchain Intelligence",
+    "description": "Uncover illicit activity and disrupt threats with TRM. Bring AI and all-source intelligence into every investigation.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.trulioo.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.trulioo.com/",
+    "title": "Global Online Identity Verification Service - KYC, KYB, AML | Trulioo",
+    "description": "Trulioo is the leader in global identity verification, providing real-time online identity proofing for more than 5 billion people in 195-plus countries.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.truora.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.truora.com/",
+    "title": "Truora | Plataforma de confianza digital líder en LATAM",
+    "description": "Validación de usuarios, antecedentes y firma electrónica para operar sin riesgos",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.twilio.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.twilio.com/en-us",
+    "title": "Conversational AI and APIs for SMS, Email, Voice | Twilio",
+    "description": "Build amazing customer experiences on the Twilio platform with APIs for SMS, RCS, voice, and email, plus conversational AI for smarter engagement, and identity verification for trust.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.ubisecure.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.ubisecure.com/",
+    "title": "European Digital Identity: LEI & IAM | Ubisecure",
+    "description": "Ubisecure B2B IAM, Legal Entity Identifiers LEI, IDaaS and hybrid identity management. European SSO, MFA, LEI made easy.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.unit21.ai/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.unit21.ai/",
+    "title": "Agentic AI Platform for Fraud & AML Operations | Unit21",
+    "description": "Unit21 leads agentic AI for financial crime ops. Automate detection and investigation with AI agents doing the work and self-improving with every decision.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.unternehmensregister.de/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.unternehmensregister.de/de",
+    "title": "Unternehmensregister - Die zentrale Plattform zu Unternehmensdaten",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.usesmileid.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://smile.id/",
+    "title": "AI-powered Identity Verification for the Next Billion Users",
+    "description": "Smile ID is Africa’s leading digital identity verification, fraud detection, AML, and KYC compliance platform for businesses operating and scaling across the continent.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.valid8me.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "SSLError",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://www.valify.me/",
+    "retrieval_date": "2026-10-15",
+    "http_status": null,
+    "error": "ReadTimeout",
+    "verification_scope": "reference retrieval failed; not proof that provider unavailable"
+  },
+  {
+    "url": "https://www.veriff.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.veriff.com/",
+    "title": "The Global Leader in Identity Verification Software - Veriff",
+    "description": "Veriff's identity verification software verifies documents and biometrics, and screens databases, across 230+ countries. Stops fraud and bots.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.vesselbot.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.vesselbot.com/",
+    "title": "Enabling Sustainable Supply Chains | VesselBot",
+    "description": "Execution-grade freight intelligence for resilient supply chains. Cut costs, reduce emissions, and improve performance with real-time shipment data. Explore VesselBot.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.vixio.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.vixio.com/",
+    "title": "Vixio | RegTech for Financial Services & Gambling",
+    "description": "Vixio combines expert-led regulatory intelligence and automation to help financial services and gambling businesses spot change, act fast and scale globally.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.vneuron.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.vneuron.com/",
+    "title": "Vneuron - Advanced AML Compliance Software",
+    "description": "Discover Vneuron’s advanced AML software for financial institutions to fight financial crime. Our enterprise solution offers unmatched efficiency and robust capabilities.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.vonage.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.vonage.com/",
+    "title": "Business Phone, VoIP, Communication APIs, Contact Center | Vonage",
+    "description": "Vonage offers flexible and scalable voice, messaging, video and data capabilities across Unified Communications, Contact Centers and Communications APIs.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.vusecurity.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.vusecurity.com/",
+    "title": "VU - Plataforma de seguridad digital rápida y flexible",
+    "description": "Proteja a sus usuarios con soluciones de verificación y prevención de fraude. Integre VU rápidamente y asegure su producción desde el primer día.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.w2globaldata.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.identitysolutions.ncino.com/",
+    "title": "nCino Identity Solutions",
+    "description": "nCino Identity Solutions helps regulated businesses reimagine the customer onboarding process with real-time KYC, AML, and identity verification solutions.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.worldbank.org/en/projects-operations/procurement/debarred-firms",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.worldbank.org/en/projects-operations/procurement/debarred-firms",
+    "title": "World Bank Listing of Ineligible Firms and Individuals",
+    "description": "Procurement - World Bank Listing of Ineligible Firms and Individuals",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.yapily.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.yapily.com/",
+    "title": "Yapily | Open Banking API Infrastructure Platform",
+    "description": "Connect to thousands of banks across 19 countries in minutes through Yapily's open banking API. Access data, process payments, and much more. What will you build?",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.yodlee.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.yodlee.com/",
+    "title": "Yodlee | Fuel Innovation with Secure, Connected Financial Data",
+    "description": "Yodlee’s connected data and analytics products empower market leaders to deliver smarter, more personalized financial experiences, accelerating growth in banking, wealth, lending, and beyond. Learn why Yodlee is the industry’s most trusted data partner.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.yoti.com/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.yoti.com/",
+    "title": "Building the world's trusted identity platform • Yoti",
+    "description": "Our comprehensive suite of customer verification tools make it easy for businesses to be compliant and safe for people to prove who they are.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://www.zefix.ch/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://www.zefix.ch/",
+    "title": "ZefixWebApp",
+    "description": "",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  },
+  {
+    "url": "https://youverify.co/",
+    "retrieval_date": "2026-10-15",
+    "http_status": 200,
+    "final_url": "https://youverify.co/en",
+    "title": "Global AML & Fraud Compliance Automation | Youverify",
+    "description": "Streamline compliance with Youverify's fraud and AML platform. Automate KYC, AML, and fraud detection in one workflow across Africa and EMEA. Book a demo.",
+    "verification_scope": "HTTP response and metadata only; not capability or API verification"
+  }
+]

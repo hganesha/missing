@@ -1,0 +1,8 @@
+.trusted {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 40px; padding: 0 18px;
+  border-radius: var(--radius-pill); border: 1px solid var(--action-trusted-bg); background: var(--action-trusted-bg);
+  color: var(--ink-inverse); font-size: var(--text-sm); font-weight: var(--weight-semibold); cursor: pointer; white-space: nowrap;
+}
+.trusted:hover:not(:disabled) { background: var(--action-trusted-hover); }
+.trusted:disabled { opacity: .5; cursor: not-allowed; }
+.trusted[aria-busy="true"] { cursor: progress; }
