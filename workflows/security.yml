@@ -1,0 +1,69 @@
+name: security
+on:
+  workflow_call:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        with: {version: 11.9.0}
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with: {node-version: 24}
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Install checksum-pinned scanners
+        run: |
+          bash scripts/security/install-tools.sh "$RUNNER_TEMP/ehf-security-tools"
+          echo "$RUNNER_TEMP/ehf-security-tools" >> "$GITHUB_PATH"
+      - name: Full-history secrets, dependencies, licenses, SBOM, rendered ARM
+        run: bash scripts/security/run.sh security-results
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: source-security-evidence
+          path: security-results/
+          if-no-files-found: error
+          retention-days: 14
+  sast:
+    name: SAST (${{ matrix.language }})
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [javascript-typescript, actions]
+    runs-on: ubuntu-latest
+    permissions:
+      # CodeQL reads its own workflow run to stamp the SARIF, even when it uploads nothing.
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with: {persist-credentials: false}
+      - uses: github/codeql-action/init@d8073367669608af8fbcc5f63dd0a0d52bb90cff # v4
+        with:
+          languages: ${{ matrix.language }}
+          queries: security-extended
+          # Reviewed rule exclusions, each with its reason; everything else gates.
+          config-file: ./.github/codeql/codeql-config.yml
+          build-mode: none
+      # Code scanning is not enabled on this private repository, so uploading fails the job.
+      # The gate is the SARIF check below, so analyze writes SARIF locally and uploads nothing.
+      - uses: github/codeql-action/analyze@d8073367669608af8fbcc5f63dd0a0d52bb90cff # v4
+        with:
+          output: security-results/codeql
+          upload: never
+      - name: Fail on SAST findings (not merely upload alerts)
+        run: node scripts/security/check-sarif.mjs security-results/codeql
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: sast-evidence-${{ matrix.language }}
+          path: security-results/codeql/
+          if-no-files-found: error
+          retention-days: 14

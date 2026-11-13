@@ -1,0 +1,93 @@
+name: Bootstrap Azure
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Preview compiles templates; apply creates billable Azure resources
+        type: choice
+        options: [preview, apply]
+        default: preview
+      resource_group:
+        description: Azure resource group for this installation
+        required: true
+        default: rg-integralflow-bootstrap
+        type: string
+      name:
+        description: Bootstrap name (lowercase, 2–23 characters)
+        required: true
+        default: integralflow
+        type: string
+      location:
+        description: Azure region
+        required: true
+        default: centralus
+        type: string
+      collector_image:
+        description: Optional approved OpenTelemetry Collector Contrib image pinned by digest
+        required: false
+        type: string
+      allowed_origins:
+        description: Comma-separated exact HTTPS identity/provider origins
+        required: true
+        default: https://login.microsoftonline.com
+        type: string
+
+permissions:
+  contents: read
+
+# Serialize all bootstrap runs in this repository, including reruns. Do not cancel
+# an active Azure apply just because another operator starts the workflow.
+concurrency:
+  group: azure-bootstrap
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    uses: ./.github/workflows/validate.yml
+
+  bootstrap:
+    if: github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    environment: azure-bootstrap
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: azure/login@8216e11d8cd9b42fe925c852af8e76311ff067ac # v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: Install Bicep
+        run: az bicep install
+      - name: Preview or apply Azure bootstrap
+        run: node scripts/deploy-azure-github.mjs
+        env:
+          BOOTSTRAP_MODE: ${{ inputs.mode }}
+          BOOTSTRAP_RESOURCE_GROUP: ${{ inputs.resource_group }}
+          BOOTSTRAP_NAME: ${{ inputs.name }}
+          BOOTSTRAP_LOCATION: ${{ inputs.location }}
+          BOOTSTRAP_COLLECTOR_IMAGE: ${{ inputs.collector_image }}
+          BOOTSTRAP_ALLOWED_ORIGINS: ${{ inputs.allowed_origins }}
+          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          BOOTSTRAP_STATE_VAULT: ${{ vars.AZURE_BOOTSTRAP_STATE_VAULT }}
+          BOOTSTRAP_SECRETS_SECRET: ${{ vars.AZURE_BOOTSTRAP_SECRETS_SECRET }}

@@ -1,0 +1,274 @@
+# Repository validation. Runs on every push and pull request, and gates every
+# deployment workflow: nothing is built or deployed from a revision that has not
+# passed this.
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  code:
+    name: compiler, tests, typecheck, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        with:
+          version: 11.9.0
+
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Azure bootstrap and GitHub runner regressions
+        run: node --test scripts/deploy-azure.test.mjs scripts/deploy-azure-github.test.mjs
+
+      - name: Pinned OPA for mandatory policy conformance
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/opa"
+          id="$(docker create openpolicyagent/opa:1.9.0-static)"
+          docker cp "$id:/opa" "$RUNNER_TEMP/opa/opa"
+          docker rm "$id" > /dev/null
+          chmod +x "$RUNNER_TEMP/opa/opa"
+          echo "$RUNNER_TEMP/opa" >> "$GITHUB_PATH"
+          echo "OPA_BIN=opa" >> "$GITHUB_ENV"
+
+      - name: Scanner policy regressions
+        run: make security-policy
+
+      # The skill library's vendored snapshots (catalog → business-skill registry, closed
+      # contracts → @ehf/library-contracts) must match their locks and come from one library
+      # release, and the generated KYB, KYB screening-slice and KYC packages must match them.
+      - name: skill library snapshots
+        run: |
+          node scripts/sync-library-contracts.mjs --check
+          node scripts/sync-business-skills.mjs --check
+          node scripts/sync-kyb-package.mjs --check
+          node scripts/sync-kyb-screening-package.mjs --check
+          node scripts/sync-policy-packs.mjs --check
+          node --import tsx scripts/sync-product-taxonomy.ts --check
+          node scripts/sync-agent-roster.mjs --check
+          node --import tsx scripts/sync-agentic-flows.ts --check
+          node scripts/sync-kyc-package.mjs --check
+          node scripts/sync-connector-catalog.mjs --check
+          node --import tsx scripts/sync-context-source-contracts.ts --check
+          node scripts/sync-library-bundle-lock.mjs --check
+          node scripts/ui-document-fixtures.mjs --check
+
+      # make compile runs the compiler of record (packages/compiler) over both
+      # domains; a stale committed plan shows up as a diff below.
+      - name: compile domain packages
+        run: make compile
+
+      - name: committed plans are current
+        run: git diff --exit-code -- artifacts
+
+      # The new UI (apps/fincrime-host/docs/ui, BUILD-SPEC v2) type-checks against types generated from the
+      # contract pack, so sync first. ui:contracts fails on unacknowledged contract drift and
+      # validates the pack against the EHF commit it was generated from.
+      - name: ui contracts
+        run: |
+          python3 -m pip install --quiet jsonschema referencing pyyaml
+          pnpm ui:sync
+          pnpm ui:contracts
+          node --test scripts/capability-discovery.test.mjs
+
+      - name: pnpm check
+        run: pnpm check
+
+      # The new UI (apps/web) on its contract mock: journeys, shell ACs and axe.
+      - name: web end-to-end and accessibility
+        run: |
+          pnpm --filter @ehf/e2e-ui exec playwright install --with-deps chromium
+          pnpm ui:test:e2e
+
+      # Keep the compiled domain plans from this validated revision.
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: harness-plans
+          path: artifacts/*.plan.json
+          if-no-files-found: error
+
+  # The database-backed suites against a real PostgreSQL: the grant matrix and controller
+  # roles (packages/*/grants.sql, grants.test.ts), tenant row-level security, separate
+  # control and case databases (split-databases.test.ts), and the
+  # persistence and case-store paths that only run against a database. The tests connect
+  # as the superuser and create their own non-superuser logins per service group.
+  database:
+    name: database grants, tenant isolation, ledger and context store
+    runs-on: ubuntu-24.04
+    env:
+      EHF_TEST_DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/ehf
+      EHF_TEST_DISCOVERY_DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/ehf_discovery
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      # The context store needs pgvector and Apache AGE in one server; no stock service image
+      # has both, so the runner's own PostgreSQL 16 gets them from the Ubuntu archive. AGE is
+      # preloaded per database by the context migration, not server-wide.
+      - name: PostgreSQL 16 with pgvector and Apache AGE
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q postgresql-16 postgresql-16-pgvector postgresql-16-age
+          sudo systemctl start postgresql
+          sudo -u postgres psql -qc "alter user postgres password 'postgres'"
+          for attempt in $(seq 1 30); do pg_isready -h 127.0.0.1 -q && break; sleep 1; done
+          PGPASSWORD=postgres psql -h 127.0.0.1 -U postgres -qc "create database ehf"
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: migrate (twice, to prove the migrations and grant matrix re-apply cleanly)
+        env:
+          DATABASE_URL: ${{ env.EHF_TEST_DATABASE_URL }}
+          CASE_DATABASE_URL: ${{ env.EHF_TEST_DATABASE_URL }}
+          CONTEXT_DATABASE_URL: ${{ env.EHF_TEST_DATABASE_URL }}
+        run: |
+          pnpm db:migrate
+          pnpm db:migrate
+      # The deployed shape: separate control, case and context databases, created on demand
+      # through the maintenance database the way the compose migrate job does it.
+      - name: migrate separate control, case and context databases
+        env:
+          DATABASE_BOOTSTRAP_URL: ${{ env.EHF_TEST_DATABASE_URL }}
+          DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/ehf_control
+          CASE_DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/ehf_case
+          CONTEXT_DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/ehf_context
+          DISCOVERY_DATABASE_URL: ${{ env.EHF_TEST_DISCOVERY_DATABASE_URL }}
+        run: |
+          pnpm db:migrate
+          pnpm db:migrate
+      # Most suites use one database holding every schema set (EHF_TEST_DATABASE_URL);
+      # split-databases.test.ts, context-store.test.ts and control-api's context-routes.test.ts
+      # build their own databases.
+      # The stored policy gate evaluates with OPA; take the binary from the image
+      # Dockerfile.platform already builds from.
+      - name: OPA from the service image's base
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/opa"
+          id="$(docker create openpolicyagent/opa:1.9.0-static)"
+          docker cp "$id:/opa" "$RUNNER_TEMP/opa/opa"
+          docker rm "$id" > /dev/null
+          echo "$RUNNER_TEMP/opa" >> "$GITHUB_PATH"
+      - name: Mandatory policy decision and sink conformance
+        env:
+          OPA_BIN: opa
+          EHF_REQUIRE_POLICY_DB_TESTS: "1"
+        run: |
+          pnpm --filter @ehf/policy-engine exec vitest run src/business-policy.test.ts
+          pnpm --filter @ehf/case-api exec vitest run src/business-decisions.integration.test.ts
+      # BFF compositions import generated Experience API operations, including in DB flows.
+      - name: generate Experience API contracts for service integration tests
+        run: pnpm ui:sync
+      - name: connector API and source-policy end-to-end
+        run: |
+          pnpm ui:sync
+          pnpm --filter @ehf/e2e-connectors test
+      - name: database-backed tests
+        run: pnpm --filter @ehf/persistence --filter @ehf/case-store --filter @ehf/context-store --filter @ehf/control-api --filter @ehf/case-api --filter @ehf/runtime-host test
+
+  # The Python services and tools (apps/fincrime-host, apps/evidence-pipeline, apps/kyc-wiring,
+  # tools/kyc-provider-atlas), each from its own lock, each with its generated-asset checks.
+  python:
+    name: python services (${{ matrix.service }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        service: [fincrime-host, evidence-pipeline, kyc-wiring, kyc-provider-atlas]
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+      - run: bash scripts/python-check.sh ${{ matrix.service }}
+
+  # The object store adapter against a real S3-compatible server (RustFS). Separate from the
+  # database job so a storage-server problem cannot hide database results.
+  object-store:
+    name: object store (S3-compatible)
+    runs-on: ubuntu-24.04
+    env:
+      EHF_TEST_S3_ENDPOINT: http://127.0.0.1:9000
+      EHF_TEST_S3_ACCESS_KEY_ID: ehf-ci
+      EHF_TEST_S3_SECRET_ACCESS_KEY: ehf-ci-object-store
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: 24
+          cache: pnpm
+      # MinIO's images are no longer published (minio/minio pulls are denied), so the job runs
+      # RustFS, an S3-compatible server that passes the same contract suite.
+      - name: RustFS
+        run: |
+          set -euo pipefail
+          docker run -d --name object-store -p 127.0.0.1:9000:9000 \
+            -e RUSTFS_ACCESS_KEY="$EHF_TEST_S3_ACCESS_KEY_ID" -e RUSTFS_SECRET_KEY="$EHF_TEST_S3_SECRET_ACCESS_KEY" \
+            rustfs/rustfs:1.0.3@sha256:9ca9559533b537d10482fe923288b676ad08f92a7069d9a17327fbae3cab688b
+          for attempt in $(seq 1 60); do curl -fs http://127.0.0.1:9000/health && exit 0; sleep 1; done
+          docker logs object-store; exit 1
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @ehf/blob-store test
+
+  # The skill library's skill.execution.v1 host against the platform's conformance suite.
+  library-host:
+    name: library skill host conformance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+      - run: pnpm install --frozen-lockfile
+      - run: |
+          python3 -m venv .venv-py/fincrime-host
+          .venv-py/fincrime-host/bin/python -m pip install --quiet -r apps/fincrime-host/requirements-dev.lock
+          .venv-py/fincrime-host/bin/python -m pip install --quiet --no-deps -e apps/fincrime-host
+      - run: bash scripts/library-host-conformance.sh
+
+  scripts:
+    name: shell script syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - name: shellcheck
+        run: |
+          set -euo pipefail
+          bash scripts/security/install-tools.sh "$RUNNER_TEMP/ehf-security-tools"
+          export PATH="$RUNNER_TEMP/ehf-security-tools:$PATH"
+          # Errors only: these scripts run unattended in delivery, so a genuine
+          # defect fails the build while style preferences do not.
+          shellcheck --severity=error scripts/security/*.sh
+
+  security:
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    uses: ./.github/workflows/security.yml
